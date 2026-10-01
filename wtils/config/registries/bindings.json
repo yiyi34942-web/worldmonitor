@@ -539,18 +539,293 @@
   ],
   "methodology_api_bindings": [
     {
+      "methodology_id": "M01",
+      "operation_id": "GetChinaActivityNowcast",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M01",
+      "operation_id": "GetChinaMacroSnapshot",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M01",
+      "operation_id": "GetEnergyPrices",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M01",
+      "operation_id": "ListCommodityQuotes",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "M02",
+      "operation_id": "ListFeedDigest",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M02",
+      "operation_id": "ListCountryHeadlines",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M02",
+      "operation_id": "GetSummarizeArticleCache",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M02",
+      "operation_id": "SummarizeArticle",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "M03",
+      "operation_id": "ListFeedDigest",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M03",
+      "operation_id": "ListCountryHeadlines",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M03",
+      "operation_id": "GetSummarizeArticleCache",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "M04",
+      "operation_id": "GetResilienceScore",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M04",
+      "operation_id": "GetResilienceRanking",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M04",
+      "operation_id": "GetCountryRisk",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M04",
+      "operation_id": "GetRiskScores",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M04",
+      "operation_id": "GetResilienceIndicators",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "M05",
+      "operation_id": "GetResilienceIndicators",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M05",
+      "operation_id": "GetResilienceScore",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M05",
+      "operation_id": "GetDemographicsCapability",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "M05",
+      "operation_id": "GetFoodStocks",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "M06",
+      "operation_id": "GetResilienceIndicators",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M08",
+      "operation_id": "GetEconomicStress",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M08",
+      "operation_id": "GetEuFsi",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M08",
+      "operation_id": "GetBisCredit",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M08",
+      "operation_id": "GetBisExchangeRates",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M08",
+      "operation_id": "GetBisPolicyRates",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M08",
+      "operation_id": "GetCotPositioning",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "M08",
+      "operation_id": "ListCommodityQuotes",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "M09",
+      "operation_id": "GetBisCredit",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M09",
+      "operation_id": "ListWorldBankIndicators",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M09",
+      "operation_id": "GetEconomicStress",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "M10",
+      "operation_id": "GetFiveFactorScorecard",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M10",
+      "operation_id": "ListFiveFactorScorecards",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M10",
+      "operation_id": "GetCountryRisk",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M10",
+      "operation_id": "GetRiskScores",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M10",
+      "operation_id": "GetResilienceScore",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "M11",
+      "operation_id": "GetDemographicsCapability",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M11",
+      "operation_id": "GetResilienceIndicators",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M11",
+      "operation_id": "ListWorldBankIndicators",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "M12",
+      "operation_id": "GetFoodStocks",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M12",
+      "operation_id": "GetFaoFoodPriceIndex",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M12",
+      "operation_id": "GetOilStocksAnalysis",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M12",
+      "operation_id": "ListCommodityQuotes",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "M13",
+      "operation_id": "GetDefenseIndustrialBase",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M13",
+      "operation_id": "ListMilitaryBases",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M13",
+      "operation_id": "ListDefensePatents",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M13",
+      "operation_id": "GetTheaterPosture",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "M14",
+      "operation_id": "GetCriticalMinerals",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M14",
+      "operation_id": "GetMineralProduction",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M14",
+      "operation_id": "GetCountryVulnerabilities",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M14",
+      "operation_id": "GetRiskScores",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "M15",
+      "operation_id": "GetCountryVulnerabilities",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M15",
+      "operation_id": "ListVulnerabilityRankings",
+      "classification": "O"
+    },
+    {
       "methodology_id": "M15",
       "operation_id": "GetEnergyPrices",
-      "classification": "O"
+      "classification": "R"
     },
     {
       "methodology_id": "M15",
       "operation_id": "ListCommodityQuotes",
-      "classification": "O"
+      "classification": "R"
     },
     {
       "methodology_id": "M15",
-      "operation_id": "GetFaoFoodPriceIndex",
+      "operation_id": "GetOilStocksAnalysis",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M15",
+      "operation_id": "GetChokepointStatus",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "M15",
+      "operation_id": "ListEnergyDisruptions",
       "classification": "E"
     },
     {
@@ -619,39 +894,9 @@
       "classification": "E"
     },
     {
-      "methodology_id": "M18",
-      "operation_id": "GetCrudeInventories",
+      "methodology_id": "M17",
+      "operation_id": "ListPipelines",
       "classification": "O"
-    },
-    {
-      "methodology_id": "M18",
-      "operation_id": "GetOilInventories",
-      "classification": "O"
-    },
-    {
-      "methodology_id": "M18",
-      "operation_id": "GetNatGasStorage",
-      "classification": "O"
-    },
-    {
-      "methodology_id": "M18",
-      "operation_id": "GetEuGasStorage",
-      "classification": "O"
-    },
-    {
-      "methodology_id": "M20",
-      "operation_id": "ListEnergyDisruptions",
-      "classification": "O"
-    },
-    {
-      "methodology_id": "M20",
-      "operation_id": "GetEnergyCrisisPolicies",
-      "classification": "O"
-    },
-    {
-      "methodology_id": "M20",
-      "operation_id": "GetEnergyCapacity",
-      "classification": "R"
     },
     {
       "methodology_id": "M17",
@@ -660,7 +905,42 @@
     },
     {
       "methodology_id": "M17",
-      "operation_id": "ListPipelines",
+      "operation_id": "GetEnergyPrices",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M17",
+      "operation_id": "ListEnergyDisruptions",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "M18",
+      "operation_id": "ListStorageFacilities",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M18",
+      "operation_id": "GetStorageFacilityDetail",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M18",
+      "operation_id": "GetCrudeInventories",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M18",
+      "operation_id": "GetNatGasStorage",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M18",
+      "operation_id": "GetEuGasStorage",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "M19",
+      "operation_id": "ListFuelShortages",
       "classification": "O"
     },
     {
@@ -670,137 +950,82 @@
     },
     {
       "methodology_id": "M19",
-      "operation_id": "ListFuelShortages",
+      "operation_id": "GetCrudeInventories",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M19",
+      "operation_id": "ListFuelPrices",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M19",
+      "operation_id": "GetEnergyPrices",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "M20",
+      "operation_id": "ListEnergyDisruptions",
       "classification": "O"
     },
     {
-      "methodology_id": "M04",
+      "methodology_id": "M20",
+      "operation_id": "GetEnergyPrices",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M20",
+      "operation_id": "GetCountryEnergyProfile",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M20",
       "operation_id": "ListAcledEvents",
-      "classification": "O"
-    },
-    {
-      "methodology_id": "M04",
-      "operation_id": "ListUcdpEvents",
-      "classification": "O"
-    },
-    {
-      "methodology_id": "M04",
-      "operation_id": "GetCountryRisk",
-      "classification": "R"
-    },
-    {
-      "methodology_id": "M05",
-      "operation_id": "ListSanctionsPressure",
       "classification": "E"
     },
     {
-      "methodology_id": "M05",
-      "operation_id": "LookupSanctionEntity",
+      "methodology_id": "M20",
+      "operation_id": "ListIranEvents",
       "classification": "E"
     },
     {
-      "methodology_id": "M08",
-      "operation_id": "GetEconomicStress",
-      "classification": "O"
-    },
-    {
-      "methodology_id": "M08",
-      "operation_id": "GetEuFsi",
-      "classification": "O"
-    },
-    {
-      "methodology_id": "M08",
-      "operation_id": "GetBisExchangeRates",
-      "classification": "R"
-    },
-    {
-      "methodology_id": "M08",
-      "operation_id": "GetBisPolicyRates",
-      "classification": "R"
-    },
-    {
-      "methodology_id": "M09",
-      "operation_id": "GetCotPositioning",
-      "classification": "O"
-    },
-    {
-      "methodology_id": "M10",
-      "operation_id": "GetUsTreasuryParYieldCurve",
-      "classification": "O"
-    },
-    {
-      "methodology_id": "M10",
-      "operation_id": "GetEuYieldCurve",
-      "classification": "O"
-    },
-    {
-      "methodology_id": "M10",
-      "operation_id": "GetGovernmentYieldCurve",
-      "classification": "R"
-    },
-    {
-      "methodology_id": "M11",
-      "operation_id": "GetTradeFlows",
-      "classification": "E"
-    },
-    {
-      "methodology_id": "M11",
-      "operation_id": "ListComtradeFlows",
-      "classification": "E"
-    },
-    {
-      "methodology_id": "M12",
-      "operation_id": "GetFaoFoodPriceIndex",
-      "classification": "O"
-    },
-    {
-      "methodology_id": "M13",
-      "operation_id": "GetCriticalMinerals",
-      "classification": "O"
-    },
-    {
-      "methodology_id": "M13",
-      "operation_id": "GetMineralProduction",
-      "classification": "O"
-    },
-    {
-      "methodology_id": "M14",
-      "operation_id": "GetChokepointStatus",
-      "classification": "O"
-    },
-    {
-      "methodology_id": "M14",
-      "operation_id": "GetChokepointDependencies",
-      "classification": "O"
-    },
-    {
-      "methodology_id": "M14",
-      "operation_id": "GetBypassOptions",
-      "classification": "O"
-    },
-    {
-      "methodology_id": "M01",
-      "operation_id": "GetChinaActivityNowcast",
-      "classification": "O"
-    },
-    {
-      "methodology_id": "M02",
-      "operation_id": "ListFeedDigest",
-      "classification": "O"
-    },
-    {
-      "methodology_id": "M03",
-      "operation_id": "ListFeedDigest",
+      "methodology_id": "M21",
+      "operation_id": "GetRiskScores",
       "classification": "O"
     },
     {
       "methodology_id": "M21",
-      "operation_id": "GetVesselSnapshot",
+      "operation_id": "GetCountryRisk",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M21",
+      "operation_id": "ListCrossSourceSignals",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M21",
+      "operation_id": "ListSecurityAdvisories",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "M21",
+      "operation_id": "ListCyberThreats",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "M22",
+      "operation_id": "ListDiseaseOutbreaks",
       "classification": "O"
     },
     {
       "methodology_id": "M22",
-      "operation_id": "GetSocialVelocity",
+      "operation_id": "ListCountryHeadlines",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M22",
+      "operation_id": "GetRiskScores",
       "classification": "E"
     },
     {
@@ -809,14 +1034,99 @@
       "classification": "O"
     },
     {
+      "methodology_id": "M23",
+      "operation_id": "ListAcledEvents",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M23",
+      "operation_id": "ListIranEvents",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M23",
+      "operation_id": "ListUcdpEvents",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M23",
+      "operation_id": "GetTheaterPosture",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "M23",
+      "operation_id": "ListSanctionsPressure",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "M24",
+      "operation_id": "GetPhysicalDivergenceIndex",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M24",
+      "operation_id": "GetPhysicalPremiums",
+      "classification": "O"
+    },
+    {
       "methodology_id": "M24",
       "operation_id": "GetGoldIntelligence",
       "classification": "O"
     },
     {
-      "methodology_id": "C04",
+      "methodology_id": "M24",
+      "operation_id": "ListCommodityQuotes",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M24",
+      "operation_id": "GetCotPositioning",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "C01",
+      "operation_id": "GetResilienceRuntimeManifest",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "C01",
+      "operation_id": "GetRiskScores",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "C01",
+      "operation_id": "GetCountryRisk",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "C01",
+      "operation_id": "GetResilienceIndicators",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "C03",
       "operation_id": "GetCountryRisk",
       "classification": "O"
+    },
+    {
+      "methodology_id": "C03",
+      "operation_id": "GetRiskScores",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "C03",
+      "operation_id": "ListAcledEvents",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "C03",
+      "operation_id": "ListIranEvents",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "C03",
+      "operation_id": "GetTheaterPosture",
+      "classification": "E"
     },
     {
       "methodology_id": "C04",
@@ -824,9 +1134,24 @@
       "classification": "O"
     },
     {
-      "methodology_id": "C03",
+      "methodology_id": "C04",
       "operation_id": "GetCountryRisk",
-      "classification": "X"
+      "classification": "O"
+    },
+    {
+      "methodology_id": "C04",
+      "operation_id": "ListSanctionsPressure",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "C04",
+      "operation_id": "ListAcledEvents",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "C04",
+      "operation_id": "GetTheaterPosture",
+      "classification": "E"
     }
   ],
   "api_source_bindings": [

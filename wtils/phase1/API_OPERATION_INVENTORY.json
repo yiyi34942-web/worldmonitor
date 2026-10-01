@@ -1,3325 +1,2377 @@
 {
-  "generated_at": "2026-10-01T15:18:44Z",
-  "total_entries": 474,
-  "unique_operations": 237,
+  "generated_at": "2026-10-01T16:39:10Z",
+  "source_contract_declaration_total": 474,
+  "canonical_operation_total": 237,
   "entries": [
     {
-      "service": "AviationService",
-      "operation": "GetAirportOpsSummary",
-      "http_method": "GET",
-      "canonical_route": "/api/aviation/v1/get-airport-ops-summary",
-      "source_contract_path": "docs/api/AviationService.openapi.yaml"
-    },
-    {
-      "service": "AviationService",
-      "operation": "GetCarrierOps",
-      "http_method": "GET",
-      "canonical_route": "/api/aviation/v1/get-carrier-ops",
-      "source_contract_path": "docs/api/AviationService.openapi.yaml"
-    },
-    {
-      "service": "AviationService",
-      "operation": "GetFlightStatus",
-      "http_method": "GET",
-      "canonical_route": "/api/aviation/v1/get-flight-status",
-      "source_contract_path": "docs/api/AviationService.openapi.yaml"
-    },
-    {
-      "service": "AviationService",
-      "operation": "GetYoutubeLiveStreamInfo",
-      "http_method": "GET",
-      "canonical_route": "/api/aviation/v1/get-youtube-live-stream-info",
-      "source_contract_path": "docs/api/AviationService.openapi.yaml"
-    },
-    {
-      "service": "AviationService",
-      "operation": "ListAirportDelays",
-      "http_method": "GET",
-      "canonical_route": "/api/aviation/v1/list-airport-delays",
-      "source_contract_path": "docs/api/AviationService.openapi.yaml"
-    },
-    {
-      "service": "AviationService",
-      "operation": "ListAirportFlights",
-      "http_method": "GET",
-      "canonical_route": "/api/aviation/v1/list-airport-flights",
-      "source_contract_path": "docs/api/AviationService.openapi.yaml"
-    },
-    {
-      "service": "AviationService",
-      "operation": "ListAviationNews",
-      "http_method": "GET",
-      "canonical_route": "/api/aviation/v1/list-aviation-news",
-      "source_contract_path": "docs/api/AviationService.openapi.yaml"
-    },
-    {
-      "service": "AviationService",
-      "operation": "SearchFlightPrices",
-      "http_method": "GET",
-      "canonical_route": "/api/aviation/v1/search-flight-prices",
-      "source_contract_path": "docs/api/AviationService.openapi.yaml"
-    },
-    {
-      "service": "AviationService",
-      "operation": "SearchGoogleDates",
-      "http_method": "GET",
-      "canonical_route": "/api/aviation/v1/search-google-dates",
-      "source_contract_path": "docs/api/AviationService.openapi.yaml"
-    },
-    {
-      "service": "AviationService",
-      "operation": "SearchGoogleFlights",
-      "http_method": "GET",
-      "canonical_route": "/api/aviation/v1/search-google-flights",
-      "source_contract_path": "docs/api/AviationService.openapi.yaml"
-    },
-    {
-      "service": "AviationService",
-      "operation": "TrackAircraft",
-      "http_method": "GET",
-      "canonical_route": "/api/aviation/v1/track-aircraft",
-      "source_contract_path": "docs/api/AviationService.openapi.yaml"
-    },
-    {
-      "service": "BatchService",
-      "operation": "ExecuteBatch",
-      "http_method": "POST",
-      "canonical_route": "/api/batch/v1/execute",
-      "source_contract_path": "docs/api/BatchService.openapi.yaml"
-    },
-    {
-      "service": "ClimateService",
-      "operation": "GetCo2Monitoring",
-      "http_method": "GET",
-      "canonical_route": "/api/climate/v1/get-co2-monitoring",
-      "source_contract_path": "docs/api/ClimateService.openapi.yaml"
-    },
-    {
-      "service": "ClimateService",
-      "operation": "GetOceanIceData",
-      "http_method": "GET",
-      "canonical_route": "/api/climate/v1/get-ocean-ice-data",
-      "source_contract_path": "docs/api/ClimateService.openapi.yaml"
-    },
-    {
-      "service": "ClimateService",
-      "operation": "ListAirQualityData",
-      "http_method": "GET",
-      "canonical_route": "/api/climate/v1/list-air-quality-data",
-      "source_contract_path": "docs/api/ClimateService.openapi.yaml"
-    },
-    {
-      "service": "ClimateService",
-      "operation": "ListClimateAnomalies",
-      "http_method": "GET",
-      "canonical_route": "/api/climate/v1/list-climate-anomalies",
-      "source_contract_path": "docs/api/ClimateService.openapi.yaml"
-    },
-    {
-      "service": "ClimateService",
-      "operation": "ListClimateDisasters",
-      "http_method": "GET",
-      "canonical_route": "/api/climate/v1/list-climate-disasters",
-      "source_contract_path": "docs/api/ClimateService.openapi.yaml"
-    },
-    {
-      "service": "ClimateService",
-      "operation": "ListClimateNews",
-      "http_method": "GET",
-      "canonical_route": "/api/climate/v1/list-climate-news",
-      "source_contract_path": "docs/api/ClimateService.openapi.yaml"
-    },
-    {
-      "service": "CompanyMonitoringService",
-      "operation": "CreateMonitoredCompany",
-      "http_method": "POST",
-      "canonical_route": "/api/company-monitoring/v1/create-monitored-company",
-      "source_contract_path": "docs/api/CompanyMonitoringService.openapi.yaml"
-    },
-    {
-      "service": "CompanyMonitoringService",
-      "operation": "GetCompanyCoverage",
-      "http_method": "GET",
-      "canonical_route": "/api/company-monitoring/v1/get-company-coverage",
-      "source_contract_path": "docs/api/CompanyMonitoringService.openapi.yaml"
-    },
-    {
-      "service": "CompanyMonitoringService",
-      "operation": "GetCompanyMaterialEvent",
-      "http_method": "GET",
-      "canonical_route": "/api/company-monitoring/v1/get-company-material-event",
-      "source_contract_path": "docs/api/CompanyMonitoringService.openapi.yaml"
-    },
-    {
-      "service": "CompanyMonitoringService",
-      "operation": "GetCompanyMonitoringStatus",
-      "http_method": "GET",
-      "canonical_route": "/api/company-monitoring/v1/get-company-monitoring-status",
-      "source_contract_path": "docs/api/CompanyMonitoringService.openapi.yaml"
-    },
-    {
-      "service": "CompanyMonitoringService",
-      "operation": "ImportMonitoredCompanyBatch",
-      "http_method": "POST",
-      "canonical_route": "/api/company-monitoring/v1/import-monitored-company-batch",
-      "source_contract_path": "docs/api/CompanyMonitoringService.openapi.yaml"
-    },
-    {
-      "service": "CompanyMonitoringService",
-      "operation": "ListCompanyEventChanges",
-      "http_method": "GET",
-      "canonical_route": "/api/company-monitoring/v1/list-company-event-changes",
-      "source_contract_path": "docs/api/CompanyMonitoringService.openapi.yaml"
-    },
-    {
-      "service": "CompanyMonitoringService",
-      "operation": "ListCompanyEventImpacts",
-      "http_method": "GET",
-      "canonical_route": "/api/company-monitoring/v1/list-company-event-impacts",
-      "source_contract_path": "docs/api/CompanyMonitoringService.openapi.yaml"
-    },
-    {
-      "service": "CompanyMonitoringService",
-      "operation": "ListMonitoredCompanies",
-      "http_method": "GET",
-      "canonical_route": "/api/company-monitoring/v1/list-monitored-companies",
-      "source_contract_path": "docs/api/CompanyMonitoringService.openapi.yaml"
-    },
-    {
-      "service": "CompanyMonitoringService",
-      "operation": "SetMonitoredCompanyState",
-      "http_method": "POST",
-      "canonical_route": "/api/company-monitoring/v1/set-monitored-company-state",
-      "source_contract_path": "docs/api/CompanyMonitoringService.openapi.yaml"
-    },
-    {
-      "service": "CompanyMonitoringService",
-      "operation": "UpdateMonitoredCompany",
-      "http_method": "POST",
-      "canonical_route": "/api/company-monitoring/v1/update-monitored-company",
-      "source_contract_path": "docs/api/CompanyMonitoringService.openapi.yaml"
-    },
-    {
-      "service": "ConflictService",
-      "operation": "GetHumanitarianSummary",
-      "http_method": "GET",
-      "canonical_route": "/api/conflict/v1/get-humanitarian-summary",
-      "source_contract_path": "docs/api/ConflictService.openapi.yaml"
-    },
-    {
-      "service": "ConflictService",
-      "operation": "GetHumanitarianSummaryBatch",
-      "http_method": "POST",
-      "canonical_route": "/api/conflict/v1/get-humanitarian-summary-batch",
-      "source_contract_path": "docs/api/ConflictService.openapi.yaml"
-    },
-    {
-      "service": "ConflictService",
-      "operation": "ListAcledEvents",
-      "http_method": "GET",
-      "canonical_route": "/api/conflict/v1/list-acled-events",
-      "source_contract_path": "docs/api/ConflictService.openapi.yaml"
-    },
-    {
-      "service": "ConflictService",
-      "operation": "ListIranEvents",
-      "http_method": "GET",
-      "canonical_route": "/api/conflict/v1/list-iran-events",
-      "source_contract_path": "docs/api/ConflictService.openapi.yaml"
-    },
-    {
-      "service": "ConflictService",
-      "operation": "ListUcdpEvents",
-      "http_method": "GET",
-      "canonical_route": "/api/conflict/v1/list-ucdp-events",
-      "source_contract_path": "docs/api/ConflictService.openapi.yaml"
-    },
-    {
-      "service": "ConsumerPricesService",
-      "operation": "GetConsumerPriceBasketSeries",
-      "http_method": "GET",
-      "canonical_route": "/api/consumer-prices/v1/get-consumer-price-basket-series",
-      "source_contract_path": "docs/api/ConsumerPricesService.openapi.yaml"
-    },
-    {
-      "service": "ConsumerPricesService",
-      "operation": "GetConsumerPriceFreshness",
-      "http_method": "GET",
-      "canonical_route": "/api/consumer-prices/v1/get-consumer-price-freshness",
-      "source_contract_path": "docs/api/ConsumerPricesService.openapi.yaml"
-    },
-    {
-      "service": "ConsumerPricesService",
-      "operation": "GetConsumerPriceOverview",
-      "http_method": "GET",
-      "canonical_route": "/api/consumer-prices/v1/get-consumer-price-overview",
-      "source_contract_path": "docs/api/ConsumerPricesService.openapi.yaml"
-    },
-    {
-      "service": "ConsumerPricesService",
-      "operation": "ListConsumerPriceCategories",
-      "http_method": "GET",
-      "canonical_route": "/api/consumer-prices/v1/list-consumer-price-categories",
-      "source_contract_path": "docs/api/ConsumerPricesService.openapi.yaml"
-    },
-    {
-      "service": "ConsumerPricesService",
-      "operation": "ListConsumerPriceMovers",
-      "http_method": "GET",
-      "canonical_route": "/api/consumer-prices/v1/list-consumer-price-movers",
-      "source_contract_path": "docs/api/ConsumerPricesService.openapi.yaml"
-    },
-    {
-      "service": "ConsumerPricesService",
-      "operation": "ListRetailerPriceSpreads",
-      "http_method": "GET",
-      "canonical_route": "/api/consumer-prices/v1/list-retailer-price-spreads",
-      "source_contract_path": "docs/api/ConsumerPricesService.openapi.yaml"
-    },
-    {
-      "service": "CyberService",
-      "operation": "ListCyberThreats",
-      "http_method": "GET",
-      "canonical_route": "/api/cyber/v1/list-cyber-threats",
-      "source_contract_path": "docs/api/CyberService.openapi.yaml"
-    },
-    {
-      "service": "DisplacementService",
-      "operation": "GetDisplacementSummary",
-      "http_method": "GET",
-      "canonical_route": "/api/displacement/v1/get-displacement-summary",
-      "source_contract_path": "docs/api/DisplacementService.openapi.yaml"
-    },
-    {
-      "service": "DisplacementService",
-      "operation": "GetPopulationExposure",
-      "http_method": "GET",
-      "canonical_route": "/api/displacement/v1/get-population-exposure",
-      "source_contract_path": "docs/api/DisplacementService.openapi.yaml"
-    },
-    {
-      "service": "EconomicService",
-      "operation": "GetBisCredit",
-      "http_method": "GET",
-      "canonical_route": "/api/economic/v1/get-bis-credit",
-      "source_contract_path": "docs/api/EconomicService.openapi.yaml"
-    },
-    {
-      "service": "EconomicService",
-      "operation": "GetBisExchangeRates",
-      "http_method": "GET",
-      "canonical_route": "/api/economic/v1/get-bis-exchange-rates",
-      "source_contract_path": "docs/api/EconomicService.openapi.yaml"
-    },
-    {
-      "service": "EconomicService",
-      "operation": "GetBisPolicyRates",
-      "http_method": "GET",
-      "canonical_route": "/api/economic/v1/get-bis-policy-rates",
-      "source_contract_path": "docs/api/EconomicService.openapi.yaml"
-    },
-    {
-      "service": "EconomicService",
-      "operation": "GetBlsSeries",
-      "http_method": "GET",
-      "canonical_route": "/api/economic/v1/get-bls-series",
-      "source_contract_path": "docs/api/EconomicService.openapi.yaml"
-    },
-    {
-      "service": "EconomicService",
-      "operation": "GetChinaActivityNowcast",
-      "http_method": "GET",
-      "canonical_route": "/api/economic/v1/get-china-activity-nowcast",
-      "source_contract_path": "docs/api/EconomicService.openapi.yaml"
-    },
-    {
-      "service": "EconomicService",
-      "operation": "GetChinaMacroSnapshot",
-      "http_method": "GET",
-      "canonical_route": "/api/economic/v1/get-china-macro-snapshot",
-      "source_contract_path": "docs/api/EconomicService.openapi.yaml"
-    },
-    {
-      "service": "EconomicService",
-      "operation": "GetCrudeInventories",
-      "http_method": "GET",
-      "canonical_route": "/api/economic/v1/get-crude-inventories",
-      "source_contract_path": "docs/api/EconomicService.openapi.yaml"
-    },
-    {
-      "service": "EconomicService",
-      "operation": "GetEcbFxRates",
-      "http_method": "GET",
-      "canonical_route": "/api/economic/v1/get-ecb-fx-rates",
-      "source_contract_path": "docs/api/EconomicService.openapi.yaml"
-    },
-    {
-      "service": "EconomicService",
-      "operation": "GetEconomicCalendar",
-      "http_method": "GET",
-      "canonical_route": "/api/economic/v1/get-economic-calendar",
-      "source_contract_path": "docs/api/EconomicService.openapi.yaml"
-    },
-    {
-      "service": "EconomicService",
-      "operation": "GetEconomicStress",
-      "http_method": "GET",
-      "canonical_route": "/api/economic/v1/get-economic-stress",
-      "source_contract_path": "docs/api/EconomicService.openapi.yaml"
-    },
-    {
-      "service": "EconomicService",
-      "operation": "GetEnergyCapacity",
-      "http_method": "GET",
-      "canonical_route": "/api/economic/v1/get-energy-capacity",
-      "source_contract_path": "docs/api/EconomicService.openapi.yaml"
-    },
-    {
-      "service": "EconomicService",
-      "operation": "GetEnergyCrisisPolicies",
-      "http_method": "GET",
-      "canonical_route": "/api/economic/v1/get-energy-crisis-policies",
-      "source_contract_path": "docs/api/EconomicService.openapi.yaml"
-    },
-    {
-      "service": "EconomicService",
-      "operation": "GetEnergyPrices",
-      "http_method": "GET",
-      "canonical_route": "/api/economic/v1/get-energy-prices",
-      "source_contract_path": "docs/api/EconomicService.openapi.yaml"
-    },
-    {
-      "service": "EconomicService",
-      "operation": "GetEuFsi",
-      "http_method": "GET",
-      "canonical_route": "/api/economic/v1/get-eu-fsi",
-      "source_contract_path": "docs/api/EconomicService.openapi.yaml"
-    },
-    {
-      "service": "EconomicService",
-      "operation": "GetEuGasStorage",
-      "http_method": "GET",
-      "canonical_route": "/api/economic/v1/get-eu-gas-storage",
-      "source_contract_path": "docs/api/EconomicService.openapi.yaml"
-    },
-    {
-      "service": "EconomicService",
-      "operation": "GetEuYieldCurve",
-      "http_method": "GET",
-      "canonical_route": "/api/economic/v1/get-eu-yield-curve",
-      "source_contract_path": "docs/api/EconomicService.openapi.yaml"
-    },
-    {
-      "service": "EconomicService",
-      "operation": "GetEurostatCountryData",
-      "http_method": "GET",
-      "canonical_route": "/api/economic/v1/get-eurostat-country-data",
-      "source_contract_path": "docs/api/EconomicService.openapi.yaml"
-    },
-    {
-      "service": "EconomicService",
-      "operation": "GetFaoFoodPriceIndex",
-      "http_method": "GET",
-      "canonical_route": "/api/economic/v1/get-fao-food-price-index",
-      "source_contract_path": "docs/api/EconomicService.openapi.yaml"
-    },
-    {
-      "service": "EconomicService",
-      "operation": "GetFredSeries",
-      "http_method": "GET",
-      "canonical_route": "/api/economic/v1/get-fred-series",
-      "source_contract_path": "docs/api/EconomicService.openapi.yaml"
-    },
-    {
-      "service": "EconomicService",
-      "operation": "GetFredSeriesBatch",
-      "http_method": "POST",
-      "canonical_route": "/api/economic/v1/get-fred-series-batch",
-      "source_contract_path": "docs/api/EconomicService.openapi.yaml"
-    },
-    {
-      "service": "EconomicService",
-      "operation": "GetGovernmentYieldCurve",
-      "http_method": "GET",
-      "canonical_route": "/api/economic/v1/get-government-yield-curve",
-      "source_contract_path": "docs/api/EconomicService.openapi.yaml"
-    },
-    {
-      "service": "EconomicService",
-      "operation": "GetMacroSignals",
-      "http_method": "GET",
-      "canonical_route": "/api/economic/v1/get-macro-signals",
-      "source_contract_path": "docs/api/EconomicService.openapi.yaml"
-    },
-    {
-      "service": "EconomicService",
-      "operation": "GetNatGasStorage",
-      "http_method": "GET",
-      "canonical_route": "/api/economic/v1/get-nat-gas-storage",
-      "source_contract_path": "docs/api/EconomicService.openapi.yaml"
-    },
-    {
-      "service": "EconomicService",
-      "operation": "GetNationalDebt",
-      "http_method": "GET",
-      "canonical_route": "/api/economic/v1/get-national-debt",
-      "source_contract_path": "docs/api/EconomicService.openapi.yaml"
-    },
-    {
-      "service": "EconomicService",
-      "operation": "GetOilInventories",
-      "http_method": "GET",
-      "canonical_route": "/api/economic/v1/get-oil-inventories",
-      "source_contract_path": "docs/api/EconomicService.openapi.yaml"
-    },
-    {
-      "service": "EconomicService",
-      "operation": "GetOilStocksAnalysis",
-      "http_method": "GET",
-      "canonical_route": "/api/economic/v1/get-oil-stocks-analysis",
-      "source_contract_path": "docs/api/EconomicService.openapi.yaml"
-    },
-    {
-      "service": "EconomicService",
-      "operation": "GetUsCpiMonthly",
-      "http_method": "GET",
-      "canonical_route": "/api/economic/v1/get-us-cpi-monthly",
-      "source_contract_path": "docs/api/EconomicService.openapi.yaml"
-    },
-    {
-      "service": "EconomicService",
-      "operation": "GetUsInterestRates",
-      "http_method": "GET",
-      "canonical_route": "/api/economic/v1/get-us-interest-rates",
-      "source_contract_path": "docs/api/EconomicService.openapi.yaml"
-    },
-    {
-      "service": "EconomicService",
-      "operation": "GetUsTreasuryParYieldCurve",
-      "http_method": "GET",
-      "canonical_route": "/api/economic/v1/get-us-treasury-par-yield-curve",
-      "source_contract_path": "docs/api/EconomicService.openapi.yaml"
-    },
-    {
-      "service": "EconomicService",
-      "operation": "GetWorldCpiMonthly",
-      "http_method": "GET",
-      "canonical_route": "/api/economic/v1/get-world-cpi-monthly",
-      "source_contract_path": "docs/api/EconomicService.openapi.yaml"
-    },
-    {
-      "service": "EconomicService",
-      "operation": "ListBigMacPrices",
-      "http_method": "GET",
-      "canonical_route": "/api/economic/v1/list-bigmac-prices",
-      "source_contract_path": "docs/api/EconomicService.openapi.yaml"
-    },
-    {
-      "service": "EconomicService",
-      "operation": "ListFuelPrices",
-      "http_method": "GET",
-      "canonical_route": "/api/economic/v1/list-fuel-prices",
-      "source_contract_path": "docs/api/EconomicService.openapi.yaml"
-    },
-    {
-      "service": "EconomicService",
-      "operation": "ListGlobalTenders",
-      "http_method": "GET",
-      "canonical_route": "/api/economic/v1/list-global-tenders",
-      "source_contract_path": "docs/api/EconomicService.openapi.yaml"
-    },
-    {
-      "service": "EconomicService",
-      "operation": "ListGroceryBasketPrices",
-      "http_method": "GET",
-      "canonical_route": "/api/economic/v1/list-grocery-basket-prices",
-      "source_contract_path": "docs/api/EconomicService.openapi.yaml"
-    },
-    {
-      "service": "EconomicService",
-      "operation": "ListWorldBankIndicators",
-      "http_method": "GET",
-      "canonical_route": "/api/economic/v1/list-world-bank-indicators",
-      "source_contract_path": "docs/api/EconomicService.openapi.yaml"
-    },
-    {
-      "service": "ForecastService",
-      "operation": "GetForecastScorecard",
-      "http_method": "GET",
-      "canonical_route": "/api/forecast/v1/get-forecast-scorecard",
-      "source_contract_path": "docs/api/ForecastService.openapi.yaml"
-    },
-    {
-      "service": "ForecastService",
-      "operation": "GetForecasts",
-      "http_method": "GET",
-      "canonical_route": "/api/forecast/v1/get-forecasts",
-      "source_contract_path": "docs/api/ForecastService.openapi.yaml"
-    },
-    {
-      "service": "ForecastService",
-      "operation": "GetSimulationOutcome",
-      "http_method": "GET",
-      "canonical_route": "/api/forecast/v1/get-simulation-outcome",
-      "source_contract_path": "docs/api/ForecastService.openapi.yaml"
-    },
-    {
-      "service": "ForecastService",
-      "operation": "GetSimulationPackage",
-      "http_method": "GET",
-      "canonical_route": "/api/forecast/v1/get-simulation-package",
-      "source_contract_path": "docs/api/ForecastService.openapi.yaml"
-    },
-    {
-      "service": "ForecastService",
-      "operation": "TriggerSimulation",
-      "http_method": "POST",
-      "canonical_route": "/api/forecast/v1/trigger-simulation",
-      "source_contract_path": "docs/api/ForecastService.openapi.yaml"
-    },
-    {
-      "service": "GivingService",
-      "operation": "GetGivingSummary",
-      "http_method": "GET",
-      "canonical_route": "/api/giving/v1/get-giving-summary",
-      "source_contract_path": "docs/api/GivingService.openapi.yaml"
-    },
-    {
-      "service": "HealthService",
-      "operation": "ListAirQualityAlerts",
-      "http_method": "GET",
-      "canonical_route": "/api/health/v1/list-air-quality-alerts",
-      "source_contract_path": "docs/api/HealthService.openapi.yaml"
-    },
-    {
-      "service": "HealthService",
-      "operation": "ListDiseaseOutbreaks",
-      "http_method": "GET",
-      "canonical_route": "/api/health/v1/list-disease-outbreaks",
-      "source_contract_path": "docs/api/HealthService.openapi.yaml"
-    },
-    {
-      "service": "ImageryService",
-      "operation": "SearchImagery",
-      "http_method": "GET",
-      "canonical_route": "/api/imagery/v1/search-imagery",
-      "source_contract_path": "docs/api/ImageryService.openapi.yaml"
-    },
-    {
-      "service": "InfrastructureService",
-      "operation": "GetBootstrapData",
-      "http_method": "GET",
-      "canonical_route": "/api/infrastructure/v1/get-bootstrap-data",
-      "source_contract_path": "docs/api/InfrastructureService.openapi.yaml"
-    },
-    {
-      "service": "InfrastructureService",
-      "operation": "GetCableHealth",
-      "http_method": "GET",
-      "canonical_route": "/api/infrastructure/v1/get-cable-health",
-      "source_contract_path": "docs/api/InfrastructureService.openapi.yaml"
-    },
-    {
-      "service": "InfrastructureService",
-      "operation": "GetIpGeo",
-      "http_method": "GET",
-      "canonical_route": "/api/infrastructure/v1/get-ip-geo",
-      "source_contract_path": "docs/api/InfrastructureService.openapi.yaml"
-    },
-    {
-      "service": "InfrastructureService",
-      "operation": "GetTemporalBaseline",
-      "http_method": "GET",
-      "canonical_route": "/api/infrastructure/v1/get-temporal-baseline",
-      "source_contract_path": "docs/api/InfrastructureService.openapi.yaml"
-    },
-    {
-      "service": "InfrastructureService",
-      "operation": "ListInternetDdosAttacks",
-      "http_method": "GET",
-      "canonical_route": "/api/infrastructure/v1/list-internet-ddos-attacks",
-      "source_contract_path": "docs/api/InfrastructureService.openapi.yaml"
-    },
-    {
-      "service": "InfrastructureService",
-      "operation": "ListInternetOutages",
-      "http_method": "GET",
-      "canonical_route": "/api/infrastructure/v1/list-internet-outages",
-      "source_contract_path": "docs/api/InfrastructureService.openapi.yaml"
-    },
-    {
-      "service": "InfrastructureService",
-      "operation": "ListInternetTrafficAnomalies",
-      "http_method": "GET",
-      "canonical_route": "/api/infrastructure/v1/list-internet-traffic-anomalies",
-      "source_contract_path": "docs/api/InfrastructureService.openapi.yaml"
-    },
-    {
-      "service": "InfrastructureService",
-      "operation": "ListServiceStatuses",
-      "http_method": "GET",
-      "canonical_route": "/api/infrastructure/v1/list-service-statuses",
-      "source_contract_path": "docs/api/InfrastructureService.openapi.yaml"
-    },
-    {
-      "service": "InfrastructureService",
-      "operation": "ListTemporalAnomalies",
-      "http_method": "GET",
-      "canonical_route": "/api/infrastructure/v1/list-temporal-anomalies",
-      "source_contract_path": "docs/api/InfrastructureService.openapi.yaml"
-    },
-    {
-      "service": "InfrastructureService",
-      "operation": "RecordBaselineSnapshot",
-      "http_method": "POST",
-      "canonical_route": "/api/infrastructure/v1/record-baseline-snapshot",
-      "source_contract_path": "docs/api/InfrastructureService.openapi.yaml"
-    },
-    {
-      "service": "InfrastructureService",
-      "operation": "ReverseGeocode",
-      "http_method": "GET",
-      "canonical_route": "/api/infrastructure/v1/reverse-geocode",
-      "source_contract_path": "docs/api/InfrastructureService.openapi.yaml"
-    },
-    {
-      "service": "IntelligenceService",
-      "operation": "ClassifyEvent",
-      "http_method": "GET",
-      "canonical_route": "/api/intelligence/v1/classify-event",
-      "source_contract_path": "docs/api/IntelligenceService.openapi.yaml"
-    },
-    {
-      "service": "IntelligenceService",
-      "operation": "ComputeEnergyShockScenario",
-      "http_method": "GET",
-      "canonical_route": "/api/intelligence/v1/compute-energy-shock",
-      "source_contract_path": "docs/api/IntelligenceService.openapi.yaml"
-    },
-    {
-      "service": "IntelligenceService",
-      "operation": "DeductSituation",
-      "http_method": "POST",
-      "canonical_route": "/api/intelligence/v1/deduct-situation",
-      "source_contract_path": "docs/api/IntelligenceService.openapi.yaml"
-    },
-    {
-      "service": "IntelligenceService",
-      "operation": "GetChinaDecisionSignals",
-      "http_method": "GET",
-      "canonical_route": "/api/intelligence/v1/get-china-decision-signals",
-      "source_contract_path": "docs/api/IntelligenceService.openapi.yaml"
-    },
-    {
-      "service": "IntelligenceService",
-      "operation": "GetCompanyEnrichment",
-      "http_method": "GET",
-      "canonical_route": "/api/intelligence/v1/get-company-enrichment",
-      "source_contract_path": "docs/api/IntelligenceService.openapi.yaml"
-    },
-    {
-      "service": "IntelligenceService",
-      "operation": "GetCountryCoverage",
-      "http_method": "GET",
-      "canonical_route": "/api/intelligence/v1/get-country-coverage",
-      "source_contract_path": "docs/api/IntelligenceService.openapi.yaml"
-    },
-    {
-      "service": "IntelligenceService",
-      "operation": "GetCountryEnergyProfile",
-      "http_method": "GET",
-      "canonical_route": "/api/intelligence/v1/get-country-energy-profile",
-      "source_contract_path": "docs/api/IntelligenceService.openapi.yaml"
-    },
-    {
-      "service": "IntelligenceService",
-      "operation": "GetCountryFacts",
-      "http_method": "GET",
-      "canonical_route": "/api/intelligence/v1/get-country-facts",
-      "source_contract_path": "docs/api/IntelligenceService.openapi.yaml"
-    },
-    {
-      "service": "IntelligenceService",
-      "operation": "GetCountryIntelBrief",
-      "http_method": "GET",
-      "canonical_route": "/api/intelligence/v1/get-country-intel-brief",
-      "source_contract_path": "docs/api/IntelligenceService.openapi.yaml"
-    },
-    {
-      "service": "IntelligenceService",
-      "operation": "GetCountryPortActivity",
-      "http_method": "GET",
-      "canonical_route": "/api/intelligence/v1/get-country-port-activity",
-      "source_contract_path": "docs/api/IntelligenceService.openapi.yaml"
-    },
-    {
-      "service": "IntelligenceService",
-      "operation": "GetCountryRisk",
-      "http_method": "GET",
-      "canonical_route": "/api/intelligence/v1/get-country-risk",
-      "source_contract_path": "docs/api/IntelligenceService.openapi.yaml"
-    },
-    {
-      "service": "IntelligenceService",
-      "operation": "GetGdeltTopicTimeline",
-      "http_method": "GET",
-      "canonical_route": "/api/intelligence/v1/get-gdelt-topic-timeline",
-      "source_contract_path": "docs/api/IntelligenceService.openapi.yaml"
-    },
-    {
-      "service": "IntelligenceService",
-      "operation": "GetIntelTimeline",
-      "http_method": "GET",
-      "canonical_route": "/api/intelligence/v1/get-intel-timeline",
-      "source_contract_path": "docs/api/IntelligenceService.openapi.yaml"
-    },
-    {
-      "service": "IntelligenceService",
-      "operation": "GetPizzintStatus",
-      "http_method": "GET",
-      "canonical_route": "/api/intelligence/v1/get-pizzint-status",
-      "source_contract_path": "docs/api/IntelligenceService.openapi.yaml"
-    },
-    {
-      "service": "IntelligenceService",
-      "operation": "GetRegimeHistory",
-      "http_method": "GET",
-      "canonical_route": "/api/intelligence/v1/get-regime-history",
-      "source_contract_path": "docs/api/IntelligenceService.openapi.yaml"
-    },
-    {
-      "service": "IntelligenceService",
-      "operation": "GetRegionalBrief",
-      "http_method": "GET",
-      "canonical_route": "/api/intelligence/v1/get-regional-brief",
-      "source_contract_path": "docs/api/IntelligenceService.openapi.yaml"
-    },
-    {
-      "service": "IntelligenceService",
-      "operation": "GetRegionalSnapshot",
-      "http_method": "GET",
-      "canonical_route": "/api/intelligence/v1/get-regional-snapshot",
-      "source_contract_path": "docs/api/IntelligenceService.openapi.yaml"
-    },
-    {
-      "service": "IntelligenceService",
-      "operation": "GetRiskScores",
-      "http_method": "GET",
-      "canonical_route": "/api/intelligence/v1/get-risk-scores",
-      "source_contract_path": "docs/api/IntelligenceService.openapi.yaml"
-    },
-    {
-      "service": "IntelligenceService",
-      "operation": "GetSimilarEvents",
-      "http_method": "POST",
-      "canonical_route": "/api/intelligence/v1/get-similar-events",
-      "source_contract_path": "docs/api/IntelligenceService.openapi.yaml"
-    },
-    {
-      "service": "IntelligenceService",
-      "operation": "GetSocialVelocity",
-      "http_method": "GET",
-      "canonical_route": "/api/intelligence/v1/get-social-velocity",
-      "source_contract_path": "docs/api/IntelligenceService.openapi.yaml"
-    },
-    {
-      "service": "IntelligenceService",
-      "operation": "ListCompanySignals",
-      "http_method": "GET",
-      "canonical_route": "/api/intelligence/v1/list-company-signals",
-      "source_contract_path": "docs/api/IntelligenceService.openapi.yaml"
-    },
-    {
-      "service": "IntelligenceService",
-      "operation": "ListCrossSourceSignals",
-      "http_method": "GET",
-      "canonical_route": "/api/intelligence/v1/list-cross-source-signals",
-      "source_contract_path": "docs/api/IntelligenceService.openapi.yaml"
-    },
-    {
-      "service": "IntelligenceService",
-      "operation": "ListGpsInterference",
-      "http_method": "GET",
-      "canonical_route": "/api/intelligence/v1/list-gps-interference",
-      "source_contract_path": "docs/api/IntelligenceService.openapi.yaml"
-    },
-    {
-      "service": "IntelligenceService",
-      "operation": "ListMarketImplications",
-      "http_method": "GET",
-      "canonical_route": "/api/intelligence/v1/list-market-implications",
-      "source_contract_path": "docs/api/IntelligenceService.openapi.yaml"
-    },
-    {
-      "service": "IntelligenceService",
-      "operation": "ListMaterialEvents",
-      "http_method": "GET",
-      "canonical_route": "/api/intelligence/v1/list-material-events",
-      "source_contract_path": "docs/api/IntelligenceService.openapi.yaml"
-    },
-    {
-      "service": "IntelligenceService",
-      "operation": "ListOrefAlerts",
-      "http_method": "GET",
-      "canonical_route": "/api/intelligence/v1/list-oref-alerts",
-      "source_contract_path": "docs/api/IntelligenceService.openapi.yaml"
-    },
-    {
-      "service": "IntelligenceService",
-      "operation": "ListSatellites",
-      "http_method": "GET",
-      "canonical_route": "/api/intelligence/v1/list-satellites",
-      "source_contract_path": "docs/api/IntelligenceService.openapi.yaml"
-    },
-    {
-      "service": "IntelligenceService",
-      "operation": "ListSecurityAdvisories",
-      "http_method": "GET",
-      "canonical_route": "/api/intelligence/v1/list-security-advisories",
-      "source_contract_path": "docs/api/IntelligenceService.openapi.yaml"
-    },
-    {
-      "service": "IntelligenceService",
-      "operation": "ListTelegramFeed",
-      "http_method": "GET",
-      "canonical_route": "/api/intelligence/v1/list-telegram-feed",
-      "source_contract_path": "docs/api/IntelligenceService.openapi.yaml"
-    },
-    {
-      "service": "IntelligenceService",
-      "operation": "ListWsbTickers",
-      "http_method": "GET",
-      "canonical_route": "/api/intelligence/v1/list-wsb-tickers",
-      "source_contract_path": "docs/api/IntelligenceService.openapi.yaml"
-    },
-    {
-      "service": "IntelligenceService",
-      "operation": "ListXFeed",
-      "http_method": "GET",
-      "canonical_route": "/api/intelligence/v1/list-x-feed",
-      "source_contract_path": "docs/api/IntelligenceService.openapi.yaml"
-    },
-    {
-      "service": "IntelligenceService",
-      "operation": "SearchGdeltDocuments",
-      "http_method": "GET",
-      "canonical_route": "/api/intelligence/v1/search-gdelt-documents",
-      "source_contract_path": "docs/api/IntelligenceService.openapi.yaml"
-    },
-    {
-      "service": "IntelligenceService",
-      "operation": "SearchIntelHistory",
-      "http_method": "POST",
-      "canonical_route": "/api/intelligence/v1/search-intel-history",
-      "source_contract_path": "docs/api/IntelligenceService.openapi.yaml"
-    },
-    {
-      "service": "IntelligenceService",
-      "operation": "SearchSecFilings",
-      "http_method": "GET",
-      "canonical_route": "/api/intelligence/v1/search-sec-filings",
-      "source_contract_path": "docs/api/IntelligenceService.openapi.yaml"
-    },
-    {
-      "service": "LeadsService",
-      "operation": "RegisterInterest",
-      "http_method": "POST",
-      "canonical_route": "/api/leads/v1/register-interest",
-      "source_contract_path": "docs/api/LeadsService.openapi.yaml"
-    },
-    {
-      "service": "LeadsService",
-      "operation": "SubmitContact",
-      "http_method": "POST",
-      "canonical_route": "/api/leads/v1/submit-contact",
-      "source_contract_path": "docs/api/LeadsService.openapi.yaml"
-    },
-    {
-      "service": "MaritimeService",
-      "operation": "GetVesselSnapshot",
-      "http_method": "GET",
-      "canonical_route": "/api/maritime/v1/get-vessel-snapshot",
-      "source_contract_path": "docs/api/MaritimeService.openapi.yaml"
-    },
-    {
-      "service": "MaritimeService",
-      "operation": "ListNavigationalWarnings",
-      "http_method": "GET",
-      "canonical_route": "/api/maritime/v1/list-navigational-warnings",
-      "source_contract_path": "docs/api/MaritimeService.openapi.yaml"
-    },
-    {
-      "service": "MarketService",
-      "operation": "AnalyzeStock",
+      "operation_id": "AnalyzeStock",
+      "primary_service": "MarketService",
       "http_method": "GET",
       "canonical_route": "/api/market/v1/analyze-stock",
-      "source_contract_path": "docs/api/MarketService.openapi.yaml"
+      "specific_contract_path": "docs/api/MarketService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "AnalyzeStock",
+      "declaration_count": 2
     },
     {
-      "service": "MarketService",
-      "operation": "BacktestStock",
+      "operation_id": "BacktestStock",
+      "primary_service": "MarketService",
       "http_method": "GET",
       "canonical_route": "/api/market/v1/backtest-stock",
-      "source_contract_path": "docs/api/MarketService.openapi.yaml"
+      "specific_contract_path": "docs/api/MarketService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "BacktestStock",
+      "declaration_count": 2
     },
     {
-      "service": "MarketService",
-      "operation": "GetCotPositioning",
-      "http_method": "GET",
-      "canonical_route": "/api/market/v1/get-cot-positioning",
-      "source_contract_path": "docs/api/MarketService.openapi.yaml"
-    },
-    {
-      "service": "MarketService",
-      "operation": "GetCountryStockIndex",
-      "http_method": "GET",
-      "canonical_route": "/api/market/v1/get-country-stock-index",
-      "source_contract_path": "docs/api/MarketService.openapi.yaml"
-    },
-    {
-      "service": "MarketService",
-      "operation": "GetFearGreedIndex",
-      "http_method": "GET",
-      "canonical_route": "/api/market/v1/get-fear-greed-index",
-      "source_contract_path": "docs/api/MarketService.openapi.yaml"
-    },
-    {
-      "service": "MarketService",
-      "operation": "GetGoldIntelligence",
-      "http_method": "GET",
-      "canonical_route": "/api/market/v1/get-gold-intelligence",
-      "source_contract_path": "docs/api/MarketService.openapi.yaml"
-    },
-    {
-      "service": "MarketService",
-      "operation": "GetHyperliquidFlow",
-      "http_method": "GET",
-      "canonical_route": "/api/market/v1/get-hyperliquid-flow",
-      "source_contract_path": "docs/api/MarketService.openapi.yaml"
-    },
-    {
-      "service": "MarketService",
-      "operation": "GetInsiderTransactions",
-      "http_method": "GET",
-      "canonical_route": "/api/market/v1/get-insider-transactions",
-      "source_contract_path": "docs/api/MarketService.openapi.yaml"
-    },
-    {
-      "service": "MarketService",
-      "operation": "GetMarketBreadthHistory",
-      "http_method": "GET",
-      "canonical_route": "/api/market/v1/get-market-breadth-history",
-      "source_contract_path": "docs/api/MarketService.openapi.yaml"
-    },
-    {
-      "service": "MarketService",
-      "operation": "GetPhysicalDivergenceIndex",
-      "http_method": "GET",
-      "canonical_route": "/api/market/v1/get-physical-divergence-index",
-      "source_contract_path": "docs/api/MarketService.openapi.yaml"
-    },
-    {
-      "service": "MarketService",
-      "operation": "GetPhysicalPremiums",
-      "http_method": "GET",
-      "canonical_route": "/api/market/v1/get-physical-premiums",
-      "source_contract_path": "docs/api/MarketService.openapi.yaml"
-    },
-    {
-      "service": "MarketService",
-      "operation": "GetSectorSummary",
-      "http_method": "GET",
-      "canonical_route": "/api/market/v1/get-sector-summary",
-      "source_contract_path": "docs/api/MarketService.openapi.yaml"
-    },
-    {
-      "service": "MarketService",
-      "operation": "GetStockAnalysisHistory",
-      "http_method": "GET",
-      "canonical_route": "/api/market/v1/get-stock-analysis-history",
-      "source_contract_path": "docs/api/MarketService.openapi.yaml"
-    },
-    {
-      "service": "MarketService",
-      "operation": "ListAiTokens",
-      "http_method": "GET",
-      "canonical_route": "/api/market/v1/list-ai-tokens",
-      "source_contract_path": "docs/api/MarketService.openapi.yaml"
-    },
-    {
-      "service": "MarketService",
-      "operation": "ListCommodityQuotes",
-      "http_method": "GET",
-      "canonical_route": "/api/market/v1/list-commodity-quotes",
-      "source_contract_path": "docs/api/MarketService.openapi.yaml"
-    },
-    {
-      "service": "MarketService",
-      "operation": "ListCryptoQuotes",
-      "http_method": "GET",
-      "canonical_route": "/api/market/v1/list-crypto-quotes",
-      "source_contract_path": "docs/api/MarketService.openapi.yaml"
-    },
-    {
-      "service": "MarketService",
-      "operation": "ListCryptoSectors",
-      "http_method": "GET",
-      "canonical_route": "/api/market/v1/list-crypto-sectors",
-      "source_contract_path": "docs/api/MarketService.openapi.yaml"
-    },
-    {
-      "service": "MarketService",
-      "operation": "ListDefiTokens",
-      "http_method": "GET",
-      "canonical_route": "/api/market/v1/list-defi-tokens",
-      "source_contract_path": "docs/api/MarketService.openapi.yaml"
-    },
-    {
-      "service": "MarketService",
-      "operation": "ListEarningsCalendar",
-      "http_method": "GET",
-      "canonical_route": "/api/market/v1/list-earnings-calendar",
-      "source_contract_path": "docs/api/MarketService.openapi.yaml"
-    },
-    {
-      "service": "MarketService",
-      "operation": "ListEtfFlows",
-      "http_method": "GET",
-      "canonical_route": "/api/market/v1/list-etf-flows",
-      "source_contract_path": "docs/api/MarketService.openapi.yaml"
-    },
-    {
-      "service": "MarketService",
-      "operation": "ListGulfQuotes",
-      "http_method": "GET",
-      "canonical_route": "/api/market/v1/list-gulf-quotes",
-      "source_contract_path": "docs/api/MarketService.openapi.yaml"
-    },
-    {
-      "service": "MarketService",
-      "operation": "ListMarketQuotes",
-      "http_method": "GET",
-      "canonical_route": "/api/market/v1/list-market-quotes",
-      "source_contract_path": "docs/api/MarketService.openapi.yaml"
-    },
-    {
-      "service": "MarketService",
-      "operation": "ListOtherTokens",
-      "http_method": "GET",
-      "canonical_route": "/api/market/v1/list-other-tokens",
-      "source_contract_path": "docs/api/MarketService.openapi.yaml"
-    },
-    {
-      "service": "MarketService",
-      "operation": "ListStablecoinMarkets",
-      "http_method": "GET",
-      "canonical_route": "/api/market/v1/list-stablecoin-markets",
-      "source_contract_path": "docs/api/MarketService.openapi.yaml"
-    },
-    {
-      "service": "MarketService",
-      "operation": "ListStoredStockBacktests",
-      "http_method": "GET",
-      "canonical_route": "/api/market/v1/list-stored-stock-backtests",
-      "source_contract_path": "docs/api/MarketService.openapi.yaml"
-    },
-    {
-      "service": "MilitaryService",
-      "operation": "GetAircraftDetails",
-      "http_method": "GET",
-      "canonical_route": "/api/military/v1/get-aircraft-details",
-      "source_contract_path": "docs/api/MilitaryService.openapi.yaml"
-    },
-    {
-      "service": "MilitaryService",
-      "operation": "GetAircraftDetailsBatch",
-      "http_method": "POST",
-      "canonical_route": "/api/military/v1/get-aircraft-details-batch",
-      "source_contract_path": "docs/api/MilitaryService.openapi.yaml"
-    },
-    {
-      "service": "MilitaryService",
-      "operation": "GetDefenseIndustrialBase",
-      "http_method": "GET",
-      "canonical_route": "/api/military/v1/get-defense-industrial-base",
-      "source_contract_path": "docs/api/MilitaryService.openapi.yaml"
-    },
-    {
-      "service": "MilitaryService",
-      "operation": "GetTheaterPosture",
-      "http_method": "GET",
-      "canonical_route": "/api/military/v1/get-theater-posture",
-      "source_contract_path": "docs/api/MilitaryService.openapi.yaml"
-    },
-    {
-      "service": "MilitaryService",
-      "operation": "GetUSNIFleetReport",
-      "http_method": "GET",
-      "canonical_route": "/api/military/v1/get-usni-fleet-report",
-      "source_contract_path": "docs/api/MilitaryService.openapi.yaml"
-    },
-    {
-      "service": "MilitaryService",
-      "operation": "GetWingbitsLiveFlight",
-      "http_method": "GET",
-      "canonical_route": "/api/military/v1/get-wingbits-live-flight",
-      "source_contract_path": "docs/api/MilitaryService.openapi.yaml"
-    },
-    {
-      "service": "MilitaryService",
-      "operation": "GetWingbitsStatus",
-      "http_method": "GET",
-      "canonical_route": "/api/military/v1/get-wingbits-status",
-      "source_contract_path": "docs/api/MilitaryService.openapi.yaml"
-    },
-    {
-      "service": "MilitaryService",
-      "operation": "ListDefensePatents",
-      "http_method": "GET",
-      "canonical_route": "/api/military/v1/list-defense-patents",
-      "source_contract_path": "docs/api/MilitaryService.openapi.yaml"
-    },
-    {
-      "service": "MilitaryService",
-      "operation": "ListMilitaryBases",
-      "http_method": "GET",
-      "canonical_route": "/api/military/v1/list-military-bases",
-      "source_contract_path": "docs/api/MilitaryService.openapi.yaml"
-    },
-    {
-      "service": "MilitaryService",
-      "operation": "ListMilitaryFlights",
-      "http_method": "GET",
-      "canonical_route": "/api/military/v1/list-military-flights",
-      "source_contract_path": "docs/api/MilitaryService.openapi.yaml"
-    },
-    {
-      "service": "NaturalService",
-      "operation": "ListNaturalEvents",
-      "http_method": "GET",
-      "canonical_route": "/api/natural/v1/list-natural-events",
-      "source_contract_path": "docs/api/NaturalService.openapi.yaml"
-    },
-    {
-      "service": "NewsService",
-      "operation": "GetSummarizeArticleCache",
-      "http_method": "GET",
-      "canonical_route": "/api/news/v1/summarize-article-cache",
-      "source_contract_path": "docs/api/NewsService.openapi.yaml"
-    },
-    {
-      "service": "NewsService",
-      "operation": "ListCountryHeadlines",
-      "http_method": "GET",
-      "canonical_route": "/api/news/v1/list-country-headlines",
-      "source_contract_path": "docs/api/NewsService.openapi.yaml"
-    },
-    {
-      "service": "NewsService",
-      "operation": "ListFeedDigest",
-      "http_method": "GET",
-      "canonical_route": "/api/news/v1/list-feed-digest",
-      "source_contract_path": "docs/api/NewsService.openapi.yaml"
-    },
-    {
-      "service": "NewsService",
-      "operation": "SummarizeArticle",
-      "http_method": "POST",
-      "canonical_route": "/api/news/v1/summarize-article",
-      "source_contract_path": "docs/api/NewsService.openapi.yaml"
-    },
-    {
-      "service": "PositiveEventsService",
-      "operation": "ListPositiveGeoEvents",
-      "http_method": "GET",
-      "canonical_route": "/api/positive-events/v1/list-positive-geo-events",
-      "source_contract_path": "docs/api/PositiveEventsService.openapi.yaml"
-    },
-    {
-      "service": "PredictionService",
-      "operation": "ListPredictionMarkets",
-      "http_method": "GET",
-      "canonical_route": "/api/prediction/v1/list-prediction-markets",
-      "source_contract_path": "docs/api/PredictionService.openapi.yaml"
-    },
-    {
-      "service": "RadiationService",
-      "operation": "ListRadiationObservations",
-      "http_method": "GET",
-      "canonical_route": "/api/radiation/v1/list-radiation-observations",
-      "source_contract_path": "docs/api/RadiationService.openapi.yaml"
-    },
-    {
-      "service": "ResearchService",
-      "operation": "ListArxivPapers",
-      "http_method": "GET",
-      "canonical_route": "/api/research/v1/list-arxiv-papers",
-      "source_contract_path": "docs/api/ResearchService.openapi.yaml"
-    },
-    {
-      "service": "ResearchService",
-      "operation": "ListHackernewsItems",
-      "http_method": "GET",
-      "canonical_route": "/api/research/v1/list-hackernews-items",
-      "source_contract_path": "docs/api/ResearchService.openapi.yaml"
-    },
-    {
-      "service": "ResearchService",
-      "operation": "ListTechEvents",
-      "http_method": "GET",
-      "canonical_route": "/api/research/v1/list-tech-events",
-      "source_contract_path": "docs/api/ResearchService.openapi.yaml"
-    },
-    {
-      "service": "ResearchService",
-      "operation": "ListTrendingRepos",
-      "http_method": "GET",
-      "canonical_route": "/api/research/v1/list-trending-repos",
-      "source_contract_path": "docs/api/ResearchService.openapi.yaml"
-    },
-    {
-      "service": "ResilienceService",
-      "operation": "GetDemographicsCapability",
-      "http_method": "GET",
-      "canonical_route": "/api/resilience/v1/get-demographics-capability",
-      "source_contract_path": "docs/api/ResilienceService.openapi.yaml"
-    },
-    {
-      "service": "ResilienceService",
-      "operation": "GetFoodStocks",
-      "http_method": "GET",
-      "canonical_route": "/api/resilience/v1/get-food-stocks",
-      "source_contract_path": "docs/api/ResilienceService.openapi.yaml"
-    },
-    {
-      "service": "ResilienceService",
-      "operation": "GetResilienceIndicators",
-      "http_method": "GET",
-      "canonical_route": "/api/resilience/v1/get-resilience-indicators",
-      "source_contract_path": "docs/api/ResilienceService.openapi.yaml"
-    },
-    {
-      "service": "ResilienceService",
-      "operation": "GetResilienceRanking",
-      "http_method": "GET",
-      "canonical_route": "/api/resilience/v1/get-resilience-ranking",
-      "source_contract_path": "docs/api/ResilienceService.openapi.yaml"
-    },
-    {
-      "service": "ResilienceService",
-      "operation": "GetResilienceRuntimeManifest",
-      "http_method": "GET",
-      "canonical_route": "/api/resilience/v1/get-runtime-manifest",
-      "source_contract_path": "docs/api/ResilienceService.openapi.yaml"
-    },
-    {
-      "service": "ResilienceService",
-      "operation": "GetResilienceScore",
-      "http_method": "GET",
-      "canonical_route": "/api/resilience/v1/get-resilience-score",
-      "source_contract_path": "docs/api/ResilienceService.openapi.yaml"
-    },
-    {
-      "service": "SafetyService",
-      "operation": "GetTorontoSafety",
-      "http_method": "GET",
-      "canonical_route": "/api/safety/v1/get-toronto-safety",
-      "source_contract_path": "docs/api/SafetyService.openapi.yaml"
-    },
-    {
-      "service": "SanctionsService",
-      "operation": "ListSanctionsPressure",
-      "http_method": "GET",
-      "canonical_route": "/api/sanctions/v1/list-sanctions-pressure",
-      "source_contract_path": "docs/api/SanctionsService.openapi.yaml"
-    },
-    {
-      "service": "SanctionsService",
-      "operation": "LookupSanctionEntity",
-      "http_method": "GET",
-      "canonical_route": "/api/sanctions/v1/lookup-sanction-entity",
-      "source_contract_path": "docs/api/SanctionsService.openapi.yaml"
-    },
-    {
-      "service": "ScenarioService",
-      "operation": "GetScenarioStatus",
-      "http_method": "GET",
-      "canonical_route": "/api/scenario/v1/get-scenario-status",
-      "source_contract_path": "docs/api/ScenarioService.openapi.yaml"
-    },
-    {
-      "service": "ScenarioService",
-      "operation": "ListScenarioTemplates",
-      "http_method": "GET",
-      "canonical_route": "/api/scenario/v1/list-scenario-templates",
-      "source_contract_path": "docs/api/ScenarioService.openapi.yaml"
-    },
-    {
-      "service": "ScenarioService",
-      "operation": "RunScenario",
-      "http_method": "POST",
-      "canonical_route": "/api/scenario/v1/run-scenario",
-      "source_contract_path": "docs/api/ScenarioService.openapi.yaml"
-    },
-    {
-      "service": "ScorecardService",
-      "operation": "GetBlocScorecard",
-      "http_method": "GET",
-      "canonical_route": "/api/scorecard/v1/get-bloc-scorecard",
-      "source_contract_path": "docs/api/ScorecardService.openapi.yaml"
-    },
-    {
-      "service": "ScorecardService",
-      "operation": "GetFiveFactorScorecard",
-      "http_method": "GET",
-      "canonical_route": "/api/scorecard/v1/get-five-factor-scorecard",
-      "source_contract_path": "docs/api/ScorecardService.openapi.yaml"
-    },
-    {
-      "service": "ScorecardService",
-      "operation": "ListFiveFactorScorecards",
-      "http_method": "GET",
-      "canonical_route": "/api/scorecard/v1/list-five-factor-scorecards",
-      "source_contract_path": "docs/api/ScorecardService.openapi.yaml"
-    },
-    {
-      "service": "SeismologyService",
-      "operation": "ListEarthquakes",
-      "http_method": "GET",
-      "canonical_route": "/api/seismology/v1/list-earthquakes",
-      "source_contract_path": "docs/api/SeismologyService.openapi.yaml"
-    },
-    {
-      "service": "ShippingV2Service",
-      "operation": "ListWebhooks",
-      "http_method": "GET",
-      "canonical_route": "/api/v2/shipping/webhooks",
-      "source_contract_path": "docs/api/ShippingV2Service.openapi.yaml"
-    },
-    {
-      "service": "ShippingV2Service",
-      "operation": "RegisterWebhook",
-      "http_method": "POST",
-      "canonical_route": "/api/v2/shipping/webhooks",
-      "source_contract_path": "docs/api/ShippingV2Service.openapi.yaml"
-    },
-    {
-      "service": "ShippingV2Service",
-      "operation": "RouteIntelligence",
-      "http_method": "GET",
-      "canonical_route": "/api/v2/shipping/route-intelligence",
-      "source_contract_path": "docs/api/ShippingV2Service.openapi.yaml"
-    },
-    {
-      "service": "SupplyChainService",
-      "operation": "GetBypassOptions",
-      "http_method": "GET",
-      "canonical_route": "/api/supply-chain/v1/get-bypass-options",
-      "source_contract_path": "docs/api/SupplyChainService.openapi.yaml"
-    },
-    {
-      "service": "SupplyChainService",
-      "operation": "GetChinaCorridorControlTowers",
-      "http_method": "GET",
-      "canonical_route": "/api/supply-chain/v1/get-china-corridor-control-towers",
-      "source_contract_path": "docs/api/SupplyChainService.openapi.yaml"
-    },
-    {
-      "service": "SupplyChainService",
-      "operation": "GetChokepointDependencies",
-      "http_method": "GET",
-      "canonical_route": "/api/supply-chain/v1/get-chokepoint-dependencies",
-      "source_contract_path": "docs/api/SupplyChainService.openapi.yaml"
-    },
-    {
-      "service": "SupplyChainService",
-      "operation": "GetChokepointHistory",
-      "http_method": "GET",
-      "canonical_route": "/api/supply-chain/v1/get-chokepoint-history",
-      "source_contract_path": "docs/api/SupplyChainService.openapi.yaml"
-    },
-    {
-      "service": "SupplyChainService",
-      "operation": "GetChokepointStatus",
-      "http_method": "GET",
-      "canonical_route": "/api/supply-chain/v1/get-chokepoint-status",
-      "source_contract_path": "docs/api/SupplyChainService.openapi.yaml"
-    },
-    {
-      "service": "SupplyChainService",
-      "operation": "GetCountryChokepointIndex",
-      "http_method": "GET",
-      "canonical_route": "/api/supply-chain/v1/get-country-chokepoint-index",
-      "source_contract_path": "docs/api/SupplyChainService.openapi.yaml"
-    },
-    {
-      "service": "SupplyChainService",
-      "operation": "GetCountryCostShock",
-      "http_method": "GET",
-      "canonical_route": "/api/supply-chain/v1/get-country-cost-shock",
-      "source_contract_path": "docs/api/SupplyChainService.openapi.yaml"
-    },
-    {
-      "service": "SupplyChainService",
-      "operation": "GetCountryProducts",
-      "http_method": "GET",
-      "canonical_route": "/api/supply-chain/v1/get-country-products",
-      "source_contract_path": "docs/api/SupplyChainService.openapi.yaml"
-    },
-    {
-      "service": "SupplyChainService",
-      "operation": "GetCountryVulnerabilities",
-      "http_method": "GET",
-      "canonical_route": "/api/supply-chain/v1/get-country-vulnerabilities",
-      "source_contract_path": "docs/api/SupplyChainService.openapi.yaml"
-    },
-    {
-      "service": "SupplyChainService",
-      "operation": "GetCriticalMinerals",
-      "http_method": "GET",
-      "canonical_route": "/api/supply-chain/v1/get-critical-minerals",
-      "source_contract_path": "docs/api/SupplyChainService.openapi.yaml"
-    },
-    {
-      "service": "SupplyChainService",
-      "operation": "GetFuelShortageDetail",
-      "http_method": "GET",
-      "canonical_route": "/api/supply-chain/v1/get-fuel-shortage-detail",
-      "source_contract_path": "docs/api/SupplyChainService.openapi.yaml"
-    },
-    {
-      "service": "SupplyChainService",
-      "operation": "GetMineralProduction",
-      "http_method": "GET",
-      "canonical_route": "/api/supply-chain/v1/get-mineral-production",
-      "source_contract_path": "docs/api/SupplyChainService.openapi.yaml"
-    },
-    {
-      "service": "SupplyChainService",
-      "operation": "GetMultiSectorCostShock",
-      "http_method": "GET",
-      "canonical_route": "/api/supply-chain/v1/get-multi-sector-cost-shock",
-      "source_contract_path": "docs/api/SupplyChainService.openapi.yaml"
-    },
-    {
-      "service": "SupplyChainService",
-      "operation": "GetPipelineDetail",
-      "http_method": "GET",
-      "canonical_route": "/api/supply-chain/v1/get-pipeline-detail",
-      "source_contract_path": "docs/api/SupplyChainService.openapi.yaml"
-    },
-    {
-      "service": "SupplyChainService",
-      "operation": "GetRouteExplorerLane",
-      "http_method": "GET",
-      "canonical_route": "/api/supply-chain/v1/get-route-explorer-lane",
-      "source_contract_path": "docs/api/SupplyChainService.openapi.yaml"
-    },
-    {
-      "service": "SupplyChainService",
-      "operation": "GetRouteImpact",
-      "http_method": "GET",
-      "canonical_route": "/api/supply-chain/v1/get-route-impact",
-      "source_contract_path": "docs/api/SupplyChainService.openapi.yaml"
-    },
-    {
-      "service": "SupplyChainService",
-      "operation": "GetSectorDependency",
-      "http_method": "GET",
-      "canonical_route": "/api/supply-chain/v1/get-sector-dependency",
-      "source_contract_path": "docs/api/SupplyChainService.openapi.yaml"
-    },
-    {
-      "service": "SupplyChainService",
-      "operation": "GetShippingRates",
-      "http_method": "GET",
-      "canonical_route": "/api/supply-chain/v1/get-shipping-rates",
-      "source_contract_path": "docs/api/SupplyChainService.openapi.yaml"
-    },
-    {
-      "service": "SupplyChainService",
-      "operation": "GetShippingStress",
-      "http_method": "GET",
-      "canonical_route": "/api/supply-chain/v1/get-shipping-stress",
-      "source_contract_path": "docs/api/SupplyChainService.openapi.yaml"
-    },
-    {
-      "service": "SupplyChainService",
-      "operation": "GetStorageFacilityDetail",
-      "http_method": "GET",
-      "canonical_route": "/api/supply-chain/v1/get-storage-facility-detail",
-      "source_contract_path": "docs/api/SupplyChainService.openapi.yaml"
-    },
-    {
-      "service": "SupplyChainService",
-      "operation": "ListEnergyDisruptions",
-      "http_method": "GET",
-      "canonical_route": "/api/supply-chain/v1/list-energy-disruptions",
-      "source_contract_path": "docs/api/SupplyChainService.openapi.yaml"
-    },
-    {
-      "service": "SupplyChainService",
-      "operation": "ListFuelShortages",
-      "http_method": "GET",
-      "canonical_route": "/api/supply-chain/v1/list-fuel-shortages",
-      "source_contract_path": "docs/api/SupplyChainService.openapi.yaml"
-    },
-    {
-      "service": "SupplyChainService",
-      "operation": "ListPipelines",
-      "http_method": "GET",
-      "canonical_route": "/api/supply-chain/v1/list-pipelines",
-      "source_contract_path": "docs/api/SupplyChainService.openapi.yaml"
-    },
-    {
-      "service": "SupplyChainService",
-      "operation": "ListStorageFacilities",
-      "http_method": "GET",
-      "canonical_route": "/api/supply-chain/v1/list-storage-facilities",
-      "source_contract_path": "docs/api/SupplyChainService.openapi.yaml"
-    },
-    {
-      "service": "SupplyChainService",
-      "operation": "ListVulnerabilityRankings",
-      "http_method": "GET",
-      "canonical_route": "/api/supply-chain/v1/list-vulnerability-rankings",
-      "source_contract_path": "docs/api/SupplyChainService.openapi.yaml"
-    },
-    {
-      "service": "ThermalService",
-      "operation": "ListThermalEscalations",
-      "http_method": "GET",
-      "canonical_route": "/api/thermal/v1/list-thermal-escalations",
-      "source_contract_path": "docs/api/ThermalService.openapi.yaml"
-    },
-    {
-      "service": "TradeService",
-      "operation": "GetCustomsRevenue",
-      "http_method": "GET",
-      "canonical_route": "/api/trade/v1/get-customs-revenue",
-      "source_contract_path": "docs/api/TradeService.openapi.yaml"
-    },
-    {
-      "service": "TradeService",
-      "operation": "GetTariffTrends",
-      "http_method": "GET",
-      "canonical_route": "/api/trade/v1/get-tariff-trends",
-      "source_contract_path": "docs/api/TradeService.openapi.yaml"
-    },
-    {
-      "service": "TradeService",
-      "operation": "GetTradeBarriers",
-      "http_method": "GET",
-      "canonical_route": "/api/trade/v1/get-trade-barriers",
-      "source_contract_path": "docs/api/TradeService.openapi.yaml"
-    },
-    {
-      "service": "TradeService",
-      "operation": "GetTradeFlows",
-      "http_method": "GET",
-      "canonical_route": "/api/trade/v1/get-trade-flows",
-      "source_contract_path": "docs/api/TradeService.openapi.yaml"
-    },
-    {
-      "service": "TradeService",
-      "operation": "GetTradeRestrictions",
-      "http_method": "GET",
-      "canonical_route": "/api/trade/v1/get-trade-restrictions",
-      "source_contract_path": "docs/api/TradeService.openapi.yaml"
-    },
-    {
-      "service": "TradeService",
-      "operation": "ListComtradeFlows",
-      "http_method": "GET",
-      "canonical_route": "/api/trade/v1/list-comtrade-flows",
-      "source_contract_path": "docs/api/TradeService.openapi.yaml"
-    },
-    {
-      "service": "UnrestService",
-      "operation": "ListUnrestEvents",
-      "http_method": "GET",
-      "canonical_route": "/api/unrest/v1/list-unrest-events",
-      "source_contract_path": "docs/api/UnrestService.openapi.yaml"
-    },
-    {
-      "service": "WebcamService",
-      "operation": "GetWebcamImage",
-      "http_method": "GET",
-      "canonical_route": "/api/webcam/v1/get-webcam-image",
-      "source_contract_path": "docs/api/WebcamService.openapi.yaml"
-    },
-    {
-      "service": "WebcamService",
-      "operation": "ListWebcams",
-      "http_method": "GET",
-      "canonical_route": "/api/webcam/v1/list-webcams",
-      "source_contract_path": "docs/api/WebcamService.openapi.yaml"
-    },
-    {
-      "service": "WildfireService",
-      "operation": "ListFireDetections",
-      "http_method": "GET",
-      "canonical_route": "/api/wildfire/v1/list-fire-detections",
-      "source_contract_path": "docs/api/WildfireService.openapi.yaml"
-    },
-    {
-      "service": "worldmonitor",
-      "operation": "AnalyzeStock",
-      "http_method": "GET",
-      "canonical_route": "/api/market/v1/analyze-stock",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
-    },
-    {
-      "service": "worldmonitor",
-      "operation": "BacktestStock",
-      "http_method": "GET",
-      "canonical_route": "/api/market/v1/backtest-stock",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
-    },
-    {
-      "service": "worldmonitor",
-      "operation": "ClassifyEvent",
+      "operation_id": "ClassifyEvent",
+      "primary_service": "IntelligenceService",
       "http_method": "GET",
       "canonical_route": "/api/intelligence/v1/classify-event",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/IntelligenceService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ClassifyEvent",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ComputeEnergyShockScenario",
+      "operation_id": "ComputeEnergyShockScenario",
+      "primary_service": "IntelligenceService",
       "http_method": "GET",
       "canonical_route": "/api/intelligence/v1/compute-energy-shock",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/IntelligenceService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ComputeEnergyShockScenario",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "CreateMonitoredCompany",
+      "operation_id": "CreateMonitoredCompany",
+      "primary_service": "CompanyMonitoringService",
       "http_method": "POST",
       "canonical_route": "/api/company-monitoring/v1/create-monitored-company",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/CompanyMonitoringService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "CreateMonitoredCompany",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "DeductSituation",
+      "operation_id": "DeductSituation",
+      "primary_service": "IntelligenceService",
       "http_method": "POST",
       "canonical_route": "/api/intelligence/v1/deduct-situation",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/IntelligenceService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "DeductSituation",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ExecuteBatch",
+      "operation_id": "ExecuteBatch",
+      "primary_service": "BatchService",
       "http_method": "POST",
       "canonical_route": "/api/batch/v1/execute",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/BatchService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ExecuteBatch",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetAircraftDetails",
+      "operation_id": "GetAircraftDetails",
+      "primary_service": "MilitaryService",
       "http_method": "GET",
       "canonical_route": "/api/military/v1/get-aircraft-details",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/MilitaryService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetAircraftDetails",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetAircraftDetailsBatch",
+      "operation_id": "GetAircraftDetailsBatch",
+      "primary_service": "MilitaryService",
       "http_method": "POST",
       "canonical_route": "/api/military/v1/get-aircraft-details-batch",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/MilitaryService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetAircraftDetailsBatch",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetAirportOpsSummary",
+      "operation_id": "GetAirportOpsSummary",
+      "primary_service": "AviationService",
       "http_method": "GET",
       "canonical_route": "/api/aviation/v1/get-airport-ops-summary",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/AviationService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetAirportOpsSummary",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetBisCredit",
+      "operation_id": "GetBisCredit",
+      "primary_service": "EconomicService",
       "http_method": "GET",
       "canonical_route": "/api/economic/v1/get-bis-credit",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/EconomicService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetBisCredit",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetBisExchangeRates",
+      "operation_id": "GetBisExchangeRates",
+      "primary_service": "EconomicService",
       "http_method": "GET",
       "canonical_route": "/api/economic/v1/get-bis-exchange-rates",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/EconomicService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetBisExchangeRates",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetBisPolicyRates",
+      "operation_id": "GetBisPolicyRates",
+      "primary_service": "EconomicService",
       "http_method": "GET",
       "canonical_route": "/api/economic/v1/get-bis-policy-rates",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/EconomicService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetBisPolicyRates",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetBlocScorecard",
+      "operation_id": "GetBlocScorecard",
+      "primary_service": "ScorecardService",
       "http_method": "GET",
       "canonical_route": "/api/scorecard/v1/get-bloc-scorecard",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ScorecardService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetBlocScorecard",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetBlsSeries",
+      "operation_id": "GetBlsSeries",
+      "primary_service": "EconomicService",
       "http_method": "GET",
       "canonical_route": "/api/economic/v1/get-bls-series",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/EconomicService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetBlsSeries",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetBootstrapData",
+      "operation_id": "GetBootstrapData",
+      "primary_service": "InfrastructureService",
       "http_method": "GET",
       "canonical_route": "/api/infrastructure/v1/get-bootstrap-data",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/InfrastructureService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetBootstrapData",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetBypassOptions",
+      "operation_id": "GetBypassOptions",
+      "primary_service": "SupplyChainService",
       "http_method": "GET",
       "canonical_route": "/api/supply-chain/v1/get-bypass-options",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/SupplyChainService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetBypassOptions",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetCableHealth",
+      "operation_id": "GetCableHealth",
+      "primary_service": "InfrastructureService",
       "http_method": "GET",
       "canonical_route": "/api/infrastructure/v1/get-cable-health",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/InfrastructureService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetCableHealth",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetCarrierOps",
+      "operation_id": "GetCarrierOps",
+      "primary_service": "AviationService",
       "http_method": "GET",
       "canonical_route": "/api/aviation/v1/get-carrier-ops",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/AviationService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetCarrierOps",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetChinaActivityNowcast",
+      "operation_id": "GetChinaActivityNowcast",
+      "primary_service": "EconomicService",
       "http_method": "GET",
       "canonical_route": "/api/economic/v1/get-china-activity-nowcast",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/EconomicService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetChinaActivityNowcast",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetChinaCorridorControlTowers",
+      "operation_id": "GetChinaCorridorControlTowers",
+      "primary_service": "SupplyChainService",
       "http_method": "GET",
       "canonical_route": "/api/supply-chain/v1/get-china-corridor-control-towers",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/SupplyChainService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetChinaCorridorControlTowers",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetChinaDecisionSignals",
+      "operation_id": "GetChinaDecisionSignals",
+      "primary_service": "IntelligenceService",
       "http_method": "GET",
       "canonical_route": "/api/intelligence/v1/get-china-decision-signals",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/IntelligenceService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetChinaDecisionSignals",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetChinaMacroSnapshot",
+      "operation_id": "GetChinaMacroSnapshot",
+      "primary_service": "EconomicService",
       "http_method": "GET",
       "canonical_route": "/api/economic/v1/get-china-macro-snapshot",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/EconomicService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetChinaMacroSnapshot",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetChokepointDependencies",
+      "operation_id": "GetChokepointDependencies",
+      "primary_service": "SupplyChainService",
       "http_method": "GET",
       "canonical_route": "/api/supply-chain/v1/get-chokepoint-dependencies",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/SupplyChainService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetChokepointDependencies",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetChokepointHistory",
+      "operation_id": "GetChokepointHistory",
+      "primary_service": "SupplyChainService",
       "http_method": "GET",
       "canonical_route": "/api/supply-chain/v1/get-chokepoint-history",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/SupplyChainService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetChokepointHistory",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetChokepointStatus",
+      "operation_id": "GetChokepointStatus",
+      "primary_service": "SupplyChainService",
       "http_method": "GET",
       "canonical_route": "/api/supply-chain/v1/get-chokepoint-status",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/SupplyChainService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetChokepointStatus",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetCo2Monitoring",
+      "operation_id": "GetCo2Monitoring",
+      "primary_service": "ClimateService",
       "http_method": "GET",
       "canonical_route": "/api/climate/v1/get-co2-monitoring",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ClimateService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetCo2Monitoring",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetCompanyCoverage",
+      "operation_id": "GetCompanyCoverage",
+      "primary_service": "CompanyMonitoringService",
       "http_method": "GET",
       "canonical_route": "/api/company-monitoring/v1/get-company-coverage",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/CompanyMonitoringService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetCompanyCoverage",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetCompanyEnrichment",
+      "operation_id": "GetCompanyEnrichment",
+      "primary_service": "IntelligenceService",
       "http_method": "GET",
       "canonical_route": "/api/intelligence/v1/get-company-enrichment",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/IntelligenceService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetCompanyEnrichment",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetCompanyMaterialEvent",
+      "operation_id": "GetCompanyMaterialEvent",
+      "primary_service": "CompanyMonitoringService",
       "http_method": "GET",
       "canonical_route": "/api/company-monitoring/v1/get-company-material-event",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/CompanyMonitoringService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetCompanyMaterialEvent",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetCompanyMonitoringStatus",
+      "operation_id": "GetCompanyMonitoringStatus",
+      "primary_service": "CompanyMonitoringService",
       "http_method": "GET",
       "canonical_route": "/api/company-monitoring/v1/get-company-monitoring-status",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/CompanyMonitoringService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetCompanyMonitoringStatus",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetConsumerPriceBasketSeries",
+      "operation_id": "GetConsumerPriceBasketSeries",
+      "primary_service": "ConsumerPricesService",
       "http_method": "GET",
       "canonical_route": "/api/consumer-prices/v1/get-consumer-price-basket-series",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ConsumerPricesService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetConsumerPriceBasketSeries",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetConsumerPriceFreshness",
+      "operation_id": "GetConsumerPriceFreshness",
+      "primary_service": "ConsumerPricesService",
       "http_method": "GET",
       "canonical_route": "/api/consumer-prices/v1/get-consumer-price-freshness",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ConsumerPricesService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetConsumerPriceFreshness",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetConsumerPriceOverview",
+      "operation_id": "GetConsumerPriceOverview",
+      "primary_service": "ConsumerPricesService",
       "http_method": "GET",
       "canonical_route": "/api/consumer-prices/v1/get-consumer-price-overview",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ConsumerPricesService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetConsumerPriceOverview",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetCotPositioning",
+      "operation_id": "GetCotPositioning",
+      "primary_service": "MarketService",
       "http_method": "GET",
       "canonical_route": "/api/market/v1/get-cot-positioning",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/MarketService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetCotPositioning",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetCountryChokepointIndex",
+      "operation_id": "GetCountryChokepointIndex",
+      "primary_service": "SupplyChainService",
       "http_method": "GET",
       "canonical_route": "/api/supply-chain/v1/get-country-chokepoint-index",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/SupplyChainService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetCountryChokepointIndex",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetCountryCostShock",
+      "operation_id": "GetCountryCostShock",
+      "primary_service": "SupplyChainService",
       "http_method": "GET",
       "canonical_route": "/api/supply-chain/v1/get-country-cost-shock",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/SupplyChainService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetCountryCostShock",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetCountryCoverage",
+      "operation_id": "GetCountryCoverage",
+      "primary_service": "IntelligenceService",
       "http_method": "GET",
       "canonical_route": "/api/intelligence/v1/get-country-coverage",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/IntelligenceService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetCountryCoverage",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetCountryEnergyProfile",
+      "operation_id": "GetCountryEnergyProfile",
+      "primary_service": "IntelligenceService",
       "http_method": "GET",
       "canonical_route": "/api/intelligence/v1/get-country-energy-profile",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/IntelligenceService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetCountryEnergyProfile",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetCountryFacts",
+      "operation_id": "GetCountryFacts",
+      "primary_service": "IntelligenceService",
       "http_method": "GET",
       "canonical_route": "/api/intelligence/v1/get-country-facts",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/IntelligenceService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetCountryFacts",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetCountryIntelBrief",
+      "operation_id": "GetCountryIntelBrief",
+      "primary_service": "IntelligenceService",
       "http_method": "GET",
       "canonical_route": "/api/intelligence/v1/get-country-intel-brief",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/IntelligenceService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetCountryIntelBrief",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetCountryPortActivity",
+      "operation_id": "GetCountryPortActivity",
+      "primary_service": "IntelligenceService",
       "http_method": "GET",
       "canonical_route": "/api/intelligence/v1/get-country-port-activity",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/IntelligenceService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetCountryPortActivity",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetCountryProducts",
+      "operation_id": "GetCountryProducts",
+      "primary_service": "SupplyChainService",
       "http_method": "GET",
       "canonical_route": "/api/supply-chain/v1/get-country-products",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/SupplyChainService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetCountryProducts",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetCountryRisk",
+      "operation_id": "GetCountryRisk",
+      "primary_service": "IntelligenceService",
       "http_method": "GET",
       "canonical_route": "/api/intelligence/v1/get-country-risk",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/IntelligenceService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetCountryRisk",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetCountryStockIndex",
+      "operation_id": "GetCountryStockIndex",
+      "primary_service": "MarketService",
       "http_method": "GET",
       "canonical_route": "/api/market/v1/get-country-stock-index",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/MarketService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetCountryStockIndex",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetCountryVulnerabilities",
+      "operation_id": "GetCountryVulnerabilities",
+      "primary_service": "SupplyChainService",
       "http_method": "GET",
       "canonical_route": "/api/supply-chain/v1/get-country-vulnerabilities",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/SupplyChainService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetCountryVulnerabilities",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetCriticalMinerals",
+      "operation_id": "GetCriticalMinerals",
+      "primary_service": "SupplyChainService",
       "http_method": "GET",
       "canonical_route": "/api/supply-chain/v1/get-critical-minerals",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/SupplyChainService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetCriticalMinerals",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetCrudeInventories",
+      "operation_id": "GetCrudeInventories",
+      "primary_service": "EconomicService",
       "http_method": "GET",
       "canonical_route": "/api/economic/v1/get-crude-inventories",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/EconomicService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetCrudeInventories",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetCustomsRevenue",
+      "operation_id": "GetCustomsRevenue",
+      "primary_service": "TradeService",
       "http_method": "GET",
       "canonical_route": "/api/trade/v1/get-customs-revenue",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/TradeService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetCustomsRevenue",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetDefenseIndustrialBase",
+      "operation_id": "GetDefenseIndustrialBase",
+      "primary_service": "MilitaryService",
       "http_method": "GET",
       "canonical_route": "/api/military/v1/get-defense-industrial-base",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/MilitaryService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetDefenseIndustrialBase",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetDemographicsCapability",
+      "operation_id": "GetDemographicsCapability",
+      "primary_service": "ResilienceService",
       "http_method": "GET",
       "canonical_route": "/api/resilience/v1/get-demographics-capability",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ResilienceService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetDemographicsCapability",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetDisplacementSummary",
+      "operation_id": "GetDisplacementSummary",
+      "primary_service": "DisplacementService",
       "http_method": "GET",
       "canonical_route": "/api/displacement/v1/get-displacement-summary",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/DisplacementService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetDisplacementSummary",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetEcbFxRates",
+      "operation_id": "GetEcbFxRates",
+      "primary_service": "EconomicService",
       "http_method": "GET",
       "canonical_route": "/api/economic/v1/get-ecb-fx-rates",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/EconomicService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetEcbFxRates",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetEconomicCalendar",
+      "operation_id": "GetEconomicCalendar",
+      "primary_service": "EconomicService",
       "http_method": "GET",
       "canonical_route": "/api/economic/v1/get-economic-calendar",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/EconomicService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetEconomicCalendar",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetEconomicStress",
+      "operation_id": "GetEconomicStress",
+      "primary_service": "EconomicService",
       "http_method": "GET",
       "canonical_route": "/api/economic/v1/get-economic-stress",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/EconomicService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetEconomicStress",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetEnergyCapacity",
+      "operation_id": "GetEnergyCapacity",
+      "primary_service": "EconomicService",
       "http_method": "GET",
       "canonical_route": "/api/economic/v1/get-energy-capacity",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/EconomicService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetEnergyCapacity",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetEnergyCrisisPolicies",
+      "operation_id": "GetEnergyCrisisPolicies",
+      "primary_service": "EconomicService",
       "http_method": "GET",
       "canonical_route": "/api/economic/v1/get-energy-crisis-policies",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/EconomicService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetEnergyCrisisPolicies",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetEnergyPrices",
+      "operation_id": "GetEnergyPrices",
+      "primary_service": "EconomicService",
       "http_method": "GET",
       "canonical_route": "/api/economic/v1/get-energy-prices",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/EconomicService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetEnergyPrices",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetEuFsi",
+      "operation_id": "GetEuFsi",
+      "primary_service": "EconomicService",
       "http_method": "GET",
       "canonical_route": "/api/economic/v1/get-eu-fsi",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/EconomicService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetEuFsi",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetEuGasStorage",
+      "operation_id": "GetEuGasStorage",
+      "primary_service": "EconomicService",
       "http_method": "GET",
       "canonical_route": "/api/economic/v1/get-eu-gas-storage",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/EconomicService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetEuGasStorage",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetEuYieldCurve",
+      "operation_id": "GetEuYieldCurve",
+      "primary_service": "EconomicService",
       "http_method": "GET",
       "canonical_route": "/api/economic/v1/get-eu-yield-curve",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/EconomicService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetEuYieldCurve",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetEurostatCountryData",
+      "operation_id": "GetEurostatCountryData",
+      "primary_service": "EconomicService",
       "http_method": "GET",
       "canonical_route": "/api/economic/v1/get-eurostat-country-data",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/EconomicService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetEurostatCountryData",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetFaoFoodPriceIndex",
+      "operation_id": "GetFaoFoodPriceIndex",
+      "primary_service": "EconomicService",
       "http_method": "GET",
       "canonical_route": "/api/economic/v1/get-fao-food-price-index",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/EconomicService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetFaoFoodPriceIndex",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetFearGreedIndex",
+      "operation_id": "GetFearGreedIndex",
+      "primary_service": "MarketService",
       "http_method": "GET",
       "canonical_route": "/api/market/v1/get-fear-greed-index",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/MarketService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetFearGreedIndex",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetFiveFactorScorecard",
+      "operation_id": "GetFiveFactorScorecard",
+      "primary_service": "ScorecardService",
       "http_method": "GET",
       "canonical_route": "/api/scorecard/v1/get-five-factor-scorecard",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ScorecardService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetFiveFactorScorecard",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetFlightStatus",
+      "operation_id": "GetFlightStatus",
+      "primary_service": "AviationService",
       "http_method": "GET",
       "canonical_route": "/api/aviation/v1/get-flight-status",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/AviationService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetFlightStatus",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetFoodStocks",
+      "operation_id": "GetFoodStocks",
+      "primary_service": "ResilienceService",
       "http_method": "GET",
       "canonical_route": "/api/resilience/v1/get-food-stocks",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ResilienceService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetFoodStocks",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetForecastScorecard",
+      "operation_id": "GetForecastScorecard",
+      "primary_service": "ForecastService",
       "http_method": "GET",
       "canonical_route": "/api/forecast/v1/get-forecast-scorecard",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ForecastService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetForecastScorecard",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetForecasts",
+      "operation_id": "GetForecasts",
+      "primary_service": "ForecastService",
       "http_method": "GET",
       "canonical_route": "/api/forecast/v1/get-forecasts",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ForecastService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetForecasts",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetFredSeries",
+      "operation_id": "GetFredSeries",
+      "primary_service": "EconomicService",
       "http_method": "GET",
       "canonical_route": "/api/economic/v1/get-fred-series",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/EconomicService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetFredSeries",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetFredSeriesBatch",
+      "operation_id": "GetFredSeriesBatch",
+      "primary_service": "EconomicService",
       "http_method": "POST",
       "canonical_route": "/api/economic/v1/get-fred-series-batch",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/EconomicService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetFredSeriesBatch",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetFuelShortageDetail",
+      "operation_id": "GetFuelShortageDetail",
+      "primary_service": "SupplyChainService",
       "http_method": "GET",
       "canonical_route": "/api/supply-chain/v1/get-fuel-shortage-detail",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/SupplyChainService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetFuelShortageDetail",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetGdeltTopicTimeline",
+      "operation_id": "GetGdeltTopicTimeline",
+      "primary_service": "IntelligenceService",
       "http_method": "GET",
       "canonical_route": "/api/intelligence/v1/get-gdelt-topic-timeline",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/IntelligenceService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetGdeltTopicTimeline",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetGivingSummary",
+      "operation_id": "GetGivingSummary",
+      "primary_service": "GivingService",
       "http_method": "GET",
       "canonical_route": "/api/giving/v1/get-giving-summary",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/GivingService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetGivingSummary",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetGoldIntelligence",
+      "operation_id": "GetGoldIntelligence",
+      "primary_service": "MarketService",
       "http_method": "GET",
       "canonical_route": "/api/market/v1/get-gold-intelligence",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/MarketService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetGoldIntelligence",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetGovernmentYieldCurve",
+      "operation_id": "GetGovernmentYieldCurve",
+      "primary_service": "EconomicService",
       "http_method": "GET",
       "canonical_route": "/api/economic/v1/get-government-yield-curve",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/EconomicService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetGovernmentYieldCurve",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetHumanitarianSummary",
+      "operation_id": "GetHumanitarianSummary",
+      "primary_service": "ConflictService",
       "http_method": "GET",
       "canonical_route": "/api/conflict/v1/get-humanitarian-summary",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ConflictService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetHumanitarianSummary",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetHumanitarianSummaryBatch",
+      "operation_id": "GetHumanitarianSummaryBatch",
+      "primary_service": "ConflictService",
       "http_method": "POST",
       "canonical_route": "/api/conflict/v1/get-humanitarian-summary-batch",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ConflictService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetHumanitarianSummaryBatch",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetHyperliquidFlow",
+      "operation_id": "GetHyperliquidFlow",
+      "primary_service": "MarketService",
       "http_method": "GET",
       "canonical_route": "/api/market/v1/get-hyperliquid-flow",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/MarketService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetHyperliquidFlow",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetInsiderTransactions",
+      "operation_id": "GetInsiderTransactions",
+      "primary_service": "MarketService",
       "http_method": "GET",
       "canonical_route": "/api/market/v1/get-insider-transactions",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/MarketService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetInsiderTransactions",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetIntelTimeline",
+      "operation_id": "GetIntelTimeline",
+      "primary_service": "IntelligenceService",
       "http_method": "GET",
       "canonical_route": "/api/intelligence/v1/get-intel-timeline",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/IntelligenceService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetIntelTimeline",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetIpGeo",
+      "operation_id": "GetIpGeo",
+      "primary_service": "InfrastructureService",
       "http_method": "GET",
       "canonical_route": "/api/infrastructure/v1/get-ip-geo",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/InfrastructureService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetIpGeo",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetMacroSignals",
+      "operation_id": "GetMacroSignals",
+      "primary_service": "EconomicService",
       "http_method": "GET",
       "canonical_route": "/api/economic/v1/get-macro-signals",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/EconomicService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetMacroSignals",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetMarketBreadthHistory",
+      "operation_id": "GetMarketBreadthHistory",
+      "primary_service": "MarketService",
       "http_method": "GET",
       "canonical_route": "/api/market/v1/get-market-breadth-history",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/MarketService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetMarketBreadthHistory",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetMineralProduction",
+      "operation_id": "GetMineralProduction",
+      "primary_service": "SupplyChainService",
       "http_method": "GET",
       "canonical_route": "/api/supply-chain/v1/get-mineral-production",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/SupplyChainService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetMineralProduction",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetMultiSectorCostShock",
+      "operation_id": "GetMultiSectorCostShock",
+      "primary_service": "SupplyChainService",
       "http_method": "GET",
       "canonical_route": "/api/supply-chain/v1/get-multi-sector-cost-shock",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/SupplyChainService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetMultiSectorCostShock",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetNatGasStorage",
+      "operation_id": "GetNatGasStorage",
+      "primary_service": "EconomicService",
       "http_method": "GET",
       "canonical_route": "/api/economic/v1/get-nat-gas-storage",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/EconomicService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetNatGasStorage",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetNationalDebt",
+      "operation_id": "GetNationalDebt",
+      "primary_service": "EconomicService",
       "http_method": "GET",
       "canonical_route": "/api/economic/v1/get-national-debt",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/EconomicService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetNationalDebt",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetOceanIceData",
+      "operation_id": "GetOceanIceData",
+      "primary_service": "ClimateService",
       "http_method": "GET",
       "canonical_route": "/api/climate/v1/get-ocean-ice-data",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ClimateService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetOceanIceData",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetOilInventories",
+      "operation_id": "GetOilInventories",
+      "primary_service": "EconomicService",
       "http_method": "GET",
       "canonical_route": "/api/economic/v1/get-oil-inventories",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/EconomicService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetOilInventories",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetOilStocksAnalysis",
+      "operation_id": "GetOilStocksAnalysis",
+      "primary_service": "EconomicService",
       "http_method": "GET",
       "canonical_route": "/api/economic/v1/get-oil-stocks-analysis",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/EconomicService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetOilStocksAnalysis",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetPhysicalDivergenceIndex",
+      "operation_id": "GetPhysicalDivergenceIndex",
+      "primary_service": "MarketService",
       "http_method": "GET",
       "canonical_route": "/api/market/v1/get-physical-divergence-index",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/MarketService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetPhysicalDivergenceIndex",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetPhysicalPremiums",
+      "operation_id": "GetPhysicalPremiums",
+      "primary_service": "MarketService",
       "http_method": "GET",
       "canonical_route": "/api/market/v1/get-physical-premiums",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/MarketService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetPhysicalPremiums",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetPipelineDetail",
+      "operation_id": "GetPipelineDetail",
+      "primary_service": "SupplyChainService",
       "http_method": "GET",
       "canonical_route": "/api/supply-chain/v1/get-pipeline-detail",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/SupplyChainService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetPipelineDetail",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetPizzintStatus",
+      "operation_id": "GetPizzintStatus",
+      "primary_service": "IntelligenceService",
       "http_method": "GET",
       "canonical_route": "/api/intelligence/v1/get-pizzint-status",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/IntelligenceService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetPizzintStatus",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetPopulationExposure",
+      "operation_id": "GetPopulationExposure",
+      "primary_service": "DisplacementService",
       "http_method": "GET",
       "canonical_route": "/api/displacement/v1/get-population-exposure",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/DisplacementService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetPopulationExposure",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetRegimeHistory",
+      "operation_id": "GetRegimeHistory",
+      "primary_service": "IntelligenceService",
       "http_method": "GET",
       "canonical_route": "/api/intelligence/v1/get-regime-history",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/IntelligenceService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetRegimeHistory",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetRegionalBrief",
+      "operation_id": "GetRegionalBrief",
+      "primary_service": "IntelligenceService",
       "http_method": "GET",
       "canonical_route": "/api/intelligence/v1/get-regional-brief",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/IntelligenceService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetRegionalBrief",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetRegionalSnapshot",
+      "operation_id": "GetRegionalSnapshot",
+      "primary_service": "IntelligenceService",
       "http_method": "GET",
       "canonical_route": "/api/intelligence/v1/get-regional-snapshot",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/IntelligenceService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetRegionalSnapshot",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetResilienceIndicators",
+      "operation_id": "GetResilienceIndicators",
+      "primary_service": "ResilienceService",
       "http_method": "GET",
       "canonical_route": "/api/resilience/v1/get-resilience-indicators",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ResilienceService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetResilienceIndicators",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetResilienceRanking",
+      "operation_id": "GetResilienceRanking",
+      "primary_service": "ResilienceService",
       "http_method": "GET",
       "canonical_route": "/api/resilience/v1/get-resilience-ranking",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ResilienceService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetResilienceRanking",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetResilienceRuntimeManifest",
+      "operation_id": "GetResilienceRuntimeManifest",
+      "primary_service": "ResilienceService",
       "http_method": "GET",
       "canonical_route": "/api/resilience/v1/get-runtime-manifest",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ResilienceService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetResilienceRuntimeManifest",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetResilienceScore",
+      "operation_id": "GetResilienceScore",
+      "primary_service": "ResilienceService",
       "http_method": "GET",
       "canonical_route": "/api/resilience/v1/get-resilience-score",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ResilienceService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetResilienceScore",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetRiskScores",
+      "operation_id": "GetRiskScores",
+      "primary_service": "IntelligenceService",
       "http_method": "GET",
       "canonical_route": "/api/intelligence/v1/get-risk-scores",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/IntelligenceService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetRiskScores",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetRouteExplorerLane",
+      "operation_id": "GetRouteExplorerLane",
+      "primary_service": "SupplyChainService",
       "http_method": "GET",
       "canonical_route": "/api/supply-chain/v1/get-route-explorer-lane",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/SupplyChainService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetRouteExplorerLane",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetRouteImpact",
+      "operation_id": "GetRouteImpact",
+      "primary_service": "SupplyChainService",
       "http_method": "GET",
       "canonical_route": "/api/supply-chain/v1/get-route-impact",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/SupplyChainService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetRouteImpact",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetScenarioStatus",
+      "operation_id": "GetScenarioStatus",
+      "primary_service": "ScenarioService",
       "http_method": "GET",
       "canonical_route": "/api/scenario/v1/get-scenario-status",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ScenarioService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetScenarioStatus",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetSectorDependency",
+      "operation_id": "GetSectorDependency",
+      "primary_service": "SupplyChainService",
       "http_method": "GET",
       "canonical_route": "/api/supply-chain/v1/get-sector-dependency",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/SupplyChainService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetSectorDependency",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetSectorSummary",
+      "operation_id": "GetSectorSummary",
+      "primary_service": "MarketService",
       "http_method": "GET",
       "canonical_route": "/api/market/v1/get-sector-summary",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/MarketService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetSectorSummary",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetShippingRates",
+      "operation_id": "GetShippingRates",
+      "primary_service": "SupplyChainService",
       "http_method": "GET",
       "canonical_route": "/api/supply-chain/v1/get-shipping-rates",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/SupplyChainService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetShippingRates",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetShippingStress",
+      "operation_id": "GetShippingStress",
+      "primary_service": "SupplyChainService",
       "http_method": "GET",
       "canonical_route": "/api/supply-chain/v1/get-shipping-stress",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/SupplyChainService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetShippingStress",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetSimilarEvents",
+      "operation_id": "GetSimilarEvents",
+      "primary_service": "IntelligenceService",
       "http_method": "POST",
       "canonical_route": "/api/intelligence/v1/get-similar-events",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/IntelligenceService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetSimilarEvents",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetSimulationOutcome",
+      "operation_id": "GetSimulationOutcome",
+      "primary_service": "ForecastService",
       "http_method": "GET",
       "canonical_route": "/api/forecast/v1/get-simulation-outcome",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ForecastService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetSimulationOutcome",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetSimulationPackage",
+      "operation_id": "GetSimulationPackage",
+      "primary_service": "ForecastService",
       "http_method": "GET",
       "canonical_route": "/api/forecast/v1/get-simulation-package",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ForecastService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetSimulationPackage",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetSocialVelocity",
+      "operation_id": "GetSocialVelocity",
+      "primary_service": "IntelligenceService",
       "http_method": "GET",
       "canonical_route": "/api/intelligence/v1/get-social-velocity",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/IntelligenceService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetSocialVelocity",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetStockAnalysisHistory",
+      "operation_id": "GetStockAnalysisHistory",
+      "primary_service": "MarketService",
       "http_method": "GET",
       "canonical_route": "/api/market/v1/get-stock-analysis-history",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/MarketService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetStockAnalysisHistory",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetStorageFacilityDetail",
+      "operation_id": "GetStorageFacilityDetail",
+      "primary_service": "SupplyChainService",
       "http_method": "GET",
       "canonical_route": "/api/supply-chain/v1/get-storage-facility-detail",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/SupplyChainService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetStorageFacilityDetail",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetSummarizeArticleCache",
+      "operation_id": "GetSummarizeArticleCache",
+      "primary_service": "NewsService",
       "http_method": "GET",
       "canonical_route": "/api/news/v1/summarize-article-cache",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/NewsService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetSummarizeArticleCache",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetTariffTrends",
+      "operation_id": "GetTariffTrends",
+      "primary_service": "TradeService",
       "http_method": "GET",
       "canonical_route": "/api/trade/v1/get-tariff-trends",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/TradeService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetTariffTrends",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetTemporalBaseline",
+      "operation_id": "GetTemporalBaseline",
+      "primary_service": "InfrastructureService",
       "http_method": "GET",
       "canonical_route": "/api/infrastructure/v1/get-temporal-baseline",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/InfrastructureService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetTemporalBaseline",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetTheaterPosture",
+      "operation_id": "GetTheaterPosture",
+      "primary_service": "MilitaryService",
       "http_method": "GET",
       "canonical_route": "/api/military/v1/get-theater-posture",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/MilitaryService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetTheaterPosture",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetTorontoSafety",
+      "operation_id": "GetTorontoSafety",
+      "primary_service": "SafetyService",
       "http_method": "GET",
       "canonical_route": "/api/safety/v1/get-toronto-safety",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/SafetyService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetTorontoSafety",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetTradeBarriers",
+      "operation_id": "GetTradeBarriers",
+      "primary_service": "TradeService",
       "http_method": "GET",
       "canonical_route": "/api/trade/v1/get-trade-barriers",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/TradeService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetTradeBarriers",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetTradeFlows",
+      "operation_id": "GetTradeFlows",
+      "primary_service": "TradeService",
       "http_method": "GET",
       "canonical_route": "/api/trade/v1/get-trade-flows",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/TradeService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetTradeFlows",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetTradeRestrictions",
+      "operation_id": "GetTradeRestrictions",
+      "primary_service": "TradeService",
       "http_method": "GET",
       "canonical_route": "/api/trade/v1/get-trade-restrictions",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/TradeService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetTradeRestrictions",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetUSNIFleetReport",
+      "operation_id": "GetUSNIFleetReport",
+      "primary_service": "MilitaryService",
       "http_method": "GET",
       "canonical_route": "/api/military/v1/get-usni-fleet-report",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/MilitaryService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetUSNIFleetReport",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetUsCpiMonthly",
+      "operation_id": "GetUsCpiMonthly",
+      "primary_service": "EconomicService",
       "http_method": "GET",
       "canonical_route": "/api/economic/v1/get-us-cpi-monthly",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/EconomicService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetUsCpiMonthly",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetUsInterestRates",
+      "operation_id": "GetUsInterestRates",
+      "primary_service": "EconomicService",
       "http_method": "GET",
       "canonical_route": "/api/economic/v1/get-us-interest-rates",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/EconomicService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetUsInterestRates",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetUsTreasuryParYieldCurve",
+      "operation_id": "GetUsTreasuryParYieldCurve",
+      "primary_service": "EconomicService",
       "http_method": "GET",
       "canonical_route": "/api/economic/v1/get-us-treasury-par-yield-curve",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/EconomicService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetUsTreasuryParYieldCurve",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetVesselSnapshot",
+      "operation_id": "GetVesselSnapshot",
+      "primary_service": "MaritimeService",
       "http_method": "GET",
       "canonical_route": "/api/maritime/v1/get-vessel-snapshot",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/MaritimeService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetVesselSnapshot",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetWebcamImage",
+      "operation_id": "GetWebcamImage",
+      "primary_service": "WebcamService",
       "http_method": "GET",
       "canonical_route": "/api/webcam/v1/get-webcam-image",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/WebcamService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetWebcamImage",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetWingbitsLiveFlight",
+      "operation_id": "GetWingbitsLiveFlight",
+      "primary_service": "MilitaryService",
       "http_method": "GET",
       "canonical_route": "/api/military/v1/get-wingbits-live-flight",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/MilitaryService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetWingbitsLiveFlight",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetWingbitsStatus",
+      "operation_id": "GetWingbitsStatus",
+      "primary_service": "MilitaryService",
       "http_method": "GET",
       "canonical_route": "/api/military/v1/get-wingbits-status",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/MilitaryService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetWingbitsStatus",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetWorldCpiMonthly",
+      "operation_id": "GetWorldCpiMonthly",
+      "primary_service": "EconomicService",
       "http_method": "GET",
       "canonical_route": "/api/economic/v1/get-world-cpi-monthly",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/EconomicService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetWorldCpiMonthly",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "GetYoutubeLiveStreamInfo",
+      "operation_id": "GetYoutubeLiveStreamInfo",
+      "primary_service": "AviationService",
       "http_method": "GET",
       "canonical_route": "/api/aviation/v1/get-youtube-live-stream-info",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/AviationService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "GetYoutubeLiveStreamInfo",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ImportMonitoredCompanyBatch",
+      "operation_id": "ImportMonitoredCompanyBatch",
+      "primary_service": "CompanyMonitoringService",
       "http_method": "POST",
       "canonical_route": "/api/company-monitoring/v1/import-monitored-company-batch",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/CompanyMonitoringService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ImportMonitoredCompanyBatch",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListAcledEvents",
+      "operation_id": "ListAcledEvents",
+      "primary_service": "ConflictService",
       "http_method": "GET",
       "canonical_route": "/api/conflict/v1/list-acled-events",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ConflictService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListAcledEvents",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListAiTokens",
+      "operation_id": "ListAiTokens",
+      "primary_service": "MarketService",
       "http_method": "GET",
       "canonical_route": "/api/market/v1/list-ai-tokens",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/MarketService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListAiTokens",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListAirQualityAlerts",
+      "operation_id": "ListAirQualityAlerts",
+      "primary_service": "HealthService",
       "http_method": "GET",
       "canonical_route": "/api/health/v1/list-air-quality-alerts",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/HealthService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListAirQualityAlerts",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListAirQualityData",
+      "operation_id": "ListAirQualityData",
+      "primary_service": "ClimateService",
       "http_method": "GET",
       "canonical_route": "/api/climate/v1/list-air-quality-data",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ClimateService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListAirQualityData",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListAirportDelays",
+      "operation_id": "ListAirportDelays",
+      "primary_service": "AviationService",
       "http_method": "GET",
       "canonical_route": "/api/aviation/v1/list-airport-delays",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/AviationService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListAirportDelays",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListAirportFlights",
+      "operation_id": "ListAirportFlights",
+      "primary_service": "AviationService",
       "http_method": "GET",
       "canonical_route": "/api/aviation/v1/list-airport-flights",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/AviationService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListAirportFlights",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListArxivPapers",
+      "operation_id": "ListArxivPapers",
+      "primary_service": "ResearchService",
       "http_method": "GET",
       "canonical_route": "/api/research/v1/list-arxiv-papers",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ResearchService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListArxivPapers",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListAviationNews",
+      "operation_id": "ListAviationNews",
+      "primary_service": "AviationService",
       "http_method": "GET",
       "canonical_route": "/api/aviation/v1/list-aviation-news",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/AviationService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListAviationNews",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListBigMacPrices",
+      "operation_id": "ListBigMacPrices",
+      "primary_service": "EconomicService",
       "http_method": "GET",
       "canonical_route": "/api/economic/v1/list-bigmac-prices",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/EconomicService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListBigMacPrices",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListClimateAnomalies",
+      "operation_id": "ListClimateAnomalies",
+      "primary_service": "ClimateService",
       "http_method": "GET",
       "canonical_route": "/api/climate/v1/list-climate-anomalies",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ClimateService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListClimateAnomalies",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListClimateDisasters",
+      "operation_id": "ListClimateDisasters",
+      "primary_service": "ClimateService",
       "http_method": "GET",
       "canonical_route": "/api/climate/v1/list-climate-disasters",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ClimateService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListClimateDisasters",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListClimateNews",
+      "operation_id": "ListClimateNews",
+      "primary_service": "ClimateService",
       "http_method": "GET",
       "canonical_route": "/api/climate/v1/list-climate-news",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ClimateService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListClimateNews",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListCommodityQuotes",
+      "operation_id": "ListCommodityQuotes",
+      "primary_service": "MarketService",
       "http_method": "GET",
       "canonical_route": "/api/market/v1/list-commodity-quotes",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/MarketService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListCommodityQuotes",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListCompanyEventChanges",
+      "operation_id": "ListCompanyEventChanges",
+      "primary_service": "CompanyMonitoringService",
       "http_method": "GET",
       "canonical_route": "/api/company-monitoring/v1/list-company-event-changes",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/CompanyMonitoringService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListCompanyEventChanges",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListCompanyEventImpacts",
+      "operation_id": "ListCompanyEventImpacts",
+      "primary_service": "CompanyMonitoringService",
       "http_method": "GET",
       "canonical_route": "/api/company-monitoring/v1/list-company-event-impacts",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/CompanyMonitoringService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListCompanyEventImpacts",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListCompanySignals",
+      "operation_id": "ListCompanySignals",
+      "primary_service": "IntelligenceService",
       "http_method": "GET",
       "canonical_route": "/api/intelligence/v1/list-company-signals",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/IntelligenceService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListCompanySignals",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListComtradeFlows",
+      "operation_id": "ListComtradeFlows",
+      "primary_service": "TradeService",
       "http_method": "GET",
       "canonical_route": "/api/trade/v1/list-comtrade-flows",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/TradeService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListComtradeFlows",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListConsumerPriceCategories",
+      "operation_id": "ListConsumerPriceCategories",
+      "primary_service": "ConsumerPricesService",
       "http_method": "GET",
       "canonical_route": "/api/consumer-prices/v1/list-consumer-price-categories",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ConsumerPricesService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListConsumerPriceCategories",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListConsumerPriceMovers",
+      "operation_id": "ListConsumerPriceMovers",
+      "primary_service": "ConsumerPricesService",
       "http_method": "GET",
       "canonical_route": "/api/consumer-prices/v1/list-consumer-price-movers",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ConsumerPricesService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListConsumerPriceMovers",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListCountryHeadlines",
+      "operation_id": "ListCountryHeadlines",
+      "primary_service": "NewsService",
       "http_method": "GET",
       "canonical_route": "/api/news/v1/list-country-headlines",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/NewsService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListCountryHeadlines",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListCrossSourceSignals",
+      "operation_id": "ListCrossSourceSignals",
+      "primary_service": "IntelligenceService",
       "http_method": "GET",
       "canonical_route": "/api/intelligence/v1/list-cross-source-signals",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/IntelligenceService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListCrossSourceSignals",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListCryptoQuotes",
+      "operation_id": "ListCryptoQuotes",
+      "primary_service": "MarketService",
       "http_method": "GET",
       "canonical_route": "/api/market/v1/list-crypto-quotes",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/MarketService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListCryptoQuotes",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListCryptoSectors",
+      "operation_id": "ListCryptoSectors",
+      "primary_service": "MarketService",
       "http_method": "GET",
       "canonical_route": "/api/market/v1/list-crypto-sectors",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/MarketService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListCryptoSectors",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListCyberThreats",
+      "operation_id": "ListCyberThreats",
+      "primary_service": "CyberService",
       "http_method": "GET",
       "canonical_route": "/api/cyber/v1/list-cyber-threats",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/CyberService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListCyberThreats",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListDefensePatents",
+      "operation_id": "ListDefensePatents",
+      "primary_service": "MilitaryService",
       "http_method": "GET",
       "canonical_route": "/api/military/v1/list-defense-patents",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/MilitaryService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListDefensePatents",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListDefiTokens",
+      "operation_id": "ListDefiTokens",
+      "primary_service": "MarketService",
       "http_method": "GET",
       "canonical_route": "/api/market/v1/list-defi-tokens",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/MarketService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListDefiTokens",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListDiseaseOutbreaks",
+      "operation_id": "ListDiseaseOutbreaks",
+      "primary_service": "HealthService",
       "http_method": "GET",
       "canonical_route": "/api/health/v1/list-disease-outbreaks",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/HealthService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListDiseaseOutbreaks",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListEarningsCalendar",
+      "operation_id": "ListEarningsCalendar",
+      "primary_service": "MarketService",
       "http_method": "GET",
       "canonical_route": "/api/market/v1/list-earnings-calendar",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/MarketService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListEarningsCalendar",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListEarthquakes",
+      "operation_id": "ListEarthquakes",
+      "primary_service": "SeismologyService",
       "http_method": "GET",
       "canonical_route": "/api/seismology/v1/list-earthquakes",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/SeismologyService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListEarthquakes",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListEnergyDisruptions",
+      "operation_id": "ListEnergyDisruptions",
+      "primary_service": "SupplyChainService",
       "http_method": "GET",
       "canonical_route": "/api/supply-chain/v1/list-energy-disruptions",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/SupplyChainService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListEnergyDisruptions",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListEtfFlows",
+      "operation_id": "ListEtfFlows",
+      "primary_service": "MarketService",
       "http_method": "GET",
       "canonical_route": "/api/market/v1/list-etf-flows",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/MarketService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListEtfFlows",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListFeedDigest",
+      "operation_id": "ListFeedDigest",
+      "primary_service": "NewsService",
       "http_method": "GET",
       "canonical_route": "/api/news/v1/list-feed-digest",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/NewsService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListFeedDigest",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListFireDetections",
+      "operation_id": "ListFireDetections",
+      "primary_service": "WildfireService",
       "http_method": "GET",
       "canonical_route": "/api/wildfire/v1/list-fire-detections",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/WildfireService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListFireDetections",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListFiveFactorScorecards",
+      "operation_id": "ListFiveFactorScorecards",
+      "primary_service": "ScorecardService",
       "http_method": "GET",
       "canonical_route": "/api/scorecard/v1/list-five-factor-scorecards",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ScorecardService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListFiveFactorScorecards",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListFuelPrices",
+      "operation_id": "ListFuelPrices",
+      "primary_service": "EconomicService",
       "http_method": "GET",
       "canonical_route": "/api/economic/v1/list-fuel-prices",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/EconomicService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListFuelPrices",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListFuelShortages",
+      "operation_id": "ListFuelShortages",
+      "primary_service": "SupplyChainService",
       "http_method": "GET",
       "canonical_route": "/api/supply-chain/v1/list-fuel-shortages",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/SupplyChainService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListFuelShortages",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListGlobalTenders",
+      "operation_id": "ListGlobalTenders",
+      "primary_service": "EconomicService",
       "http_method": "GET",
       "canonical_route": "/api/economic/v1/list-global-tenders",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/EconomicService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListGlobalTenders",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListGpsInterference",
+      "operation_id": "ListGpsInterference",
+      "primary_service": "IntelligenceService",
       "http_method": "GET",
       "canonical_route": "/api/intelligence/v1/list-gps-interference",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/IntelligenceService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListGpsInterference",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListGroceryBasketPrices",
+      "operation_id": "ListGroceryBasketPrices",
+      "primary_service": "EconomicService",
       "http_method": "GET",
       "canonical_route": "/api/economic/v1/list-grocery-basket-prices",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/EconomicService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListGroceryBasketPrices",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListGulfQuotes",
+      "operation_id": "ListGulfQuotes",
+      "primary_service": "MarketService",
       "http_method": "GET",
       "canonical_route": "/api/market/v1/list-gulf-quotes",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/MarketService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListGulfQuotes",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListHackernewsItems",
+      "operation_id": "ListHackernewsItems",
+      "primary_service": "ResearchService",
       "http_method": "GET",
       "canonical_route": "/api/research/v1/list-hackernews-items",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ResearchService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListHackernewsItems",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListInternetDdosAttacks",
+      "operation_id": "ListInternetDdosAttacks",
+      "primary_service": "InfrastructureService",
       "http_method": "GET",
       "canonical_route": "/api/infrastructure/v1/list-internet-ddos-attacks",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/InfrastructureService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListInternetDdosAttacks",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListInternetOutages",
+      "operation_id": "ListInternetOutages",
+      "primary_service": "InfrastructureService",
       "http_method": "GET",
       "canonical_route": "/api/infrastructure/v1/list-internet-outages",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/InfrastructureService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListInternetOutages",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListInternetTrafficAnomalies",
+      "operation_id": "ListInternetTrafficAnomalies",
+      "primary_service": "InfrastructureService",
       "http_method": "GET",
       "canonical_route": "/api/infrastructure/v1/list-internet-traffic-anomalies",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/InfrastructureService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListInternetTrafficAnomalies",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListIranEvents",
+      "operation_id": "ListIranEvents",
+      "primary_service": "ConflictService",
       "http_method": "GET",
       "canonical_route": "/api/conflict/v1/list-iran-events",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ConflictService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListIranEvents",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListMarketImplications",
+      "operation_id": "ListMarketImplications",
+      "primary_service": "IntelligenceService",
       "http_method": "GET",
       "canonical_route": "/api/intelligence/v1/list-market-implications",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/IntelligenceService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListMarketImplications",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListMarketQuotes",
+      "operation_id": "ListMarketQuotes",
+      "primary_service": "MarketService",
       "http_method": "GET",
       "canonical_route": "/api/market/v1/list-market-quotes",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/MarketService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListMarketQuotes",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListMaterialEvents",
+      "operation_id": "ListMaterialEvents",
+      "primary_service": "IntelligenceService",
       "http_method": "GET",
       "canonical_route": "/api/intelligence/v1/list-material-events",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/IntelligenceService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListMaterialEvents",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListMilitaryBases",
+      "operation_id": "ListMilitaryBases",
+      "primary_service": "MilitaryService",
       "http_method": "GET",
       "canonical_route": "/api/military/v1/list-military-bases",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/MilitaryService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListMilitaryBases",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListMilitaryFlights",
+      "operation_id": "ListMilitaryFlights",
+      "primary_service": "MilitaryService",
       "http_method": "GET",
       "canonical_route": "/api/military/v1/list-military-flights",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/MilitaryService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListMilitaryFlights",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListMonitoredCompanies",
+      "operation_id": "ListMonitoredCompanies",
+      "primary_service": "CompanyMonitoringService",
       "http_method": "GET",
       "canonical_route": "/api/company-monitoring/v1/list-monitored-companies",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/CompanyMonitoringService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListMonitoredCompanies",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListNaturalEvents",
+      "operation_id": "ListNaturalEvents",
+      "primary_service": "NaturalService",
       "http_method": "GET",
       "canonical_route": "/api/natural/v1/list-natural-events",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/NaturalService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListNaturalEvents",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListNavigationalWarnings",
+      "operation_id": "ListNavigationalWarnings",
+      "primary_service": "MaritimeService",
       "http_method": "GET",
       "canonical_route": "/api/maritime/v1/list-navigational-warnings",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/MaritimeService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListNavigationalWarnings",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListOrefAlerts",
+      "operation_id": "ListOrefAlerts",
+      "primary_service": "IntelligenceService",
       "http_method": "GET",
       "canonical_route": "/api/intelligence/v1/list-oref-alerts",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/IntelligenceService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListOrefAlerts",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListOtherTokens",
+      "operation_id": "ListOtherTokens",
+      "primary_service": "MarketService",
       "http_method": "GET",
       "canonical_route": "/api/market/v1/list-other-tokens",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/MarketService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListOtherTokens",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListPipelines",
+      "operation_id": "ListPipelines",
+      "primary_service": "SupplyChainService",
       "http_method": "GET",
       "canonical_route": "/api/supply-chain/v1/list-pipelines",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/SupplyChainService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListPipelines",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListPositiveGeoEvents",
+      "operation_id": "ListPositiveGeoEvents",
+      "primary_service": "PositiveEventsService",
       "http_method": "GET",
       "canonical_route": "/api/positive-events/v1/list-positive-geo-events",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/PositiveEventsService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListPositiveGeoEvents",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListPredictionMarkets",
+      "operation_id": "ListPredictionMarkets",
+      "primary_service": "PredictionService",
       "http_method": "GET",
       "canonical_route": "/api/prediction/v1/list-prediction-markets",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/PredictionService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListPredictionMarkets",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListRadiationObservations",
+      "operation_id": "ListRadiationObservations",
+      "primary_service": "RadiationService",
       "http_method": "GET",
       "canonical_route": "/api/radiation/v1/list-radiation-observations",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/RadiationService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListRadiationObservations",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListRetailerPriceSpreads",
+      "operation_id": "ListRetailerPriceSpreads",
+      "primary_service": "ConsumerPricesService",
       "http_method": "GET",
       "canonical_route": "/api/consumer-prices/v1/list-retailer-price-spreads",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ConsumerPricesService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListRetailerPriceSpreads",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListSanctionsPressure",
+      "operation_id": "ListSanctionsPressure",
+      "primary_service": "SanctionsService",
       "http_method": "GET",
       "canonical_route": "/api/sanctions/v1/list-sanctions-pressure",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/SanctionsService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListSanctionsPressure",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListSatellites",
+      "operation_id": "ListSatellites",
+      "primary_service": "IntelligenceService",
       "http_method": "GET",
       "canonical_route": "/api/intelligence/v1/list-satellites",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/IntelligenceService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListSatellites",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListScenarioTemplates",
+      "operation_id": "ListScenarioTemplates",
+      "primary_service": "ScenarioService",
       "http_method": "GET",
       "canonical_route": "/api/scenario/v1/list-scenario-templates",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ScenarioService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListScenarioTemplates",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListSecurityAdvisories",
+      "operation_id": "ListSecurityAdvisories",
+      "primary_service": "IntelligenceService",
       "http_method": "GET",
       "canonical_route": "/api/intelligence/v1/list-security-advisories",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/IntelligenceService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListSecurityAdvisories",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListServiceStatuses",
+      "operation_id": "ListServiceStatuses",
+      "primary_service": "InfrastructureService",
       "http_method": "GET",
       "canonical_route": "/api/infrastructure/v1/list-service-statuses",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/InfrastructureService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListServiceStatuses",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListStablecoinMarkets",
+      "operation_id": "ListStablecoinMarkets",
+      "primary_service": "MarketService",
       "http_method": "GET",
       "canonical_route": "/api/market/v1/list-stablecoin-markets",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/MarketService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListStablecoinMarkets",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListStorageFacilities",
+      "operation_id": "ListStorageFacilities",
+      "primary_service": "SupplyChainService",
       "http_method": "GET",
       "canonical_route": "/api/supply-chain/v1/list-storage-facilities",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/SupplyChainService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListStorageFacilities",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListStoredStockBacktests",
+      "operation_id": "ListStoredStockBacktests",
+      "primary_service": "MarketService",
       "http_method": "GET",
       "canonical_route": "/api/market/v1/list-stored-stock-backtests",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/MarketService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListStoredStockBacktests",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListTechEvents",
+      "operation_id": "ListTechEvents",
+      "primary_service": "ResearchService",
       "http_method": "GET",
       "canonical_route": "/api/research/v1/list-tech-events",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ResearchService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListTechEvents",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListTelegramFeed",
+      "operation_id": "ListTelegramFeed",
+      "primary_service": "IntelligenceService",
       "http_method": "GET",
       "canonical_route": "/api/intelligence/v1/list-telegram-feed",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/IntelligenceService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListTelegramFeed",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListTemporalAnomalies",
+      "operation_id": "ListTemporalAnomalies",
+      "primary_service": "InfrastructureService",
       "http_method": "GET",
       "canonical_route": "/api/infrastructure/v1/list-temporal-anomalies",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/InfrastructureService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListTemporalAnomalies",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListThermalEscalations",
+      "operation_id": "ListThermalEscalations",
+      "primary_service": "ThermalService",
       "http_method": "GET",
       "canonical_route": "/api/thermal/v1/list-thermal-escalations",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ThermalService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListThermalEscalations",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListTrendingRepos",
+      "operation_id": "ListTrendingRepos",
+      "primary_service": "ResearchService",
       "http_method": "GET",
       "canonical_route": "/api/research/v1/list-trending-repos",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ResearchService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListTrendingRepos",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListUcdpEvents",
+      "operation_id": "ListUcdpEvents",
+      "primary_service": "ConflictService",
       "http_method": "GET",
       "canonical_route": "/api/conflict/v1/list-ucdp-events",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ConflictService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListUcdpEvents",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListUnrestEvents",
+      "operation_id": "ListUnrestEvents",
+      "primary_service": "UnrestService",
       "http_method": "GET",
       "canonical_route": "/api/unrest/v1/list-unrest-events",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/UnrestService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListUnrestEvents",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListVulnerabilityRankings",
+      "operation_id": "ListVulnerabilityRankings",
+      "primary_service": "SupplyChainService",
       "http_method": "GET",
       "canonical_route": "/api/supply-chain/v1/list-vulnerability-rankings",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/SupplyChainService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListVulnerabilityRankings",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListWebcams",
+      "operation_id": "ListWebcams",
+      "primary_service": "WebcamService",
       "http_method": "GET",
       "canonical_route": "/api/webcam/v1/list-webcams",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/WebcamService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListWebcams",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListWebhooks",
+      "operation_id": "ListWebhooks",
+      "primary_service": "ShippingV2Service",
       "http_method": "GET",
       "canonical_route": "/api/v2/shipping/webhooks",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ShippingV2Service.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListWebhooks",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListWorldBankIndicators",
+      "operation_id": "ListWorldBankIndicators",
+      "primary_service": "EconomicService",
       "http_method": "GET",
       "canonical_route": "/api/economic/v1/list-world-bank-indicators",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/EconomicService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListWorldBankIndicators",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListWsbTickers",
+      "operation_id": "ListWsbTickers",
+      "primary_service": "IntelligenceService",
       "http_method": "GET",
       "canonical_route": "/api/intelligence/v1/list-wsb-tickers",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/IntelligenceService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListWsbTickers",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ListXFeed",
+      "operation_id": "ListXFeed",
+      "primary_service": "IntelligenceService",
       "http_method": "GET",
       "canonical_route": "/api/intelligence/v1/list-x-feed",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/IntelligenceService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ListXFeed",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "LookupSanctionEntity",
+      "operation_id": "LookupSanctionEntity",
+      "primary_service": "SanctionsService",
       "http_method": "GET",
       "canonical_route": "/api/sanctions/v1/lookup-sanction-entity",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/SanctionsService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "LookupSanctionEntity",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "RecordBaselineSnapshot",
+      "operation_id": "RecordBaselineSnapshot",
+      "primary_service": "InfrastructureService",
       "http_method": "POST",
       "canonical_route": "/api/infrastructure/v1/record-baseline-snapshot",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/InfrastructureService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "RecordBaselineSnapshot",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "RegisterInterest",
+      "operation_id": "RegisterInterest",
+      "primary_service": "LeadsService",
       "http_method": "POST",
       "canonical_route": "/api/leads/v1/register-interest",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/LeadsService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "RegisterInterest",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "RegisterWebhook",
+      "operation_id": "RegisterWebhook",
+      "primary_service": "ShippingV2Service",
       "http_method": "POST",
       "canonical_route": "/api/v2/shipping/webhooks",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ShippingV2Service.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "RegisterWebhook",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "ReverseGeocode",
+      "operation_id": "ReverseGeocode",
+      "primary_service": "InfrastructureService",
       "http_method": "GET",
       "canonical_route": "/api/infrastructure/v1/reverse-geocode",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/InfrastructureService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "ReverseGeocode",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "RouteIntelligence",
+      "operation_id": "RouteIntelligence",
+      "primary_service": "ShippingV2Service",
       "http_method": "GET",
       "canonical_route": "/api/v2/shipping/route-intelligence",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ShippingV2Service.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "RouteIntelligence",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "RunScenario",
+      "operation_id": "RunScenario",
+      "primary_service": "ScenarioService",
       "http_method": "POST",
       "canonical_route": "/api/scenario/v1/run-scenario",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ScenarioService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "RunScenario",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "SearchFlightPrices",
+      "operation_id": "SearchFlightPrices",
+      "primary_service": "AviationService",
       "http_method": "GET",
       "canonical_route": "/api/aviation/v1/search-flight-prices",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/AviationService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "SearchFlightPrices",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "SearchGdeltDocuments",
+      "operation_id": "SearchGdeltDocuments",
+      "primary_service": "IntelligenceService",
       "http_method": "GET",
       "canonical_route": "/api/intelligence/v1/search-gdelt-documents",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/IntelligenceService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "SearchGdeltDocuments",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "SearchGoogleDates",
+      "operation_id": "SearchGoogleDates",
+      "primary_service": "AviationService",
       "http_method": "GET",
       "canonical_route": "/api/aviation/v1/search-google-dates",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/AviationService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "SearchGoogleDates",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "SearchGoogleFlights",
+      "operation_id": "SearchGoogleFlights",
+      "primary_service": "AviationService",
       "http_method": "GET",
       "canonical_route": "/api/aviation/v1/search-google-flights",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/AviationService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "SearchGoogleFlights",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "SearchImagery",
+      "operation_id": "SearchImagery",
+      "primary_service": "ImageryService",
       "http_method": "GET",
       "canonical_route": "/api/imagery/v1/search-imagery",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ImageryService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "SearchImagery",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "SearchIntelHistory",
+      "operation_id": "SearchIntelHistory",
+      "primary_service": "IntelligenceService",
       "http_method": "POST",
       "canonical_route": "/api/intelligence/v1/search-intel-history",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/IntelligenceService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "SearchIntelHistory",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "SearchSecFilings",
+      "operation_id": "SearchSecFilings",
+      "primary_service": "IntelligenceService",
       "http_method": "GET",
       "canonical_route": "/api/intelligence/v1/search-sec-filings",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/IntelligenceService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "SearchSecFilings",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "SetMonitoredCompanyState",
+      "operation_id": "SetMonitoredCompanyState",
+      "primary_service": "CompanyMonitoringService",
       "http_method": "POST",
       "canonical_route": "/api/company-monitoring/v1/set-monitored-company-state",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/CompanyMonitoringService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "SetMonitoredCompanyState",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "SubmitContact",
+      "operation_id": "SubmitContact",
+      "primary_service": "LeadsService",
       "http_method": "POST",
       "canonical_route": "/api/leads/v1/submit-contact",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/LeadsService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "SubmitContact",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "SummarizeArticle",
+      "operation_id": "SummarizeArticle",
+      "primary_service": "NewsService",
       "http_method": "POST",
       "canonical_route": "/api/news/v1/summarize-article",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/NewsService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "SummarizeArticle",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "TrackAircraft",
+      "operation_id": "TrackAircraft",
+      "primary_service": "AviationService",
       "http_method": "GET",
       "canonical_route": "/api/aviation/v1/track-aircraft",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/AviationService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "TrackAircraft",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "TriggerSimulation",
+      "operation_id": "TriggerSimulation",
+      "primary_service": "ForecastService",
       "http_method": "POST",
       "canonical_route": "/api/forecast/v1/trigger-simulation",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/ForecastService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "TriggerSimulation",
+      "declaration_count": 2
     },
     {
-      "service": "worldmonitor",
-      "operation": "UpdateMonitoredCompany",
+      "operation_id": "UpdateMonitoredCompany",
+      "primary_service": "CompanyMonitoringService",
       "http_method": "POST",
       "canonical_route": "/api/company-monitoring/v1/update-monitored-company",
-      "source_contract_path": "docs/api/worldmonitor.openapi.yaml"
+      "specific_contract_path": "docs/api/CompanyMonitoringService.openapi.yaml",
+      "aggregate_contract_path": "docs/api/worldmonitor.openapi.yaml",
+      "dedup_identity": "UpdateMonitoredCompany",
+      "declaration_count": 2
     }
   ]
 }

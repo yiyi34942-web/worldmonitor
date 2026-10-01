@@ -140,7 +140,7 @@
       "source_id": "SRC_AIS",
       "publisher_name": "Automatic Identification System Aggregators",
       "provider_name": "AIS_HUB",
-      "host": "ais.worldmonitor.dev",
+      "host": null,
       "source_type": "real_time_tracking",
       "transport": "RELAY",
       "source_origin": "WM_CURATED",
@@ -173,7 +173,7 @@
       "reference_locations": [
         "ais.worldmonitor.dev/stream"
       ],
-      "verification_state": "INFERRED",
+      "verification_state": "SOURCE_HOST_UNKNOWN",
       "original_publisher": "Multiple AIS Providers",
       "provider": "WorldMonitor",
       "collector": "WM_AIS_SERVICE"
@@ -268,7 +268,7 @@
       "source_id": "SRC_IRAN_EVENTS",
       "publisher_name": "Iran Events Tracker",
       "provider_name": "WM_IRAN_DESK",
-      "host": "iran.worldmonitor.dev",
+      "host": null,
       "source_type": "event_tracker",
       "transport": "RELAY",
       "source_origin": "WM_CURATED",
@@ -302,7 +302,7 @@
       "reference_locations": [
         "iran.worldmonitor.dev/api"
       ],
-      "verification_state": "INFERRED",
+      "verification_state": "SOURCE_HOST_UNKNOWN",
       "original_publisher": null,
       "provider": "WorldMonitor",
       "collector": "WM_IRAN_DESK"
@@ -478,7 +478,7 @@
       "source_id": "SRC_NEWS_API",
       "publisher_name": "Aggregated News Providers",
       "provider_name": "NEWS_AGGREGATOR",
-      "host": "news.worldmonitor.dev",
+      "host": null,
       "source_type": "news_aggregator",
       "transport": "RELAY",
       "source_origin": "WM_CURATED",
@@ -519,7 +519,7 @@
       "reference_locations": [
         "news.worldmonitor.dev/api/v1"
       ],
-      "verification_state": "INFERRED",
+      "verification_state": "SOURCE_HOST_UNKNOWN",
       "original_publisher": "Multiple News Publishers",
       "provider": "WorldMonitor",
       "collector": "WM_NEWS_AGGREGATOR"
@@ -664,7 +664,7 @@
       "source_id": "SRC_RUSSIAN_ENERGY",
       "publisher_name": "Russian Energy Data Trackers",
       "provider_name": "RU_ENERGY_DESK",
-      "host": "russia.worldmonitor.dev",
+      "host": null,
       "source_type": "specialized_tracker",
       "transport": "RELAY",
       "source_origin": "WM_CURATED",
@@ -700,7 +700,7 @@
       "reference_locations": [
         "russia.worldmonitor.dev/api"
       ],
-      "verification_state": "SOURCE_LINEAGE_UNKNOWN",
+      "verification_state": "SOURCE_HOST_UNKNOWN",
       "original_publisher": null,
       "provider": "WorldMonitor",
       "collector": "WM_RUSSIA_DESK"
@@ -709,7 +709,7 @@
       "source_id": "SRC_MENA_ENERGY",
       "publisher_name": "MENA Energy Intelligence",
       "provider_name": "MENA_DESK",
-      "host": "mena.worldmonitor.dev",
+      "host": null,
       "source_type": "specialized_tracker",
       "transport": "RELAY",
       "source_origin": "WM_CURATED",
@@ -743,7 +743,7 @@
       "reference_locations": [
         "mena.worldmonitor.dev/api"
       ],
-      "verification_state": "SOURCE_LINEAGE_UNKNOWN",
+      "verification_state": "SOURCE_HOST_UNKNOWN",
       "original_publisher": null,
       "provider": "WorldMonitor",
       "collector": "WM_MENA_DESK"
@@ -752,7 +752,7 @@
       "source_id": "SRC_SHIPPING_V2",
       "publisher_name": "WorldMonitor Shipping V2",
       "provider_name": "WM_SHIPPING",
-      "host": "shipping.worldmonitor.dev",
+      "host": null,
       "source_type": "shipping_intelligence",
       "transport": "API",
       "source_origin": "WM_CURATED",
@@ -784,7 +784,7 @@
       "reference_locations": [
         "shipping.worldmonitor.dev/v2"
       ],
-      "verification_state": "INFERRED",
+      "verification_state": "SOURCE_HOST_UNKNOWN",
       "original_publisher": "Multiple Shipping Data Providers",
       "provider": "WorldMonitor",
       "collector": "WM_SHIPPING_V2"
@@ -793,7 +793,7 @@
       "source_id": "SRC_MARITIME_WARN",
       "publisher_name": "Navigational Warnings Aggregator",
       "provider_name": "MARITIME_WARN_DESK",
-      "host": "maritime.worldmonitor.dev",
+      "host": null,
       "source_type": "navigational_safety",
       "transport": "RELAY",
       "source_origin": "WM_CURATED",
@@ -824,7 +824,7 @@
       "reference_locations": [
         "maritime.worldmonitor.dev/warnings"
       ],
-      "verification_state": "INFERRED",
+      "verification_state": "SOURCE_HOST_UNKNOWN",
       "original_publisher": "Multiple Maritime Authorities",
       "provider": "WorldMonitor",
       "collector": "WM_MARITIME_WARN"

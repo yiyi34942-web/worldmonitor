@@ -1,41 +1,35 @@
 # Validation Report
 
-Generated: 2026-10-01T15:26:45Z
+Generated: 2026-10-01T16:42:29Z
 
-## Overall: VALID
-- Errors: 0
-- Warnings: 118
+## Summary
 
-### Warnings
-- api:GetAirportOpsSummary: ACTIVE API has no source_refs
-- api:GetCarrierOps: ACTIVE API has no source_refs
-- api:GetFlightStatus: ACTIVE API has no source_refs
-- api:GetYoutubeLiveStreamInfo: ACTIVE API has no source_refs
-- api:ListAirportDelays: ACTIVE API has no source_refs
-- api:ListAirportFlights: ACTIVE API has no source_refs
-- api:ListAviationNews: ACTIVE API has no source_refs
-- api:SearchFlightPrices: ACTIVE API has no source_refs
-- api:SearchGoogleDates: ACTIVE API has no source_refs
-- api:SearchGoogleFlights: ACTIVE API has no source_refs
-- api:TrackAircraft: ACTIVE API has no source_refs
-- api:ExecuteBatch: ACTIVE API has no source_refs
-- api:GetCo2Monitoring: ACTIVE API has no source_refs
-- api:GetOceanIceData: ACTIVE API has no source_refs
-- api:ListAirQualityData: ACTIVE API has no source_refs
-- api:ListClimateAnomalies: ACTIVE API has no source_refs
-- api:ListClimateDisasters: ACTIVE API has no source_refs
-- api:ListClimateNews: ACTIVE API has no source_refs
-- api:CreateMonitoredCompany: ACTIVE API has no source_refs
-- api:GetCompanyCoverage: ACTIVE API has no source_refs
+- Total methodologies: 31
+- Total APIs: 237
+- Total sources: 20
+- Total profiles: 10
+- Total roles: 5
+- Method-API bindings: 123
 
-### Counts
-- roles: 5
-- methodologies: 31
-- profiles: 10
-- apis: 237
-- sources: 20
-- intelligence_catalog: 15
-- contracts: 59
-- outputs: 9
-- delivery_semantics: 9
-- data_states: 11
+## Methodology Execution Classes
+
+| execution_class | count |
+|---|---|
+| COMPOSITE | 3 |
+| DIRECT_API | 22 |
+| GOVERNANCE | 2 |
+| META | 1 |
+| NONCALLABLE | 3 |
+
+## Source Verification States
+
+| verification_state | count |
+|---|---|
+| INFERRED | 13 |
+| SOURCE_HOST_UNKNOWN | 7 |
+
+## Design-Owned A-Fields
+
+- a16_role_bound VERIFIED: 237/237
+- a17_methodology_bound VERIFIED: 237/237
+- a18_profile_bound VERIFIED: 237/237

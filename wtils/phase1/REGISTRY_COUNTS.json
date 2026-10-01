@@ -1,14 +1,13 @@
 {
-  "generated_at": "2026-10-01T15:26:45Z",
+  "generated_at": "2026-10-01T16:49:16Z",
   "methodologies": 31,
   "apis": 237,
   "sources": 20,
   "profiles": 10,
-  "roles": 5,
-  "inventory_total": 474,
-  "inventory_unique_operations": 237,
-  "method_api_bindings": 58,
-  "profile_method_bindings": 41,
+  "roles": 6,
+  "method_api_bindings": 123,
+  "profile_methodology_bindings": 41,
   "profile_role_bindings": 33,
-  "api_source_bindings": 30
+  "api_source_bindings": 30,
+  "role_methodology_bindings": 25
 }

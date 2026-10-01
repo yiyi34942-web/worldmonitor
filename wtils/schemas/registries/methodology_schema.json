@@ -8,9 +8,7 @@
   "required": [
     "methodology_id",
     "name",
-    "classification",
     "version",
-    "valid_from",
     "valid_to",
     "primary_roles",
     "secondary_roles",
@@ -33,7 +31,10 @@
     "weknora_eligible",
     "methodology_version_hash",
     "rebaseline_required",
-    "callable"
+    "callable",
+    "provenance_class",
+    "execution_class",
+    "valid_from_state"
   ],
   "properties": {
     "methodology_id": {
@@ -46,23 +47,24 @@
       "minLength": 1,
       "description": "Human-readable methodology name"
     },
-    "classification": {
-      "type": "string",
-      "enum": ["OFFICIAL_DIRECT", "OFFICIAL_COMPOSITE", "WTILS_GOVERNANCE", "UNMAPPED_BLOCKED"],
-      "description": "Classification category for this methodology"
-    },
     "version": {
       "type": "string",
       "pattern": "^\\d+\\.\\d+\\.\\d+$",
       "description": "Semantic version"
     },
     "valid_from": {
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "format": "date",
       "description": "Date this methodology version became effective"
     },
     "valid_to": {
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "format": "date",
       "description": "Date this methodology version expires (null = currently active)"
     },
@@ -150,7 +152,10 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["rule_id", "description"],
+        "required": [
+          "rule_id",
+          "description"
+        ],
         "additionalProperties": true,
         "properties": {
           "rule_id": {
@@ -169,7 +174,10 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["threshold_id", "value"],
+        "required": [
+          "threshold_id",
+          "value"
+        ],
         "additionalProperties": true,
         "properties": {
           "threshold_id": {
@@ -177,7 +185,10 @@
             "minLength": 1
           },
           "value": {
-            "type": ["number", "string"]
+            "type": [
+              "number",
+              "string"
+            ]
           }
         }
       },
@@ -193,7 +204,12 @@
     },
     "freshness_requirement": {
       "type": "object",
-      "required": ["max_age_seconds", "strategy", "stale_threshold_seconds", "degraded_threshold_seconds"],
+      "required": [
+        "max_age_seconds",
+        "strategy",
+        "stale_threshold_seconds",
+        "degraded_threshold_seconds"
+      ],
       "additionalProperties": false,
       "properties": {
         "max_age_seconds": {
@@ -203,7 +219,13 @@
         },
         "strategy": {
           "type": "string",
-          "enum": ["FRESH_FIRST", "STALE_OK", "DEGRADED_OK", "ANY_AVAILABLE", "REQUIRE_FRESH"],
+          "enum": [
+            "FRESH_FIRST",
+            "STALE_OK",
+            "DEGRADED_OK",
+            "ANY_AVAILABLE",
+            "REQUIRE_FRESH"
+          ],
           "description": "Freshness strategy"
         },
         "stale_threshold_seconds": {
@@ -228,7 +250,11 @@
     },
     "point_in_time_requirement": {
       "type": "object",
-      "required": ["required", "as_of_field", "default_lookback"],
+      "required": [
+        "required",
+        "as_of_field",
+        "default_lookback"
+      ],
       "additionalProperties": false,
       "properties": {
         "required": {
@@ -236,11 +262,17 @@
           "description": "Whether point-in-time semantics are required"
         },
         "as_of_field": {
-          "type": ["string", "null"],
+          "type": [
+            "string",
+            "null"
+          ],
           "description": "Field name for as-of timestamp, null if not required"
         },
         "default_lookback": {
-          "type": ["string", "null"],
+          "type": [
+            "string",
+            "null"
+          ],
           "description": "Default lookback period (e.g. 7d, 30d), null if not applicable"
         }
       }
@@ -269,6 +301,38 @@
     "callable": {
       "type": "boolean",
       "description": "Whether this methodology can be directly invoked (false for META types like C05)"
+    },
+    "provenance_class": {
+      "type": "string",
+      "enum": [
+        "OFFICIAL",
+        "WTILS_EXTENSION"
+      ],
+      "description": "Provenance classification: OFFICIAL for canonical methods, WTILS_EXTENSION for user-defined"
+    },
+    "execution_class": {
+      "type": "string",
+      "enum": [
+        "DIRECT_API",
+        "COMPOSITE",
+        "NONCALLABLE",
+        "META",
+        "GOVERNANCE",
+        "UNMAPPED"
+      ],
+      "description": "Execution classification: how this methodology is invoked"
+    },
+    "legacy_classification": {
+      "type": "string",
+      "description": "Legacy classification field (migration reference only)"
+    },
+    "valid_from_state": {
+      "type": "string",
+      "enum": [
+        "VALID_FROM_UNKNOWN",
+        "VALID_FROM_KNOWN"
+      ],
+      "description": "Whether the valid_from date is known or unknown"
     }
   }
 }

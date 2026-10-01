@@ -1,62 +1,130 @@
 {
-  "generated_at": "2026-10-01T15:26:45Z",
+  "generated_at": "2026-10-01T16:42:29Z",
   "total_sources": 20,
-  "wm_internal_sources": 7,
-  "external_sources": 13,
-  "verified_source_bindings": 30,
-  "unknown_source_bindings": 0,
-  "placeholder_source_bindings": 0,
-  "sources_with_original_publisher": 17,
-  "sources_with_collector": 7,
-  "wm_dev_sources_detail": [
+  "verified": 0,
+  "partial": 13,
+  "unknown": 7,
+  "placeholder": 0,
+  "entries": [
+    {
+      "source_id": "SRC_EIA",
+      "verification_state": "INFERRED",
+      "host": "api.eia.gov",
+      "original_publisher": "U.S. Energy Information Administration"
+    },
+    {
+      "source_id": "SRC_OPEC",
+      "verification_state": "INFERRED",
+      "host": "www.opec.org",
+      "original_publisher": "Organization of the Petroleum Exporting Countries"
+    },
+    {
+      "source_id": "SRC_IEA",
+      "verification_state": "INFERRED",
+      "host": "www.iea.org",
+      "original_publisher": "International Energy Agency"
+    },
     {
       "source_id": "SRC_AIS",
-      "host": "ais.worldmonitor.dev",
-      "transport": "RELAY",
-      "original_publisher": "Multiple AIS Providers",
-      "collector": "WM_AIS_SERVICE"
+      "verification_state": "SOURCE_HOST_UNKNOWN",
+      "host": null,
+      "original_publisher": "Multiple AIS Providers"
+    },
+    {
+      "source_id": "SRC_ACLED",
+      "verification_state": "INFERRED",
+      "host": "api.acleddata.com",
+      "original_publisher": "Armed Conflict Location & Event Data Project"
+    },
+    {
+      "source_id": "SRC_UCDP",
+      "verification_state": "INFERRED",
+      "host": "ucdp.uu.se",
+      "original_publisher": "Uppsala Conflict Data Program"
     },
     {
       "source_id": "SRC_IRAN_EVENTS",
-      "host": "iran.worldmonitor.dev",
-      "transport": "RELAY",
-      "original_publisher": null,
-      "collector": "WM_IRAN_DESK"
+      "verification_state": "SOURCE_HOST_UNKNOWN",
+      "host": null,
+      "original_publisher": null
+    },
+    {
+      "source_id": "SRC_USNI",
+      "verification_state": "INFERRED",
+      "host": "news.usni.org",
+      "original_publisher": "U.S. Naval Institute"
+    },
+    {
+      "source_id": "SRC_OFAC",
+      "verification_state": "INFERRED",
+      "host": "ofac.treasury.gov",
+      "original_publisher": "Office of Foreign Assets Control"
+    },
+    {
+      "source_id": "SRC_CME",
+      "verification_state": "INFERRED",
+      "host": "www.cmegroup.com",
+      "original_publisher": "CME Group"
+    },
+    {
+      "source_id": "SRC_CFTC",
+      "verification_state": "INFERRED",
+      "host": "www.cftc.gov",
+      "original_publisher": "Commodity Futures Trading Commission"
     },
     {
       "source_id": "SRC_NEWS_API",
-      "host": "news.worldmonitor.dev",
-      "transport": "RELAY",
-      "original_publisher": "Multiple News Publishers",
-      "collector": "WM_NEWS_AGGREGATOR"
+      "verification_state": "SOURCE_HOST_UNKNOWN",
+      "host": null,
+      "original_publisher": "Multiple News Publishers"
+    },
+    {
+      "source_id": "SRC_GDELT",
+      "verification_state": "INFERRED",
+      "host": "api.gdeltproject.org",
+      "original_publisher": "Global Database of Events, Language, and Tone"
+    },
+    {
+      "source_id": "SRC_IMF",
+      "verification_state": "INFERRED",
+      "host": "data.imf.org",
+      "original_publisher": "International Monetary Fund"
+    },
+    {
+      "source_id": "SRC_WORLD_BANK",
+      "verification_state": "INFERRED",
+      "host": "api.worldbank.org",
+      "original_publisher": "World Bank Group"
     },
     {
       "source_id": "SRC_RUSSIAN_ENERGY",
-      "host": "russia.worldmonitor.dev",
-      "transport": "RELAY",
-      "original_publisher": null,
-      "collector": "WM_RUSSIA_DESK"
+      "verification_state": "SOURCE_HOST_UNKNOWN",
+      "host": null,
+      "original_publisher": null
     },
     {
       "source_id": "SRC_MENA_ENERGY",
-      "host": "mena.worldmonitor.dev",
-      "transport": "RELAY",
-      "original_publisher": null,
-      "collector": "WM_MENA_DESK"
+      "verification_state": "SOURCE_HOST_UNKNOWN",
+      "host": null,
+      "original_publisher": null
     },
     {
       "source_id": "SRC_SHIPPING_V2",
-      "host": "shipping.worldmonitor.dev",
-      "transport": "API",
-      "original_publisher": "Multiple Shipping Data Providers",
-      "collector": "WM_SHIPPING_V2"
+      "verification_state": "SOURCE_HOST_UNKNOWN",
+      "host": null,
+      "original_publisher": "Multiple Shipping Data Providers"
     },
     {
       "source_id": "SRC_MARITIME_WARN",
-      "host": "maritime.worldmonitor.dev",
-      "transport": "RELAY",
-      "original_publisher": "Multiple Maritime Authorities",
-      "collector": "WM_MARITIME_WARN"
+      "verification_state": "SOURCE_HOST_UNKNOWN",
+      "host": null,
+      "original_publisher": "Multiple Maritime Authorities"
+    },
+    {
+      "source_id": "SRC_PENTAGON",
+      "verification_state": "INFERRED",
+      "host": "www.defense.gov",
+      "original_publisher": "U.S. Department of Defense"
     }
   ]
 }

@@ -1,16 +1,18 @@
 # Unresolved Items
 
-Generated: 2026-10-01T15:26:45Z
+Generated: 2026-10-01T16:42:29Z
 
-- [UNMAPPED_BLOCKED] Methodology M05: Resilience Indicators has no direct WM operation
-- [UNMAPPED_BLOCKED] Methodology M06: Resilience Indicator Licensing has no direct WM operation
-- [UNMAPPED_BLOCKED] Methodology M07: Known Limitations has no direct WM operation
-- [UNMAPPED_BLOCKED] Methodology M11: Demographics & Workforce Capability has no direct WM operation
-- [UNMAPPED_BLOCKED] Methodology M22: Disease Outbreak Alert Level has no direct WM operation
-- [UNMAPPED_BLOCKED] Methodology C01: CII Operator Overview has no direct WM operation
-- [UNMAPPED_BLOCKED] Methodology C02: Revision & Corrections has no direct WM operation
-- [UNMAPPED_BLOCKED] Methodology C03: Geographic Convergence has no direct WM operation
-- [UNMAPPED_BLOCKED] Methodology C04: Strategic Risk has no direct WM operation
-- [BLOCKED_STATIC_EVIDENCE] 118 APIs have blocked A-fields requiring code analysis
-- [VALID_FROM_UNKNOWN] 31 methodologies have unproven valid_from dates
-- [SOURCE_LINEAGE_UNKNOWN] Sources ['SRC_RUSSIAN_ENERGY', 'SRC_MENA_ENERGY'] have unknown lineage
+## API A-Fields Still Blocked
+
+1180 A-fields remain as BLOCKED_STATIC_EVIDENCE.
+These require further evidence to resolve.
+
+## Sources with Unknown Hosts
+
+- SRC_AIS: host=null (SOURCE_HOST_UNKNOWN)
+- SRC_IRAN_EVENTS: host=null (SOURCE_HOST_UNKNOWN)
+- SRC_NEWS_API: host=null (SOURCE_HOST_UNKNOWN)
+- SRC_RUSSIAN_ENERGY: host=null (SOURCE_HOST_UNKNOWN)
+- SRC_MENA_ENERGY: host=null (SOURCE_HOST_UNKNOWN)
+- SRC_SHIPPING_V2: host=null (SOURCE_HOST_UNKNOWN)
+- SRC_MARITIME_WARN: host=null (SOURCE_HOST_UNKNOWN)

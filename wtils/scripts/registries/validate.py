@@ -130,6 +130,33 @@ def collect_errors():
         if len(h) != 64:
             errors.append(f"{ctx}: methodology_version_hash must be 64 hex chars, got {len(h)}")
 
+
+    # --- Validate provenance_class and execution_class ---
+    valid_provenance = {"OFFICIAL", "WTILS_EXTENSION"}
+    valid_execution = {"DIRECT_API", "COMPOSITE", "NONCALLABLE", "META", "GOVERNANCE", "UNMAPPED"}
+    for m in methods:
+        ctx = f"methodology:{m.get('methodology_id', '?')}"
+        pc = m.get("provenance_class")
+        ec = m.get("execution_class")
+        if pc not in valid_provenance:
+            errors.append(f"{ctx}: invalid provenance_class '{pc}', must be one of {valid_provenance}")
+        if ec not in valid_execution:
+            errors.append(f"{ctx}: invalid execution_class '{ec}', must be one of {valid_execution}")
+    
+    # --- Check C05 execution_class=META and callable=false ---
+    c05 = next((m for m in methods if m["methodology_id"] == "C05"), None)
+    if c05:
+        if c05.get("execution_class") != "META":
+            errors.append("methodology:C05: execution_class must be META")
+        if c05.get("callable") != False:
+            errors.append("methodology:C05: callable must be false")
+    
+    # --- Check C06/C07 execution_class=GOVERNANCE ---
+    for cid in ["C06", "C07"]:
+        cm = next((m for m in methods if m["methodology_id"] == cid), None)
+        if cm and cm.get("execution_class") != "GOVERNANCE":
+            errors.append(f"methodology:{cid}: execution_class must be GOVERNANCE")
+
     # --- Validate profiles ---
     profiles = registries.get("profiles", {}).get("entries", [])
     profile_ids = set()
@@ -264,6 +291,30 @@ def collect_errors():
     # --- Bindings cross-validation -> ERROR ---
     bindings = registries.get("bindings", {})
     
+    # --- Round 2: Check methods with O-binding are NOT UNMAPPED ---
+    bound_method_ids = set()
+    for b in bindings.get("methodology_api_bindings", []):
+        if b.get("classification") == "O":
+            bound_method_ids.add(b.get("methodology_id"))
+    for mid in bound_method_ids:
+        m = next((x for x in methods if x["methodology_id"] == mid), None)
+        if m and m.get("execution_class") == "UNMAPPED":
+            errors.append(f"methodology:{mid}: has O-binding but execution_class=UNMAPPED")
+    
+    # --- Round 2: Check no source has host containing .worldmonitor.dev ---
+    for s in sources:
+        host = s.get("host") or ""
+        if ".worldmonitor.dev" in host:
+            errors.append(f"source:{s['source_id']}: host contains '.worldmonitor.dev' (invented): {host}")
+    
+    # --- Round 2: Check design-owned A-fields (A16/A17/A18) are all VERIFIED ---
+    for a in apis:
+        ctx = f"api:{a.get('operation_id', '?')}"
+        for af in ["a16_role_bound", "a17_methodology_bound", "a18_profile_bound"]:
+            val = a.get(af)
+            if val != True:
+                errors.append(f"{ctx}: {af} must be true (VERIFIED), got {val}")
+    
     # profile_methodology_bindings: profile and methodology must exist
     for b in bindings.get("profile_methodology_bindings", []):
         pid = b.get("profile_id")
@@ -359,6 +410,7 @@ def collect_errors():
     
     # --- Generate PROFILE_BINDING_REPORT ---
     generate_profile_binding_report(registries, result)
+    generate_method_api_binding_audit(registries, result)
     
     return result
 
@@ -406,6 +458,52 @@ def generate_profile_binding_report(registries, validation_result):
     lines.append("")
     
     report_path = os.path.join(PHASE1_DIR, "PROFILE_BINDING_REPORT.md")
+    with open(report_path, "w") as f:
+        f.write("\n".join(lines))
+
+
+
+def generate_method_api_binding_audit(registries, validation_result):
+    """Generate METHOD_API_BINDING_AUDIT.md with O/R/E/X/N evidence for each methodology."""
+    methods = registries.get("methodologies", {}).get("entries", [])
+    bindings = registries.get("bindings", {})
+    apis = registries.get("apis", {}).get("entries", [])
+    
+    method_map = {m["methodology_id"]: m for m in methods}
+    api_map = {a["operation_id"]: a for a in apis}
+    
+    lines = ["# Method-API Binding Audit", ""]
+    lines.append("For each methodology, lists bound operations with O/R/E/X/N classification and evidence.")
+    lines.append("")
+    
+    from collections import defaultdict
+    method_bindings = defaultdict(list)
+    for b in bindings.get("methodology_api_bindings", []):
+        method_bindings[b.get("methodology_id")].append(b)
+    
+    for mid in sorted(method_map.keys()):
+        m = method_map[mid]
+        lines.append(f"## {mid}: {m['name']}")
+        lines.append(f"- provenance_class: {m.get('provenance_class', '?')}")
+        lines.append(f"- execution_class: {m.get('execution_class', '?')}")
+        lines.append("")
+        
+        bound = method_bindings.get(mid, [])
+        if not bound:
+            lines.append("No API bindings.")
+        else:
+            lines.append("| operation_id | classification | service | http_method |")
+            lines.append("|---|---|---|---|---|")
+            for b in bound:
+                oid = b.get("operation_id", "?")
+                cls = b.get("classification", "?")
+                api = api_map.get(oid, {})
+                svc = api.get("service", "?")
+                method = api.get("http_method", "?")
+                lines.append(f"| {oid} | {cls} | {svc} | {method} |")
+        lines.append("")
+    
+    report_path = os.path.join(PHASE1_DIR, "METHOD_API_BINDING_AUDIT.md")
     with open(report_path, "w") as f:
         f.write("\n".join(lines))
 

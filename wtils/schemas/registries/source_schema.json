@@ -9,7 +9,6 @@
     "source_id",
     "publisher_name",
     "provider_name",
-    "host",
     "source_type",
     "transport",
     "source_origin",
@@ -41,7 +40,10 @@
       "minLength": 1
     },
     "host": {
-      "type": "string",
+      "type": [
+        "string",
+        "null"
+      ],
       "minLength": 1,
       "description": "Hostname or host identifier"
     },
@@ -184,7 +186,8 @@
         "INFERRED",
         "UNVERIFIED",
         "DISPUTED",
-        "SOURCE_LINEAGE_UNKNOWN"
+        "SOURCE_LINEAGE_UNKNOWN",
+        "SOURCE_HOST_UNKNOWN"
       ]
     },
     "original_publisher": {
