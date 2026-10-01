@@ -533,53 +533,6 @@
           "condition": "no_infrastructure_incident_14d"
         }
       ]
-    },
-    {
-      "role_id": "INFRASTRUCTURE",
-      "name": "Infrastructure & Utility Operations",
-      "version": "1.0.0",
-      "core_question": "System infrastructure, utility, and unbound operations",
-      "domains": [
-        "infrastructure",
-        "utility",
-        "batch",
-        "webhook",
-        "cache"
-      ],
-      "primary_profiles": [],
-      "secondary_profiles": [],
-      "default_methodologies": [],
-      "api_family_hints": [
-        "BatchService",
-        "WebhookService",
-        "InfrastructureService"
-      ],
-      "output_sections": [
-        "system_status",
-        "batch_result",
-        "webhook_delivery"
-      ],
-      "description": "System-level and utility operations not bound to any analytical methodology",
-      "language_profile": {
-        "primary": [
-          "en"
-        ],
-        "secondary": []
-      },
-      "region_profile": {
-        "primary": [
-          "GLOBAL"
-        ],
-        "secondary": []
-      },
-      "activation_rules": [
-        {
-          "rule_id": "INFRA_01",
-          "condition": "always_active",
-          "description": "Infrastructure role is always active"
-        }
-      ],
-      "deactivation_rules": []
     }
   ]
 }

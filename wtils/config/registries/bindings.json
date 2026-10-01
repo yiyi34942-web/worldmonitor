@@ -581,7 +581,7 @@
     {
       "methodology_id": "M03",
       "operation_id": "ListFeedDigest",
-      "classification": "O"
+      "classification": "R"
     },
     {
       "methodology_id": "M03",
@@ -590,7 +590,27 @@
     },
     {
       "methodology_id": "M03",
-      "operation_id": "GetSummarizeArticleCache",
+      "operation_id": "SearchGdeltDocuments",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M03",
+      "operation_id": "ListCrossSourceSignals",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "M03",
+      "operation_id": "ListTelegramFeed",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "M03",
+      "operation_id": "ListXFeed",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "M03",
+      "operation_id": "GetSocialVelocity",
       "classification": "E"
     },
     {
@@ -645,28 +665,33 @@
     },
     {
       "methodology_id": "M08",
-      "operation_id": "GetEconomicStress",
-      "classification": "O"
-    },
-    {
-      "methodology_id": "M08",
-      "operation_id": "GetEuFsi",
-      "classification": "O"
-    },
-    {
-      "methodology_id": "M08",
       "operation_id": "GetBisCredit",
       "classification": "R"
     },
     {
       "methodology_id": "M08",
-      "operation_id": "GetBisExchangeRates",
+      "operation_id": "GetNationalDebt",
       "classification": "R"
     },
     {
       "methodology_id": "M08",
-      "operation_id": "GetBisPolicyRates",
+      "operation_id": "GetEconomicStress",
       "classification": "R"
+    },
+    {
+      "methodology_id": "M08",
+      "operation_id": "GetEuFsi",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M08",
+      "operation_id": "GetBisExchangeRates",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "M08",
+      "operation_id": "GetBisPolicyRates",
+      "classification": "E"
     },
     {
       "methodology_id": "M08",
@@ -740,13 +765,13 @@
     },
     {
       "methodology_id": "M12",
-      "operation_id": "GetFaoFoodPriceIndex",
-      "classification": "O"
+      "operation_id": "GetOilStocksAnalysis",
+      "classification": "R"
     },
     {
       "methodology_id": "M12",
-      "operation_id": "GetOilStocksAnalysis",
-      "classification": "R"
+      "operation_id": "GetFaoFoodPriceIndex",
+      "classification": "E"
     },
     {
       "methodology_id": "M12",
@@ -1085,11 +1110,6 @@
     },
     {
       "methodology_id": "C01",
-      "operation_id": "GetResilienceRuntimeManifest",
-      "classification": "O"
-    },
-    {
-      "methodology_id": "C01",
       "operation_id": "GetRiskScores",
       "classification": "R"
     },
@@ -1100,57 +1120,87 @@
     },
     {
       "methodology_id": "C01",
-      "operation_id": "GetResilienceIndicators",
+      "operation_id": "GetCountryIntelBrief",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "C01",
+      "operation_id": "GetRegionalSnapshot",
       "classification": "E"
     },
     {
       "methodology_id": "C03",
-      "operation_id": "GetCountryRisk",
-      "classification": "O"
+      "operation_id": "ListUnrestEvents",
+      "classification": "R"
     },
     {
       "methodology_id": "C03",
+      "operation_id": "ListMilitaryFlights",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "C03",
+      "operation_id": "GetVesselSnapshot",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "C03",
+      "operation_id": "ListEarthquakes",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "C03",
+      "operation_id": "ListThermalEscalations",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "C03",
+      "operation_id": "ListFireDetections",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "C03",
+      "operation_id": "ListOrefAlerts",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "C03",
+      "operation_id": "ListInternetOutages",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "C04",
       "operation_id": "GetRiskScores",
-      "classification": "O"
-    },
-    {
-      "methodology_id": "C03",
-      "operation_id": "ListAcledEvents",
       "classification": "R"
     },
     {
-      "methodology_id": "C03",
-      "operation_id": "ListIranEvents",
-      "classification": "R"
+      "methodology_id": "C04",
+      "operation_id": "ListCrossSourceSignals",
+      "classification": "E"
     },
     {
-      "methodology_id": "C03",
+      "methodology_id": "C04",
+      "operation_id": "GetRegionalSnapshot",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "C04",
       "operation_id": "GetTheaterPosture",
       "classification": "E"
-    },
-    {
-      "methodology_id": "C04",
-      "operation_id": "GetRiskScores",
-      "classification": "O"
-    },
-    {
-      "methodology_id": "C04",
-      "operation_id": "GetCountryRisk",
-      "classification": "O"
     },
     {
       "methodology_id": "C04",
       "operation_id": "ListSanctionsPressure",
-      "classification": "R"
-    },
-    {
-      "methodology_id": "C04",
-      "operation_id": "ListAcledEvents",
       "classification": "E"
     },
     {
       "methodology_id": "C04",
-      "operation_id": "GetTheaterPosture",
+      "operation_id": "ListTemporalAnomalies",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "C04",
+      "operation_id": "ListFeedDigest",
       "classification": "E"
     }
   ],

@@ -1,130 +1,110 @@
 {
-  "generated_at": "2026-10-01T16:42:29Z",
+  "generated_at": "2026-10-01T17:23:50.953026Z",
   "total_sources": 20,
   "verified": 0,
-  "partial": 13,
+  "partial": 0,
   "unknown": 7,
   "placeholder": 0,
   "entries": [
     {
       "source_id": "SRC_EIA",
-      "verification_state": "INFERRED",
       "host": "api.eia.gov",
-      "original_publisher": "U.S. Energy Information Administration"
+      "verification_state": "INFERRED"
     },
     {
       "source_id": "SRC_OPEC",
-      "verification_state": "INFERRED",
       "host": "www.opec.org",
-      "original_publisher": "Organization of the Petroleum Exporting Countries"
+      "verification_state": "INFERRED"
     },
     {
       "source_id": "SRC_IEA",
-      "verification_state": "INFERRED",
       "host": "www.iea.org",
-      "original_publisher": "International Energy Agency"
+      "verification_state": "INFERRED"
     },
     {
       "source_id": "SRC_AIS",
-      "verification_state": "SOURCE_HOST_UNKNOWN",
       "host": null,
-      "original_publisher": "Multiple AIS Providers"
+      "verification_state": "SOURCE_HOST_UNKNOWN"
     },
     {
       "source_id": "SRC_ACLED",
-      "verification_state": "INFERRED",
       "host": "api.acleddata.com",
-      "original_publisher": "Armed Conflict Location & Event Data Project"
+      "verification_state": "INFERRED"
     },
     {
       "source_id": "SRC_UCDP",
-      "verification_state": "INFERRED",
       "host": "ucdp.uu.se",
-      "original_publisher": "Uppsala Conflict Data Program"
+      "verification_state": "INFERRED"
     },
     {
       "source_id": "SRC_IRAN_EVENTS",
-      "verification_state": "SOURCE_HOST_UNKNOWN",
       "host": null,
-      "original_publisher": null
+      "verification_state": "SOURCE_HOST_UNKNOWN"
     },
     {
       "source_id": "SRC_USNI",
-      "verification_state": "INFERRED",
       "host": "news.usni.org",
-      "original_publisher": "U.S. Naval Institute"
+      "verification_state": "INFERRED"
     },
     {
       "source_id": "SRC_OFAC",
-      "verification_state": "INFERRED",
       "host": "ofac.treasury.gov",
-      "original_publisher": "Office of Foreign Assets Control"
+      "verification_state": "INFERRED"
     },
     {
       "source_id": "SRC_CME",
-      "verification_state": "INFERRED",
       "host": "www.cmegroup.com",
-      "original_publisher": "CME Group"
+      "verification_state": "INFERRED"
     },
     {
       "source_id": "SRC_CFTC",
-      "verification_state": "INFERRED",
       "host": "www.cftc.gov",
-      "original_publisher": "Commodity Futures Trading Commission"
+      "verification_state": "INFERRED"
     },
     {
       "source_id": "SRC_NEWS_API",
-      "verification_state": "SOURCE_HOST_UNKNOWN",
       "host": null,
-      "original_publisher": "Multiple News Publishers"
+      "verification_state": "SOURCE_HOST_UNKNOWN"
     },
     {
       "source_id": "SRC_GDELT",
-      "verification_state": "INFERRED",
       "host": "api.gdeltproject.org",
-      "original_publisher": "Global Database of Events, Language, and Tone"
+      "verification_state": "INFERRED"
     },
     {
       "source_id": "SRC_IMF",
-      "verification_state": "INFERRED",
       "host": "data.imf.org",
-      "original_publisher": "International Monetary Fund"
+      "verification_state": "INFERRED"
     },
     {
       "source_id": "SRC_WORLD_BANK",
-      "verification_state": "INFERRED",
       "host": "api.worldbank.org",
-      "original_publisher": "World Bank Group"
+      "verification_state": "INFERRED"
     },
     {
       "source_id": "SRC_RUSSIAN_ENERGY",
-      "verification_state": "SOURCE_HOST_UNKNOWN",
       "host": null,
-      "original_publisher": null
+      "verification_state": "SOURCE_HOST_UNKNOWN"
     },
     {
       "source_id": "SRC_MENA_ENERGY",
-      "verification_state": "SOURCE_HOST_UNKNOWN",
       "host": null,
-      "original_publisher": null
+      "verification_state": "SOURCE_HOST_UNKNOWN"
     },
     {
       "source_id": "SRC_SHIPPING_V2",
-      "verification_state": "SOURCE_HOST_UNKNOWN",
       "host": null,
-      "original_publisher": "Multiple Shipping Data Providers"
+      "verification_state": "SOURCE_HOST_UNKNOWN"
     },
     {
       "source_id": "SRC_MARITIME_WARN",
-      "verification_state": "SOURCE_HOST_UNKNOWN",
       "host": null,
-      "original_publisher": "Multiple Maritime Authorities"
+      "verification_state": "SOURCE_HOST_UNKNOWN"
     },
     {
       "source_id": "SRC_PENTAGON",
-      "verification_state": "INFERRED",
       "host": "www.defense.gov",
-      "original_publisher": "U.S. Department of Defense"
+      "verification_state": "INFERRED"
     }
   ]
 }

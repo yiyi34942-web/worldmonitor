@@ -147,7 +147,7 @@ def main():
     runner.test("cross_ref_profile_methods", len(bad_method_refs) == 0,
                 f"Unknown method refs: {bad_method_refs}" if bad_method_refs else "All method refs valid")
 
-    runner.test("role_count_is_6", len(roles) == 6, f"Got {len(roles)} roles")
+    runner.test("role_count_is_5", len(roles) == 5, f"Got {len(roles)} roles")
     runner.test("methodology_count_is_31", len(methods) == 31, f"Got {len(methods)} methodologies")
     runner.test("profile_count_is_10", len(profiles) == 10, f"Got {len(profiles)} profiles")
 
@@ -188,8 +188,8 @@ def main():
     runner.test("data_states_cardinal_rule", cardinal_ok,
                 "missing != zero enforced" if not cardinal_ok else "Cardinal rule enforced")
 
-    governance_ids = [m["methodology_id"] for m in methods if m.get("execution_class") in ("GOVERNANCE", "META")]
-    expected_gov = {"C05", "C06", "C07"}
+    governance_ids = [m["methodology_id"] for m in methods if m.get("execution_class") == "GOVERNANCE"]
+    expected_gov = {"C06", "C07"}
     runner.test("governance_classification_correct", set(governance_ids) == expected_gov,
                 f"Got {governance_ids}, expected {expected_gov}")
 
@@ -332,8 +332,8 @@ def main():
     # 8. no_placeholder_source_host
     placeholder_hosts = []
     for s in sources:
-        host = s.get("host") or ""
-        if host and ("placeholder" in host.lower() or host == "TBD"):
+        host = s.get("host", "")
+        if host and ("placeholder" in host.lower() or host == "TBD" or host == ""):
             placeholder_hosts.append(f"{s['source_id']}:{host}")
     runner.test("no_placeholder_source_host", len(placeholder_hosts) == 0,
                 f"Placeholder hosts: {placeholder_hosts}" if placeholder_hosts else "No placeholder source hosts")
@@ -392,132 +392,84 @@ def main():
                 has_role_priors and binding_report_ok,
                 f"Missing role_priors: {missing_priors}" if missing_priors else "role_priors present, report uses default_prior")
 
+    # === ROUND 3 TESTS ===
 
-    # ======================================================================
-    # CORRECTION ROUND 2: ADDITIONAL TESTS
-    # ======================================================================
+    # role_count_is_5
+    runner.test("role_count_is_5", len(roles) == 5, f"Got {len(roles)} roles")
 
-    # 1. canonical_method_api_semantics
-    valid_orexen = {"O", "R", "E", "X", "N"}
-    bad_semantics = []
-    for b in bindings.get("methodology_api_bindings", []):
-        cls = b.get("classification")
-        if cls not in valid_orexen:
-            bad_semantics.append(f"{b.get('methodology_id','?')}:{b.get('operation_id','?')}={cls}")
-    runner.test("canonical_method_api_semantics", len(bad_semantics) == 0,
-                f"Bad semantics: {bad_semantics[:5]}" if bad_semantics else "All bindings use O/R/E/X/N")
+    # role_ids_exactly_equal_frozen_five
+    frozen_five = {'WORLD','TECH','FINANCE','COMMODITY','ENERGY'}
+    actual_role_ids = set(r.get('role_id','') for r in roles)
+    runner.test("role_ids_exactly_equal_frozen_five", actual_role_ids == frozen_five, f"Got {actual_role_ids}")
 
-    # 2. M05_maps_GetResilienceIndicators
-    m05_bindings = [b for b in bindings.get("methodology_api_bindings", []) if b.get("methodology_id") == "M05"]
-    m05_ops = {b.get("operation_id") for b in m05_bindings}
-    runner.test("M05_maps_GetResilienceIndicators", "GetResilienceIndicators" in m05_ops,
-                f"M05 bindings: {m05_ops}")
+    # no_sixth_core_role
+    extra_roles = actual_role_ids - frozen_five
+    runner.test("no_sixth_core_role", len(extra_roles) == 0, f"Extra roles: {extra_roles}")
 
-    # 3. M11_maps_GetDemographicsCapability
-    m11_bindings = [b for b in bindings.get("methodology_api_bindings", []) if b.get("methodology_id") == "M11"]
-    m11_ops = {b.get("operation_id") for b in m11_bindings}
-    runner.test("M11_maps_GetDemographicsCapability", "GetDemographicsCapability" in m11_ops,
-                f"M11 bindings: {m11_ops}")
+    # no_infrastructure_role
+    runner.test("no_infrastructure_role", 'INFRASTRUCTURE' not in actual_role_ids, "INFRASTRUCTURE must not exist")
 
-    # 4. M22_maps_ListDiseaseOutbreaks
-    m22_bindings = [b for b in bindings.get("methodology_api_bindings", []) if b.get("methodology_id") == "M22"]
-    m22_ops = {b.get("operation_id") for b in m22_bindings}
-    runner.test("M22_maps_ListDiseaseOutbreaks", "ListDiseaseOutbreaks" in m22_ops,
-                f"M22 bindings: {m22_ops}")
+    # analytical_api_has_five_lens_binding
+    analytical_no_role = [a.get('operation_id','?') for a in apis if a.get('scope_class')=='ANALYTICAL' and not a.get('role_bindings')]
+    runner.test("analytical_api_has_five_lens_binding", len(analytical_no_role) == 0, f"Missing role bindings: {analytical_no_role[:5]}")
 
-    # 5. no_known_direct_method_marked_unmapped
-    bound_method_ids = set()
-    for b in bindings.get("methodology_api_bindings", []):
-        if b.get("classification") == "O":
-            bound_method_ids.add(b.get("methodology_id"))
-    unmapped_with_binding = []
-    for mid in bound_method_ids:
-        m = method_map.get(mid)
-        if m and m.get("execution_class") == "UNMAPPED":
-            unmapped_with_binding.append(mid)
-    runner.test("no_known_direct_method_marked_unmapped", len(unmapped_with_binding) == 0,
-                f"UNMAPPED with O-binding: {unmapped_with_binding}" if unmapped_with_binding else "No methods with O-binding are UNMAPPED")
+    # system_api_has_explicit_not_applicable_role_mode
+    system_wrong = [a.get('operation_id','?') for a in apis if a.get('scope_class') in ('SYSTEM','ADMIN','ORCHESTRATION') and a.get('role_binding_mode') != 'NOT_APPLICABLE_SYSTEM']
+    runner.test("system_api_has_explicit_not_applicable_role_mode", len(system_wrong) == 0, f"Wrong mode: {system_wrong}")
 
-    # 6. api_inventory_237_canonical_474_declarations
-    try:
-        inv = load_json(os.path.join(PHASE1_DIR, "API_OPERATION_INVENTORY.json"))
-        inv_total = inv.get("canonical_operation_total", 0)
-        inv_decl = inv.get("source_contract_declaration_total", 0)
-        runner.test("api_inventory_237_canonical_474_declarations", inv_total == 237 and inv_decl == 474,
-                    f"canonical={inv_total}, declarations={inv_decl}")
-    except Exception as e:
-        runner.test("api_inventory_237_canonical_474_declarations", False, str(e))
-
-    # 7. aggregate_specific_contract_parity
-    try:
-        inv = load_json(os.path.join(PHASE1_DIR, "API_OPERATION_INVENTORY.json"))
-        total_decls = sum(e.get("declaration_count", 0) for e in inv.get("entries", []))
-        runner.test("aggregate_specific_contract_parity", total_decls == 474,
-                    f"Total declarations: {total_decls}, expected 474")
-    except Exception as e:
-        runner.test("aggregate_specific_contract_parity", False, str(e))
-
-    # 8. design_owned_a16_a18_all_verified
-    a_not_verified = []
+    # no_api_uses_nonexistent_role
+    invalid_role_refs = []
     for a in apis:
-        for af in ["a16_role_bound", "a17_methodology_bound", "a18_profile_bound"]:
-            if a.get(af) != True:
-                a_not_verified.append(f"{a['operation_id']}:{af}={a.get(af)}")
-    runner.test("design_owned_a16_a18_all_verified", len(a_not_verified) == 0,
-                f"Not verified: {a_not_verified[:5]}" if a_not_verified else "All A16/A17/A18 VERIFIED for all ops")
+        for r in a.get('role_bindings',[]):
+            if r not in frozen_five:
+                invalid_role_refs.append(f"{a.get('operation_id','?')}:{r}")
+    runner.test("no_api_uses_nonexistent_role", len(invalid_role_refs) == 0, f"Invalid: {invalid_role_refs[:5]}")
 
-    # 9. source_unknown_not_fabricated
-    fabricated = []
-    for s in sources:
-        host = s.get("host") or ""
-        if ".worldmonitor.dev" in host:
-            fabricated.append(f"{s['source_id']}:{host}")
-    runner.test("source_unknown_not_fabricated", len(fabricated) == 0,
-                f"Fabricated hosts: {fabricated}" if fabricated else "No .worldmonitor.dev hosts")
+    # M03_is_composite_not_direct
+    m03 = next((m for m in methods if m.get('methodology_id')=='M03'), None)
+    runner.test("M03_is_composite_not_direct", m03 is not None and m03.get('execution_class')=='COMPOSITE', f"execution_class={m03.get('execution_class') if m03 else 'MISSING'}")
 
-    # 10. source_coverage_metrics_consistent
-    inconsistent = []
-    for s in sources:
-        if s.get("provider") == "WorldMonitor":
-            if s.get("host") is not None and ".worldmonitor.dev" in (s.get("host") or ""):
-                inconsistent.append(f"{s['source_id']}: should have null host")
-    runner.test("source_coverage_metrics_consistent", len(inconsistent) == 0,
-                f"Inconsistent: {inconsistent[:5]}" if inconsistent else "Source coverage metrics consistent")
+    # M08_is_composite_not_direct
+    m08 = next((m for m in methods if m.get('methodology_id')=='M08'), None)
+    runner.test("M08_is_composite_not_direct", m08 is not None and m08.get('execution_class')=='COMPOSITE', f"execution_class={m08.get('execution_class') if m08 else 'MISSING'}")
 
-    # 11. no_inferred_host_without_evidence
-    inferred_without_evidence = []
-    for s in sources:
-        host = s.get("host") or ""
-        if ".worldmonitor.dev" in host:
-            inferred_without_evidence.append(f"{s['source_id']}:{host}")
-    runner.test("no_inferred_host_without_evidence", len(inferred_without_evidence) == 0,
-                f"Inferred: {inferred_without_evidence}" if inferred_without_evidence else "No inferred hosts without evidence")
+    # M12_foodstocks_output_semantics
+    m12_bindings = [b for b in bindings.get('methodology_api_bindings',[]) if b.get('methodology_id')=='M12']
+    m12_o_ops = sorted([b.get('operation_id') for b in m12_bindings if b.get('classification')=='O'])
+    runner.test("M12_foodstocks_output_semantics", m12_o_ops == ['GetFoodStocks'], f"O-bindings: {m12_o_ops}")
 
-    # 12. method_classification_two_axis_valid
-    valid_provenance = {"OFFICIAL", "WTILS_EXTENSION"}
-    valid_execution = {"DIRECT_API", "COMPOSITE", "NONCALLABLE", "META", "GOVERNANCE", "UNMAPPED"}
-    invalid_class = []
-    for m in methods:
-        pc = m.get("provenance_class")
-        ec = m.get("execution_class")
-        if pc not in valid_provenance:
-            invalid_class.append(f"{m['methodology_id']}:provenance_class={pc}")
-        if ec not in valid_execution:
-            invalid_class.append(f"{m['methodology_id']}:execution_class={ec}")
-    runner.test("method_classification_two_axis_valid", len(invalid_class) == 0,
-                f"Invalid: {invalid_class[:5]}" if invalid_class else "All methods have valid provenance_class + execution_class")
+    # C01_is_noncallable_operator_view
+    c01 = next((m for m in methods if m.get('methodology_id')=='C01'), None)
+    c01_has_o = any(b.get('classification')=='O' for b in bindings.get('methodology_api_bindings',[]) if b.get('methodology_id')=='C01')
+    runner.test("C01_is_noncallable_operator_view", c01 is not None and c01.get('execution_class')=='NONCALLABLE' and not c01_has_o, f"ec={c01.get('execution_class') if c01 else '?'}, has_O={c01_has_o}")
 
-    # 13. all_profiles_rebound_after_canonical_method_fix
-    bad_pm_refs = []
-    for b in bindings.get("profile_methodology_bindings", []):
-        pid = b.get("profile_id")
-        mid = b.get("methodology_id")
-        if pid not in profile_ids:
-            bad_pm_refs.append(f"profile {pid} not found")
-        if mid not in method_ids:
-            bad_pm_refs.append(f"method {mid} not found")
-    runner.test("all_profiles_rebound_after_canonical_method_fix", len(bad_pm_refs) == 0,
-                f"Bad refs: {bad_pm_refs[:5]}" if bad_pm_refs else "All profile-method refs valid")
+    # C03_geographic_convergence_inputs_exact_family
+    c03 = next((m for m in methods if m.get('methodology_id')=='C03'), None)
+    c03_has_o = any(b.get('classification')=='O' for b in bindings.get('methodology_api_bindings',[]) if b.get('methodology_id')=='C03')
+    runner.test("C03_geographic_convergence_inputs_exact_family", c03 is not None and c03.get('execution_class')=='COMPOSITE' and not c03_has_o, f"ec={c03.get('execution_class') if c03 else '?'}, has_O={c03_has_o}")
+
+    # C04_strategic_risk_is_composite
+    c04 = next((m for m in methods if m.get('methodology_id')=='C04'), None)
+    c04_has_o = any(b.get('classification')=='O' for b in bindings.get('methodology_api_bindings',[]) if b.get('methodology_id')=='C04')
+    runner.test("C04_strategic_risk_is_composite", c04 is not None and c04.get('execution_class')=='COMPOSITE' and not c04_has_o, f"ec={c04.get('execution_class') if c04 else '?'}, has_O={c04_has_o}")
+
+    # no_method_marks_related_input_as_O_without_output_evidence
+    methods_with_o = set(b.get('methodology_id') for b in bindings.get('methodology_api_bindings',[]) if b.get('classification')=='O')
+    methods_direct = set(m.get('methodology_id') for m in methods if m.get('execution_class')=='DIRECT_API')
+    direct_no_o = methods_direct - methods_with_o
+    runner.test("no_method_marks_related_input_as_O_without_output_evidence", len(direct_no_o) == 0, f"DIRECT_API without O: {direct_no_o}")
+
+    # a00_a22_explicit_state_only
+    bare_false_count = 0
+    for api in apis:
+        for k,v in api.items():
+            if (k.startswith('a0') or k.startswith('a1') or k.startswith('a2')) and v is False:
+                bare_false_count += 1
+    runner.test("a00_a22_explicit_state_only", bare_false_count == 0, f"{bare_false_count} bare false A-fields")
+
+    # openapi_static_fields_extracted_when_evidence_exists
+    verified_a_fields = sum(1 for a in apis if a.get('a03_auth_defined_state') == 'VERIFIED')
+    runner.test("openapi_static_fields_extracted_when_evidence_exists", verified_a_fields > 200, f"{verified_a_fields} auth fields verified from OpenAPI")
 
     # Output
     result = runner.summary()

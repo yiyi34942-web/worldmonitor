@@ -1,15 +1,44 @@
 {
-  "generated_at": "2026-10-01T16:42:29Z",
-  "total_operations": 237,
+  "generated_at": "2026-10-01T17:23:50.953026Z",
+  "canonical_operation_total": 237,
+  "source_contract_declaration_total": 474,
   "design_owned": {
-    "a16_role_bound": 237,
-    "a17_methodology_bound": 237,
-    "a18_profile_bound": 237
+    "fields": [
+      "a16_role_bound",
+      "a17_methodology_bound",
+      "a18_profile_bound"
+    ],
+    "verified": 711,
+    "total": 711,
+    "blocked": 0
   },
   "openapi_derived": {
-    "a00_registered": 237,
-    "a01_http_method_verified": 237,
-    "a02_canonical_route_verified": 237
+    "fields": [
+      "a00_registered",
+      "a01_http_method_verified",
+      "a02_canonical_route_verified",
+      "a03_auth_defined",
+      "a05_declared_availability",
+      "a06_request_schema_bound",
+      "a07_response_schema_bound",
+      "a14_lifecycle_bound",
+      "a15_contract_version_bound",
+      "a21_pagination_truncation_bound"
+    ],
+    "verified": 2178,
+    "total": 2370,
+    "blocked": 192
   },
-  "source_code_derived": {}
+  "source_code_derived": {
+    "fields": [
+      "a09_source_bound",
+      "a10_attribution_bound",
+      "a11_delivery_bound",
+      "a12_seed_cache_bound",
+      "a13_freshness_bound"
+    ],
+    "verified": 595,
+    "total": 1185,
+    "blocked": 590
+  }
 }

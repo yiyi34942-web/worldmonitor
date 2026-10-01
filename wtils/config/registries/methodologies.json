@@ -298,7 +298,7 @@
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "legacy_classification": "OFFICIAL_DIRECT",
       "provenance_class": "OFFICIAL",
-      "execution_class": "DIRECT_API"
+      "execution_class": "COMPOSITE"
     },
     {
       "methodology_id": "M04",
@@ -762,7 +762,7 @@
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "legacy_classification": "OFFICIAL_DIRECT",
       "provenance_class": "OFFICIAL",
-      "execution_class": "DIRECT_API"
+      "execution_class": "COMPOSITE"
     },
     {
       "methodology_id": "M09",
@@ -2376,7 +2376,7 @@
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "legacy_classification": "UNMAPPED_BLOCKED",
       "provenance_class": "OFFICIAL",
-      "execution_class": "DIRECT_API"
+      "execution_class": "NONCALLABLE"
     },
     {
       "methodology_id": "C02",

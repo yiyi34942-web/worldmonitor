@@ -4,14 +4,14 @@ For each methodology, lists bound operations with O/R/E/X/N classification and e
 
 ## C01: CII Operator Overview
 - provenance_class: OFFICIAL
-- execution_class: DIRECT_API
+- execution_class: NONCALLABLE
 
 | operation_id | classification | service | http_method |
 |---|---|---|---|---|
-| GetResilienceRuntimeManifest | O | ResilienceService | GET |
 | GetRiskScores | R | IntelligenceService | GET |
 | GetCountryRisk | R | IntelligenceService | GET |
-| GetResilienceIndicators | E | ResilienceService | GET |
+| GetCountryIntelBrief | E | IntelligenceService | GET |
+| GetRegionalSnapshot | E | IntelligenceService | GET |
 
 ## C02: Revision & Corrections
 - provenance_class: OFFICIAL
@@ -25,11 +25,14 @@ No API bindings.
 
 | operation_id | classification | service | http_method |
 |---|---|---|---|---|
-| GetCountryRisk | O | IntelligenceService | GET |
-| GetRiskScores | O | IntelligenceService | GET |
-| ListAcledEvents | R | ConflictService | GET |
-| ListIranEvents | R | ConflictService | GET |
-| GetTheaterPosture | E | MilitaryService | GET |
+| ListUnrestEvents | R | UnrestService | GET |
+| ListMilitaryFlights | R | MilitaryService | GET |
+| GetVesselSnapshot | R | MaritimeService | GET |
+| ListEarthquakes | R | SeismologyService | GET |
+| ListThermalEscalations | E | ThermalService | GET |
+| ListFireDetections | E | WildfireService | GET |
+| ListOrefAlerts | E | IntelligenceService | GET |
+| ListInternetOutages | E | InfrastructureService | GET |
 
 ## C04: Strategic Risk
 - provenance_class: OFFICIAL
@@ -37,11 +40,13 @@ No API bindings.
 
 | operation_id | classification | service | http_method |
 |---|---|---|---|---|
-| GetRiskScores | O | IntelligenceService | GET |
-| GetCountryRisk | O | IntelligenceService | GET |
-| ListSanctionsPressure | R | SanctionsService | GET |
-| ListAcledEvents | E | ConflictService | GET |
+| GetRiskScores | R | IntelligenceService | GET |
+| ListCrossSourceSignals | E | IntelligenceService | GET |
+| GetRegionalSnapshot | E | IntelligenceService | GET |
 | GetTheaterPosture | E | MilitaryService | GET |
+| ListSanctionsPressure | E | SanctionsService | GET |
+| ListTemporalAnomalies | E | InfrastructureService | GET |
+| ListFeedDigest | E | NewsService | GET |
 
 ## C05: Algorithms & Scoring
 - provenance_class: OFFICIAL
@@ -85,13 +90,17 @@ No API bindings.
 
 ## M03: News Credibility
 - provenance_class: OFFICIAL
-- execution_class: DIRECT_API
+- execution_class: COMPOSITE
 
 | operation_id | classification | service | http_method |
 |---|---|---|---|---|
-| ListFeedDigest | O | NewsService | GET |
+| ListFeedDigest | R | NewsService | GET |
 | ListCountryHeadlines | R | NewsService | GET |
-| GetSummarizeArticleCache | E | NewsService | GET |
+| SearchGdeltDocuments | R | IntelligenceService | GET |
+| ListCrossSourceSignals | E | IntelligenceService | GET |
+| ListTelegramFeed | E | IntelligenceService | GET |
+| ListXFeed | E | IntelligenceService | GET |
+| GetSocialVelocity | E | IntelligenceService | GET |
 
 ## M04: Country Resilience Index
 - provenance_class: OFFICIAL
@@ -132,15 +141,16 @@ No API bindings.
 
 ## M08: Financial System Exposure
 - provenance_class: OFFICIAL
-- execution_class: DIRECT_API
+- execution_class: COMPOSITE
 
 | operation_id | classification | service | http_method |
 |---|---|---|---|---|
-| GetEconomicStress | O | EconomicService | GET |
-| GetEuFsi | O | EconomicService | GET |
 | GetBisCredit | R | EconomicService | GET |
-| GetBisExchangeRates | R | EconomicService | GET |
-| GetBisPolicyRates | R | EconomicService | GET |
+| GetNationalDebt | R | EconomicService | GET |
+| GetEconomicStress | R | EconomicService | GET |
+| GetEuFsi | R | EconomicService | GET |
+| GetBisExchangeRates | E | EconomicService | GET |
+| GetBisPolicyRates | E | EconomicService | GET |
 | GetCotPositioning | E | MarketService | GET |
 | ListCommodityQuotes | E | MarketService | GET |
 
@@ -183,8 +193,8 @@ No API bindings.
 | operation_id | classification | service | http_method |
 |---|---|---|---|---|
 | GetFoodStocks | O | ResilienceService | GET |
-| GetFaoFoodPriceIndex | O | EconomicService | GET |
 | GetOilStocksAnalysis | R | EconomicService | GET |
+| GetFaoFoodPriceIndex | E | EconomicService | GET |
 | ListCommodityQuotes | E | MarketService | GET |
 
 ## M13: Defense Industrial Base

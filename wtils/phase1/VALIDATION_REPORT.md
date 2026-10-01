@@ -1,35 +1,39 @@
-# Validation Report
+# WTILS Validation Report
 
-Generated: 2026-10-01T16:42:29Z
+Generated: 2026-10-01T17:23:50.953026Z
 
-## Summary
+## Registry Counts
 
-- Total methodologies: 31
-- Total APIs: 237
-- Total sources: 20
-- Total profiles: 10
-- Total roles: 5
-- Method-API bindings: 123
+- **roles**: 5
+- **methodologies**: 31
+- **profiles**: 10
+- **apis**: 237
+- **sources**: 20
+- **method_api_bindings**: 133
+- **profile_methodology_bindings**: 41
+- **role_methodology_bindings**: 25
+- **scope_class_counts**: {'ANALYTICAL': 228, 'SYSTEM': 9}
+- **execution_class_counts**: {'DIRECT_API': 19, 'COMPOSITE': 5, 'NONCALLABLE': 4, 'META': 1, 'GOVERNANCE': 2}
+- **provenance_class_counts**: {'OFFICIAL': 31}
+- **binding_semantic_counts**: {'O': 33, 'R': 50, 'E': 50}
+
+## Five Roles
+
+- **WORLD**: 
+- **TECH**: 
+- **FINANCE**: 
+- **COMMODITY**: 
+- **ENERGY**: 
 
 ## Methodology Execution Classes
 
-| execution_class | count |
-|---|---|
-| COMPOSITE | 3 |
-| DIRECT_API | 22 |
-| GOVERNANCE | 2 |
-| META | 1 |
-| NONCALLABLE | 3 |
+- **COMPOSITE**: 5
+- **DIRECT_API**: 19
+- **GOVERNANCE**: 2
+- **META**: 1
+- **NONCALLABLE**: 4
 
-## Source Verification States
+## API Scope Classes
 
-| verification_state | count |
-|---|---|
-| INFERRED | 13 |
-| SOURCE_HOST_UNKNOWN | 7 |
-
-## Design-Owned A-Fields
-
-- a16_role_bound VERIFIED: 237/237
-- a17_methodology_bound VERIFIED: 237/237
-- a18_profile_bound VERIFIED: 237/237
+- **ANALYTICAL**: 228
+- **SYSTEM**: 9

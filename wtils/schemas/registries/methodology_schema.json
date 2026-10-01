@@ -308,7 +308,7 @@
         "OFFICIAL",
         "WTILS_EXTENSION"
       ],
-      "description": "Provenance classification: OFFICIAL for canonical methods, WTILS_EXTENSION for user-defined"
+      "description": "Provenance classification: OFFICIAL from WTILS v1 spec, WTILS_EXTENSION for additions"
     },
     "execution_class": {
       "type": "string",
@@ -320,11 +320,11 @@
         "GOVERNANCE",
         "UNMAPPED"
       ],
-      "description": "Execution classification: how this methodology is invoked"
+      "description": "Execution classification: how this methodology is realized"
     },
     "legacy_classification": {
       "type": "string",
-      "description": "Legacy classification field (migration reference only)"
+      "description": "Deprecated single-axis classification (migration reference only)"
     },
     "valid_from_state": {
       "type": "string",

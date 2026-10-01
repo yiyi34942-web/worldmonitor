@@ -412,6 +412,59 @@ def collect_errors():
     generate_profile_binding_report(registries, result)
     generate_method_api_binding_audit(registries, result)
     
+    
+    # === ROUND 3 CHECKS ===
+    
+    # B1: Exactly 5 roles, no INFRASTRUCTURE
+    role_ids = set(r.get('role_id','') for r in roles)
+    frozen_five = {'WORLD','TECH','FINANCE','COMMODITY','ENERGY'}
+    if role_ids != frozen_five:
+        errors.append(f"ROLE_FIVE: role_ids={role_ids} != frozen_five={frozen_five}")
+    if 'INFRASTRUCTURE' in role_ids:
+        errors.append("ROLE_INFRASTRUCTURE: INFRASTRUCTURE role must not exist")
+    
+    # B2: API scope_class and role_binding_mode
+    for api in apis:
+        op = api.get('operation_id','?')
+        scope = api.get('scope_class')
+        rbm = api.get('role_binding_mode')
+        if scope not in ('ANALYTICAL','SYSTEM','ADMIN','ORCHESTRATION'):
+            errors.append(f"API_SCOPE: {op} has invalid scope_class={scope}")
+        if rbm not in ('ANALYTICAL_ROLES','NOT_APPLICABLE_SYSTEM'):
+            errors.append(f"API_RBM: {op} has invalid role_binding_mode={rbm}")
+        if scope == 'ANALYTICAL' and rbm != 'ANALYTICAL_ROLES':
+            errors.append(f"API_SCOPE_MISMATCH: {op} is ANALYTICAL but rbm={rbm}")
+        if scope != 'ANALYTICAL' and rbm != 'NOT_APPLICABLE_SYSTEM':
+            errors.append(f"API_SCOPE_MISMATCH: {op} is {scope} but rbm={rbm}")
+        # No INFRASTRUCTURE in role_bindings
+        if 'INFRASTRUCTURE' in api.get('role_bindings',[]):
+            errors.append(f"API_FAKE_ROLE: {op} uses INFRASTRUCTURE role")
+    
+    # B4: Methodology execution class checks
+    for m in methods:
+        mid = m.get('methodology_id','?')
+        ec = m.get('execution_class')
+        pc = m.get('provenance_class')
+        if pc not in ('OFFICIAL','WTILS_EXTENSION'):
+            errors.append(f"METH_PROVENANCE: {mid} has invalid provenance_class={pc}")
+        if ec not in ('DIRECT_API','COMPOSITE','NONCALLABLE','META','GOVERNANCE','UNMAPPED'):
+            errors.append(f"METH_EXEC: {mid} has invalid execution_class={ec}")
+    
+    # B5: No bare false in A-fields (must use explicit state)
+    for api in apis:
+        op = api.get('operation_id','?')
+        for k,v in api.items():
+            if (k.startswith('a0') or k.startswith('a1') or k.startswith('a2')) and v is False:
+                errors.append(f"A_FIELD_BARE_FALSE: {op}.{k} is bare false, must use explicit state")
+    
+    # B4 specific: Methods with O-binding must not be UNMAPPED
+    for b in bindings.get("methodology_api_bindings", []):
+        if b.get('classification') == 'O':
+            mid = b.get('methodology_id')
+            for m in methods:
+                if m.get('methodology_id') == mid and m.get('execution_class') == 'UNMAPPED':
+                    errors.append(f"METH_UNMAPPED_WITH_O: {mid} has O-binding but execution_class=UNMAPPED")
+
     return result
 
 
