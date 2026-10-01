@@ -1,0 +1,187 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "wtils:schemas:registries:role_schema",
+  "title": "WTILS Role Registry Schema",
+  "description": "Schema for WTILS Phase 1 Role Registry entries. Defines the five analytical roles: WORLD, TECH, FINANCE, COMMODITY, ENERGY.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "role_id",
+    "name",
+    "version",
+    "core_question",
+    "domains",
+    "primary_profiles",
+    "secondary_profiles",
+    "default_methodologies",
+    "api_family_hints",
+    "output_sections",
+    "language_profile",
+    "region_profile",
+    "activation_rules",
+    "deactivation_rules"
+  ],
+  "properties": {
+    "role_id": {
+      "type": "string",
+      "pattern": "^[A-Z]+$",
+      "description": "Uppercase unique role identifier (e.g. WORLD, TECH, FINANCE, COMMODITY, ENERGY)"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Human-readable role name"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Semantic version of this role definition"
+    },
+    "core_question": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The central analytical question this role addresses"
+    },
+    "domains": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "description": "Knowledge domains this role operates across"
+    },
+    "primary_profiles": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^P\\d{2}$"
+      },
+      "description": "Profiles where this role is primary"
+    },
+    "secondary_profiles": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^P\\d{2}$"
+      },
+      "description": "Profiles where this role is secondary"
+    },
+    "default_methodologies": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^(M|C)\\d{2}$"
+      },
+      "description": "Methodologies activated by default for this role"
+    },
+    "api_family_hints": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "API service families this role typically queries"
+    },
+    "output_sections": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Output report sections this role contributes to"
+    },
+    "language_profile": {
+      "type": "object",
+      "required": ["primary", "secondary"],
+      "additionalProperties": false,
+      "properties": {
+        "primary": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z]{2}(-[A-Z]{2})?$"
+          },
+          "description": "Primary language codes (ISO 639-1 with optional country)"
+        },
+        "secondary": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z]{2}(-[A-Z]{2})?$"
+          },
+          "description": "Secondary language codes"
+        }
+      }
+    },
+    "region_profile": {
+      "type": "object",
+      "required": ["primary", "secondary"],
+      "additionalProperties": false,
+      "properties": {
+        "primary": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 2
+          },
+          "description": "Primary region codes this role focuses on"
+        },
+        "secondary": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 2
+          },
+          "description": "Secondary region codes"
+        }
+      }
+    },
+    "activation_rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["rule_id", "condition"],
+        "additionalProperties": false,
+        "properties": {
+          "rule_id": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Unique rule identifier within this role"
+          },
+          "condition": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Condition expression that triggers activation"
+          },
+          "threshold": {
+            "type": ["number", "null"],
+            "description": "Optional numeric threshold for activation"
+          }
+        }
+      },
+      "description": "Rules that activate this role for a given context"
+    },
+    "deactivation_rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["rule_id", "condition"],
+        "additionalProperties": false,
+        "properties": {
+          "rule_id": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Unique rule identifier within this role"
+          },
+          "condition": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Condition expression that triggers deactivation"
+          }
+        }
+      },
+      "description": "Rules that deactivate this role for a given context"
+    }
+  }
+}

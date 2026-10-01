@@ -1,0 +1,97 @@
+{
+  "registry_type": "outputs",
+  "version": "1.0.0",
+  "generated_at": "2025-01-15T00:00:00Z",
+  "entries": [
+    {
+      "output_type": "LIVE_REPORT",
+      "destination": "DASHBOARD",
+      "format": "JSON",
+      "retention": {"min_days": 7, "max_days": 90, "default_days": 30},
+      "visibility": "INTERNAL",
+      "promotion_policy": "MANUAL",
+      "alert_policy": {"threshold_type": "ADAPTIVE", "cooldown_seconds": 300, "escalation": "ROLE"},
+      "workspace_projection": {"enabled": true, "fields": ["title", "summary", "key_findings", "confidence", "as_of_time", "profile_id"]}
+    },
+    {
+      "output_type": "ALERT",
+      "destination": "ALERT_CHANNEL",
+      "format": "JSON",
+      "retention": {"min_days": 30, "max_days": 365, "default_days": 90},
+      "visibility": "INTERNAL",
+      "promotion_policy": "AUTO",
+      "alert_policy": {"threshold_type": "STATIC", "cooldown_seconds": 600, "escalation": "ESCALATION_CHAIN"},
+      "workspace_projection": {"enabled": true, "fields": ["alert_id", "severity", "title", "description", "trigger_condition", "profile_id", "timestamp"]}
+    },
+    {
+      "output_type": "DASHBOARD_STATE",
+      "destination": "DASHBOARD",
+      "format": "JSON",
+      "retention": {"min_days": 1, "max_days": 7, "default_days": 7},
+      "visibility": "INTERNAL",
+      "promotion_policy": "NEVER",
+      "alert_policy": {"threshold_type": "NONE", "cooldown_seconds": 0, "escalation": "NONE"},
+      "workspace_projection": {"enabled": true, "fields": ["view", "panels", "time_range", "active_profile"]}
+    },
+    {
+      "output_type": "WATCH_STATE",
+      "destination": "DASHBOARD",
+      "format": "JSON",
+      "retention": {"min_days": 7, "max_days": 30, "default_days": 14},
+      "visibility": "INTERNAL",
+      "promotion_policy": "CONDITIONAL",
+      "alert_policy": {"threshold_type": "ADAPTIVE", "cooldown_seconds": 300, "escalation": "CHANNEL"},
+      "workspace_projection": {"enabled": true, "fields": ["watch_id", "status", "last_triggered", "condition", "profile_id"]}
+    },
+    {
+      "output_type": "RESEARCH_ARTIFACT",
+      "destination": "WORKSPACE",
+      "format": "MARKDOWN",
+      "retention": {"min_days": 90, "max_days": 3650, "default_days": 365},
+      "visibility": "INTERNAL",
+      "promotion_policy": "ON_CONFIRMATION",
+      "alert_policy": {"threshold_type": "NONE", "cooldown_seconds": 0, "escalation": "NONE"},
+      "workspace_projection": {"enabled": true, "fields": ["artifact_id", "event_id", "profile_id", "confidence", "as_of_time", "query", "summary"]}
+    },
+    {
+      "output_type": "BACKTEST_ARTIFACT",
+      "destination": "WORKSPACE",
+      "format": "JSON",
+      "retention": {"min_days": 30, "max_days": 365, "default_days": 90},
+      "visibility": "INTERNAL",
+      "promotion_policy": "NEVER",
+      "alert_policy": {"threshold_type": "NONE", "cooldown_seconds": 0, "escalation": "NONE"},
+      "workspace_projection": {"enabled": true, "fields": ["backtest_id", "period", "strategy", "metrics", "profile_id"]}
+    },
+    {
+      "output_type": "KNOWLEDGE_PACKAGE",
+      "destination": "KNOWLEDGE_BASE",
+      "format": "JSON",
+      "retention": {"min_days": 365, "max_days": 3650, "default_days": 1825},
+      "visibility": "INTERNAL",
+      "promotion_policy": "MANUAL",
+      "alert_policy": {"threshold_type": "NONE", "cooldown_seconds": 0, "escalation": "NONE"},
+      "workspace_projection": {"enabled": true, "fields": ["package_id", "profile_id", "methodology_ids", "as_of_time", "evidence_count"]}
+    },
+    {
+      "output_type": "CURRICULUM_PACKAGE",
+      "destination": "ARCHIVE",
+      "format": "JSON",
+      "retention": {"min_days": 365, "max_days": 3650, "default_days": 1825},
+      "visibility": "RESTRICTED",
+      "promotion_policy": "MANUAL",
+      "alert_policy": {"threshold_type": "NONE", "cooldown_seconds": 0, "escalation": "NONE"},
+      "workspace_projection": {"enabled": false, "fields": []}
+    },
+    {
+      "output_type": "TRAINING_SAMPLE",
+      "destination": "ARCHIVE",
+      "format": "PARQUET",
+      "retention": {"min_days": 90, "max_days": 3650, "default_days": 365},
+      "visibility": "RESTRICTED",
+      "promotion_policy": "NEVER",
+      "alert_policy": {"threshold_type": "NONE", "cooldown_seconds": 0, "escalation": "NONE"},
+      "workspace_projection": {"enabled": false, "fields": []}
+    }
+  ]
+}

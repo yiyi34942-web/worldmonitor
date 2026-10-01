@@ -1,0 +1,1320 @@
+{
+  "registry_type": "profiles",
+  "version": "1.0.0",
+  "generated_at": "2025-01-15T00:00:00Z",
+  "entries": [
+    {
+      "profile_id": "P01",
+      "name": "CRUDE_OIL",
+      "version": "1.0.0",
+      "aliases": [
+        "WTI",
+        "BRENT",
+        "CRUDE_OIL",
+        "OIL"
+      ],
+      "asset_types": [
+        "crude_oil",
+        "petroleum",
+        "refined_products"
+      ],
+      "event_types": [
+        "supply_disruption",
+        "price_shock",
+        "inventory_anomaly",
+        "pipeline_incident",
+        "chokepoint_closure",
+        "opec_decision"
+      ],
+      "theme_types": [
+        "energy_security",
+        "commodity_risk",
+        "geopolitical_risk",
+        "supply_chain_risk"
+      ],
+      "regions": [
+        "GLOBAL",
+        "MENA",
+        "NORTH_AMERICA",
+        "EU",
+        "EURASIA",
+        "AFRICA",
+        "LATAM",
+        "SE_ASIA"
+      ],
+      "languages": [
+        "en",
+        "ar",
+        "ru",
+        "zh"
+      ],
+      "primary_roles": [
+        "ENERGY",
+        "COMMODITY"
+      ],
+      "secondary_roles": [
+        "WORLD",
+        "FINANCE"
+      ],
+      "conditional_roles": [
+        {
+          "role": "TECH",
+          "condition": "ai_supply_chain_disruption"
+        }
+      ],
+      "role_priors": {
+        "ENERGY": 0.4,
+        "COMMODITY": 0.35,
+        "WORLD": 0.15,
+        "FINANCE": 0.1
+      },
+      "core_methodologies": [
+        "M15",
+        "M16",
+        "M20",
+        "M03"
+      ],
+      "triggered_methodologies": [
+        {
+          "methodology_id": "M17",
+          "trigger": "pipeline_incident"
+        },
+        {
+          "methodology_id": "M18",
+          "trigger": "storage_anomaly"
+        },
+        {
+          "methodology_id": "M19",
+          "trigger": "fuel_shortage"
+        },
+        {
+          "methodology_id": "M21",
+          "trigger": "cii_risk"
+        },
+        {
+          "methodology_id": "M23",
+          "trigger": "thermal_escalation"
+        },
+        {
+          "methodology_id": "C03",
+          "trigger": "geo_convergence"
+        },
+        {
+          "methodology_id": "C04",
+          "trigger": "strategic_risk"
+        }
+      ],
+      "audit_methodologies": [
+        "C06",
+        "C07"
+      ],
+      "l0_derived_api_refs": [
+        "GetEnergyPrices",
+        "GetCrudeInventories",
+        "GetOilInventories",
+        "GetOilStocksAnalysis",
+        "GetChokepointStatus",
+        "GetCountryVulnerabilities",
+        "GetChinaActivityNowcast"
+      ],
+      "l1_fast_api_refs": [
+        "ListPipelines",
+        "ListStorageFacilities",
+        "ListEnergyDisruptions",
+        "GetVesselSnapshot",
+        "ListCommodityQuotes",
+        "ListFeedDigest",
+        "GetRiskScores"
+      ],
+      "l2_deep_api_refs": [
+        "GetChokepointHistory",
+        "GetChokepointDependencies",
+        "GetShippingStress",
+        "GetRouteImpact",
+        "GetPipelineDetail",
+        "GetStorageFacilityDetail",
+        "RouteIntelligence",
+        "ListIranEvents",
+        "ListAcledEvents",
+        "ListUcdpEvents",
+        "GetTheaterPosture",
+        "GetUSNIFleetReport",
+        "ListSanctionsPressure",
+        "GetCotPositioning",
+        "GetCountryEnergyProfile",
+        "ListMarketImplications",
+        "GetCountryRisk",
+        "SearchIntelHistory",
+        "GetIntelTimeline",
+        "GetSimilarEvents"
+      ],
+      "external_gap_rules": [
+        "if_source_missing_eia_then_flag_gap",
+        "if_chokepoint_unmonitored_then_request_external"
+      ],
+      "dashboard_state": {
+        "view": "crude_overview",
+        "time_range": "7d",
+        "layer_hints": [
+          "price",
+          "inventory",
+          "chokepoint",
+          "disruption",
+          "conflict"
+        ],
+        "panel_hints": [
+          "price_panel",
+          "inventory_panel",
+          "chokepoint_panel",
+          "disruption_panel",
+          "vessel_panel",
+          "conflict_panel"
+        ]
+      },
+      "output_policy": "FULL",
+      "deep_research_triggers": [
+        "chokepoint_closure",
+        "opec_emergency_meeting",
+        "major_pipeline_incident",
+        "strategic_reserve_draw",
+        "energy_crisis_declaration"
+      ],
+      "point_in_time_required": true
+    },
+    {
+      "profile_id": "P02",
+      "name": "NATURAL_GAS_LNG",
+      "version": "1.0.0",
+      "aliases": [
+        "NG",
+        "LNG",
+        "NATURAL_GAS",
+        "HENRY_HUB"
+      ],
+      "asset_types": [
+        "natural_gas",
+        "lng",
+        "gas_storage"
+      ],
+      "event_types": [
+        "supply_disruption",
+        "storage_anomaly",
+        "price_shock",
+        "pipeline_incident",
+        "lng_diversion"
+      ],
+      "theme_types": [
+        "energy_security",
+        "commodity_risk",
+        "seasonal_risk",
+        "infrastructure_risk"
+      ],
+      "regions": [
+        "GLOBAL",
+        "EU",
+        "EURASIA",
+        "MENA",
+        "NORTH_AMERICA",
+        "EAST_ASIA"
+      ],
+      "languages": [
+        "en",
+        "ru",
+        "no",
+        "zh"
+      ],
+      "primary_roles": [
+        "ENERGY",
+        "COMMODITY"
+      ],
+      "secondary_roles": [
+        "WORLD",
+        "FINANCE"
+      ],
+      "conditional_roles": [],
+      "role_priors": {
+        "ENERGY": 0.45,
+        "COMMODITY": 0.35,
+        "WORLD": 0.1,
+        "FINANCE": 0.1
+      },
+      "core_methodologies": [
+        "M15",
+        "M17",
+        "M18",
+        "M20"
+      ],
+      "triggered_methodologies": [
+        {
+          "methodology_id": "M19",
+          "trigger": "fuel_shortage"
+        },
+        {
+          "methodology_id": "M16",
+          "trigger": "supply_chain_stress"
+        },
+        {
+          "methodology_id": "M23",
+          "trigger": "thermal_escalation"
+        },
+        {
+          "methodology_id": "C03",
+          "trigger": "geo_convergence"
+        }
+      ],
+      "audit_methodologies": [
+        "C06",
+        "C07"
+      ],
+      "l0_derived_api_refs": [
+        "GetEnergyPrices",
+        "GetNatGasStorage",
+        "GetEuGasStorage",
+        "GetChokepointStatus",
+        "GetCountryVulnerabilities"
+      ],
+      "l1_fast_api_refs": [
+        "ListPipelines",
+        "ListStorageFacilities",
+        "ListEnergyDisruptions",
+        "GetVesselSnapshot",
+        "ListCommodityQuotes",
+        "ListFeedDigest"
+      ],
+      "l2_deep_api_refs": [
+        "GetChokepointHistory",
+        "GetPipelineDetail",
+        "GetStorageFacilityDetail",
+        "RouteIntelligence",
+        "ListSanctionsPressure",
+        "GetCountryEnergyProfile",
+        "GetCountryRisk",
+        "SearchIntelHistory",
+        "GetIntelTimeline"
+      ],
+      "external_gap_rules": [
+        "if_source_missing_eia_gas_then_flag_gap",
+        "if_eu_gas_storage_unavailable_then_request_gie"
+      ],
+      "dashboard_state": {
+        "view": "natgas_overview",
+        "time_range": "7d",
+        "layer_hints": [
+          "price",
+          "storage",
+          "pipeline",
+          "lng",
+          "weather"
+        ],
+        "panel_hints": [
+          "price_panel",
+          "storage_panel",
+          "pipeline_panel",
+          "lng_panel",
+          "weather_panel"
+        ]
+      },
+      "output_policy": "FULL",
+      "deep_research_triggers": [
+        "eu_gas_storage_critical",
+        "major_pipeline_incident",
+        "lng_disruption",
+        "russia_gas_flow_anomaly"
+      ],
+      "point_in_time_required": true
+    },
+    {
+      "profile_id": "P03",
+      "name": "GOLD",
+      "version": "1.0.0",
+      "aliases": [
+        "XAU",
+        "GOLD",
+        "PRECIOUS_METAL"
+      ],
+      "asset_types": [
+        "gold",
+        "silver",
+        "precious_metals"
+      ],
+      "event_types": [
+        "price_shock",
+        "central_bank_activity",
+        "reserve_change",
+        "etf_flow"
+      ],
+      "theme_types": [
+        "monetary_risk",
+        "currency_risk",
+        "safe_haven_demand"
+      ],
+      "regions": [
+        "GLOBAL",
+        "NORTH_AMERICA",
+        "EU",
+        "EAST_ASIA",
+        "MENA"
+      ],
+      "languages": [
+        "en"
+      ],
+      "primary_roles": [
+        "COMMODITY",
+        "FINANCE"
+      ],
+      "secondary_roles": [
+        "WORLD"
+      ],
+      "conditional_roles": [],
+      "role_priors": {
+        "COMMODITY": 0.4,
+        "FINANCE": 0.4,
+        "WORLD": 0.2
+      },
+      "core_methodologies": [
+        "M24",
+        "M15",
+        "M03"
+      ],
+      "triggered_methodologies": [
+        {
+          "methodology_id": "M08",
+          "trigger": "financial_stress_spike"
+        },
+        {
+          "methodology_id": "M10",
+          "trigger": "yield_curve_inversion"
+        },
+        {
+          "methodology_id": "C02",
+          "trigger": "macro_overlay_needed"
+        }
+      ],
+      "audit_methodologies": [
+        "C06",
+        "C07"
+      ],
+      "l0_derived_api_refs": [
+        "GetGoldIntelligence",
+        "GetEnergyPrices",
+        "GetEcbFxRates",
+        "GetBisExchangeRates"
+      ],
+      "l1_fast_api_refs": [
+        "ListCommodityQuotes",
+        "ListFeedDigest",
+        "GetRiskScores",
+        "GetFearGreedIndex"
+      ],
+      "l2_deep_api_refs": [
+        "GetCotPositioning",
+        "GetCountryRisk",
+        "SearchIntelHistory",
+        "GetIntelTimeline",
+        "ListMarketImplications"
+      ],
+      "external_gap_rules": [
+        "if_central_bank_data_lag_then_flag_gap"
+      ],
+      "dashboard_state": {
+        "view": "gold_overview",
+        "time_range": "7d",
+        "layer_hints": [
+          "price",
+          "reserve",
+          "etf",
+          "fx",
+          "rates"
+        ],
+        "panel_hints": [
+          "price_panel",
+          "reserve_panel",
+          "etf_panel",
+          "fx_panel",
+          "rates_panel"
+        ]
+      },
+      "output_policy": "SUMMARY",
+      "deep_research_triggers": [
+        "central_bank_reserve_major_shift",
+        "gold_price_breakout",
+        "systemic_risk_spike"
+      ],
+      "point_in_time_required": true
+    },
+    {
+      "profile_id": "P04",
+      "name": "COPPER",
+      "version": "1.0.0",
+      "aliases": [
+        "XCU",
+        "COPPER",
+        "RED_GOLD",
+        "HG"
+      ],
+      "asset_types": [
+        "copper",
+        "base_metals",
+        "lme_metals"
+      ],
+      "event_types": [
+        "price_shock",
+        "supply_disruption",
+        "demand_shift",
+        "inventory_anomaly"
+      ],
+      "theme_types": [
+        "industrial_demand",
+        "green_transition",
+        "supply_concentration"
+      ],
+      "regions": [
+        "GLOBAL",
+        "SOUTH_AMERICA",
+        "AFRICA",
+        "EAST_ASIA",
+        "SE_ASIA"
+      ],
+      "languages": [
+        "en",
+        "zh",
+        "es"
+      ],
+      "primary_roles": [
+        "COMMODITY",
+        "TECH"
+      ],
+      "secondary_roles": [
+        "FINANCE",
+        "ENERGY"
+      ],
+      "conditional_roles": [],
+      "role_priors": {
+        "COMMODITY": 0.35,
+        "TECH": 0.35,
+        "FINANCE": 0.2,
+        "ENERGY": 0.1
+      },
+      "core_methodologies": [
+        "M14",
+        "M15",
+        "M16"
+      ],
+      "triggered_methodologies": [
+        {
+          "methodology_id": "M13",
+          "trigger": "mineral_supply_alert"
+        },
+        {
+          "methodology_id": "M03",
+          "trigger": "contradiction_detected"
+        },
+        {
+          "methodology_id": "C02",
+          "trigger": "macro_overlay_needed"
+        }
+      ],
+      "audit_methodologies": [
+        "C06",
+        "C07"
+      ],
+      "l0_derived_api_refs": [
+        "GetEnergyPrices",
+        "GetCriticalMinerals",
+        "GetMineralProduction",
+        "GetChokepointStatus"
+      ],
+      "l1_fast_api_refs": [
+        "ListCommodityQuotes",
+        "ListStorageFacilities",
+        "ListFeedDigest",
+        "GetRiskScores"
+      ],
+      "l2_deep_api_refs": [
+        "GetChokepointDependencies",
+        "GetCountryVulnerabilities",
+        "GetSectorDependency",
+        "GetCountryRisk",
+        "SearchIntelHistory"
+      ],
+      "external_gap_rules": [
+        "if_lme_data_gap_then_flag_gap",
+        "if_concentrated_supply_then_elevate_risk"
+      ],
+      "dashboard_state": {
+        "view": "copper_overview",
+        "time_range": "7d",
+        "layer_hints": [
+          "price",
+          "inventory",
+          "supply",
+          "demand",
+          "chokepoint"
+        ],
+        "panel_hints": [
+          "price_panel",
+          "inventory_panel",
+          "supply_panel",
+          "demand_panel",
+          "chokepoint_panel"
+        ]
+      },
+      "output_policy": "SUMMARY",
+      "deep_research_triggers": [
+        "copper_supply_disruption",
+        "chokepoint_closure",
+        "demand_surge_green_transition"
+      ],
+      "point_in_time_required": true
+    },
+    {
+      "profile_id": "P05",
+      "name": "SOYBEAN",
+      "version": "1.0.0",
+      "aliases": [
+        "SOY",
+        "SOYBEAN",
+        "SOYBEANS"
+      ],
+      "asset_types": [
+        "soybean",
+        "soybean_meal",
+        "soybean_oil",
+        "agriculture"
+      ],
+      "event_types": [
+        "harvest_report",
+        "weather_event",
+        "trade_policy",
+        "price_shock"
+      ],
+      "theme_types": [
+        "food_security",
+        "agricultural_risk",
+        "trade_risk"
+      ],
+      "regions": [
+        "GLOBAL",
+        "SOUTH_AMERICA",
+        "NORTH_AMERICA",
+        "EAST_ASIA"
+      ],
+      "languages": [
+        "en",
+        "pt",
+        "zh"
+      ],
+      "primary_roles": [
+        "COMMODITY"
+      ],
+      "secondary_roles": [
+        "WORLD",
+        "FINANCE"
+      ],
+      "conditional_roles": [],
+      "role_priors": {
+        "COMMODITY": 0.5,
+        "WORLD": 0.3,
+        "FINANCE": 0.2
+      },
+      "core_methodologies": [
+        "M12",
+        "M15",
+        "M03"
+      ],
+      "triggered_methodologies": [
+        {
+          "methodology_id": "M11",
+          "trigger": "trade_flow_anomaly"
+        },
+        {
+          "methodology_id": "M16",
+          "trigger": "supply_chain_stress"
+        },
+        {
+          "methodology_id": "C02",
+          "trigger": "macro_overlay_needed"
+        }
+      ],
+      "audit_methodologies": [
+        "C06",
+        "C07"
+      ],
+      "l0_derived_api_refs": [
+        "GetEnergyPrices",
+        "GetFaoFoodPriceIndex",
+        "GetTradeFlows",
+        "GetCountryVulnerabilities"
+      ],
+      "l1_fast_api_refs": [
+        "ListCommodityQuotes",
+        "ListFeedDigest",
+        "GetRiskScores"
+      ],
+      "l2_deep_api_refs": [
+        "GetChokepointStatus",
+        "GetTradeBarriers",
+        "GetCountryRisk",
+        "SearchIntelHistory"
+      ],
+      "external_gap_rules": [
+        "if_fao_data_lag_then_flag_gap"
+      ],
+      "dashboard_state": {
+        "view": "soy_overview",
+        "time_range": "30d",
+        "layer_hints": [
+          "price",
+          "supply",
+          "demand",
+          "weather",
+          "trade"
+        ],
+        "panel_hints": [
+          "price_panel",
+          "supply_panel",
+          "demand_panel",
+          "weather_panel",
+          "trade_panel"
+        ]
+      },
+      "output_policy": "SUMMARY",
+      "deep_research_triggers": [
+        "south_american_drought",
+        "china_import_surge",
+        "trade_barrier_imposed"
+      ],
+      "point_in_time_required": true
+    },
+    {
+      "profile_id": "P06",
+      "name": "FX",
+      "version": "1.0.0",
+      "aliases": [
+        "FOREX",
+        "FX",
+        "CURRENCY"
+      ],
+      "asset_types": [
+        "currency_pair",
+        "fx_rate",
+        "exchange_rate"
+      ],
+      "event_types": [
+        "fx_volatility_spike",
+        "intervention",
+        "peg_adjustment"
+      ],
+      "theme_types": [
+        "currency_risk",
+        "carry_trade",
+        "em_risk"
+      ],
+      "regions": [
+        "GLOBAL",
+        "EM_LATAM",
+        "EM_ASIA",
+        "MENA",
+        "EU"
+      ],
+      "languages": [
+        "en"
+      ],
+      "primary_roles": [
+        "FINANCE"
+      ],
+      "secondary_roles": [
+        "WORLD"
+      ],
+      "conditional_roles": [],
+      "role_priors": {
+        "FINANCE": 0.7,
+        "WORLD": 0.3
+      },
+      "core_methodologies": [
+        "M08",
+        "M10",
+        "M03"
+      ],
+      "triggered_methodologies": [
+        {
+          "methodology_id": "M09",
+          "trigger": "cot_extreme_positioning"
+        },
+        {
+          "methodology_id": "C02",
+          "trigger": "macro_overlay_needed"
+        }
+      ],
+      "audit_methodologies": [
+        "C06",
+        "C07"
+      ],
+      "l0_derived_api_refs": [
+        "GetBisExchangeRates",
+        "GetEcbFxRates",
+        "GetUsInterestRates",
+        "GetBisPolicyRates"
+      ],
+      "l1_fast_api_refs": [
+        "ListFeedDigest",
+        "GetRiskScores",
+        "GetFearGreedIndex"
+      ],
+      "l2_deep_api_refs": [
+        "GetCotPositioning",
+        "GetCountryRisk",
+        "ListMarketImplications",
+        "SearchIntelHistory"
+      ],
+      "external_gap_rules": [
+        "if_em_fx_data_gap_then_flag_gap"
+      ],
+      "dashboard_state": {
+        "view": "fx_overview",
+        "time_range": "7d",
+        "layer_hints": [
+          "rates",
+          "volatility",
+          "positioning",
+          "intervention"
+        ],
+        "panel_hints": [
+          "rates_panel",
+          "volatility_panel",
+          "positioning_panel",
+          "intervention_panel"
+        ]
+      },
+      "output_policy": "SUMMARY",
+      "deep_research_triggers": [
+        "em_fx_crisis",
+        "intervention_event",
+        "peg_break"
+      ],
+      "point_in_time_required": true
+    },
+    {
+      "profile_id": "P07",
+      "name": "RATES",
+      "version": "1.0.0",
+      "aliases": [
+        "RATES",
+        "YIELD",
+        "BONDS",
+        "SOFR"
+      ],
+      "asset_types": [
+        "government_bond",
+        "yield_curve",
+        "policy_rate",
+        "credit_spread"
+      ],
+      "event_types": [
+        "rate_decision",
+        "curve_shift",
+        "inversion",
+        "spread_widening"
+      ],
+      "theme_types": [
+        "monetary_policy",
+        "credit_risk",
+        "duration_risk"
+      ],
+      "regions": [
+        "GLOBAL",
+        "NORTH_AMERICA",
+        "EU",
+        "EAST_ASIA",
+        "EUROZONE"
+      ],
+      "languages": [
+        "en"
+      ],
+      "primary_roles": [
+        "FINANCE"
+      ],
+      "secondary_roles": [
+        "WORLD"
+      ],
+      "conditional_roles": [],
+      "role_priors": {
+        "FINANCE": 0.7,
+        "WORLD": 0.3
+      },
+      "core_methodologies": [
+        "M08",
+        "M10",
+        "M03"
+      ],
+      "triggered_methodologies": [
+        {
+          "methodology_id": "M09",
+          "trigger": "cot_extreme_positioning"
+        },
+        {
+          "methodology_id": "C02",
+          "trigger": "macro_overlay_needed"
+        }
+      ],
+      "audit_methodologies": [
+        "C06",
+        "C07"
+      ],
+      "l0_derived_api_refs": [
+        "GetUsInterestRates",
+        "GetUsTreasuryParYieldCurve",
+        "GetEuYieldCurve",
+        "GetGovernmentYieldCurve",
+        "GetBisPolicyRates"
+      ],
+      "l1_fast_api_refs": [
+        "ListFeedDigest",
+        "GetRiskScores",
+        "GetEconomicCalendar"
+      ],
+      "l2_deep_api_refs": [
+        "GetCotPositioning",
+        "GetCountryRisk",
+        "ListMarketImplications",
+        "SearchIntelHistory"
+      ],
+      "external_gap_rules": [
+        "if_real_time_yield_gap_then_flag"
+      ],
+      "dashboard_state": {
+        "view": "rates_overview",
+        "time_range": "30d",
+        "layer_hints": [
+          "yield_curve",
+          "policy_rate",
+          "spreads",
+          "inflation"
+        ],
+        "panel_hints": [
+          "curve_panel",
+          "policy_panel",
+          "spread_panel",
+          "inflation_panel"
+        ]
+      },
+      "output_policy": "SUMMARY",
+      "deep_research_triggers": [
+        "rate_decision_surprise",
+        "curve_inversion_deepening",
+        "credit_spread_spike"
+      ],
+      "point_in_time_required": true
+    },
+    {
+      "profile_id": "P08",
+      "name": "EQUITIES",
+      "version": "1.0.0",
+      "aliases": [
+        "STOCKS",
+        "EQUITY",
+        "EQUITIES"
+      ],
+      "asset_types": [
+        "stock_index",
+        "sector_index",
+        "equity_etf"
+      ],
+      "event_types": [
+        "market_crash",
+        "sector_rotation",
+        "earnings_surprise",
+        "insider_activity"
+      ],
+      "theme_types": [
+        "market_risk",
+        "sector_risk",
+        "sentiment_risk"
+      ],
+      "regions": [
+        "GLOBAL",
+        "NORTH_AMERICA",
+        "EU",
+        "EAST_ASIA",
+        "EM_LATAM"
+      ],
+      "languages": [
+        "en",
+        "zh",
+        "ja"
+      ],
+      "primary_roles": [
+        "FINANCE"
+      ],
+      "secondary_roles": [
+        "WORLD"
+      ],
+      "conditional_roles": [],
+      "role_priors": {
+        "FINANCE": 0.7,
+        "WORLD": 0.3
+      },
+      "core_methodologies": [
+        "M08",
+        "M03"
+      ],
+      "triggered_methodologies": [
+        {
+          "methodology_id": "M09",
+          "trigger": "cot_extreme_positioning"
+        },
+        {
+          "methodology_id": "M15",
+          "trigger": "commodity_correlation_spike"
+        },
+        {
+          "methodology_id": "C02",
+          "trigger": "macro_overlay_needed"
+        }
+      ],
+      "audit_methodologies": [
+        "C06",
+        "C07"
+      ],
+      "l0_derived_api_refs": [
+        "GetFearGreedIndex",
+        "GetMarketBreadthHistory",
+        "GetCountryStockIndex",
+        "GetSectorSummary"
+      ],
+      "l1_fast_api_refs": [
+        "ListMarketQuotes",
+        "ListEtfFlows",
+        "ListEarningsCalendar",
+        "GetInsiderTransactions",
+        "ListFeedDigest"
+      ],
+      "l2_deep_api_refs": [
+        "GetCotPositioning",
+        "GetCountryRisk",
+        "ListMarketImplications",
+        "SearchIntelHistory",
+        "AnalyzeStock"
+      ],
+      "external_gap_rules": [
+        "if_real_time_quote_gap_then_flag"
+      ],
+      "dashboard_state": {
+        "view": "equities_overview",
+        "time_range": "7d",
+        "layer_hints": [
+          "price",
+          "breadth",
+          "flows",
+          "sentiment",
+          "earnings"
+        ],
+        "panel_hints": [
+          "price_panel",
+          "breadth_panel",
+          "flows_panel",
+          "sentiment_panel",
+          "earnings_panel"
+        ]
+      },
+      "output_policy": "SUMMARY",
+      "deep_research_triggers": [
+        "market_crash_signal",
+        "extreme_fear_greed",
+        "sector_breadth_divergence"
+      ],
+      "point_in_time_required": true
+    },
+    {
+      "profile_id": "P09",
+      "name": "AI_SUPPLY_CHAIN",
+      "version": "1.0.0",
+      "aliases": [
+        "AI_SC",
+        "SEMICON",
+        "CHIP_SUPPLY"
+      ],
+      "asset_types": [
+        "semiconductor",
+        "ai_chip",
+        "rare_earth",
+        "mineral_processing"
+      ],
+      "event_types": [
+        "export_control",
+        "supply_disruption",
+        "sanctions_designation",
+        "capacity_change"
+      ],
+      "theme_types": [
+        "tech_concentration",
+        "chokepoint_risk",
+        "national_security"
+      ],
+      "regions": [
+        "GLOBAL",
+        "EAST_ASIA",
+        "NORTH_AMERICA",
+        "EU"
+      ],
+      "languages": [
+        "en",
+        "zh",
+        "ko",
+        "ja"
+      ],
+      "primary_roles": [
+        "TECH"
+      ],
+      "secondary_roles": [
+        "FINANCE",
+        "COMMODITY",
+        "ENERGY",
+        "WORLD"
+      ],
+      "conditional_roles": [],
+      "role_priors": {
+        "TECH": 0.4,
+        "FINANCE": 0.2,
+        "COMMODITY": 0.2,
+        "ENERGY": 0.1,
+        "WORLD": 0.1
+      },
+      "core_methodologies": [
+        "M14",
+        "M13",
+        "M16"
+      ],
+      "triggered_methodologies": [
+        {
+          "methodology_id": "M01",
+          "trigger": "tech_event_detected"
+        },
+        {
+          "methodology_id": "M05",
+          "trigger": "tech_sanctions_imposed"
+        },
+        {
+          "methodology_id": "C04",
+          "trigger": "strategic_risk_trigger"
+        },
+        {
+          "methodology_id": "C03",
+          "trigger": "geo_convergence"
+        }
+      ],
+      "audit_methodologies": [
+        "C06",
+        "C07"
+      ],
+      "l0_derived_api_refs": [
+        "GetChokepointStatus",
+        "GetCriticalMinerals",
+        "GetMineralProduction",
+        "GetCountryVulnerabilities",
+        "GetDefenseIndustrialBase"
+      ],
+      "l1_fast_api_refs": [
+        "ListDefensePatents",
+        "ListFuelShortages",
+        "ListPipelines",
+        "ListFeedDigest",
+        "GetRiskScores"
+      ],
+      "l2_deep_api_refs": [
+        "GetChokepointHistory",
+        "GetChokepointDependencies",
+        "GetSectorDependency",
+        "ListSanctionsPressure",
+        "GetCountryRisk",
+        "SearchIntelHistory",
+        "GetIntelTimeline"
+      ],
+      "external_gap_rules": [
+        "if_taiwan_data_gap_then_critical_flag",
+        "if_chip_production_data_lag_then_flag"
+      ],
+      "dashboard_state": {
+        "view": "ai_supply_chain_overview",
+        "time_range": "30d",
+        "layer_hints": [
+          "chokepoint",
+          "mineral",
+          "sanctions",
+          "patent",
+          "capacity"
+        ],
+        "panel_hints": [
+          "chokepoint_panel",
+          "mineral_panel",
+          "sanctions_panel",
+          "patent_panel",
+          "capacity_panel"
+        ]
+      },
+      "output_policy": "FULL",
+      "deep_research_triggers": [
+        "chokepoint_closure",
+        "export_control_expansion",
+        "chip_capacity_disruption",
+        "rare_earth_supply_alert"
+      ],
+      "point_in_time_required": true
+    },
+    {
+      "profile_id": "P10",
+      "name": "GEOPOLITICAL_EVENT",
+      "version": "1.0.0",
+      "aliases": [
+        "GEOPOL",
+        "CONFLICT",
+        "STRATEGIC_EVENT"
+      ],
+      "asset_types": [
+        "geopolitical_event",
+        "conflict",
+        "sanctions_event",
+        "diplomatic_event"
+      ],
+      "event_types": [
+        "conflict_escalation",
+        "sanctions_designation",
+        "military_deployment",
+        "regime_change",
+        "treaty_change"
+      ],
+      "theme_types": [
+        "conflict_risk",
+        "sanctions_risk",
+        "military_risk",
+        "political_risk"
+      ],
+      "regions": [
+        "GLOBAL",
+        "MENA",
+        "EURASIA",
+        "EAST_ASIA",
+        "SOUTH_ASIA",
+        "AFRICA",
+        "EU"
+      ],
+      "languages": [
+        "en",
+        "ru",
+        "zh",
+        "ar",
+        "fa",
+        "uk"
+      ],
+      "primary_roles": [
+        "WORLD"
+      ],
+      "secondary_roles": [
+        "ENERGY",
+        "COMMODITY",
+        "FINANCE"
+      ],
+      "conditional_roles": [],
+      "role_priors": {
+        "WORLD": 0.5,
+        "ENERGY": 0.2,
+        "COMMODITY": 0.2,
+        "FINANCE": 0.1
+      },
+      "core_methodologies": [
+        "M03",
+        "M04",
+        "M23",
+        "M22"
+      ],
+      "triggered_methodologies": [
+        {
+          "methodology_id": "M05",
+          "trigger": "sanctions_event"
+        },
+        {
+          "methodology_id": "M06",
+          "trigger": "military_deployment"
+        },
+        {
+          "methodology_id": "M07",
+          "trigger": "humanitarian_crisis"
+        },
+        {
+          "methodology_id": "C01",
+          "trigger": "geopolitical_overlay_needed"
+        },
+        {
+          "methodology_id": "C03",
+          "trigger": "geo_convergence"
+        },
+        {
+          "methodology_id": "C04",
+          "trigger": "strategic_risk_trigger"
+        }
+      ],
+      "audit_methodologies": [
+        "C06",
+        "C07"
+      ],
+      "l0_derived_api_refs": [
+        "ListAcledEvents",
+        "ListUcdpEvents",
+        "ListIranEvents",
+        "ListSanctionsPressure",
+        "GetHumanitarianSummary",
+        "ListThermalEscalations"
+      ],
+      "l1_fast_api_refs": [
+        "GetTheaterPosture",
+        "GetCountryRisk",
+        "GetRiskScores",
+        "ListFeedDigest",
+        "GetPizzintStatus",
+        "GetSocialVelocity"
+      ],
+      "l2_deep_api_refs": [
+        "GetChokepointStatus",
+        "GetChokepointDependencies",
+        "GetCountryVulnerabilities",
+        "GetIntelTimeline",
+        "SearchIntelHistory",
+        "GetSimilarEvents",
+        "GetRegionalBrief",
+        "GetCountryIntelBrief",
+        "ListSecurityAdvisories"
+      ],
+      "external_gap_rules": [
+        "if_conflict_data_gap_then_flag_gap",
+        "if_sanctions_data_lag_then_request_ofac"
+      ],
+      "dashboard_state": {
+        "view": "geopolitical_overview",
+        "time_range": "7d",
+        "layer_hints": [
+          "conflict",
+          "sanctions",
+          "military",
+          "diplomacy",
+          "thermal"
+        ],
+        "panel_hints": [
+          "conflict_panel",
+          "sanctions_panel",
+          "military_panel",
+          "diplomacy_panel",
+          "thermal_panel"
+        ]
+      },
+      "output_policy": "FULL",
+      "deep_research_triggers": [
+        "conflict_escalation",
+        "major_sanctions_package",
+        "military_posture_shift",
+        "regime_change",
+        "thermal_escalation"
+      ],
+      "point_in_time_required": true
+    }
+  ]
+}

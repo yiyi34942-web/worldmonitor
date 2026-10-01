@@ -1,0 +1,2834 @@
+{
+  "registry_type": "methodologies",
+  "version": "1.0.0",
+  "generated_at": "2025-01-15T00:00:00Z",
+  "entries": [
+    {
+      "methodology_id": "M01",
+      "name": "Event Classification",
+      "classification": "OFFICIAL_DIRECT",
+      "version": "1.0.0",
+      "valid_from": "2025-01-15",
+      "valid_to": null,
+      "primary_roles": [
+        "WORLD",
+        "TECH"
+      ],
+      "secondary_roles": [
+        "FINANCE"
+      ],
+      "applicable_profiles": [
+        "P09",
+        "P10"
+      ],
+      "trigger_conditions": [
+        "event_detected",
+        "signal_threshold_exceeded"
+      ],
+      "asset_types": [
+        "event"
+      ],
+      "event_types": [
+        "geopolitical",
+        "conflict",
+        "sanction",
+        "disruption"
+      ],
+      "entity_types": [
+        "country",
+        "region",
+        "entity"
+      ],
+      "required_inputs": [
+        "event_data"
+      ],
+      "enrichment_inputs": [
+        "context_data",
+        "historical_events"
+      ],
+      "output_bindings": [
+        "classification_result",
+        "event_score"
+      ],
+      "rules_structured": [
+        {
+          "rule_id": "M01_R01",
+          "description": "Classify event by type, severity, and geographic scope"
+        },
+        {
+          "rule_id": "M01_R02",
+          "description": "Assign confidence score based on source corroboration"
+        }
+      ],
+      "thresholds_structured": [
+        {
+          "threshold_id": "M01_T01",
+          "value": 0.7
+        },
+        {
+          "threshold_id": "M01_T02",
+          "value": 3
+        }
+      ],
+      "limitations": [
+        "Requires structured event input",
+        "Confidence degrades with single-source events"
+      ],
+      "freshness_requirement": {
+        "max_age_seconds": 300,
+        "strategy": "REQUIRE_FRESH",
+        "stale_threshold_seconds": 600,
+        "degraded_threshold_seconds": 1800
+      },
+      "source_requirements": [
+        "SRC_GDELT",
+        "SRC_ACLED",
+        "SRC_NEWS_API"
+      ],
+      "point_in_time_requirement": {
+        "required": true,
+        "as_of_field": "as_of",
+        "default_lookback": "7d"
+      },
+      "fast_path_allowed": true,
+      "deep_path_allowed": true,
+      "weknora_eligible": true,
+      "methodology_version_hash": "c4c2987bc6e615f4cabb4833d4bd1bc77b163aef50634230aceaedbe7388921d",
+      "rebaseline_required": false,
+      "callable": true
+    },
+    {
+      "methodology_id": "M02",
+      "name": "Temporal Anomaly Detection",
+      "classification": "OFFICIAL_DIRECT",
+      "version": "1.0.0",
+      "valid_from": "2025-01-15",
+      "valid_to": null,
+      "primary_roles": [
+        "WORLD"
+      ],
+      "secondary_roles": [
+        "ENERGY",
+        "COMMODITY"
+      ],
+      "applicable_profiles": [
+        "P10",
+        "P01"
+      ],
+      "trigger_conditions": [
+        "baseline_deviation",
+        "seasonal_anomaly"
+      ],
+      "asset_types": [
+        "time_series"
+      ],
+      "event_types": [
+        "anomaly",
+        "baseline_deviation"
+      ],
+      "entity_types": [
+        "metric",
+        "indicator"
+      ],
+      "required_inputs": [
+        "baseline",
+        "temporal_data"
+      ],
+      "enrichment_inputs": [
+        "seasonal_adjustment",
+        "event_calendar"
+      ],
+      "output_bindings": [
+        "anomaly_flags",
+        "deviation_scores"
+      ],
+      "rules_structured": [
+        {
+          "rule_id": "M02_R01",
+          "description": "Compare current value against temporal baseline distribution"
+        },
+        {
+          "rule_id": "M02_R02",
+          "description": "Flag if deviation exceeds N standard deviations"
+        }
+      ],
+      "thresholds_structured": [
+        {
+          "threshold_id": "M02_T01",
+          "value": 2.0
+        },
+        {
+          "threshold_id": "M02_T02",
+          "value": 3.0
+        }
+      ],
+      "limitations": [
+        "Baseline must cover at least 90 days",
+        "Seasonal adjustment may lag"
+      ],
+      "freshness_requirement": {
+        "max_age_seconds": 3600,
+        "strategy": "FRESH_FIRST",
+        "stale_threshold_seconds": 7200,
+        "degraded_threshold_seconds": 28800
+      },
+      "source_requirements": [
+        "SRC_EIA",
+        "SRC_IEA"
+      ],
+      "point_in_time_requirement": {
+        "required": true,
+        "as_of_field": "as_of",
+        "default_lookback": "30d"
+      },
+      "fast_path_allowed": true,
+      "deep_path_allowed": true,
+      "weknora_eligible": false,
+      "methodology_version_hash": "ccf28048429f5b4128f2799e178eae29782603b4685301b12b59c18d268b70b7",
+      "rebaseline_required": false,
+      "callable": true
+    },
+    {
+      "methodology_id": "M03",
+      "name": "Cross-Source Corroboration",
+      "classification": "OFFICIAL_DIRECT",
+      "version": "1.0.0",
+      "valid_from": "2025-01-15",
+      "valid_to": null,
+      "primary_roles": [
+        "WORLD",
+        "COMMODITY",
+        "FINANCE"
+      ],
+      "secondary_roles": [
+        "TECH",
+        "ENERGY"
+      ],
+      "applicable_profiles": [
+        "P01",
+        "P03",
+        "P05",
+        "P06",
+        "P07",
+        "P08",
+        "P10"
+      ],
+      "trigger_conditions": [
+        "multiple_sources_available",
+        "contradiction_detected"
+      ],
+      "asset_types": [
+        "multi_source"
+      ],
+      "event_types": [
+        "corroboration",
+        "contradiction"
+      ],
+      "entity_types": [
+        "any"
+      ],
+      "required_inputs": [
+        "multi_source_data"
+      ],
+      "enrichment_inputs": [
+        "source_credibility_scores",
+        "temporal_alignment"
+      ],
+      "output_bindings": [
+        "corroboration_score",
+        "contradiction_report",
+        "consensus_narrative"
+      ],
+      "rules_structured": [
+        {
+          "rule_id": "M03_R01",
+          "description": "Weight sources by credibility and recency"
+        },
+        {
+          "rule_id": "M03_R02",
+          "description": "Flag contradictions between sources above threshold"
+        },
+        {
+          "rule_id": "M03_R03",
+          "description": "Build consensus narrative from corroborated claims"
+        }
+      ],
+      "thresholds_structured": [
+        {
+          "threshold_id": "M03_T01",
+          "value": 0.6
+        },
+        {
+          "threshold_id": "M03_T02",
+          "value": 2
+        }
+      ],
+      "limitations": [
+        "Minimum 2 sources required",
+        "Credibility scores must be pre-computed"
+      ],
+      "freshness_requirement": {
+        "max_age_seconds": 7200,
+        "strategy": "STALE_OK",
+        "stale_threshold_seconds": 86400,
+        "degraded_threshold_seconds": 259200
+      },
+      "source_requirements": [
+        "SRC_GDELT",
+        "SRC_ACLED",
+        "SRC_NEWS_API",
+        "SRC_IMF"
+      ],
+      "point_in_time_requirement": {
+        "required": true,
+        "as_of_field": "as_of",
+        "default_lookback": "7d"
+      },
+      "fast_path_allowed": true,
+      "deep_path_allowed": true,
+      "weknora_eligible": true,
+      "methodology_version_hash": "d8fd71b8d82cd3d87aeb63d5caa3799c1b51e0e422cabaf7ac890a570e464679",
+      "rebaseline_required": false,
+      "callable": true
+    },
+    {
+      "methodology_id": "M04",
+      "name": "Conflict Intensity Scoring",
+      "classification": "OFFICIAL_DIRECT",
+      "version": "1.0.0",
+      "valid_from": "2025-01-15",
+      "valid_to": null,
+      "primary_roles": [
+        "WORLD"
+      ],
+      "secondary_roles": [
+        "ENERGY"
+      ],
+      "applicable_profiles": [
+        "P10"
+      ],
+      "trigger_conditions": [
+        "conflict_event_received",
+        "casualty_report"
+      ],
+      "asset_types": [
+        "conflict_event"
+      ],
+      "event_types": [
+        "armed_conflict",
+        "protest",
+        "violence"
+      ],
+      "entity_types": [
+        "country",
+        "region",
+        "group"
+      ],
+      "required_inputs": [
+        "acled_data",
+        "ucdp_data"
+      ],
+      "enrichment_inputs": [
+        "iran_events",
+        "humanitarian_data"
+      ],
+      "output_bindings": [
+        "intensity_score",
+        "conflict_trend",
+        "escalation_probability"
+      ],
+      "rules_structured": [
+        {
+          "rule_id": "M04_R01",
+          "description": "Aggregate ACLED and UCDP events into intensity scores per region"
+        },
+        {
+          "rule_id": "M04_R02",
+          "description": "Compute trend direction and acceleration"
+        }
+      ],
+      "thresholds_structured": [
+        {
+          "threshold_id": "M04_T01",
+          "value": 0.5
+        },
+        {
+          "threshold_id": "M04_T02",
+          "value": 0.8
+        }
+      ],
+      "limitations": [
+        "ACLED coverage varies by region",
+        "UCDP threshold excludes low-level events"
+      ],
+      "freshness_requirement": {
+        "max_age_seconds": 86400,
+        "strategy": "DEGRADED_OK",
+        "stale_threshold_seconds": 172800,
+        "degraded_threshold_seconds": 604800
+      },
+      "source_requirements": [
+        "SRC_ACLED",
+        "SRC_UCDP",
+        "SRC_IRAN_EVENTS"
+      ],
+      "point_in_time_requirement": {
+        "required": true,
+        "as_of_field": "as_of",
+        "default_lookback": "30d"
+      },
+      "fast_path_allowed": true,
+      "deep_path_allowed": true,
+      "weknora_eligible": true,
+      "methodology_version_hash": "b3c31836d4b2eb817e76c1dc5cb4de3c17614146affcdd3e19c28bc0322c689b",
+      "rebaseline_required": false,
+      "callable": true
+    },
+    {
+      "methodology_id": "M05",
+      "name": "Sanctions Network Analysis",
+      "classification": "OFFICIAL_DIRECT",
+      "version": "1.0.0",
+      "valid_from": "2025-01-15",
+      "valid_to": null,
+      "primary_roles": [
+        "WORLD"
+      ],
+      "secondary_roles": [
+        "TECH",
+        "FINANCE"
+      ],
+      "applicable_profiles": [
+        "P10"
+      ],
+      "trigger_conditions": [
+        "sanctions_designation",
+        "entity_lookup"
+      ],
+      "asset_types": [
+        "sanctions_designation"
+      ],
+      "event_types": [
+        "designation",
+        "delisting"
+      ],
+      "entity_types": [
+        "entity",
+        "individual",
+        "vessel"
+      ],
+      "required_inputs": [
+        "sanctions_data"
+      ],
+      "enrichment_inputs": [
+        "company_enrichment",
+        "vessel_tracking"
+      ],
+      "output_bindings": [
+        "network_graph",
+        "designated_entities",
+        "exposure_score"
+      ],
+      "rules_structured": [
+        {
+          "rule_id": "M05_R01",
+          "description": "Build entity relationship graph from designation data"
+        },
+        {
+          "rule_id": "M05_R02",
+          "description": "Compute exposure score for connected but non-designated entities"
+        }
+      ],
+      "thresholds_structured": [
+        {
+          "threshold_id": "M05_T01",
+          "value": 0.3
+        }
+      ],
+      "limitations": [
+        "Network analysis limited to available designation data",
+        "Dark fleet vessels may not appear"
+      ],
+      "freshness_requirement": {
+        "max_age_seconds": 86400,
+        "strategy": "STALE_OK",
+        "stale_threshold_seconds": 172800,
+        "degraded_threshold_seconds": 604800
+      },
+      "source_requirements": [
+        "SRC_OFAC",
+        "SRC_GDELT"
+      ],
+      "point_in_time_requirement": {
+        "required": true,
+        "as_of_field": "as_of",
+        "default_lookback": "7d"
+      },
+      "fast_path_allowed": true,
+      "deep_path_allowed": true,
+      "weknora_eligible": true,
+      "methodology_version_hash": "c36313c0d80378af3d18d95a14f805ca9c54d2c80eaf8cab52dbf389830b8423",
+      "rebaseline_required": false,
+      "callable": true
+    },
+    {
+      "methodology_id": "M06",
+      "name": "Military Posture Assessment",
+      "classification": "OFFICIAL_DIRECT",
+      "version": "1.0.0",
+      "valid_from": "2025-01-15",
+      "valid_to": null,
+      "primary_roles": [
+        "WORLD"
+      ],
+      "secondary_roles": [],
+      "applicable_profiles": [
+        "P10"
+      ],
+      "trigger_conditions": [
+        "deployment_detected",
+        "exercise_announced",
+        "flight_anomaly"
+      ],
+      "asset_types": [
+        "military_asset"
+      ],
+      "event_types": [
+        "deployment",
+        "exercise",
+        "incident"
+      ],
+      "entity_types": [
+        "base",
+        "aircraft",
+        "unit"
+      ],
+      "required_inputs": [
+        "posture_data",
+        "flight_data"
+      ],
+      "enrichment_inputs": [
+        "satellite_imagery",
+        "osint_reports"
+      ],
+      "output_bindings": [
+        "posture_summary",
+        "force_disposition",
+        "activity_level"
+      ],
+      "rules_structured": [
+        {
+          "rule_id": "M06_R01",
+          "description": "Aggregate military base status and aircraft deployments"
+        },
+        {
+          "rule_id": "M06_R02",
+          "description": "Assess posture change significance against baseline"
+        }
+      ],
+      "thresholds_structured": [
+        {
+          "threshold_id": "M06_T01",
+          "value": 0.5
+        }
+      ],
+      "limitations": [
+        "Flight data limited to Mode-S/ADS-B coverage",
+        "Satellite imagery subject to availability"
+      ],
+      "freshness_requirement": {
+        "max_age_seconds": 43200,
+        "strategy": "DEGRADED_OK",
+        "stale_threshold_seconds": 86400,
+        "degraded_threshold_seconds": 259200
+      },
+      "source_requirements": [
+        "SRC_USNI",
+        "SRC_PENTAGON",
+        "SRC_AIS"
+      ],
+      "point_in_time_requirement": {
+        "required": true,
+        "as_of_field": "as_of",
+        "default_lookback": "7d"
+      },
+      "fast_path_allowed": true,
+      "deep_path_allowed": true,
+      "weknora_eligible": true,
+      "methodology_version_hash": "1d876b69ec0a63919bb036a0c8f74dd1db1a2a9816855b136e43d591cc751976",
+      "rebaseline_required": false,
+      "callable": true
+    },
+    {
+      "methodology_id": "M07",
+      "name": "Humanitarian Impact Evaluation",
+      "classification": "OFFICIAL_DIRECT",
+      "version": "1.0.0",
+      "valid_from": "2025-01-15",
+      "valid_to": null,
+      "primary_roles": [
+        "WORLD"
+      ],
+      "secondary_roles": [],
+      "applicable_profiles": [
+        "P10"
+      ],
+      "trigger_conditions": [
+        "displacement_event",
+        "crisis_declaration"
+      ],
+      "asset_types": [
+        "humanitarian_data"
+      ],
+      "event_types": [
+        "displacement",
+        "crisis",
+        "aid"
+      ],
+      "entity_types": [
+        "population",
+        "region"
+      ],
+      "required_inputs": [
+        "humanitarian_summary"
+      ],
+      "enrichment_inputs": [
+        "displacement_data",
+        "health_data"
+      ],
+      "output_bindings": [
+        "impact_assessment",
+        "displacement_estimate",
+        "aid_gap_analysis"
+      ],
+      "rules_structured": [
+        {
+          "rule_id": "M07_R01",
+          "description": "Quantify humanitarian impact from displacement and crisis data"
+        },
+        {
+          "rule_id": "M07_R02",
+          "description": "Identify aid gaps and coverage shortfalls"
+        }
+      ],
+      "thresholds_structured": [
+        {
+          "threshold_id": "M07_T01",
+          "value": 10000
+        }
+      ],
+      "limitations": [
+        "Displacement figures often lag real events",
+        "Informal displacement not captured"
+      ],
+      "freshness_requirement": {
+        "max_age_seconds": 86400,
+        "strategy": "STALE_OK",
+        "stale_threshold_seconds": 172800,
+        "degraded_threshold_seconds": 604800
+      },
+      "source_requirements": [
+        "SRC_ACLED",
+        "SRC_UCDP"
+      ],
+      "point_in_time_requirement": {
+        "required": true,
+        "as_of_field": "as_of",
+        "default_lookback": "30d"
+      },
+      "fast_path_allowed": false,
+      "deep_path_allowed": true,
+      "weknora_eligible": false,
+      "methodology_version_hash": "91e8682e76e4a614acb1038c154d2a33db9600d9c1fc4b08807e43bde34af9e0",
+      "rebaseline_required": false,
+      "callable": true
+    },
+    {
+      "methodology_id": "M08",
+      "name": "Financial Stress Index",
+      "classification": "OFFICIAL_DIRECT",
+      "version": "1.0.0",
+      "valid_from": "2025-01-15",
+      "valid_to": null,
+      "primary_roles": [
+        "FINANCE"
+      ],
+      "secondary_roles": [
+        "WORLD",
+        "COMMODITY"
+      ],
+      "applicable_profiles": [
+        "P06",
+        "P07",
+        "P08"
+      ],
+      "trigger_conditions": [
+        "fx_volatility_spike",
+        "rate_decision",
+        "credit_spread_widening"
+      ],
+      "asset_types": [
+        "financial_indicator"
+      ],
+      "event_types": [
+        "rate_change",
+        "fx_move",
+        "credit_event"
+      ],
+      "entity_types": [
+        "central_bank",
+        "market"
+      ],
+      "required_inputs": [
+        "fx_data",
+        "rate_data",
+        "credit_data"
+      ],
+      "enrichment_inputs": [
+        "equity_data",
+        "cot_data"
+      ],
+      "output_bindings": [
+        "stress_index",
+        "component_breakdown",
+        "trend_direction"
+      ],
+      "rules_structured": [
+        {
+          "rule_id": "M08_R01",
+          "description": "Compute composite stress index from FX, rate, and credit components"
+        },
+        {
+          "rule_id": "M08_R02",
+          "description": "Compare current stress against historical distribution"
+        }
+      ],
+      "thresholds_structured": [
+        {
+          "threshold_id": "M08_T01",
+          "value": 0.6
+        },
+        {
+          "threshold_id": "M08_T02",
+          "value": 0.8
+        }
+      ],
+      "limitations": [
+        "Index composition may not capture all stress channels",
+        "Lag in credit data"
+      ],
+      "freshness_requirement": {
+        "max_age_seconds": 3600,
+        "strategy": "FRESH_FIRST",
+        "stale_threshold_seconds": 14400,
+        "degraded_threshold_seconds": 86400
+      },
+      "source_requirements": [
+        "SRC_CME",
+        "SRC_CFTC",
+        "SRC_IMF"
+      ],
+      "point_in_time_requirement": {
+        "required": true,
+        "as_of_field": "as_of",
+        "default_lookback": "30d"
+      },
+      "fast_path_allowed": true,
+      "deep_path_allowed": true,
+      "weknora_eligible": true,
+      "methodology_version_hash": "639d0c93e30f5d7bdad06e2b4aee9be64b96d6d9e158801cccec576fb486a923",
+      "rebaseline_required": false,
+      "callable": true
+    },
+    {
+      "methodology_id": "M09",
+      "name": "COT Positioning Analysis",
+      "classification": "OFFICIAL_DIRECT",
+      "version": "1.0.0",
+      "valid_from": "2025-01-15",
+      "valid_to": null,
+      "primary_roles": [
+        "FINANCE"
+      ],
+      "secondary_roles": [
+        "COMMODITY"
+      ],
+      "applicable_profiles": [
+        "P06",
+        "P08"
+      ],
+      "trigger_conditions": [
+        "cot_report_published",
+        "positioning_extreme"
+      ],
+      "asset_types": [
+        "cot_report"
+      ],
+      "event_types": [
+        "positioning_change"
+      ],
+      "entity_types": [
+        "market",
+        "commodity"
+      ],
+      "required_inputs": [
+        "cot_data"
+      ],
+      "enrichment_inputs": [
+        "price_data",
+        "fundamental_data"
+      ],
+      "output_bindings": [
+        "positioning_summary",
+        "extreme_flags",
+        "crowding_risk"
+      ],
+      "rules_structured": [
+        {
+          "rule_id": "M09_R01",
+          "description": "Analyze COT net positioning vs historical range"
+        },
+        {
+          "rule_id": "M09_R02",
+          "description": "Flag extreme positioning and crowding risk"
+        }
+      ],
+      "thresholds_structured": [
+        {
+          "threshold_id": "M09_T01",
+          "value": 90
+        },
+        {
+          "threshold_id": "M09_T02",
+          "value": 0.8
+        }
+      ],
+      "limitations": [
+        "COT data released weekly with lag",
+        "Does not capture OTC positions"
+      ],
+      "freshness_requirement": {
+        "max_age_seconds": 604800,
+        "strategy": "STALE_OK",
+        "stale_threshold_seconds": 1209600,
+        "degraded_threshold_seconds": 2592000
+      },
+      "source_requirements": [
+        "SRC_CFTC",
+        "SRC_CME"
+      ],
+      "point_in_time_requirement": {
+        "required": true,
+        "as_of_field": "as_of",
+        "default_lookback": "52w"
+      },
+      "fast_path_allowed": true,
+      "deep_path_allowed": true,
+      "weknora_eligible": true,
+      "methodology_version_hash": "7a302dd6d5e6b3f6e035295ea56f04721d51d68f54db280fb51c640818404d95",
+      "rebaseline_required": false,
+      "callable": true
+    },
+    {
+      "methodology_id": "M10",
+      "name": "Yield Curve Analysis",
+      "classification": "OFFICIAL_DIRECT",
+      "version": "1.0.0",
+      "valid_from": "2025-01-15",
+      "valid_to": null,
+      "primary_roles": [
+        "FINANCE"
+      ],
+      "secondary_roles": [
+        "WORLD"
+      ],
+      "applicable_profiles": [
+        "P06",
+        "P07"
+      ],
+      "trigger_conditions": [
+        "curve_shift_detected",
+        "inversion_signal"
+      ],
+      "asset_types": [
+        "yield_curve"
+      ],
+      "event_types": [
+        "curve_shift",
+        "inversion"
+      ],
+      "entity_types": [
+        "government",
+        "central_bank"
+      ],
+      "required_inputs": [
+        "yield_data"
+      ],
+      "enrichment_inputs": [
+        "forward_rates",
+        "inflation_expectations"
+      ],
+      "output_bindings": [
+        "curve_shape",
+        "inversion_status",
+        "recession_probability"
+      ],
+      "rules_structured": [
+        {
+          "rule_id": "M10_R01",
+          "description": "Classify yield curve shape (normal, flat, inverted)"
+        },
+        {
+          "rule_id": "M10_R02",
+          "description": "Compute recession probability from inversion metrics"
+        }
+      ],
+      "thresholds_structured": [
+        {
+          "threshold_id": "M10_T01",
+          "value": 0
+        },
+        {
+          "threshold_id": "M10_T02",
+          "value": 0.5
+        }
+      ],
+      "limitations": [
+        "Recession signal has 12-18 month lead time",
+        "Global curves may diverge"
+      ],
+      "freshness_requirement": {
+        "max_age_seconds": 86400,
+        "strategy": "STALE_OK",
+        "stale_threshold_seconds": 172800,
+        "degraded_threshold_seconds": 604800
+      },
+      "source_requirements": [
+        "SRC_IMF",
+        "SRC_CME"
+      ],
+      "point_in_time_requirement": {
+        "required": true,
+        "as_of_field": "as_of",
+        "default_lookback": "30d"
+      },
+      "fast_path_allowed": true,
+      "deep_path_allowed": true,
+      "weknora_eligible": true,
+      "methodology_version_hash": "4185386059ba6c2ace32115534c00074d1c2477887c32bb3f0cfe5209bba5f2a",
+      "rebaseline_required": false,
+      "callable": true
+    },
+    {
+      "methodology_id": "M11",
+      "name": "Trade Flow Analysis",
+      "classification": "OFFICIAL_DIRECT",
+      "version": "1.0.0",
+      "valid_from": "2025-01-15",
+      "valid_to": null,
+      "primary_roles": [
+        "COMMODITY",
+        "WORLD"
+      ],
+      "secondary_roles": [
+        "ENERGY"
+      ],
+      "applicable_profiles": [
+        "P01",
+        "P05",
+        "P10"
+      ],
+      "trigger_conditions": [
+        "tariff_change",
+        "trade_flow_anomaly",
+        "embargo_imposed"
+      ],
+      "asset_types": [
+        "trade_data"
+      ],
+      "event_types": [
+        "tariff",
+        "embargo",
+        "flow_shift"
+      ],
+      "entity_types": [
+        "country",
+        "port"
+      ],
+      "required_inputs": [
+        "comtrade_data",
+        "tariff_data"
+      ],
+      "enrichment_inputs": [
+        "sanctions_data",
+        "chokepoint_data"
+      ],
+      "output_bindings": [
+        "flow_summary",
+        "dependency_score",
+        "diversification_index"
+      ],
+      "rules_structured": [
+        {
+          "rule_id": "M11_R01",
+          "description": "Map bilateral trade flows and compute dependency scores"
+        },
+        {
+          "rule_id": "M11_R02",
+          "description": "Assess diversification and substitution potential"
+        }
+      ],
+      "thresholds_structured": [
+        {
+          "threshold_id": "M11_T01",
+          "value": 0.3
+        }
+      ],
+      "limitations": [
+        "Comtrade data has 2-6 month publication lag",
+        "Informal trade not captured"
+      ],
+      "freshness_requirement": {
+        "max_age_seconds": 2592000,
+        "strategy": "STALE_OK",
+        "stale_threshold_seconds": 7776000,
+        "degraded_threshold_seconds": 15552000
+      },
+      "source_requirements": [
+        "SRC_WORLD_BANK",
+        "SRC_IMF"
+      ],
+      "point_in_time_requirement": {
+        "required": true,
+        "as_of_field": "as_of",
+        "default_lookback": "12m"
+      },
+      "fast_path_allowed": true,
+      "deep_path_allowed": true,
+      "weknora_eligible": true,
+      "methodology_version_hash": "6681c4ce62d74aceb4f50a3ff719fd291396710dd21bc5f2cd9773f34e118b5c",
+      "rebaseline_required": false,
+      "callable": true
+    },
+    {
+      "methodology_id": "M12",
+      "name": "Agricultural Supply-Demand",
+      "classification": "OFFICIAL_DIRECT",
+      "version": "1.0.0",
+      "valid_from": "2025-01-15",
+      "valid_to": null,
+      "primary_roles": [
+        "COMMODITY"
+      ],
+      "secondary_roles": [
+        "WORLD"
+      ],
+      "applicable_profiles": [
+        "P05"
+      ],
+      "trigger_conditions": [
+        "crop_report_released",
+        "weather_event",
+        "price_spike"
+      ],
+      "asset_types": [
+        "crop_data"
+      ],
+      "event_types": [
+        "harvest",
+        "drought",
+        "disease"
+      ],
+      "entity_types": [
+        "country",
+        "commodity"
+      ],
+      "required_inputs": [
+        "fao_data",
+        "weather_data"
+      ],
+      "enrichment_inputs": [
+        "trade_data",
+        "price_data"
+      ],
+      "output_bindings": [
+        "balance_sheet",
+        "stocks_to_use_ratio",
+        "production_forecast"
+      ],
+      "rules_structured": [
+        {
+          "rule_id": "M12_R01",
+          "description": "Compute supply-demand balance and stocks-to-use ratios"
+        },
+        {
+          "rule_id": "M12_R02",
+          "description": "Assess production risk from weather and disease factors"
+        }
+      ],
+      "thresholds_structured": [
+        {
+          "threshold_id": "M12_T01",
+          "value": 0.2
+        }
+      ],
+      "limitations": [
+        "FAO estimates revised frequently",
+        "Weather impact models are approximate"
+      ],
+      "freshness_requirement": {
+        "max_age_seconds": 604800,
+        "strategy": "STALE_OK",
+        "stale_threshold_seconds": 2592000,
+        "degraded_threshold_seconds": 7776000
+      },
+      "source_requirements": [
+        "SRC_WORLD_BANK",
+        "SRC_EIA"
+      ],
+      "point_in_time_requirement": {
+        "required": true,
+        "as_of_field": "as_of",
+        "default_lookback": "12m"
+      },
+      "fast_path_allowed": true,
+      "deep_path_allowed": true,
+      "weknora_eligible": false,
+      "methodology_version_hash": "d1dbd404d3b342a9ff7b9aabbad5b9dc475fdafc16c229bd53f810eb3c00910e",
+      "rebaseline_required": false,
+      "callable": true
+    },
+    {
+      "methodology_id": "M13",
+      "name": "Mineral Dependency Mapping",
+      "classification": "OFFICIAL_DIRECT",
+      "version": "1.0.0",
+      "valid_from": "2025-01-15",
+      "valid_to": null,
+      "primary_roles": [
+        "TECH",
+        "COMMODITY"
+      ],
+      "secondary_roles": [
+        "ENERGY"
+      ],
+      "applicable_profiles": [
+        "P04",
+        "P09"
+      ],
+      "trigger_conditions": [
+        "mineral_supply_alert",
+        "export_control_imposed"
+      ],
+      "asset_types": [
+        "mineral_data"
+      ],
+      "event_types": [
+        "supply_disruption",
+        "export_control"
+      ],
+      "entity_types": [
+        "country",
+        "mineral",
+        "company"
+      ],
+      "required_inputs": [
+        "mineral_production",
+        "trade_data"
+      ],
+      "enrichment_inputs": [
+        "chokepoint_data",
+        "company_data"
+      ],
+      "output_bindings": [
+        "dependency_map",
+        "concentration_score",
+        "substitution_options"
+      ],
+      "rules_structured": [
+        {
+          "rule_id": "M13_R01",
+          "description": "Map mineral production concentration by country"
+        },
+        {
+          "rule_id": "M13_R02",
+          "description": "Compute import dependency for each mineral"
+        },
+        {
+          "rule_id": "M13_R03",
+          "description": "Assess substitution and recycling potential"
+        }
+      ],
+      "thresholds_structured": [
+        {
+          "threshold_id": "M13_T01",
+          "value": 0.4
+        },
+        {
+          "threshold_id": "M13_T02",
+          "value": 3
+        }
+      ],
+      "limitations": [
+        "Processing stage data less available than mining data",
+        "Recycling rates often estimated"
+      ],
+      "freshness_requirement": {
+        "max_age_seconds": 2592000,
+        "strategy": "STALE_OK",
+        "stale_threshold_seconds": 7776000,
+        "degraded_threshold_seconds": 15552000
+      },
+      "source_requirements": [
+        "SRC_WORLD_BANK",
+        "SRC_IEA"
+      ],
+      "point_in_time_requirement": {
+        "required": true,
+        "as_of_field": "as_of",
+        "default_lookback": "12m"
+      },
+      "fast_path_allowed": true,
+      "deep_path_allowed": true,
+      "weknora_eligible": true,
+      "methodology_version_hash": "1fe1bf53ca23cbe38fa595559660b8972d7238cb91913d72edbd0e0ab7f64c4a",
+      "rebaseline_required": false,
+      "callable": true
+    },
+    {
+      "methodology_id": "M14",
+      "name": "Chokepoint Dependency Analysis",
+      "classification": "OFFICIAL_DIRECT",
+      "version": "1.0.0",
+      "valid_from": "2025-01-15",
+      "valid_to": null,
+      "primary_roles": [
+        "TECH",
+        "COMMODITY"
+      ],
+      "secondary_roles": [
+        "ENERGY"
+      ],
+      "applicable_profiles": [
+        "P04",
+        "P09",
+        "P01"
+      ],
+      "trigger_conditions": [
+        "chokepoint_status_change",
+        "corridor_disruption"
+      ],
+      "asset_types": [
+        "chokepoint_data"
+      ],
+      "event_types": [
+        "disruption",
+        "control_tower_change"
+      ],
+      "entity_types": [
+        "chokepoint",
+        "corridor",
+        "country"
+      ],
+      "required_inputs": [
+        "chokepoint_status",
+        "corridor_data"
+      ],
+      "enrichment_inputs": [
+        "shipping_data",
+        "pipeline_data"
+      ],
+      "output_bindings": [
+        "dependency_map",
+        "bypass_options",
+        "impact_assessment"
+      ],
+      "rules_structured": [
+        {
+          "rule_id": "M14_R01",
+          "description": "Identify dependencies on each chokepoint by commodity"
+        },
+        {
+          "rule_id": "M14_R02",
+          "description": "Evaluate bypass options and costs"
+        },
+        {
+          "rule_id": "M14_R03",
+          "description": "Compute impact of hypothetical closure"
+        }
+      ],
+      "thresholds_structured": [
+        {
+          "threshold_id": "M14_T01",
+          "value": 0.3
+        }
+      ],
+      "limitations": [
+        "Bypass options limited for some chokepoints",
+        "Real-time disruption data may lag"
+      ],
+      "freshness_requirement": {
+        "max_age_seconds": 86400,
+        "strategy": "DEGRADED_OK",
+        "stale_threshold_seconds": 172800,
+        "degraded_threshold_seconds": 604800
+      },
+      "source_requirements": [
+        "SRC_AIS",
+        "SRC_SHIPPING_V2",
+        "SRC_EIA"
+      ],
+      "point_in_time_requirement": {
+        "required": true,
+        "as_of_field": "as_of",
+        "default_lookback": "30d"
+      },
+      "fast_path_allowed": true,
+      "deep_path_allowed": true,
+      "weknora_eligible": true,
+      "methodology_version_hash": "08f4933f4ce6cfaa1b4a687ba7c70d1925f16e862ef2c1458b4693c33bc4464e",
+      "rebaseline_required": false,
+      "callable": true
+    },
+    {
+      "methodology_id": "M15",
+      "name": "Commodity Price Analysis",
+      "classification": "OFFICIAL_DIRECT",
+      "version": "1.0.0",
+      "valid_from": "2025-01-15",
+      "valid_to": null,
+      "primary_roles": [
+        "COMMODITY",
+        "ENERGY"
+      ],
+      "secondary_roles": [
+        "FINANCE"
+      ],
+      "applicable_profiles": [
+        "P01",
+        "P02",
+        "P03",
+        "P04",
+        "P05"
+      ],
+      "trigger_conditions": [
+        "price_move_exceeded",
+        "spread_change"
+      ],
+      "asset_types": [
+        "commodity_price"
+      ],
+      "event_types": [
+        "price_move",
+        "spread_change"
+      ],
+      "entity_types": [
+        "commodity",
+        "exchange"
+      ],
+      "required_inputs": [
+        "price_data"
+      ],
+      "enrichment_inputs": [
+        "inventory_data",
+        "trade_data",
+        "fx_data"
+      ],
+      "output_bindings": [
+        "price_summary",
+        "technical_signals",
+        "fundamental_assessment"
+      ],
+      "rules_structured": [
+        {
+          "rule_id": "M15_R01",
+          "description": "Analyze price action with technical and fundamental factors"
+        },
+        {
+          "rule_id": "M15_R02",
+          "description": "Compute forward curve and term structure"
+        }
+      ],
+      "thresholds_structured": [
+        {
+          "threshold_id": "M15_T01",
+          "value": 5.0
+        },
+        {
+          "threshold_id": "M15_T02",
+          "value": 0.3
+        }
+      ],
+      "limitations": [
+        "Technical analysis is supplementary, not predictive",
+        "After-hours data may be incomplete"
+      ],
+      "freshness_requirement": {
+        "max_age_seconds": 3600,
+        "strategy": "FRESH_FIRST",
+        "stale_threshold_seconds": 14400,
+        "degraded_threshold_seconds": 86400
+      },
+      "source_requirements": [
+        "SRC_CME",
+        "SRC_EIA",
+        "SRC_OPEC"
+      ],
+      "point_in_time_requirement": {
+        "required": true,
+        "as_of_field": "as_of",
+        "default_lookback": "7d"
+      },
+      "fast_path_allowed": true,
+      "deep_path_allowed": true,
+      "weknora_eligible": true,
+      "methodology_version_hash": "e953adfb664d208313eb6fcf34aa99a996222f44043bcacd7dbdfd0e5f03b1fd",
+      "rebaseline_required": false,
+      "callable": true
+    },
+    {
+      "methodology_id": "M16",
+      "name": "Supply Chain Stress Index",
+      "classification": "OFFICIAL_DIRECT",
+      "version": "1.0.0",
+      "valid_from": "2025-01-15",
+      "valid_to": null,
+      "primary_roles": [
+        "TECH",
+        "COMMODITY",
+        "ENERGY"
+      ],
+      "secondary_roles": [
+        "WORLD"
+      ],
+      "applicable_profiles": [
+        "P01",
+        "P02",
+        "P04",
+        "P09"
+      ],
+      "trigger_conditions": [
+        "shipping_stress_increase",
+        "cost_shock_detected",
+        "disruption_report"
+      ],
+      "asset_types": [
+        "supply_chain_data"
+      ],
+      "event_types": [
+        "disruption",
+        "shortage",
+        "cost_shock"
+      ],
+      "entity_types": [
+        "sector",
+        "country",
+        "product"
+      ],
+      "required_inputs": [
+        "shipping_data",
+        "cost_shock_data"
+      ],
+      "enrichment_inputs": [
+        "chokepoint_data",
+        "inventory_data"
+      ],
+      "output_bindings": [
+        "stress_index",
+        "component_scores",
+        "bottleneck_map"
+      ],
+      "rules_structured": [
+        {
+          "rule_id": "M16_R01",
+          "description": "Aggregate shipping rates, cost shocks, and disruption events into composite index"
+        },
+        {
+          "rule_id": "M16_R02",
+          "description": "Identify sector-specific bottlenecks"
+        }
+      ],
+      "thresholds_structured": [
+        {
+          "threshold_id": "M16_T01",
+          "value": 0.6
+        },
+        {
+          "threshold_id": "M16_T02",
+          "value": 0.8
+        }
+      ],
+      "limitations": [
+        "Index weighting is subjective",
+        "Some cost shock data only available monthly"
+      ],
+      "freshness_requirement": {
+        "max_age_seconds": 86400,
+        "strategy": "DEGRADED_OK",
+        "stale_threshold_seconds": 172800,
+        "degraded_threshold_seconds": 604800
+      },
+      "source_requirements": [
+        "SRC_AIS",
+        "SRC_SHIPPING_V2",
+        "SRC_EIA"
+      ],
+      "point_in_time_requirement": {
+        "required": true,
+        "as_of_field": "as_of",
+        "default_lookback": "30d"
+      },
+      "fast_path_allowed": true,
+      "deep_path_allowed": true,
+      "weknora_eligible": true,
+      "methodology_version_hash": "733fe0a6ca6665e8e4c3b6e54b47bae29333d79585b8a06129b050f679176912",
+      "rebaseline_required": false,
+      "callable": true
+    },
+    {
+      "methodology_id": "M17",
+      "name": "Pipeline Risk Assessment",
+      "classification": "OFFICIAL_DIRECT",
+      "version": "1.0.0",
+      "valid_from": "2025-01-15",
+      "valid_to": null,
+      "primary_roles": [
+        "ENERGY"
+      ],
+      "secondary_roles": [
+        "COMMODITY",
+        "WORLD"
+      ],
+      "applicable_profiles": [
+        "P01",
+        "P02"
+      ],
+      "trigger_conditions": [
+        "pipeline_incident",
+        "maintenance_scheduled",
+        "closure_report"
+      ],
+      "asset_types": [
+        "pipeline_data"
+      ],
+      "event_types": [
+        "incident",
+        "maintenance",
+        "closure"
+      ],
+      "entity_types": [
+        "pipeline",
+        "facility",
+        "country"
+      ],
+      "required_inputs": [
+        "pipeline_detail",
+        "incident_data"
+      ],
+      "enrichment_inputs": [
+        "chokepoint_data",
+        "sanctions_data"
+      ],
+      "output_bindings": [
+        "risk_score",
+        "incident_history",
+        "bypass_assessment"
+      ],
+      "rules_structured": [
+        {
+          "rule_id": "M17_R01",
+          "description": "Score pipeline risk from incident history and current status"
+        },
+        {
+          "rule_id": "M17_R02",
+          "description": "Assess bypass options if pipeline is disrupted"
+        }
+      ],
+      "thresholds_structured": [
+        {
+          "threshold_id": "M17_T01",
+          "value": 0.5
+        }
+      ],
+      "limitations": [
+        "Incident reporting is inconsistent across countries",
+        "Maintenance schedules may change"
+      ],
+      "freshness_requirement": {
+        "max_age_seconds": 43200,
+        "strategy": "FRESH_FIRST",
+        "stale_threshold_seconds": 86400,
+        "degraded_threshold_seconds": 259200
+      },
+      "source_requirements": [
+        "SRC_EIA",
+        "SRC_MENA_ENERGY",
+        "SRC_RUSSIAN_ENERGY"
+      ],
+      "point_in_time_requirement": {
+        "required": true,
+        "as_of_field": "as_of",
+        "default_lookback": "30d"
+      },
+      "fast_path_allowed": true,
+      "deep_path_allowed": true,
+      "weknora_eligible": true,
+      "methodology_version_hash": "5656b1dca60a499aff60c6184709d95aea3247e7e3d548e81d2a21b955e78077",
+      "rebaseline_required": false,
+      "callable": true
+    },
+    {
+      "methodology_id": "M18",
+      "name": "Storage Level Monitoring",
+      "classification": "OFFICIAL_DIRECT",
+      "version": "1.0.0",
+      "valid_from": "2025-01-15",
+      "valid_to": null,
+      "primary_roles": [
+        "ENERGY"
+      ],
+      "secondary_roles": [
+        "COMMODITY"
+      ],
+      "applicable_profiles": [
+        "P01",
+        "P02"
+      ],
+      "trigger_conditions": [
+        "storage_draw_report",
+        "storage_refill",
+        "anomaly_detected"
+      ],
+      "asset_types": [
+        "storage_data"
+      ],
+      "event_types": [
+        "draw",
+        "refill",
+        "anomaly"
+      ],
+      "entity_types": [
+        "facility",
+        "country",
+        "commodity"
+      ],
+      "required_inputs": [
+        "storage_data",
+        "inventory_data"
+      ],
+      "enrichment_inputs": [
+        "weather_data",
+        "demand_forecast"
+      ],
+      "output_bindings": [
+        "storage_summary",
+        "vs_5yr_average",
+        "anomaly_flags"
+      ],
+      "rules_structured": [
+        {
+          "rule_id": "M18_R01",
+          "description": "Compare storage levels to 5-year average and seasonal pattern"
+        },
+        {
+          "rule_id": "M18_R02",
+          "description": "Flag deviations exceeding threshold"
+        }
+      ],
+      "thresholds_structured": [
+        {
+          "threshold_id": "M18_T01",
+          "value": 1.5
+        },
+        {
+          "threshold_id": "M18_T02",
+          "value": 2.0
+        }
+      ],
+      "limitations": [
+        "Storage data publication varies by country",
+        "Some facilities report weekly, others monthly"
+      ],
+      "freshness_requirement": {
+        "max_age_seconds": 86400,
+        "strategy": "FRESH_FIRST",
+        "stale_threshold_seconds": 172800,
+        "degraded_threshold_seconds": 604800
+      },
+      "source_requirements": [
+        "SRC_EIA",
+        "SRC_IEA",
+        "SRC_OPEC"
+      ],
+      "point_in_time_requirement": {
+        "required": true,
+        "as_of_field": "as_of",
+        "default_lookback": "7d"
+      },
+      "fast_path_allowed": true,
+      "deep_path_allowed": true,
+      "weknora_eligible": true,
+      "methodology_version_hash": "3914d13e338ee65d3d3e8bc7e15ca80ca2785d122fe59304ac64e988f1b5a276",
+      "rebaseline_required": false,
+      "callable": true
+    },
+    {
+      "methodology_id": "M19",
+      "name": "Fuel Shortage Assessment",
+      "classification": "OFFICIAL_DIRECT",
+      "version": "1.0.0",
+      "valid_from": "2025-01-15",
+      "valid_to": null,
+      "primary_roles": [
+        "ENERGY"
+      ],
+      "secondary_roles": [
+        "COMMODITY",
+        "WORLD"
+      ],
+      "applicable_profiles": [
+        "P01",
+        "P02"
+      ],
+      "trigger_conditions": [
+        "shortage_report",
+        "rationing_imposed",
+        "price_spike_fuel"
+      ],
+      "asset_types": [
+        "fuel_shortage_data"
+      ],
+      "event_types": [
+        "shortage",
+        "rationing",
+        "price_spike"
+      ],
+      "entity_types": [
+        "country",
+        "fuel_type"
+      ],
+      "required_inputs": [
+        "shortage_data",
+        "price_data"
+      ],
+      "enrichment_inputs": [
+        "inventory_data",
+        "refining_data"
+      ],
+      "output_bindings": [
+        "shortage_severity",
+        "affected_regions",
+        "duration_estimate"
+      ],
+      "rules_structured": [
+        {
+          "rule_id": "M19_R01",
+          "description": "Assess shortage severity from price, inventory, and report data"
+        },
+        {
+          "rule_id": "M19_R02",
+          "description": "Estimate duration based on supply response options"
+        }
+      ],
+      "thresholds_structured": [
+        {
+          "threshold_id": "M19_T01",
+          "value": 0.5
+        }
+      ],
+      "limitations": [
+        "Shortage reporting is inconsistent globally",
+        "Informal rationing not captured"
+      ],
+      "freshness_requirement": {
+        "max_age_seconds": 43200,
+        "strategy": "FRESH_FIRST",
+        "stale_threshold_seconds": 86400,
+        "degraded_threshold_seconds": 259200
+      },
+      "source_requirements": [
+        "SRC_EIA",
+        "SRC_IEA",
+        "SRC_NEWS_API"
+      ],
+      "point_in_time_requirement": {
+        "required": true,
+        "as_of_field": "as_of",
+        "default_lookback": "7d"
+      },
+      "fast_path_allowed": true,
+      "deep_path_allowed": true,
+      "weknora_eligible": false,
+      "methodology_version_hash": "6570a7ff9a5b064913b27da8fa5d7d62e717971bdefb2f1357b64d438d8cc46a",
+      "rebaseline_required": false,
+      "callable": true
+    },
+    {
+      "methodology_id": "M20",
+      "name": "Energy Disruption Analysis",
+      "classification": "OFFICIAL_DIRECT",
+      "version": "1.0.0",
+      "valid_from": "2025-01-15",
+      "valid_to": null,
+      "primary_roles": [
+        "ENERGY"
+      ],
+      "secondary_roles": [
+        "WORLD"
+      ],
+      "applicable_profiles": [
+        "P01",
+        "P02"
+      ],
+      "trigger_conditions": [
+        "energy_outage",
+        "infrastructure_attack",
+        "weather_disruption"
+      ],
+      "asset_types": [
+        "energy_disruption"
+      ],
+      "event_types": [
+        "outage",
+        "sabotage",
+        "weather_event"
+      ],
+      "entity_types": [
+        "facility",
+        "grid",
+        "country"
+      ],
+      "required_inputs": [
+        "disruption_data",
+        "infrastructure_data"
+      ],
+      "enrichment_inputs": [
+        "cable_data",
+        "internet_data"
+      ],
+      "output_bindings": [
+        "disruption_map",
+        "impact_radius",
+        "recovery_estimate"
+      ],
+      "rules_structured": [
+        {
+          "rule_id": "M20_R01",
+          "description": "Map active energy disruptions and compute impact radius"
+        },
+        {
+          "rule_id": "M20_R02",
+          "description": "Estimate recovery timeline from historical patterns"
+        }
+      ],
+      "thresholds_structured": [
+        {
+          "threshold_id": "M20_T01",
+          "value": 0.3
+        }
+      ],
+      "limitations": [
+        "Recovery estimates are approximate",
+        "Cascading effects difficult to model"
+      ],
+      "freshness_requirement": {
+        "max_age_seconds": 3600,
+        "strategy": "REQUIRE_FRESH",
+        "stale_threshold_seconds": 7200,
+        "degraded_threshold_seconds": 43200
+      },
+      "source_requirements": [
+        "SRC_EIA",
+        "SRC_IEA",
+        "SRC_NEWS_API"
+      ],
+      "point_in_time_requirement": {
+        "required": true,
+        "as_of_field": "as_of",
+        "default_lookback": "7d"
+      },
+      "fast_path_allowed": true,
+      "deep_path_allowed": true,
+      "weknora_eligible": true,
+      "methodology_version_hash": "3c5315b26e94435c96d716a774a56b8ebc132d8812a0b29ee55a108d048ddb6b",
+      "rebaseline_required": false,
+      "callable": true
+    },
+    {
+      "methodology_id": "M21",
+      "name": "CII Risk Assessment",
+      "classification": "OFFICIAL_DIRECT",
+      "version": "1.0.0",
+      "valid_from": "2025-01-15",
+      "valid_to": null,
+      "primary_roles": [
+        "ENERGY",
+        "COMMODITY"
+      ],
+      "secondary_roles": [],
+      "applicable_profiles": [
+        "P01"
+      ],
+      "trigger_conditions": [
+        "cii_breach_report",
+        "scrubber_mandate_change"
+      ],
+      "asset_types": [
+        "cii_data"
+      ],
+      "event_types": [
+        "cii_breach",
+        "scrubber_noncompliance"
+      ],
+      "entity_types": [
+        "vessel",
+        "fleet"
+      ],
+      "required_inputs": [
+        "vessel_data",
+        "regulation_data"
+      ],
+      "enrichment_inputs": [
+        "fleet_data",
+        "trade_route_data"
+      ],
+      "output_bindings": [
+        "cii_compliance_map",
+        "breach_risk",
+        "fleet_impact"
+      ],
+      "rules_structured": [
+        {
+          "rule_id": "M21_R01",
+          "description": "Assess fleet CII compliance against IMO thresholds"
+        },
+        {
+          "rule_id": "M21_R02",
+          "description": "Evaluate scrubber compliance and non-compliance risk"
+        }
+      ],
+      "thresholds_structured": [
+        {
+          "threshold_id": "M21_T01",
+          "value": 0.0
+        }
+      ],
+      "limitations": [
+        "CII ratings are annual, may not reflect current operations",
+        "Scrubber data relies on voluntary reporting"
+      ],
+      "freshness_requirement": {
+        "max_age_seconds": 86400,
+        "strategy": "STALE_OK",
+        "stale_threshold_seconds": 604800,
+        "degraded_threshold_seconds": 2592000
+      },
+      "source_requirements": [
+        "SRC_AIS",
+        "SRC_SHIPPING_V2"
+      ],
+      "point_in_time_requirement": {
+        "required": true,
+        "as_of_field": "as_of",
+        "default_lookback": "12m"
+      },
+      "fast_path_allowed": false,
+      "deep_path_allowed": true,
+      "weknora_eligible": false,
+      "methodology_version_hash": "9e8e455fa43bf0634fbae4e1c40b141b4da944dda4380d653c7a5520a89766b8",
+      "rebaseline_required": false,
+      "callable": true
+    },
+    {
+      "methodology_id": "M22",
+      "name": "Social Velocity Measurement",
+      "classification": "OFFICIAL_DIRECT",
+      "version": "1.0.0",
+      "valid_from": "2025-01-15",
+      "valid_to": null,
+      "primary_roles": [
+        "WORLD"
+      ],
+      "secondary_roles": [],
+      "applicable_profiles": [
+        "P10"
+      ],
+      "trigger_conditions": [
+        "viral_signal_detected",
+        "sentiment_shift"
+      ],
+      "asset_types": [
+        "social_data"
+      ],
+      "event_types": [
+        "viral_signal",
+        "sentiment_shift"
+      ],
+      "entity_types": [
+        "platform",
+        "topic"
+      ],
+      "required_inputs": [
+        "social_media_data",
+        "news_data"
+      ],
+      "enrichment_inputs": [
+        "event_data",
+        "search_trends"
+      ],
+      "output_bindings": [
+        "velocity_score",
+        "sentiment_delta",
+        "amplification_factor"
+      ],
+      "rules_structured": [
+        {
+          "rule_id": "M22_R01",
+          "description": "Measure rate of signal spread across platforms"
+        },
+        {
+          "rule_id": "M22_R02",
+          "description": "Compute sentiment shift and amplification factor"
+        }
+      ],
+      "thresholds_structured": [
+        {
+          "threshold_id": "M22_T01",
+          "value": 3.0
+        },
+        {
+          "threshold_id": "M22_T02",
+          "value": 0.5
+        }
+      ],
+      "limitations": [
+        "Platform API rate limits constrain coverage",
+        "Bot activity can inflate velocity"
+      ],
+      "freshness_requirement": {
+        "max_age_seconds": 1800,
+        "strategy": "REQUIRE_FRESH",
+        "stale_threshold_seconds": 3600,
+        "degraded_threshold_seconds": 14400
+      },
+      "source_requirements": [
+        "SRC_GDELT",
+        "SRC_NEWS_API"
+      ],
+      "point_in_time_requirement": {
+        "required": true,
+        "as_of_field": "as_of",
+        "default_lookback": "24h"
+      },
+      "fast_path_allowed": true,
+      "deep_path_allowed": true,
+      "weknora_eligible": false,
+      "methodology_version_hash": "fb567e6dad4625b4258146c75df9d2dc54768ce74513442f143480b6dc3eef2c",
+      "rebaseline_required": false,
+      "callable": true
+    },
+    {
+      "methodology_id": "M23",
+      "name": "Thermal Escalation Tracking",
+      "classification": "OFFICIAL_DIRECT",
+      "version": "1.0.0",
+      "valid_from": "2025-01-15",
+      "valid_to": null,
+      "primary_roles": [
+        "WORLD",
+        "ENERGY"
+      ],
+      "secondary_roles": [
+        "COMMODITY"
+      ],
+      "applicable_profiles": [
+        "P01",
+        "P10"
+      ],
+      "trigger_conditions": [
+        "thermal_escalation_event",
+        "conflict_intensity_change"
+      ],
+      "asset_types": [
+        "thermal_data"
+      ],
+      "event_types": [
+        "escalation",
+        "de_escalation",
+        "regime_change"
+      ],
+      "entity_types": [
+        "country",
+        "region"
+      ],
+      "required_inputs": [
+        "thermal_data",
+        "conflict_data"
+      ],
+      "enrichment_inputs": [
+        "sanctions_data",
+        "military_data"
+      ],
+      "output_bindings": [
+        "thermal_state",
+        "escalation_trajectory",
+        "de_escalation_probability"
+      ],
+      "rules_structured": [
+        {
+          "rule_id": "M23_R01",
+          "description": "Track thermal escalation stage per country/region"
+        },
+        {
+          "rule_id": "M23_R02",
+          "description": "Project escalation trajectory and de-escalation probability"
+        }
+      ],
+      "thresholds_structured": [
+        {
+          "threshold_id": "M23_T01",
+          "value": 0.6
+        },
+        {
+          "threshold_id": "M23_T02",
+          "value": 0.8
+        }
+      ],
+      "limitations": [
+        "Thermal classification is inherently subjective",
+        "De-escalation signals often lag"
+      ],
+      "freshness_requirement": {
+        "max_age_seconds": 3600,
+        "strategy": "FRESH_FIRST",
+        "stale_threshold_seconds": 7200,
+        "degraded_threshold_seconds": 43200
+      },
+      "source_requirements": [
+        "SRC_ACLED",
+        "SRC_UCDP",
+        "SRC_GDELT"
+      ],
+      "point_in_time_requirement": {
+        "required": true,
+        "as_of_field": "as_of",
+        "default_lookback": "7d"
+      },
+      "fast_path_allowed": true,
+      "deep_path_allowed": true,
+      "weknora_eligible": true,
+      "methodology_version_hash": "608935625b7c01aaa18c6a58efdbef7f35a912e7b91b7380bf19d79f0e666415",
+      "rebaseline_required": false,
+      "callable": true
+    },
+    {
+      "methodology_id": "M24",
+      "name": "Gold and Precious Metal Analysis",
+      "classification": "OFFICIAL_DIRECT",
+      "version": "1.0.0",
+      "valid_from": "2025-01-15",
+      "valid_to": null,
+      "primary_roles": [
+        "COMMODITY",
+        "FINANCE"
+      ],
+      "secondary_roles": [
+        "WORLD"
+      ],
+      "applicable_profiles": [
+        "P03"
+      ],
+      "trigger_conditions": [
+        "gold_price_move",
+        "central_bank_reserve_change",
+        "etf_flow_change"
+      ],
+      "asset_types": [
+        "gold_data"
+      ],
+      "event_types": [
+        "price_move",
+        "reserve_change",
+        "central_bank_activity"
+      ],
+      "entity_types": [
+        "commodity",
+        "central_bank"
+      ],
+      "required_inputs": [
+        "gold_data",
+        "fx_data"
+      ],
+      "enrichment_inputs": [
+        "reserve_data",
+        "etf_data",
+        "mining_data"
+      ],
+      "output_bindings": [
+        "price_analysis",
+        "reserve_activity",
+        "demand_drivers"
+      ],
+      "rules_structured": [
+        {
+          "rule_id": "M24_R01",
+          "description": "Analyze gold price drivers including real rates, FX, and reserves"
+        },
+        {
+          "rule_id": "M24_R02",
+          "description": "Assess central bank reserve activity and ETF flows"
+        }
+      ],
+      "thresholds_structured": [
+        {
+          "threshold_id": "M24_T01",
+          "value": 2.0
+        }
+      ],
+      "limitations": [
+        "Central bank reserve data is quarterly with lag",
+        "OTC demand not captured"
+      ],
+      "freshness_requirement": {
+        "max_age_seconds": 3600,
+        "strategy": "FRESH_FIRST",
+        "stale_threshold_seconds": 14400,
+        "degraded_threshold_seconds": 86400
+      },
+      "source_requirements": [
+        "SRC_CME",
+        "SRC_IMF",
+        "SRC_WORLD_BANK"
+      ],
+      "point_in_time_requirement": {
+        "required": true,
+        "as_of_field": "as_of",
+        "default_lookback": "7d"
+      },
+      "fast_path_allowed": true,
+      "deep_path_allowed": true,
+      "weknora_eligible": true,
+      "methodology_version_hash": "91fdd50fa4e5a293ee7342d32d6d20856a802990f572c2c2627c6118947fe065",
+      "rebaseline_required": false,
+      "callable": true
+    },
+    {
+      "methodology_id": "C01",
+      "name": "Geopolitical Overlay",
+      "classification": "OFFICIAL_DIRECT",
+      "version": "1.0.0",
+      "valid_from": "2025-01-15",
+      "valid_to": null,
+      "primary_roles": [
+        "WORLD"
+      ],
+      "secondary_roles": [
+        "ENERGY",
+        "COMMODITY"
+      ],
+      "applicable_profiles": [
+        "P10",
+        "P01"
+      ],
+      "trigger_conditions": [
+        "geopolitical_event",
+        "policy_change"
+      ],
+      "asset_types": [
+        "geopolitical_context"
+      ],
+      "event_types": [
+        "escalation",
+        "sanctions",
+        "diplomacy"
+      ],
+      "entity_types": [
+        "country",
+        "region",
+        "alliance"
+      ],
+      "required_inputs": [
+        "conflict_data",
+        "sanctions_data"
+      ],
+      "enrichment_inputs": [
+        "military_data",
+        "diplomatic_data"
+      ],
+      "output_bindings": [
+        "geopolitical_context",
+        "risk_overlay",
+        "event_impact_map"
+      ],
+      "rules_structured": [
+        {
+          "rule_id": "C01_R01",
+          "description": "Overlay geopolitical risk onto commodity and energy assessments"
+        },
+        {
+          "rule_id": "C01_R02",
+          "description": "Map conflict and sanctions impact to supply chains"
+        }
+      ],
+      "thresholds_structured": [
+        {
+          "threshold_id": "C01_T01",
+          "value": 0.5
+        }
+      ],
+      "limitations": [
+        "Overlay is additive, does not replace primary analysis",
+        "Geopolitical risk quantification is approximate"
+      ],
+      "freshness_requirement": {
+        "max_age_seconds": 86400,
+        "strategy": "STALE_OK",
+        "stale_threshold_seconds": 172800,
+        "degraded_threshold_seconds": 604800
+      },
+      "source_requirements": [
+        "SRC_ACLED",
+        "SRC_GDELT",
+        "SRC_OFAC"
+      ],
+      "point_in_time_requirement": {
+        "required": true,
+        "as_of_field": "as_of",
+        "default_lookback": "30d"
+      },
+      "fast_path_allowed": true,
+      "deep_path_allowed": true,
+      "weknora_eligible": true,
+      "methodology_version_hash": "007a72f09986b3326babbb27c625f23785828a9527386709f13ffe549d902291",
+      "rebaseline_required": false,
+      "callable": true
+    },
+    {
+      "methodology_id": "C02",
+      "name": "Economic Overlay",
+      "classification": "OFFICIAL_DIRECT",
+      "version": "1.0.0",
+      "valid_from": "2025-01-15",
+      "valid_to": null,
+      "primary_roles": [
+        "FINANCE",
+        "COMMODITY"
+      ],
+      "secondary_roles": [
+        "WORLD",
+        "ENERGY"
+      ],
+      "applicable_profiles": [
+        "P01",
+        "P06",
+        "P07"
+      ],
+      "trigger_conditions": [
+        "economic_data_update",
+        "rate_decision"
+      ],
+      "asset_types": [
+        "economic_context"
+      ],
+      "event_types": [
+        "rate_change",
+        "gdp_release",
+        "inflation_release"
+      ],
+      "entity_types": [
+        "country",
+        "central_bank"
+      ],
+      "required_inputs": [
+        "rate_data",
+        "inflation_data"
+      ],
+      "enrichment_inputs": [
+        "fx_data",
+        "trade_data"
+      ],
+      "output_bindings": [
+        "economic_context",
+        "macro_backdrop",
+        "policy_stance"
+      ],
+      "rules_structured": [
+        {
+          "rule_id": "C02_R01",
+          "description": "Overlay macroeconomic context onto market analysis"
+        },
+        {
+          "rule_id": "C02_R02",
+          "description": "Assess monetary and fiscal policy stance impact"
+        }
+      ],
+      "thresholds_structured": [
+        {
+          "threshold_id": "C02_T01",
+          "value": 0.3
+        }
+      ],
+      "limitations": [
+        "Economic data revisions common",
+        "Policy impact transmission lags uncertain"
+      ],
+      "freshness_requirement": {
+        "max_age_seconds": 86400,
+        "strategy": "STALE_OK",
+        "stale_threshold_seconds": 172800,
+        "degraded_threshold_seconds": 604800
+      },
+      "source_requirements": [
+        "SRC_IMF",
+        "SRC_WORLD_BANK",
+        "SRC_CME"
+      ],
+      "point_in_time_requirement": {
+        "required": true,
+        "as_of_field": "as_of",
+        "default_lookback": "30d"
+      },
+      "fast_path_allowed": true,
+      "deep_path_allowed": true,
+      "weknora_eligible": true,
+      "methodology_version_hash": "d677156d307a58d96aaf503b004773db28d3758386cac759f9c75bd9ec662d21",
+      "rebaseline_required": false,
+      "callable": true
+    },
+    {
+      "methodology_id": "C03",
+      "name": "Geopolitical Convergence",
+      "classification": "OFFICIAL_DIRECT",
+      "version": "1.0.0",
+      "valid_from": "2025-01-15",
+      "valid_to": null,
+      "primary_roles": [
+        "WORLD"
+      ],
+      "secondary_roles": [
+        "ENERGY",
+        "COMMODITY"
+      ],
+      "applicable_profiles": [
+        "P10",
+        "P01"
+      ],
+      "trigger_conditions": [
+        "multi_domain_signal",
+        "cross_correlation_exceeded"
+      ],
+      "asset_types": [
+        "convergence_signal"
+      ],
+      "event_types": [
+        "convergence",
+        "divergence"
+      ],
+      "entity_types": [
+        "country",
+        "region",
+        "domain"
+      ],
+      "required_inputs": [
+        "geopolitical_data",
+        "economic_data",
+        "supply_data"
+      ],
+      "enrichment_inputs": [
+        "military_data",
+        "social_data"
+      ],
+      "output_bindings": [
+        "convergence_map",
+        "signal_correlation",
+        "composite_risk"
+      ],
+      "rules_structured": [
+        {
+          "rule_id": "C03_R01",
+          "description": "Detect convergence of geopolitical, economic, and supply signals"
+        },
+        {
+          "rule_id": "C03_R02",
+          "description": "Compute cross-domain correlation and composite risk"
+        }
+      ],
+      "thresholds_structured": [
+        {
+          "threshold_id": "C03_T01",
+          "value": 0.6
+        }
+      ],
+      "limitations": [
+        "Convergence detection requires sufficient signal density",
+        "Correlation is not causation"
+      ],
+      "freshness_requirement": {
+        "max_age_seconds": 3600,
+        "strategy": "FRESH_FIRST",
+        "stale_threshold_seconds": 14400,
+        "degraded_threshold_seconds": 86400
+      },
+      "source_requirements": [
+        "SRC_ACLED",
+        "SRC_GDELT",
+        "SRC_EIA",
+        "SRC_IMF"
+      ],
+      "point_in_time_requirement": {
+        "required": true,
+        "as_of_field": "as_of",
+        "default_lookback": "30d"
+      },
+      "fast_path_allowed": false,
+      "deep_path_allowed": true,
+      "weknora_eligible": true,
+      "methodology_version_hash": "fbab6ecda5de199276306ba19d2f3377d2b3a26d2486a1119254b004f2f2621e",
+      "rebaseline_required": false,
+      "callable": true
+    },
+    {
+      "methodology_id": "C04",
+      "name": "Strategic Risk Composite",
+      "classification": "OFFICIAL_DIRECT",
+      "version": "1.0.0",
+      "valid_from": "2025-01-15",
+      "valid_to": null,
+      "primary_roles": [
+        "WORLD",
+        "TECH"
+      ],
+      "secondary_roles": [
+        "ENERGY",
+        "COMMODITY",
+        "FINANCE"
+      ],
+      "applicable_profiles": [
+        "P09",
+        "P10"
+      ],
+      "trigger_conditions": [
+        "strategic_risk_trigger",
+        "multi_domain_alert"
+      ],
+      "asset_types": [
+        "strategic_risk"
+      ],
+      "event_types": [
+        "strategic_threat",
+        "systemic_risk"
+      ],
+      "entity_types": [
+        "country",
+        "sector",
+        "alliance"
+      ],
+      "required_inputs": [
+        "conflict_data",
+        "sanctions_data",
+        "supply_data"
+      ],
+      "enrichment_inputs": [
+        "military_data",
+        "economic_data"
+      ],
+      "output_bindings": [
+        "composite_risk_score",
+        "risk_decomposition",
+        "priority_actions"
+      ],
+      "rules_structured": [
+        {
+          "rule_id": "C04_R01",
+          "description": "Composite strategic risk from conflict, sanctions, supply, and military signals"
+        },
+        {
+          "rule_id": "C04_R02",
+          "description": "Decompose risk into actionable priority areas"
+        }
+      ],
+      "thresholds_structured": [
+        {
+          "threshold_id": "C04_T01",
+          "value": 0.7
+        },
+        {
+          "threshold_id": "C04_T02",
+          "value": 0.9
+        }
+      ],
+      "limitations": [
+        "Composite scoring involves subjective weighting",
+        "May double-count risks from overlapping domains"
+      ],
+      "freshness_requirement": {
+        "max_age_seconds": 3600,
+        "strategy": "FRESH_FIRST",
+        "stale_threshold_seconds": 14400,
+        "degraded_threshold_seconds": 86400
+      },
+      "source_requirements": [
+        "SRC_ACLED",
+        "SRC_OFAC",
+        "SRC_GDELT",
+        "SRC_USNI"
+      ],
+      "point_in_time_requirement": {
+        "required": true,
+        "as_of_field": "as_of",
+        "default_lookback": "30d"
+      },
+      "fast_path_allowed": false,
+      "deep_path_allowed": true,
+      "weknora_eligible": true,
+      "methodology_version_hash": "89c2d64975bda0b133c21b2776172f9f352ae3334146428d867982b55d4dc76c",
+      "rebaseline_required": false,
+      "callable": true
+    },
+    {
+      "methodology_id": "C05",
+      "name": "Meta Methodology Router",
+      "classification": "WTILS_GOVERNANCE",
+      "version": "1.0.0",
+      "valid_from": "2025-01-15",
+      "valid_to": null,
+      "primary_roles": [],
+      "secondary_roles": [],
+      "applicable_profiles": [],
+      "trigger_conditions": [
+        "methodology_selection_required",
+        "profile_context_change"
+      ],
+      "asset_types": [
+        "methodology_routing"
+      ],
+      "event_types": [
+        "route",
+        "select",
+        "delegate"
+      ],
+      "entity_types": [
+        "methodology",
+        "profile",
+        "role"
+      ],
+      "required_inputs": [
+        "role_context",
+        "profile_context"
+      ],
+      "enrichment_inputs": [
+        "methodology_registry",
+        "binding_graph"
+      ],
+      "output_bindings": [
+        "selected_methodologies",
+        "execution_plan",
+        "dependency_order"
+      ],
+      "rules_structured": [
+        {
+          "rule_id": "META_ROUTER",
+          "description": "Routes methodology selection based on role and profile context"
+        },
+        {
+          "rule_id": "C05_R02",
+          "description": "Resolve methodology dependencies and execution order"
+        }
+      ],
+      "thresholds_structured": [
+        {
+          "threshold_id": "C05_T01",
+          "value": 0
+        }
+      ],
+      "limitations": [
+        "Meta routing logic must be kept in sync with registry updates",
+        "Circular dependencies must be prevented"
+      ],
+      "freshness_requirement": {
+        "max_age_seconds": 0,
+        "strategy": "ANY_AVAILABLE",
+        "stale_threshold_seconds": 0,
+        "degraded_threshold_seconds": 0
+      },
+      "source_requirements": [],
+      "point_in_time_requirement": {
+        "required": false,
+        "as_of_field": null,
+        "default_lookback": null
+      },
+      "fast_path_allowed": false,
+      "deep_path_allowed": false,
+      "weknora_eligible": false,
+      "methodology_version_hash": "e368935e891a12170d3c553f4d28f355d0c2d624455dbd20400231d2e56d4adb",
+      "rebaseline_required": true,
+      "callable": false
+    },
+    {
+      "methodology_id": "C06",
+      "name": "Global Precondition Validator",
+      "classification": "WTILS_GOVERNANCE",
+      "version": "1.0.0",
+      "valid_from": "2025-01-15",
+      "valid_to": null,
+      "primary_roles": [],
+      "secondary_roles": [],
+      "applicable_profiles": [],
+      "trigger_conditions": [
+        "methodology_execution_requested",
+        "precondition_check_required"
+      ],
+      "asset_types": [
+        "precondition"
+      ],
+      "event_types": [
+        "validate",
+        "gate",
+        "block"
+      ],
+      "entity_types": [
+        "methodology",
+        "source",
+        "contract"
+      ],
+      "required_inputs": [
+        "methodology_state",
+        "source_state"
+      ],
+      "enrichment_inputs": [
+        "contract_state",
+        "lifecycle_state"
+      ],
+      "output_bindings": [
+        "precondition_result",
+        "violations",
+        "blocking_issues"
+      ],
+      "rules_structured": [
+        {
+          "rule_id": "GLOBAL_PRECONDITION",
+          "description": "Validates global preconditions before methodology execution"
+        },
+        {
+          "rule_id": "C06_R02",
+          "description": "Check source availability and contract compliance"
+        },
+        {
+          "rule_id": "C06_R03",
+          "description": "Verify point-in-time requirements are met"
+        }
+      ],
+      "thresholds_structured": [
+        {
+          "threshold_id": "C06_T01",
+          "value": 0
+        }
+      ],
+      "limitations": [
+        "Precondition checks add latency to methodology execution",
+        "Must be updated when contracts change"
+      ],
+      "freshness_requirement": {
+        "max_age_seconds": 0,
+        "strategy": "ANY_AVAILABLE",
+        "stale_threshold_seconds": 0,
+        "degraded_threshold_seconds": 0
+      },
+      "source_requirements": [],
+      "point_in_time_requirement": {
+        "required": false,
+        "as_of_field": null,
+        "default_lookback": null
+      },
+      "fast_path_allowed": true,
+      "deep_path_allowed": true,
+      "weknora_eligible": false,
+      "methodology_version_hash": "fd011d6d0b39d98108f9d6ea7272e62d034e648a9580f867b11a6daac99242c4",
+      "rebaseline_required": true,
+      "callable": true
+    },
+    {
+      "methodology_id": "C07",
+      "name": "Governance Contract Enforcer",
+      "classification": "WTILS_GOVERNANCE",
+      "version": "1.0.0",
+      "valid_from": "2025-01-15",
+      "valid_to": null,
+      "primary_roles": [],
+      "secondary_roles": [],
+      "applicable_profiles": [],
+      "trigger_conditions": [
+        "governance_violation_detected",
+        "contract_update"
+      ],
+      "asset_types": [
+        "governance"
+      ],
+      "event_types": [
+        "enforce",
+        "audit",
+        "report"
+      ],
+      "entity_types": [
+        "methodology",
+        "api",
+        "source",
+        "profile"
+      ],
+      "required_inputs": [
+        "registry_state"
+      ],
+      "enrichment_inputs": [
+        "audit_log",
+        "violation_history"
+      ],
+      "output_bindings": [
+        "compliance_report",
+        "violations",
+        "remediation_actions"
+      ],
+      "rules_structured": [
+        {
+          "rule_id": "GOVERNANCE_CONTRACT",
+          "description": "Enforces governance contract compliance across all methodologies"
+        },
+        {
+          "rule_id": "C07_R02",
+          "description": "Audit methodology execution against declared contracts"
+        },
+        {
+          "rule_id": "C07_R03",
+          "description": "Generate remediation actions for violations"
+        }
+      ],
+      "thresholds_structured": [
+        {
+          "threshold_id": "C07_T01",
+          "value": 0
+        }
+      ],
+      "limitations": [
+        "Governance enforcement must not block emergency methodology execution",
+        "Audit trail must be immutable"
+      ],
+      "freshness_requirement": {
+        "max_age_seconds": 0,
+        "strategy": "ANY_AVAILABLE",
+        "stale_threshold_seconds": 0,
+        "degraded_threshold_seconds": 0
+      },
+      "source_requirements": [],
+      "point_in_time_requirement": {
+        "required": false,
+        "as_of_field": null,
+        "default_lookback": null
+      },
+      "fast_path_allowed": true,
+      "deep_path_allowed": true,
+      "weknora_eligible": false,
+      "methodology_version_hash": "7dadc321adf7c11ce26dd559299a76a888c841c99dc40f12f3a4c99db6b173dd",
+      "rebaseline_required": true,
+      "callable": true
+    }
+  ]
+}

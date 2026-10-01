@@ -1,0 +1,274 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "wtils:schemas:registries:methodology_schema",
+  "title": "WTILS Methodology Registry Schema",
+  "description": "Schema for WTILS Phase 1 Methodology Registry entries. Covers M01-M24 official direct methods and C01-C07 governance/composite methods.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "methodology_id",
+    "name",
+    "classification",
+    "version",
+    "valid_from",
+    "valid_to",
+    "primary_roles",
+    "secondary_roles",
+    "applicable_profiles",
+    "trigger_conditions",
+    "asset_types",
+    "event_types",
+    "entity_types",
+    "required_inputs",
+    "enrichment_inputs",
+    "output_bindings",
+    "rules_structured",
+    "thresholds_structured",
+    "limitations",
+    "freshness_requirement",
+    "source_requirements",
+    "point_in_time_requirement",
+    "fast_path_allowed",
+    "deep_path_allowed",
+    "weknora_eligible",
+    "methodology_version_hash",
+    "rebaseline_required",
+    "callable"
+  ],
+  "properties": {
+    "methodology_id": {
+      "type": "string",
+      "pattern": "^(M|C)\\d{2}$",
+      "description": "Unique methodology identifier (M01-M24 for official direct, C01-C07 for governance/composite)"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Human-readable methodology name"
+    },
+    "classification": {
+      "type": "string",
+      "enum": ["OFFICIAL_DIRECT", "OFFICIAL_COMPOSITE", "WTILS_GOVERNANCE", "UNMAPPED_BLOCKED"],
+      "description": "Classification category for this methodology"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Semantic version"
+    },
+    "valid_from": {
+      "type": "string",
+      "format": "date",
+      "description": "Date this methodology version became effective"
+    },
+    "valid_to": {
+      "type": ["string", "null"],
+      "format": "date",
+      "description": "Date this methodology version expires (null = currently active)"
+    },
+    "primary_roles": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Z]+$"
+      },
+      "description": "Roles for which this methodology is primary"
+    },
+    "secondary_roles": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Z]+$"
+      },
+      "description": "Roles for which this methodology is secondary"
+    },
+    "applicable_profiles": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^P\\d{2}$"
+      },
+      "description": "Profiles this methodology can be applied to"
+    },
+    "trigger_conditions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Conditions that trigger this methodology"
+    },
+    "asset_types": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Asset types this methodology applies to"
+    },
+    "event_types": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Event types this methodology responds to"
+    },
+    "entity_types": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Entity types this methodology operates on"
+    },
+    "required_inputs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Inputs required before this methodology can execute"
+    },
+    "enrichment_inputs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Optional enrichment inputs that improve output quality"
+    },
+    "output_bindings": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Output types this methodology produces"
+    },
+    "rules_structured": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["rule_id", "description"],
+        "additionalProperties": true,
+        "properties": {
+          "rule_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "description": "Structured rules governing this methodology"
+    },
+    "thresholds_structured": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["threshold_id", "value"],
+        "additionalProperties": true,
+        "properties": {
+          "threshold_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "value": {
+            "type": ["number", "string"]
+          }
+        }
+      },
+      "description": "Structured thresholds for this methodology"
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Known limitations of this methodology"
+    },
+    "freshness_requirement": {
+      "type": "object",
+      "required": ["max_age_seconds", "strategy", "stale_threshold_seconds", "degraded_threshold_seconds"],
+      "additionalProperties": false,
+      "properties": {
+        "max_age_seconds": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Maximum age in seconds before data is considered unusable"
+        },
+        "strategy": {
+          "type": "string",
+          "enum": ["FRESH_FIRST", "STALE_OK", "DEGRADED_OK", "ANY_AVAILABLE", "REQUIRE_FRESH"],
+          "description": "Freshness strategy"
+        },
+        "stale_threshold_seconds": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Age in seconds after which data is considered stale"
+        },
+        "degraded_threshold_seconds": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Age in seconds after which data is considered degraded"
+        }
+      }
+    },
+    "source_requirements": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Source identifiers required by this methodology"
+    },
+    "point_in_time_requirement": {
+      "type": "object",
+      "required": ["required", "as_of_field", "default_lookback"],
+      "additionalProperties": false,
+      "properties": {
+        "required": {
+          "type": "boolean",
+          "description": "Whether point-in-time semantics are required"
+        },
+        "as_of_field": {
+          "type": ["string", "null"],
+          "description": "Field name for as-of timestamp, null if not required"
+        },
+        "default_lookback": {
+          "type": ["string", "null"],
+          "description": "Default lookback period (e.g. 7d, 30d), null if not applicable"
+        }
+      }
+    },
+    "fast_path_allowed": {
+      "type": "boolean",
+      "description": "Whether this methodology can execute on the fast (L1) path"
+    },
+    "deep_path_allowed": {
+      "type": "boolean",
+      "description": "Whether this methodology can execute on the deep (L2) path"
+    },
+    "weknora_eligible": {
+      "type": "boolean",
+      "description": "Whether this methodology produces WEKNORA-compatible knowledge packages"
+    },
+    "methodology_version_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$",
+      "description": "SHA256 hash of methodology_id + version + name for integrity"
+    },
+    "rebaseline_required": {
+      "type": "boolean",
+      "description": "Whether rebaseline is required when this methodology is updated"
+    },
+    "callable": {
+      "type": "boolean",
+      "description": "Whether this methodology can be directly invoked (false for META types like C05)"
+    }
+  }
+}

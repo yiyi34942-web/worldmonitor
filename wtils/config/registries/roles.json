@@ -1,0 +1,159 @@
+{
+  "registry_type": "roles",
+  "version": "1.0.0",
+  "generated_at": "2025-01-15T00:00:00Z",
+  "entries": [
+    {
+      "role_id": "WORLD",
+      "name": "Geopolitical & Security Analyst",
+      "version": "1.0.0",
+      "core_question": "Who, where, geopolitics, policy, security",
+      "domains": ["geopolitics", "conflict", "sanctions", "resilience", "defense", "diplomacy", "disease_outbreak", "thermal_escalation"],
+      "primary_profiles": ["P10"],
+      "secondary_profiles": ["P01", "P02", "P05"],
+      "default_methodologies": ["M04", "M05", "M03", "M23", "M22", "C03", "C04"],
+      "api_family_hints": ["ConflictService", "IntelligenceService", "SanctionsService", "MilitaryService", "ResilienceService", "ThermalService", "NewsService"],
+      "output_sections": ["conflict_assessment", "sanctions_map", "military_posture", "diplomatic_signals", "humanitarian_status", "thermal_state"],
+      "language_profile": {
+        "primary": ["en", "ru", "zh", "ar"],
+        "secondary": ["fr", "de", "es", "fa", "uk"]
+      },
+      "region_profile": {
+        "primary": ["GLOBAL", "MENA", "EAST_ASIA", "EURASIA", "SOUTH_ASIA"],
+        "secondary": ["EU", "LATAM", "AFRICA", "SE_ASIA"]
+      },
+      "activation_rules": [
+        {"rule_id": "WORLD_ACT_01", "condition": "conflict_event_detected", "threshold": 1},
+        {"rule_id": "WORLD_ACT_02", "condition": "sanctions_designation_published", "threshold": 1},
+        {"rule_id": "WORLD_ACT_03", "condition": "military_posture_change", "threshold": 1},
+        {"rule_id": "WORLD_ACT_04", "condition": "thermal_escalation_triggered", "threshold": 1},
+        {"rule_id": "WORLD_ACT_05", "condition": "humanitarian_crisis_threshold", "threshold": 0.7}
+      ],
+      "deactivation_rules": [
+        {"rule_id": "WORLD_DEACT_01", "condition": "no_conflict_events_30d"},
+        {"rule_id": "WORLD_DEACT_02", "condition": "profile_not_p10_and_no_active_conflict"}
+      ]
+    },
+    {
+      "role_id": "TECH",
+      "name": "Technology Supply Chain Analyst",
+      "version": "1.0.0",
+      "core_question": "Technology supply chain vulnerabilities and concentrations",
+      "domains": ["semiconductors", "ai_hardware", "rare_earths", "mineral_processing", "tech_sanctions", "chokepoints", "defense_industrial_base"],
+      "primary_profiles": ["P09"],
+      "secondary_profiles": ["P04", "P06"],
+      "default_methodologies": ["M14", "M16", "M13", "M01", "C04"],
+      "api_family_hints": ["SupplyChainService", "IntelligenceService", "SanctionsService", "MarketService", "MilitaryService"],
+      "output_sections": ["chokepoint_map", "mineral_dependencies", "sanctions_exposure", "supply_concentration", "defense_industrial_base"],
+      "language_profile": {
+        "primary": ["en", "zh", "ko", "ja"],
+        "secondary": ["de", "nl", "tw"]
+      },
+      "region_profile": {
+        "primary": ["EAST_ASIA", "SE_ASIA", "GLOBAL"],
+        "secondary": ["EU", "NORTH_AMERICA", "SOUTH_ASIA"]
+      },
+      "activation_rules": [
+        {"rule_id": "TECH_ACT_01", "condition": "chokepoint_status_change", "threshold": 1},
+        {"rule_id": "TECH_ACT_02", "condition": "mineral_supply_disruption", "threshold": 1},
+        {"rule_id": "TECH_ACT_03", "condition": "tech_sanctions_imposed", "threshold": 1},
+        {"rule_id": "TECH_ACT_04", "condition": "defense_patent_activity_spike", "threshold": 3}
+      ],
+      "deactivation_rules": [
+        {"rule_id": "TECH_DEACT_01", "condition": "no_supply_disruption_14d"},
+        {"rule_id": "TECH_DEACT_02", "condition": "profile_not_p09_and_no_tech_signal"}
+      ]
+    },
+    {
+      "role_id": "FINANCE",
+      "name": "Financial System & Markets Analyst",
+      "version": "1.0.0",
+      "core_question": "Financial system exposures and market signals",
+      "domains": ["fx", "rates", "equities", "swf", "financial_exposure", "cot_positioning", "credit", "systemic_risk"],
+      "primary_profiles": ["P06", "P07", "P08"],
+      "secondary_profiles": ["P03", "P01"],
+      "default_methodologies": ["M08", "M09", "M10", "C05"],
+      "api_family_hints": ["EconomicService", "MarketService", "IntelligenceService", "NewsService"],
+      "output_sections": ["fx_analysis", "rate_environment", "equity_signals", "systemic_risk", "cot_positioning", "credit_conditions"],
+      "language_profile": {
+        "primary": ["en"],
+        "secondary": ["zh", "ja", "de", "fr"]
+      },
+      "region_profile": {
+        "primary": ["GLOBAL", "NORTH_AMERICA", "EU", "EAST_ASIA"],
+        "secondary": ["EM_LATAM", "EM_ASIA", "MENA"]
+      },
+      "activation_rules": [
+        {"rule_id": "FIN_ACT_01", "condition": "fx_volatility_spike", "threshold": 2.0},
+        {"rule_id": "FIN_ACT_02", "condition": "rate_decision_scheduled", "threshold": 1},
+        {"rule_id": "FIN_ACT_03", "condition": "equity_market_stress", "threshold": 0.6},
+        {"rule_id": "FIN_ACT_04", "condition": "systemic_risk_indicator_change", "threshold": 0.3}
+      ],
+      "deactivation_rules": [
+        {"rule_id": "FIN_DEACT_01", "condition": "low_volatility_regime_7d"},
+        {"rule_id": "FIN_DEACT_02", "condition": "no_rate_decision_14d"}
+      ]
+    },
+    {
+      "role_id": "COMMODITY",
+      "name": "Physical Commodity Analyst",
+      "version": "1.0.0",
+      "core_question": "Supply security and price risk for physical commodities",
+      "domains": ["crude_oil", "natural_gas", "lng", "metals", "agriculture", "stocks_to_use", "commodity_pricing", "trade_flows"],
+      "primary_profiles": ["P01", "P03", "P04", "P05"],
+      "secondary_profiles": ["P02", "P08"],
+      "default_methodologies": ["M15", "M12", "M16", "M03"],
+      "api_family_hints": ["EconomicService", "SupplyChainService", "MarketService", "TradeService", "IntelligenceService"],
+      "output_sections": ["price_analysis", "inventory_state", "supply_demand_balance", "trade_flows", "stocks_to_use", "forward_curve"],
+      "language_profile": {
+        "primary": ["en"],
+        "secondary": ["zh", "ru", "ar", "pt"]
+      },
+      "region_profile": {
+        "primary": ["GLOBAL", "MENA", "NORTH_AMERICA", "EU"],
+        "secondary": ["AFRICA", "LATAM", "SE_ASIA"]
+      },
+      "activation_rules": [
+        {"rule_id": "COMM_ACT_01", "condition": "commodity_price_move_5pct", "threshold": 5.0},
+        {"rule_id": "COMM_ACT_02", "condition": "inventory_level_change", "threshold": 1},
+        {"rule_id": "COMM_ACT_03", "condition": "supply_disruption_report", "threshold": 1},
+        {"rule_id": "COMM_ACT_04", "condition": "trade_barrier_imposed", "threshold": 1}
+      ],
+      "deactivation_rules": [
+        {"rule_id": "COMM_DEACT_01", "condition": "stable_prices_7d"},
+        {"rule_id": "COMM_DEACT_02", "condition": "no_inventory_anomaly_7d"}
+      ]
+    },
+    {
+      "role_id": "ENERGY",
+      "name": "Energy Infrastructure & Reserves Analyst",
+      "version": "1.0.0",
+      "core_question": "Energy infrastructure risks and strategic reserve states",
+      "domains": ["crude_inventories", "pipelines", "storage", "fuel_shortage", "energy_disruption", "energy_infrastructure", "refining", "energy_security"],
+      "primary_profiles": ["P01", "P02"],
+      "secondary_profiles": ["P03", "P05", "P10"],
+      "default_methodologies": ["M20", "M17", "M18", "M19", "M15"],
+      "api_family_hints": ["EconomicService", "SupplyChainService", "MaritimeService", "InfrastructureService", "IntelligenceService"],
+      "output_sections": ["inventory_analysis", "pipeline_status", "storage_levels", "refining_capacity", "disruption_map", "energy_security_score"],
+      "language_profile": {
+        "primary": ["en"],
+        "secondary": ["ru", "ar", "zh", "no", "fa"]
+      },
+      "region_profile": {
+        "primary": ["GLOBAL", "MENA", "NORTH_AMERICA", "EU", "EURASIA"],
+        "secondary": ["AFRICA", "LATAM", "SE_ASIA"]
+      },
+      "activation_rules": [
+        {"rule_id": "ENR_ACT_01", "condition": "crude_inventory_deviation", "threshold": 1.5},
+        {"rule_id": "ENR_ACT_02", "condition": "pipeline_incident", "threshold": 1},
+        {"rule_id": "ENR_ACT_03", "condition": "storage_anomaly_detected", "threshold": 1},
+        {"rule_id": "ENR_ACT_04", "condition": "fuel_shortage_report", "threshold": 1},
+        {"rule_id": "ENR_ACT_05", "condition": "energy_disruption_event", "threshold": 1}
+      ],
+      "deactivation_rules": [
+        {"rule_id": "ENR_DEACT_01", "condition": "normal_inventory_range_7d"},
+        {"rule_id": "ENR_DEACT_02", "condition": "no_infrastructure_incident_14d"}
+      ]
+    }
+  ]
+}

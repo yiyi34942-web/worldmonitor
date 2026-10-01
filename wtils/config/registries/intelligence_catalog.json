@@ -1,0 +1,294 @@
+{
+  "registry_type": "intelligence_catalog",
+  "version": "1.0.0",
+  "generated_at": "2025-01-15T00:00:00Z",
+  "entries": [
+    {
+      "catalog_id": "IC_CRUDE_OIL_WTI",
+      "canonical_name": "WTI Crude Oil",
+      "aliases": ["WTI", "CL", "LIGHT_SWEET_CRUDE"],
+      "type": "ASSET",
+      "regions": ["NORTH_AMERICA", "GLOBAL"],
+      "languages": ["en"],
+      "relations": [
+        {"related_id": "IC_CRUDE_OIL_BRENT", "relation_type": "CROSS_GRADE_BENCHMARK"},
+        {"related_id": "IC_CRUDE_OIL_DUBAI", "relation_type": "CROSS_GRADE_BENCHMARK"},
+        {"related_id": "IC_STRAIT_OF_HORMUZ", "relation_type": "TRANSIT_DEPENDENCY"}
+      ],
+      "profiles": ["P01"],
+      "role_priors": {"ENERGY": 0.4, "COMMODITY": 0.35, "WORLD": 0.15, "FINANCE": 0.1},
+      "watch_signals": ["wti_price_5pct_move", "cushing_inventory_draw", "wti_brent_spread_collapse"],
+      "trigger_hints": ["crude_price_alert", "inventory_anomaly", "pipeline_incident"],
+      "source_refs": ["SRC_EIA", "SRC_CME", "SRC_OPEC"],
+      "lifecycle": "ACTIVE",
+      "version": "1.0.0"
+    },
+    {
+      "catalog_id": "IC_CRUDE_OIL_BRENT",
+      "canonical_name": "Brent Crude Oil",
+      "aliases": ["BRENT", "B", "BRENT_NORTH_SEA"],
+      "type": "ASSET",
+      "regions": ["EU", "GLOBAL", "NORTH_SEA"],
+      "languages": ["en"],
+      "relations": [
+        {"related_id": "IC_CRUDE_OIL_WTI", "relation_type": "CROSS_GRADE_BENCHMARK"},
+        {"related_id": "IC_CRUDE_OIL_URALS", "relation_type": "CROSS_GRADE_BENCHMARK"}
+      ],
+      "profiles": ["P01"],
+      "role_priors": {"ENERGY": 0.4, "COMMODITY": 0.35, "WORLD": 0.15, "FINANCE": 0.1},
+      "watch_signals": ["brent_price_5pct_move", "north_sea_production_decline", "dated_brent_cargo_shortage"],
+      "trigger_hints": ["crude_price_alert", "north_sea_disruption"],
+      "source_refs": ["SRC_CME", "SRC_IEA"],
+      "lifecycle": "ACTIVE",
+      "version": "1.0.0"
+    },
+    {
+      "catalog_id": "IC_CRUDE_OIL_URALS",
+      "canonical_name": "Urals Crude Oil",
+      "aliases": ["URALS", "RUSSIAN_CRUDE"],
+      "type": "ASSET",
+      "regions": ["EURASIA", "EU", "GLOBAL"],
+      "languages": ["en", "ru"],
+      "relations": [
+        {"related_id": "IC_CRUDE_OIL_BRENT", "relation_type": "DISCOUNT_TO_BENCHMARK"},
+        {"related_id": "IC_RUSSIA", "relation_type": "ORIGIN_COUNTRY"}
+      ],
+      "profiles": ["P01"],
+      "role_priors": {"ENERGY": 0.3, "COMMODITY": 0.25, "WORLD": 0.35, "FINANCE": 0.1},
+      "watch_signals": ["urals_discount_widening", "russian_oil_sanctions_tightening", "shadow_fleet_growth"],
+      "trigger_hints": ["sanctions_evasion_alert", "shadow_fleet_activity"],
+      "source_refs": ["SRC_RUSSIAN_ENERGY", "SRC_OFAC"],
+      "lifecycle": "ACTIVE",
+      "version": "1.0.0"
+    },
+    {
+      "catalog_id": "IC_STRAIT_OF_HORMUZ",
+      "canonical_name": "Strait of Hormuz",
+      "aliases": ["HORMUZ", "HORMUZ_STRAIT", "PG_STRAIT"],
+      "type": "FACILITY",
+      "regions": ["MENA"],
+      "languages": ["en", "ar"],
+      "relations": [
+        {"related_id": "IC_IRAN", "relation_type": "BORDERING_COUNTRY"},
+        {"related_id": "IC_CRUDE_OIL_WTI", "relation_type": "TRANSIT_FOR"},
+        {"related_id": "IC_CRUDE_OIL_BRENT", "relation_type": "TRANSIT_FOR"}
+      ],
+      "profiles": ["P01", "P10"],
+      "role_priors": {"ENERGY": 0.35, "WORLD": 0.4, "COMMODITY": 0.25},
+      "watch_signals": ["hormuz_tension_spike", "us_irian_naval_encounter", "tanker_disruption"],
+      "trigger_hints": ["chokepoint_threat", "naval_escalation"],
+      "source_refs": ["SRC_AIS", "SRC_IRAN_EVENTS", "SRC_ACLED"],
+      "lifecycle": "ACTIVE",
+      "version": "1.0.0"
+    },
+    {
+      "catalog_id": "IC_SUEZ_CANAL",
+      "canonical_name": "Suez Canal",
+      "aliases": ["SUEZ", "SUEZ_CANAL"],
+      "type": "FACILITY",
+      "regions": ["MENA", "EU"],
+      "languages": ["en", "ar"],
+      "relations": [
+        {"related_id": "IC_STRAIT_OF_HORMUZ", "relation_type": "ROUTE_DEPENDENCY"},
+        {"related_id": "IC_RED_SEA", "relation_type": "ADJACENT_WATERWAY"}
+      ],
+      "profiles": ["P01", "P02"],
+      "role_priors": {"ENERGY": 0.3, "WORLD": 0.35, "COMMODITY": 0.25},
+      "watch_signals": ["suez_transit_disruption", "suez_tolls_change", "houthi_attack_on_shipping"],
+      "trigger_hints": ["chokepoint_closure", "red_sea_disruption"],
+      "source_refs": ["SRC_AIS", "SRC_NEWS_API"],
+      "lifecycle": "ACTIVE",
+      "version": "1.0.0"
+    },
+    {
+      "catalog_id": "IC_IRAN",
+      "canonical_name": "Iran",
+      "aliases": ["IRN", "ISLAMIC_REPUBLIC"],
+      "type": "COUNTRY",
+      "regions": ["MENA"],
+      "languages": ["en", "fa"],
+      "relations": [
+        {"related_id": "IC_STRAIT_OF_HORMUZ", "relation_type": "BORDERS_CHOKEPOINT"},
+        {"related_id": "IC_CRUDE_OIL_URALS", "relation_type": "SANCTIONS_PARALLEL"}
+      ],
+      "profiles": ["P10", "P01"],
+      "role_priors": {"WORLD": 0.5, "ENERGY": 0.3, "COMMODITY": 0.2},
+      "watch_signals": ["iran_nuclear_development", "iran_proxy_activity", "iran_sanctions_evasion", "iran_election"],
+      "trigger_hints": ["iran_escalation", "nuclear_deal_change"],
+      "source_refs": ["SRC_IRAN_EVENTS", "SRC_OFAC", "SRC_ACLED"],
+      "lifecycle": "ACTIVE",
+      "version": "1.0.0"
+    },
+    {
+      "catalog_id": "IC_RUSSIA",
+      "canonical_name": "Russia",
+      "aliases": ["RUS", "RUSSIAN_FEDERATION"],
+      "type": "COUNTRY",
+      "regions": ["EURASIA", "GLOBAL"],
+      "languages": ["en", "ru"],
+      "relations": [
+        {"related_id": "IC_CRUDE_OIL_URALS", "relation_type": "PRODUCER_OF"},
+        {"related_id": "IC_UKRAINE", "relation_type": "CONFLICT_WITH"}
+      ],
+      "profiles": ["P10", "P01", "P02"],
+      "role_priors": {"WORLD": 0.45, "ENERGY": 0.3, "COMMODITY": 0.25},
+      "watch_signals": ["russia_ukraine_intensity", "russian_energy_sanctions", "russian_military_posture"],
+      "trigger_hints": ["conflict_escalation", "sanctions_package", "gas_supply_crisis"],
+      "source_refs": ["SRC_ACLED", "SRC_UCDP", "SRC_RUSSIAN_ENERGY", "SRC_OFAC"],
+      "lifecycle": "ACTIVE",
+      "version": "1.0.0"
+    },
+    {
+      "catalog_id": "IC_UKRAINE",
+      "canonical_name": "Ukraine",
+      "aliases": ["UKR", "UA"],
+      "type": "COUNTRY",
+      "regions": ["EURASIA", "EU"],
+      "languages": ["en", "uk"],
+      "relations": [
+        {"related_id": "IC_RUSSIA", "relation_type": "CONFLICT_WITH"},
+        {"related_id": "IC_BLACK_SEA", "relation_type": "COASTAL_STATE"}
+      ],
+      "profiles": ["P10"],
+      "role_priors": {"WORLD": 0.6, "ENERGY": 0.2, "COMMODITY": 0.2},
+      "watch_signals": ["ukraine_frontline_shift", "ukraine_aids_package", "ukraine_infrastructure_strike"],
+      "trigger_hints": ["conflict_escalation", "humanitarian_crisis"],
+      "source_refs": ["SRC_ACLED", "SRC_UCDP"],
+      "lifecycle": "ACTIVE",
+      "version": "1.0.0"
+    },
+    {
+      "catalog_id": "IC_TAIWAN_SEMICON",
+      "canonical_name": "Taiwan Semiconductor Cluster",
+      "aliases": ["TSMC", "TAIWAN_CHIPS", "SILICON_SHIELD"],
+      "type": "FACILITY",
+      "regions": ["EAST_ASIA"],
+      "languages": ["en", "zh"],
+      "relations": [
+        {"related_id": "IC_TAIWAN_STRAIT", "relation_type": "LOCATED_NEAR_CHOKEPOINT"},
+        {"related_id": "IC_RARE_EARTHS", "relation_type": "DEPENDS_ON_INPUT"}
+      ],
+      "profiles": ["P09"],
+      "role_priors": {"TECH": 0.5, "WORLD": 0.25, "COMMODITY": 0.15, "FINANCE": 0.1},
+      "watch_signals": ["taiwan_strait_tension", "tsmc_production_disruption", "china_export_control"],
+      "trigger_hints": ["tech_chokepoint_threat", "supply_chain_disruption"],
+      "source_refs": ["SRC_AIS", "SRC_NEWS_API"],
+      "lifecycle": "ACTIVE",
+      "version": "1.0.0"
+    },
+    {
+      "catalog_id": "IC_RARE_EARTHS",
+      "canonical_name": "Rare Earth Elements",
+      "aliases": ["REE", "RARE_EARTH", "CRITICAL_MINERALS_REE"],
+      "type": "ASSET",
+      "regions": ["EAST_ASIA", "GLOBAL"],
+      "languages": ["en", "zh"],
+      "relations": [
+        {"related_id": "IC_TAIWAN_SEMICON", "relation_type": "INPUT_FOR"},
+        {"related_id": "IC_CHINA", "relation_type": "DOMINANT_PRODUCER"}
+      ],
+      "profiles": ["P04", "P09"],
+      "role_priors": {"TECH": 0.4, "COMMODITY": 0.35, "WORLD": 0.15, "FINANCE": 0.1},
+      "watch_signals": ["china_ree_export_quota", "ree_price_spike", "ree_substitution_breakthrough"],
+      "trigger_hints": ["mineral_supply_alert", "export_control"],
+      "source_refs": ["SRC_IEA", "SRC_WORLD_BANK"],
+      "lifecycle": "ACTIVE",
+      "version": "1.0.0"
+    },
+    {
+      "catalog_id": "IC_CHINA",
+      "canonical_name": "China",
+      "aliases": ["CHN", "PRC"],
+      "type": "COUNTRY",
+      "regions": ["EAST_ASIA", "GLOBAL"],
+      "languages": ["en", "zh"],
+      "relations": [
+        {"related_id": "IC_RARE_EARTHS", "relation_type": "DOMINANT_PRODUCER_OF"},
+        {"related_id": "IC_TAIWAN_SEMICON", "relation_type": "CONFLICT_WITH_OWNER"}
+      ],
+      "profiles": ["P09", "P10", "P01"],
+      "role_priors": {"WORLD": 0.35, "TECH": 0.3, "COMMODITY": 0.2, "FINANCE": 0.15},
+      "watch_signals": ["china_policy_shift", "china_export_control", "china_military_activity", "china_economic_data"],
+      "trigger_hints": ["policy_change", "trade_tension", "military_posture"],
+      "source_refs": ["SRC_GDELT", "SRC_IMF", "SRC_WORLD_BANK"],
+      "lifecycle": "ACTIVE",
+      "version": "1.0.0"
+    },
+    {
+      "catalog_id": "IC_TAIWAN_STRAIT",
+      "canonical_name": "Taiwan Strait",
+      "aliases": ["TAIWAN_STRAIT", "FORMOSA_STRAIT"],
+      "type": "FACILITY",
+      "regions": ["EAST_ASIA"],
+      "languages": ["en", "zh"],
+      "relations": [
+        {"related_id": "IC_TAIWAN_SEMICON", "relation_type": "PROXIMITY_RISK_FOR"},
+        {"related_id": "IC_CHINA", "relation_type": "CONTROLLED_BY"}
+      ],
+      "profiles": ["P09", "P10"],
+      "role_priors": {"WORLD": 0.4, "TECH": 0.35, "COMMODITY": 0.15},
+      "watch_signals": ["pla_exercise_near_taiwan", "strait_transit_increase", "military_signal_detected"],
+      "trigger_hints": ["chokepoint_threat", "military_escalation"],
+      "source_refs": ["SRC_AIS", "SRC_GDELT"],
+      "lifecycle": "ACTIVE",
+      "version": "1.0.0"
+    },
+    {
+      "catalog_id": "IC_OPEC_PLUS",
+      "canonical_name": "OPEC+ Alliance",
+      "aliases": ["OPEC_PLUS", "OPEC_PLUS_ALLIANCE"],
+      "type": "ENTITY",
+      "regions": ["MENA", "EURASIA", "GLOBAL"],
+      "languages": ["en", "ar", "ru"],
+      "relations": [
+        {"related_id": "IC_CRUDE_OIL_WTI", "relation_type": "PRICE_INFLUENCE"},
+        {"related_id": "IC_CRUDE_OIL_BRENT", "relation_type": "PRICE_INFLUENCE"}
+      ],
+      "profiles": ["P01"],
+      "role_priors": {"ENERGY": 0.4, "COMMODITY": 0.35, "WORLD": 0.25},
+      "watch_signals": ["opec_production_decision", "opec_compliance_rate", "opec_emergency_meeting"],
+      "trigger_hints": ["opec_decision", "production_cut", "quota_change"],
+      "source_refs": ["SRC_OPEC", "SRC_IEA"],
+      "lifecycle": "ACTIVE",
+      "version": "1.0.0"
+    },
+    {
+      "catalog_id": "IC_RED_SEA",
+      "canonical_name": "Red Sea Shipping Lane",
+      "aliases": ["RED_SEA", "BAB_AL_MANDEB"],
+      "type": "FACILITY",
+      "regions": ["MENA"],
+      "languages": ["en", "ar"],
+      "relations": [
+        {"related_id": "IC_SUEZ_CANAL", "relation_type": "FEEDS_INTO"},
+        {"related_id": "IC_HOUTHIS", "relation_type": "THREAT_FROM"}
+      ],
+      "profiles": ["P01", "P02"],
+      "role_priors": {"ENERGY": 0.3, "WORLD": 0.35, "COMMODITY": 0.25},
+      "watch_signals": ["houthi_attack_on_vessel", "red_sea_diversion_rate", "insurance_premium_spike"],
+      "trigger_hints": ["chokepoint_disruption", "shipping_lane_attack"],
+      "source_refs": ["SRC_AIS", "SRC_NEWS_API", "SRC_MARITIME_WARN"],
+      "lifecycle": "ACTIVE",
+      "version": "1.0.0"
+    },
+    {
+      "catalog_id": "IC_HOUTHIS",
+      "canonical_name": "Houthi Movement",
+      "aliases": ["HOUTHIS", "ANSAR_ALLAH", "YEMEN_HOUTHIS"],
+      "type": "ENTITY",
+      "regions": ["MENA"],
+      "languages": ["en", "ar"],
+      "relations": [
+        {"related_id": "IC_RED_SEA", "relation_type": "THREATENS"},
+        {"related_id": "IC_IRAN", "relation_type": "BACKED_BY"}
+      ],
+      "profiles": ["P10", "P01"],
+      "role_priors": {"WORLD": 0.5, "ENERGY": 0.3, "COMMODITY": 0.2},
+      "watch_signals": ["houthi_missile_launch", "houthi_maritime_attack", "houthi_ceasefire_offer"],
+      "trigger_hints": ["maritime_attack", "ceasefire_change"],
+      "source_refs": ["SRC_ACLED", "SRC_NEWS_API", "SRC_GDELT"],
+      "lifecycle": "ACTIVE",
+      "version": "1.0.0"
+    }
+  ]
+}

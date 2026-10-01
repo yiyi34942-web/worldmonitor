@@ -1,0 +1,96 @@
+{
+  "registry_type": "data_states",
+  "version": "1.0.0",
+  "generated_at": "2025-01-15T00:00:00Z",
+  "cardinal_rule": "missing != zero. Only MEASURED_ZERO may have numeric_equivalent=0. All other unavailable states MUST NOT be treated as numeric zero.",
+  "entries": [
+    {
+      "state": "AVAILABLE",
+      "description": "Data is available and fresh within tolerance.",
+      "numeric_equivalent": null,
+      "is_available": true,
+      "requires_action": false,
+      "severity": "none"
+    },
+    {
+      "state": "MEASURED_ZERO",
+      "description": "Data source explicitly reports a value of zero. This is the ONLY state where numeric_equivalent=0.",
+      "numeric_equivalent": 0,
+      "is_available": true,
+      "requires_action": false,
+      "severity": "none"
+    },
+    {
+      "state": "NOT_COVERED",
+      "description": "This data point is outside the coverage scope of any available API/source.",
+      "numeric_equivalent": null,
+      "is_available": false,
+      "requires_action": true,
+      "severity": "warning"
+    },
+    {
+      "state": "NO_DATA",
+      "description": "Coverage exists but no data has been reported for this entity/period.",
+      "numeric_equivalent": null,
+      "is_available": false,
+      "requires_action": true,
+      "severity": "warning"
+    },
+    {
+      "state": "SEED_MISSING",
+      "description": "Seed/bootstrap data has not been loaded for this entity.",
+      "numeric_equivalent": null,
+      "is_available": false,
+      "requires_action": true,
+      "severity": "error"
+    },
+    {
+      "state": "CACHE_UNAVAILABLE",
+      "description": "Cache layer is down or unreachable. May have upstream data but cannot serve.",
+      "numeric_equivalent": null,
+      "is_available": false,
+      "requires_action": true,
+      "severity": "error"
+    },
+    {
+      "state": "UPSTREAM_UNAVAILABLE",
+      "description": "Upstream source is unreachable or returning errors.",
+      "numeric_equivalent": null,
+      "is_available": false,
+      "requires_action": true,
+      "severity": "error"
+    },
+    {
+      "state": "INVALID_REQUEST",
+      "description": "Request parameters are invalid or malformed.",
+      "numeric_equivalent": null,
+      "is_available": false,
+      "requires_action": true,
+      "severity": "error"
+    },
+    {
+      "state": "ENTITLEMENT_REQUIRED",
+      "description": "Data exists but user lacks required entitlement.",
+      "numeric_equivalent": null,
+      "is_available": false,
+      "requires_action": true,
+      "severity": "blocked"
+    },
+    {
+      "state": "RETIRED",
+      "description": "API/source has been retired. No future data will be available.",
+      "numeric_equivalent": null,
+      "is_available": false,
+      "requires_action": true,
+      "severity": "blocked"
+    },
+    {
+      "state": "COVERAGE_UNKNOWN",
+      "description": "Coverage status has not been determined. Default before first probe.",
+      "numeric_equivalent": null,
+      "is_available": false,
+      "requires_action": true,
+      "severity": "warning"
+    }
+  ]
+}

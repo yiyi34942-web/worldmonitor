@@ -1,0 +1,27 @@
+{
+  "registry_type": "REGISTRY_COUNTS",
+  "version": "1.0.0",
+  "generated_at": "2026-10-01T22:32:30.346244",
+  "counts": {
+    "R1_intelligence_catalog": 15,
+    "R2_profiles": 10,
+    "R3_roles": 5,
+    "R4_methodologies": 31,
+    "R4_methodologies_formal": 24,
+    "R4_methodologies_governance": 7,
+    "R5_apis": 119,
+    "R6_sources": 20,
+    "R7_contracts": 59,
+    "R8_outputs": 9,
+    "delivery_types": 9,
+    "data_states": 11,
+    "binding_profile_role": 33,
+    "binding_profile_methodology": 41,
+    "binding_role_methodology": 25,
+    "binding_methodology_api": 42,
+    "binding_api_source": 30,
+    "binding_api_delivery": 12,
+    "binding_api_lifecycle": 7,
+    "binding_output_profile": 14
+  }
+}

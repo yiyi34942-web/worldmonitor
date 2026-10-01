@@ -1,0 +1,256 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "wtils:schemas:registries:profile_schema",
+  "title": "WTILS Profile Registry Schema",
+  "description": "Schema for WTILS Phase 1 Profile Registry entries. Covers P01-P10 analytical profiles for commodities, finance, tech, and geopolitics.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "profile_id",
+    "name",
+    "version",
+    "aliases",
+    "asset_types",
+    "event_types",
+    "theme_types",
+    "regions",
+    "languages",
+    "primary_roles",
+    "secondary_roles",
+    "conditional_roles",
+    "role_priors",
+    "core_methodologies",
+    "triggered_methodologies",
+    "audit_methodologies",
+    "l0_derived_api_refs",
+    "l1_fast_api_refs",
+    "l2_deep_api_refs",
+    "external_gap_rules",
+    "dashboard_state",
+    "output_policy",
+    "deep_research_triggers",
+    "point_in_time_required"
+  ],
+  "properties": {
+    "profile_id": {
+      "type": "string",
+      "pattern": "^P\\d{2}$",
+      "description": "Unique profile identifier (P01-P10)"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Human-readable profile name"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Semantic version"
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "description": "Alternative names/codes for this profile"
+    },
+    "asset_types": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Asset types covered by this profile"
+    },
+    "event_types": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Event types this profile responds to"
+    },
+    "theme_types": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Thematic categories for this profile"
+    },
+    "regions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 2
+      },
+      "description": "Geographic regions this profile covers"
+    },
+    "languages": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z]{2}(-[A-Z]{2})?$"
+      },
+      "description": "Language codes relevant to this profile"
+    },
+    "primary_roles": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Z]+$"
+      },
+      "description": "Roles with primary responsibility for this profile"
+    },
+    "secondary_roles": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Z]+$"
+      },
+      "description": "Roles with secondary responsibility"
+    },
+    "conditional_roles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["role", "condition"],
+        "additionalProperties": false,
+        "properties": {
+          "role": {
+            "type": "string",
+            "pattern": "^[A-Z]+$"
+          },
+          "condition": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "description": "Roles activated conditionally"
+    },
+    "role_priors": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1
+      },
+      "description": "Prior weights for each role in this profile context"
+    },
+    "core_methodologies": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^(M|C)\\d{2}$"
+      },
+      "description": "Methodologies always active for this profile"
+    },
+    "triggered_methodologies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["methodology_id", "trigger"],
+        "additionalProperties": false,
+        "properties": {
+          "methodology_id": {
+            "type": "string",
+            "pattern": "^(M|C)\\d{2}$"
+          },
+          "trigger": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "description": "Methodologies activated by specific triggers"
+    },
+    "audit_methodologies": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^(M|C)\\d{2}$"
+      },
+      "description": "Audit/governance methodologies for this profile"
+    },
+    "l0_derived_api_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "L0 derived/seed data API operations"
+    },
+    "l1_fast_api_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "L1 fast-path API operations"
+    },
+    "l2_deep_api_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "L2 deep-path API operations"
+    },
+    "external_gap_rules": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Rules for when external gap sources are needed"
+    },
+    "dashboard_state": {
+      "type": "object",
+      "required": ["view", "time_range", "layer_hints", "panel_hints"],
+      "additionalProperties": false,
+      "properties": {
+        "view": {
+          "type": "string",
+          "minLength": 1
+        },
+        "time_range": {
+          "type": "string",
+          "minLength": 1
+        },
+        "layer_hints": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "panel_hints": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "Default dashboard state for this profile"
+    },
+    "output_policy": {
+      "type": "string",
+      "enum": ["FULL", "SUMMARY", "ALERT_ONLY", "ON_DEMAND", "SCHEDULED"],
+      "description": "Default output policy"
+    },
+    "deep_research_triggers": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Conditions that trigger deep research for this profile"
+    },
+    "point_in_time_required": {
+      "type": "boolean",
+      "description": "Whether point-in-time semantics are required for this profile"
+    }
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "wtils:schemas:registries:source_schema",
+  "title": "WTILS Source Registry Schema",
+  "description": "Schema for WTILS Phase 1 Source Registry entries. Defines upstream data sources with credibility and freshness profiles.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "source_id", "publisher_name", "provider_name", "host", "source_type", "transport",
+    "source_origin", "languages", "regions", "domains", "credibility_profile",
+    "freshness_profile", "lifecycle", "compliance_status", "reference_locations", "verification_state"
+  ],
+  "properties": {
+    "source_id": {
+      "type": "string",
+      "pattern": "^SRC_[A-Z0-9_]+$",
+      "description": "Unique source identifier"
+    },
+    "publisher_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provider_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "host": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Hostname or host identifier"
+    },
+    "source_type": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Type classification of the source"
+    },
+    "transport": {
+      "type": "string",
+      "enum": ["DIRECT", "RSS", "API", "RELAY", "TELEGRAM", "GOOGLE_NEWS", "FEEDBURNER", "WEBHOOK", "STREAM", "OTHER"]
+    },
+    "source_origin": {
+      "type": "string",
+      "enum": ["WM_CURATED", "USER_CUSTOM", "EXTERNAL_GAP"],
+      "description": "Origin classification"
+    },
+    "languages": {
+      "type": "array",
+      "items": {"type": "string", "pattern": "^[a-z]{2}(-[A-Z]{2})?$"}
+    },
+    "regions": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 2}
+    },
+    "domains": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "credibility_profile": {
+      "type": "object",
+      "required": ["base_score", "independent_evidence", "publisher_reputation", "corroboration_required"],
+      "additionalProperties": false,
+      "properties": {
+        "base_score": {"type": "number", "minimum": 0, "maximum": 1},
+        "independent_evidence": {"type": "boolean"},
+        "publisher_reputation": {"type": "string", "enum": ["HIGH", "MEDIUM", "LOW", "UNKNOWN"]},
+        "corroboration_required": {"type": "boolean"}
+      }
+    },
+    "freshness_profile": {
+      "type": "object",
+      "required": ["default_ttl_seconds", "max_stale_seconds", "update_frequency"],
+      "additionalProperties": false,
+      "properties": {
+        "default_ttl_seconds": {"type": "integer", "minimum": 0},
+        "max_stale_seconds": {"type": "integer", "minimum": 0},
+        "update_frequency": {"type": "string", "minLength": 1}
+      }
+    },
+    "lifecycle": {
+      "type": "string",
+      "enum": ["ACTIVE", "DEPRECATED", "RETIRED", "SEASONAL", "INTERMITTENT"]
+    },
+    "compliance_status": {
+      "type": "string",
+      "enum": ["ALLOWED", "RESTRICTED", "RETIRED_TOS", "RETIRED_LEGAL", "LICENSE_LIMITED"]
+    },
+    "reference_locations": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "verification_state": {
+      "type": "string",
+      "enum": ["VERIFIED", "INFERRED", "UNVERIFIED", "DISPUTED"]
+    }
+  }
+}

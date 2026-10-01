@@ -1,0 +1,88 @@
+{
+  "registry_type": "delivery_semantics",
+  "version": "1.0.0",
+  "generated_at": "2025-01-15T00:00:00Z",
+  "entries": [
+    {
+      "delivery_type": "REQUEST",
+      "description": "Synchronous request-response. Client calls, server responds immediately.",
+      "pattern": "synchronous",
+      "guarantees": ["response_or_error", "ordered_within_connection"],
+      "latency_expectation_ms": 500,
+      "retry_allowed": true,
+      "idempotent": true
+    },
+    {
+      "delivery_type": "SEEDED",
+      "description": "Pre-seeded data served from cache. Updated on schedule, not on demand.",
+      "pattern": "cache_serve",
+      "guarantees": ["available_if_seeded", "consistent_within_seed_cycle"],
+      "latency_expectation_ms": 50,
+      "retry_allowed": true,
+      "idempotent": true
+    },
+    {
+      "delivery_type": "SEED_FIRST_GAP",
+      "description": "Serve from seed cache first, then fill gap with live request if cache is stale.",
+      "pattern": "cache_first_then_refresh",
+      "guarantees": ["available_if_seeded", "freshness_best_effort"],
+      "latency_expectation_ms": 200,
+      "retry_allowed": true,
+      "idempotent": true
+    },
+    {
+      "delivery_type": "POLL",
+      "description": "Client polls at interval. Server returns latest available data.",
+      "pattern": "periodic_poll",
+      "guarantees": ["eventual_consistency", "bounded_staleness"],
+      "latency_expectation_ms": 500,
+      "retry_allowed": true,
+      "idempotent": true
+    },
+    {
+      "delivery_type": "STREAM",
+      "description": "Server pushes updates via persistent connection (SSE/WebSocket).",
+      "pattern": "push_stream",
+      "guarantees": ["ordered_within_stream", "eventual_delivery"],
+      "latency_expectation_ms": 100,
+      "retry_allowed": false,
+      "idempotent": false
+    },
+    {
+      "delivery_type": "RELAY",
+      "description": "Data relayed through intermediary service. Adds hop latency.",
+      "pattern": "relay_chain",
+      "guarantees": ["eventual_delivery", "best_effort_ordering"],
+      "latency_expectation_ms": 1000,
+      "retry_allowed": true,
+      "idempotent": true
+    },
+    {
+      "delivery_type": "WEBHOOK",
+      "description": "Server pushes to registered callback URL on event.",
+      "pattern": "push_callback",
+      "guarantees": ["at_least_once_delivery", "retry_on_failure"],
+      "latency_expectation_ms": 2000,
+      "retry_allowed": true,
+      "idempotent": true
+    },
+    {
+      "delivery_type": "CACHE",
+      "description": "Served exclusively from cache layer. No upstream call made.",
+      "pattern": "cache_only",
+      "guarantees": ["available_if_cached", "consistent_within_ttl"],
+      "latency_expectation_ms": 10,
+      "retry_allowed": true,
+      "idempotent": true
+    },
+    {
+      "delivery_type": "ASYNC_JOB",
+      "description": "Asynchronous batch job. Returns job ID, client polls for result.",
+      "pattern": "async_batch",
+      "guarantees": ["eventual_completion", "job_status_available"],
+      "latency_expectation_ms": 30000,
+      "retry_allowed": true,
+      "idempotent": true
+    }
+  ]
+}

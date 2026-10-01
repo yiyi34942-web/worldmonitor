@@ -1,0 +1,82 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "wtils:schemas:registries:contract_lifecycle_schema",
+  "title": "WTILS R7 Contract/Version/Lifecycle Schema",
+  "description": "Schema for WTILS Phase 1 Contract Lifecycle Registry entries. Tracks version history, deprecation, and replacement for all registry subjects.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "contract_id", "subject_type", "version", "valid_from", "valid_to",
+    "introduced_at", "changed_at", "deprecated_at", "retired_at",
+    "canonical_route", "aliases", "replacement", "breaking_change",
+    "rebaseline_required", "lifecycle"
+  ],
+  "properties": {
+    "contract_id": {
+      "type": "string",
+      "pattern": "^CL_[A-Z0-9_]+$",
+      "description": "Unique contract lifecycle identifier"
+    },
+    "subject_type": {
+      "type": "string",
+      "enum": ["METHODOLOGY", "API", "SOURCE", "PROFILE", "ROLE"],
+      "description": "Type of registry subject this contract applies to"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "valid_from": {
+      "type": "string",
+      "format": "date"
+    },
+    "valid_to": {
+      "type": ["string", "null"],
+      "format": "date"
+    },
+    "introduced_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "changed_at": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "deprecated_at": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "retired_at": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "canonical_route": {
+      "type": ["string", "null"],
+      "description": "Canonical route if subject is an API"
+    },
+    "aliases": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "replacement": {
+      "type": ["string", "null"],
+      "description": "ID of replacement subject, if any"
+    },
+    "breaking_change": {
+      "type": "boolean",
+      "description": "Whether this version introduces a breaking change"
+    },
+    "rebaseline_required": {
+      "type": "boolean",
+      "description": "Whether rebaseline is required"
+    },
+    "lifecycle": {
+      "type": "string",
+      "enum": [
+        "ACTIVE", "CHANGED", "DEPRECATED", "LEGACY_ALIAS",
+        "RETIRED", "RETIRED_NO_REPLACEMENT", "BLOCKED",
+        "ENTITLEMENT_REQUIRED", "NOT_COVERED"
+      ]
+    }
+  }
+}

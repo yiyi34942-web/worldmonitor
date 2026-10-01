@@ -1,0 +1,198 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "wtils:schemas:registries:api_schema",
+  "title": "WTILS API Registry Schema",
+  "description": "Schema for WTILS Phase 1 API Registry entries. Covers all WorldMonitor API operations with A00-A24 verification fields.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "operation_id", "service", "http_method", "canonical_route", "api_version", "contract_version",
+    "request_schema_ref", "response_schema_ref", "rest_available", "mcp_available", "webhook_available",
+    "stream_available", "authentication", "entitlement", "source_refs", "delivery_semantics_ref",
+    "freshness_ref", "lifecycle_ref", "role_bindings", "methodology_bindings", "profile_bindings",
+    "jmespath", "pagination", "full_set_parameter", "rate_limit", "error_semantics", "status",
+    "a00_registered", "a01_http_method_verified", "a02_canonical_route_verified", "a03_auth_defined",
+    "a04_entitlement_defined", "a05_declared_availability", "a06_request_schema_bound",
+    "a07_response_schema_bound", "a08_nullability_bound", "a09_source_bound", "a10_attribution_bound",
+    "a11_delivery_bound", "a12_seed_cache_bound", "a13_freshness_bound", "a14_lifecycle_bound",
+    "a15_contract_version_bound", "a16_role_bound", "a17_methodology_bound", "a18_profile_bound",
+    "a19_rate_limit_bound", "a20_jmespath_bound", "a21_pagination_truncation_bound",
+    "a22_error_semantics_bound", "a23", "a24"
+  ],
+  "properties": {
+    "operation_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Unique operation identifier matching OpenAPI spec"
+    },
+    "service": {
+      "type": "string",
+      "minLength": 1,
+      "description": "WorldMonitor service name"
+    },
+    "http_method": {
+      "type": "string",
+      "enum": ["GET", "POST", "PUT", "PATCH", "DELETE"]
+    },
+    "canonical_route": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Canonical API route path"
+    },
+    "api_version": {
+      "type": "string",
+      "pattern": "^v\\d+$",
+      "description": "API version"
+    },
+    "contract_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Contract version for this operation"
+    },
+    "request_schema_ref": {
+      "type": ["string", "null"],
+      "description": "Reference to request JSON schema"
+    },
+    "response_schema_ref": {
+      "type": ["string", "null"],
+      "description": "Reference to response JSON schema"
+    },
+    "rest_available": {
+      "type": "boolean",
+      "description": "Whether REST endpoint is available"
+    },
+    "mcp_available": {
+      "type": "boolean",
+      "description": "Whether MCP tool is available"
+    },
+    "webhook_available": {
+      "type": "boolean",
+      "description": "Whether webhook delivery is available"
+    },
+    "stream_available": {
+      "type": "boolean",
+      "description": "Whether streaming is available"
+    },
+    "authentication": {
+      "type": "string",
+      "enum": ["API_KEY", "BEARER", "BOTH", "NONE", "SESSION"],
+      "description": "Authentication method"
+    },
+    "entitlement": {
+      "type": "object",
+      "required": ["rest", "mcp", "web"],
+      "additionalProperties": false,
+      "properties": {
+        "rest": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "mcp": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "web": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    },
+    "source_refs": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "delivery_semantics_ref": {
+      "type": "string",
+      "description": "Reference to delivery semantics type"
+    },
+    "freshness_ref": {
+      "type": "string",
+      "description": "Reference to freshness profile"
+    },
+    "lifecycle_ref": {
+      "type": "string",
+      "description": "Reference to lifecycle state"
+    },
+    "role_bindings": {
+      "type": "array",
+      "items": {"type": "string", "pattern": "^[A-Z]+$"}
+    },
+    "methodology_bindings": {
+      "type": "array",
+      "items": {"type": "string", "pattern": "^(M|C)\\d{2}$"}
+    },
+    "profile_bindings": {
+      "type": "array",
+      "items": {"type": "string", "pattern": "^P\\d{2}$"}
+    },
+    "jmespath": {
+      "type": ["string", "null"],
+      "description": "JMESPath expression for result extraction"
+    },
+    "pagination": {
+      "type": "object",
+      "required": ["supported", "default_limit", "max_limit"],
+      "additionalProperties": false,
+      "properties": {
+        "supported": {"type": "boolean"},
+        "default_limit": {"type": "integer", "minimum": 0},
+        "max_limit": {"type": "integer", "minimum": 0}
+      }
+    },
+    "full_set_parameter": {
+      "type": ["string", "null"],
+      "description": "Parameter name that requests full result set"
+    },
+    "rate_limit": {
+      "type": "object",
+      "required": ["requests_per_minute"],
+      "additionalProperties": false,
+      "properties": {
+        "requests_per_minute": {"type": "integer", "minimum": 1}
+      }
+    },
+    "error_semantics": {
+      "type": "string",
+      "enum": ["STANDARD_HTTP", "WRAPPED_JSON", "GRPC_STATUS", "SSE_ERROR_EVENT"],
+      "description": "Error delivery format"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["ACTIVE", "DEPRECATED", "RETIRED", "BETA", "INTERNAL"],
+      "description": "Current lifecycle status"
+    },
+    "a00_registered": {"type": "boolean"},
+    "a01_http_method_verified": {"type": "boolean"},
+    "a02_canonical_route_verified": {"type": "boolean"},
+    "a03_auth_defined": {"type": "boolean"},
+    "a04_entitlement_defined": {"type": "boolean"},
+    "a05_declared_availability": {"type": "boolean"},
+    "a06_request_schema_bound": {"type": "boolean"},
+    "a07_response_schema_bound": {"type": "boolean"},
+    "a08_nullability_bound": {"type": "boolean"},
+    "a09_source_bound": {"type": "boolean"},
+    "a10_attribution_bound": {"type": "boolean"},
+    "a11_delivery_bound": {"type": "boolean"},
+    "a12_seed_cache_bound": {"type": "boolean"},
+    "a13_freshness_bound": {"type": "boolean"},
+    "a14_lifecycle_bound": {"type": "boolean"},
+    "a15_contract_version_bound": {"type": "boolean"},
+    "a16_role_bound": {"type": "boolean"},
+    "a17_methodology_bound": {"type": "boolean"},
+    "a18_profile_bound": {"type": "boolean"},
+    "a19_rate_limit_bound": {"type": "boolean"},
+    "a20_jmespath_bound": {"type": "boolean"},
+    "a21_pagination_truncation_bound": {"type": "boolean"},
+    "a22_error_semantics_bound": {"type": "boolean"},
+    "a23": {
+      "type": "string",
+      "enum": ["PENDING_GROK_BUILD", "VERIFIED", "FAILED"],
+      "description": "A23 verification status (pending Grok build)"
+    },
+    "a24": {
+      "type": "string",
+      "enum": ["PENDING_GROK_BUILD", "VERIFIED", "FAILED"],
+      "description": "A24 verification status (pending Grok build)"
+    }
+  }
+}

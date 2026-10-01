@@ -1,0 +1,81 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "wtils:schemas:registries:intelligence_catalog_schema",
+  "title": "WTILS R1 Intelligence Catalog Schema",
+  "description": "Schema for WTILS Phase 1 Intelligence Catalog entries. Canonical names, aliases, types, and relations for intelligence products.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "catalog_id", "canonical_name", "aliases", "type", "regions", "languages",
+    "relations", "profiles", "role_priors", "watch_signals", "trigger_hints",
+    "source_refs", "lifecycle", "version"
+  ],
+  "properties": {
+    "catalog_id": {
+      "type": "string",
+      "pattern": "^IC_[A-Z0-9_]+$",
+      "description": "Unique catalog entry identifier"
+    },
+    "canonical_name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Primary canonical name for this intelligence item"
+    },
+    "aliases": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "type": {
+      "type": "string",
+      "enum": ["ASSET", "ENTITY", "REGION", "COUNTRY", "COMPANY", "FACILITY", "THEME", "EVENT_TYPE", "SOURCE_REFERENCE"]
+    },
+    "regions": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 2}
+    },
+    "languages": {
+      "type": "array",
+      "items": {"type": "string", "pattern": "^[a-z]{2}(-[A-Z]{2})?$"}
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["related_id", "relation_type"],
+        "additionalProperties": true,
+        "properties": {
+          "related_id": {"type": "string", "minLength": 1},
+          "relation_type": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "profiles": {
+      "type": "array",
+      "items": {"type": "string", "pattern": "^P\\d{2}$"}
+    },
+    "role_priors": {
+      "type": "object",
+      "additionalProperties": {"type": "number", "minimum": 0, "maximum": 1}
+    },
+    "watch_signals": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "trigger_hints": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "source_refs": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "lifecycle": {
+      "type": "string",
+      "enum": ["ACTIVE", "DEPRECATED", "RETIRED", "EMERGING", "SEASONAL"]
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    }
+  }
+}

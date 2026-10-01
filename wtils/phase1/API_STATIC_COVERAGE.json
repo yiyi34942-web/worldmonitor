@@ -1,0 +1,102 @@
+{
+  "registry_type": "API_STATIC_COVERAGE",
+  "version": "1.0.0",
+  "generated_at": "2026-10-01T22:32:30.348369",
+  "crude_profile_api_count": 45,
+  "a00_a22_coverage": {
+    "a00_registered": {
+      "verified": 45,
+      "total": 45
+    },
+    "a01_http_method_verified": {
+      "verified": 45,
+      "total": 45
+    },
+    "a02_canonical_route_verified": {
+      "verified": 45,
+      "total": 45
+    },
+    "a03_auth_defined": {
+      "verified": 45,
+      "total": 45
+    },
+    "a04_entitlement_defined": {
+      "verified": 45,
+      "total": 45
+    },
+    "a05_declared_availability": {
+      "verified": 45,
+      "total": 45
+    },
+    "a06_request_schema_bound": {
+      "verified": 45,
+      "total": 45
+    },
+    "a07_response_schema_bound": {
+      "verified": 45,
+      "total": 45
+    },
+    "a08_nullability_bound": {
+      "verified": 45,
+      "total": 45
+    },
+    "a09_source_bound": {
+      "verified": 45,
+      "total": 45
+    },
+    "a10_attribution_bound": {
+      "verified": 45,
+      "total": 45
+    },
+    "a11_delivery_bound": {
+      "verified": 45,
+      "total": 45
+    },
+    "a12_seed_cache_bound": {
+      "verified": 45,
+      "total": 45
+    },
+    "a13_freshness_bound": {
+      "verified": 45,
+      "total": 45
+    },
+    "a14_lifecycle_bound": {
+      "verified": 45,
+      "total": 45
+    },
+    "a15_contract_version_bound": {
+      "verified": 45,
+      "total": 45
+    },
+    "a16_role_bound": {
+      "verified": 45,
+      "total": 45
+    },
+    "a17_methodology_bound": {
+      "verified": 45,
+      "total": 45
+    },
+    "a18_profile_bound": {
+      "verified": 45,
+      "total": 45
+    },
+    "a19_rate_limit_bound": {
+      "verified": 45,
+      "total": 45
+    },
+    "a20_jmespath_bound": {
+      "verified": 45,
+      "total": 45
+    },
+    "a21_pagination_truncation_bound": {
+      "verified": 45,
+      "total": 45
+    },
+    "a22_error_semantics_bound": {
+      "verified": 45,
+      "total": 45
+    }
+  },
+  "a23": "PENDING_GROK_BUILD",
+  "a24": "PENDING_GROK_BUILD"
+}

@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "wtils:schemas:registries:output_schema",
+  "title": "WTILS R8 Output Registry Schema",
+  "description": "Schema for WTILS Phase 1 Output Registry entries. Defines output types, destinations, formats, retention, and promotion policies.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "output_type", "destination", "format", "retention",
+    "visibility", "promotion_policy", "alert_policy", "workspace_projection"
+  ],
+  "properties": {
+    "output_type": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Z0-9_]*$",
+      "description": "Unique output type identifier"
+    },
+    "destination": {
+      "type": "string",
+      "enum": ["DASHBOARD", "ALERT_CHANNEL", "WORKSPACE", "ARCHIVE", "API_RESPONSE", "WEBHOOK", "STREAM", "FILE_EXPORT", "KNOWLEDGE_BASE"],
+      "description": "Where output is delivered"
+    },
+    "format": {
+      "type": "string",
+      "enum": ["JSON", "MARKDOWN", "HTML", "PDF", "CSV", "PARQUET", "PROTOBUF", "SSE"],
+      "description": "Output format"
+    },
+    "retention": {
+      "type": "object",
+      "required": ["min_days", "max_days", "default_days"],
+      "additionalProperties": false,
+      "properties": {
+        "min_days": {"type": "integer", "minimum": 0},
+        "max_days": {"type": "integer", "minimum": 0},
+        "default_days": {"type": "integer", "minimum": 0}
+      }
+    },
+    "visibility": {
+      "type": "string",
+      "enum": ["PUBLIC", "INTERNAL", "RESTRICTED", "CLASSIFIED", "PRIVATE"],
+      "description": "Visibility/access level"
+    },
+    "promotion_policy": {
+      "type": "string",
+      "enum": ["AUTO", "MANUAL", "CONDITIONAL", "NEVER", "ON_CONFIRMATION"],
+      "description": "How outputs are promoted to higher visibility"
+    },
+    "alert_policy": {
+      "type": "object",
+      "required": ["threshold_type", "cooldown_seconds", "escalation"],
+      "additionalProperties": false,
+      "properties": {
+        "threshold_type": {"type": "string", "enum": ["STATIC", "ADAPTIVE", "PERCENTILE", "NONE"]},
+        "cooldown_seconds": {"type": "integer", "minimum": 0},
+        "escalation": {"type": "string", "enum": ["NONE", "CHANNEL", "ROLE", "ESCALATION_CHAIN"]}
+      }
+    },
+    "workspace_projection": {
+      "type": "object",
+      "required": ["enabled", "fields"],
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {"type": "boolean"},
+        "fields": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    }
+  }
+}

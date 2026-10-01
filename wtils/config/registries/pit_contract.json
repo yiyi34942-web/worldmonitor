@@ -1,0 +1,131 @@
+{
+  "registry_type": "pit_contract",
+  "version": "1.0.0",
+  "generated_at": "2025-01-15T00:00:00Z",
+  "description": "Point-in-Time contract defining all timestamp fields and rules for WTILS registries and research artifacts.",
+  "timestamp_fields": [
+    {
+      "field": "as_of_time",
+      "description": "The point-in-time at which data was queried. All data returned is guaranteed to be available at or before this timestamp.",
+      "type": "ISO8601_datetime",
+      "required": true,
+      "nullable": false,
+      "semantics": "no_lookahead"
+    },
+    {
+      "field": "created_at",
+      "description": "Timestamp when the artifact/record was created.",
+      "type": "ISO8601_datetime",
+      "required": true,
+      "nullable": false,
+      "semantics": "monotonic_increasing"
+    },
+    {
+      "field": "valid_from",
+      "description": "Date from which this registry entry is effective.",
+      "type": "ISO8601_date",
+      "required": true,
+      "nullable": false,
+      "semantics": "version_start"
+    },
+    {
+      "field": "valid_to",
+      "description": "Date until which this registry entry is effective. null means currently active.",
+      "type": "ISO8601_date",
+      "required": true,
+      "nullable": true,
+      "semantics": "version_end_or_null_if_current"
+    },
+    {
+      "field": "introduced_at",
+      "description": "Exact datetime when this contract version was introduced.",
+      "type": "ISO8601_datetime",
+      "required": true,
+      "nullable": false,
+      "semantics": "contract_introduction"
+    },
+    {
+      "field": "changed_at",
+      "description": "Datetime of last change to this contract. null if unchanged since introduction.",
+      "type": "ISO8601_datetime",
+      "required": true,
+      "nullable": true,
+      "semantics": "last_modification"
+    },
+    {
+      "field": "deprecated_at",
+      "description": "Datetime when this contract was deprecated. null if not deprecated.",
+      "type": "ISO8601_datetime",
+      "required": true,
+      "nullable": true,
+      "semantics": "deprecation_marker"
+    },
+    {
+      "field": "retired_at",
+      "description": "Datetime when this contract was retired. null if not retired.",
+      "type": "ISO8601_datetime",
+      "required": true,
+      "nullable": true,
+      "semantics": "retirement_marker"
+    },
+    {
+      "field": "called_at",
+      "description": "Timestamp when an API was actually invoked during research.",
+      "type": "ISO8601_datetime",
+      "required": true,
+      "nullable": false,
+      "semantics": "call_time_must_be_<=_as_of_time"
+    },
+    {
+      "field": "ts",
+      "description": "Generic event timestamp in timeline entries.",
+      "type": "ISO8601_datetime",
+      "required": true,
+      "nullable": false,
+      "semantics": "event_occurrence"
+    }
+  ],
+  "rules": [
+    {
+      "rule_id": "PIT_R01",
+      "description": "No look-ahead: Data returned for as_of_time T must not include information that only became available after T.",
+      "enforcement": "strict"
+    },
+    {
+      "rule_id": "PIT_R02",
+      "description": "Called_at <= as_of_time: Every API call timestamp must be at or before the as_of_time of the research artifact.",
+      "enforcement": "strict"
+    },
+    {
+      "rule_id": "PIT_R03",
+      "description": "Version validity: An entry is active at time T if valid_from <= T and (valid_to is null or valid_to >= T).",
+      "enforcement": "strict"
+    },
+    {
+      "rule_id": "PIT_R04",
+      "description": "Monotonic creation: created_at is monotonically increasing for new artifacts. Revision increments do not change created_at.",
+      "enforcement": "strict"
+    },
+    {
+      "rule_id": "PIT_R05",
+      "description": "Contract ordering: introduced_at <= changed_at <= deprecated_at <= retired_at (where non-null).",
+      "enforcement": "strict"
+    },
+    {
+      "rule_id": "PIT_R06",
+      "description": "Null semantics: null in nullable fields means 'not applicable' or 'not yet occurred'. Missing fields are invalid.",
+      "enforcement": "strict"
+    },
+    {
+      "rule_id": "PIT_R07",
+      "description": "Replay guarantee: If a research artifact is replayed with the same as_of_time, the result must be identical (barring source changes).",
+      "enforcement": "best_effort"
+    }
+  ],
+  "default_lookback": {
+    "fast_path": "7d",
+    "deep_path": "30d",
+    "audit": "12m",
+    "backtest": "5y"
+  }
+}
