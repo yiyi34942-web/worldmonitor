@@ -1,0 +1,27 @@
+{
+  "a23": {
+    "LIVE_VERIFIED": 0,
+    "BLOCKED_AUTH": 225,
+    "BLOCKED_ENTITLEMENT": 0,
+    "NOT_COVERED": 0,
+    "UPSTREAM_UNAVAILABLE": 0,
+    "NOT_SAFE_TO_CALL": 12,
+    "NOT_APPLICABLE_LIVE": 0,
+    "CONTRACT_CONFLICT": 0,
+    "FAILED": 0
+  },
+  "a24": {
+    "ACCEPTED": 0,
+    "PARTIAL": 0,
+    "BLOCKED": 237,
+    "FAILED": 0
+  },
+  "patches": 286,
+  "hormuz_validation": true,
+  "hormuz_digest": "a7a1bc520f0bc23f66bcdfaacdb2754beed7f5e3acfdf05a4a861205bb88de4f",
+  "portability_findings": [],
+  "air_names_equal": true,
+  "air_volumes_equal": true,
+  "secrets_found": [],
+  "tests_exit": 0
+}

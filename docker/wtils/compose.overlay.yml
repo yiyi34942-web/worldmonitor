@@ -1,0 +1,25 @@
+# WTILS compute-host overlay.
+# This file is not a root docker-compose override and is not started in Phase 2A.
+# Future hosts (Mac mini, then Mac Studio) change only the environment below.
+# Enable the profile only after hardware acceptance:
+#   docker compose -f docker-compose.yml -f docker/wtils/compose.overlay.yml --profile wtils-future up
+# Phase 2A must not run that command.
+
+services:
+  wtils-runtime:
+    profiles: ["wtils-future"]
+    image: ${WTILS_RUNTIME_IMAGE:?unset until hardware acceptance}
+    network_mode: "none"
+    init: true
+    environment:
+      WTILS_RUNTIME_HOST: ${WTILS_RUNTIME_HOST:-}
+      WTILS_STORAGE_ROOT: ${WTILS_STORAGE_ROOT:-}
+      WTILS_RESEARCH_ROOT: ${WTILS_RESEARCH_ROOT:-}
+      WTILS_KNOWLEDGE_ROOT: ${WTILS_KNOWLEDGE_ROOT:-}
+      WTILS_MODEL_ROOT: ${WTILS_MODEL_ROOT:-}
+      WTILS_BACKUP_ROOT: ${WTILS_BACKUP_ROOT:-}
+      OLLAMA_HOST: ${OLLAMA_HOST:-}
+      LLM_API_URL: ${LLM_API_URL:-}
+      WORLDMONITOR_BASE_URL: ${WORLDMONITOR_BASE_URL:-}
+      NAS_PRESENT: ${NAS_PRESENT:-false}
+    # No published ports. No legacy volume names. No Redis service.
