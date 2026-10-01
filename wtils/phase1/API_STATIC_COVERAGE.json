@@ -1,7 +1,171 @@
 {
-  "generated_at": "2026-10-01T17:23:50.953026Z",
+  "generated_at": "2026-10-01T17:58:36.834839Z",
   "canonical_operation_total": 237,
   "source_contract_declaration_total": 474,
+  "total_a_fields": 23,
+  "a_field_coverage": {
+    "a00_registered": {
+      "VERIFIED": 237,
+      "NOT_APPLICABLE": 0,
+      "BLOCKED_STATIC_EVIDENCE": 0,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a01_http_method_verified": {
+      "VERIFIED": 237,
+      "NOT_APPLICABLE": 0,
+      "BLOCKED_STATIC_EVIDENCE": 0,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a02_canonical_route_verified": {
+      "VERIFIED": 237,
+      "NOT_APPLICABLE": 0,
+      "BLOCKED_STATIC_EVIDENCE": 0,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a03_auth_defined": {
+      "VERIFIED": 237,
+      "NOT_APPLICABLE": 0,
+      "BLOCKED_STATIC_EVIDENCE": 0,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a04_entitlement_bound": {
+      "VERIFIED": 237,
+      "NOT_APPLICABLE": 0,
+      "BLOCKED_STATIC_EVIDENCE": 0,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a05_declared_availability": {
+      "VERIFIED": 237,
+      "NOT_APPLICABLE": 0,
+      "BLOCKED_STATIC_EVIDENCE": 0,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a06_request_schema_bound": {
+      "VERIFIED": 237,
+      "NOT_APPLICABLE": 0,
+      "BLOCKED_STATIC_EVIDENCE": 0,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a07_response_schema_bound": {
+      "VERIFIED": 237,
+      "NOT_APPLICABLE": 0,
+      "BLOCKED_STATIC_EVIDENCE": 0,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a08_nullability_bound": {
+      "VERIFIED": 119,
+      "NOT_APPLICABLE": 118,
+      "BLOCKED_STATIC_EVIDENCE": 0,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a09_source_bound": {
+      "VERIFIED": 119,
+      "NOT_APPLICABLE": 0,
+      "BLOCKED_STATIC_EVIDENCE": 118,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a10_attribution_bound": {
+      "VERIFIED": 119,
+      "NOT_APPLICABLE": 0,
+      "BLOCKED_STATIC_EVIDENCE": 118,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a11_delivery_bound": {
+      "VERIFIED": 119,
+      "NOT_APPLICABLE": 0,
+      "BLOCKED_STATIC_EVIDENCE": 118,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a12_seed_cache_bound": {
+      "VERIFIED": 119,
+      "NOT_APPLICABLE": 0,
+      "BLOCKED_STATIC_EVIDENCE": 118,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a13_freshness_bound": {
+      "VERIFIED": 119,
+      "NOT_APPLICABLE": 0,
+      "BLOCKED_STATIC_EVIDENCE": 118,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a14_lifecycle_bound": {
+      "VERIFIED": 237,
+      "NOT_APPLICABLE": 0,
+      "BLOCKED_STATIC_EVIDENCE": 0,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a15_contract_version_bound": {
+      "VERIFIED": 237,
+      "NOT_APPLICABLE": 0,
+      "BLOCKED_STATIC_EVIDENCE": 0,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a16_role_bound": {
+      "VERIFIED": 237,
+      "NOT_APPLICABLE": 0,
+      "BLOCKED_STATIC_EVIDENCE": 0,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a17_methodology_bound": {
+      "VERIFIED": 237,
+      "NOT_APPLICABLE": 0,
+      "BLOCKED_STATIC_EVIDENCE": 0,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a18_profile_bound": {
+      "VERIFIED": 237,
+      "NOT_APPLICABLE": 0,
+      "BLOCKED_STATIC_EVIDENCE": 0,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a19_rate_limit_bound": {
+      "VERIFIED": 237,
+      "NOT_APPLICABLE": 0,
+      "BLOCKED_STATIC_EVIDENCE": 0,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a20_jmespath_bound": {
+      "VERIFIED": 225,
+      "NOT_APPLICABLE": 12,
+      "BLOCKED_STATIC_EVIDENCE": 0,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a21_pagination_truncation_bound": {
+      "VERIFIED": 45,
+      "NOT_APPLICABLE": 192,
+      "BLOCKED_STATIC_EVIDENCE": 0,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a22_error_semantics_bound": {
+      "VERIFIED": 237,
+      "NOT_APPLICABLE": 0,
+      "BLOCKED_STATIC_EVIDENCE": 0,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    }
+  },
   "design_owned": {
     "fields": [
       "a16_role_bound",
@@ -9,8 +173,9 @@
       "a18_profile_bound"
     ],
     "verified": 711,
-    "total": 711,
-    "blocked": 0
+    "not_applicable": 0,
+    "blocked": 0,
+    "total": 711
   },
   "openapi_derived": {
     "fields": [
@@ -18,16 +183,22 @@
       "a01_http_method_verified",
       "a02_canonical_route_verified",
       "a03_auth_defined",
+      "a04_entitlement_bound",
       "a05_declared_availability",
       "a06_request_schema_bound",
       "a07_response_schema_bound",
+      "a08_nullability_bound",
       "a14_lifecycle_bound",
       "a15_contract_version_bound",
-      "a21_pagination_truncation_bound"
+      "a19_rate_limit_bound",
+      "a20_jmespath_bound",
+      "a21_pagination_truncation_bound",
+      "a22_error_semantics_bound"
     ],
-    "verified": 2178,
-    "total": 2370,
-    "blocked": 192
+    "verified": 3233,
+    "not_applicable": 322,
+    "blocked": 0,
+    "total": 3555
   },
   "source_code_derived": {
     "fields": [
@@ -38,7 +209,8 @@
       "a13_freshness_bound"
     ],
     "verified": 595,
-    "total": 1185,
-    "blocked": 590
+    "not_applicable": 0,
+    "blocked": 590,
+    "total": 1185
   }
 }

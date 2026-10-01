@@ -471,6 +471,71 @@ def main():
     verified_a_fields = sum(1 for a in apis if a.get('a03_auth_defined_state') == 'VERIFIED')
     runner.test("openapi_static_fields_extracted_when_evidence_exists", verified_a_fields > 200, f"{verified_a_fields} auth fields verified from OpenAPI")
 
+    # === ROUND 4 TESTS ===
+
+    # execution_class_callable_consistency
+    exec_callable_map = {'DIRECT_API': True, 'COMPOSITE': True, 'NONCALLABLE': False, 'META': False, 'GOVERNANCE': False}
+    callable_conflicts = []
+    for m in methods:
+        ec = m.get('execution_class','')
+        expected = exec_callable_map.get(ec)
+        if expected is not None and m.get('callable') != expected:
+            callable_conflicts.append(f"{m['methodology_id']}: execution_class={ec} but callable={m.get('callable')}")
+    runner.test("execution_class_callable_consistency", len(callable_conflicts) == 0, f"Conflicts: {callable_conflicts}")
+
+    # all_noncallable_methods_callable_false
+    noncallable_true = [m['methodology_id'] for m in methods if m.get('execution_class')=='NONCALLABLE' and m.get('callable')!=False]
+    runner.test("all_noncallable_methods_callable_false", len(noncallable_true) == 0, f"NONCALLABLE with callable=true: {noncallable_true}")
+
+    # all_meta_methods_callable_false
+    meta_true = [m['methodology_id'] for m in methods if m.get('execution_class')=='META' and m.get('callable')!=False]
+    runner.test("all_meta_methods_callable_false", len(meta_true) == 0, f"META with callable=true: {meta_true}")
+
+    # a00_a22_all_23_fields_reported
+    a_field_ids = ['a00_registered','a01_http_method_verified','a02_canonical_route_verified',
+        'a03_auth_defined','a04_entitlement_bound','a05_declared_availability',
+        'a06_request_schema_bound','a07_response_schema_bound','a08_nullability_bound',
+        'a09_source_bound','a10_attribution_bound','a11_delivery_bound',
+        'a12_seed_cache_bound','a13_freshness_bound',
+        'a14_lifecycle_bound','a15_contract_version_bound',
+        'a16_role_bound','a17_methodology_bound','a18_profile_bound',
+        'a19_rate_limit_bound','a20_jmespath_bound',
+        'a21_pagination_truncation_bound','a22_error_semantics_bound']
+    # Check at least one API has each field
+    missing_fields = [f for f in a_field_ids if not any(f in a for a in apis)]
+    runner.test("a00_a22_all_23_fields_reported", len(missing_fields) == 0, f"Missing: {missing_fields}")
+
+    # a00_a22_each_field_sums_to_237
+    non_237_fields = []
+    for field in a_field_ids:
+        count = sum(1 for a in apis if field in a and a[field] not in (None,))
+        if count != 237:
+            non_237_fields.append(f"{field}={count}")
+    runner.test("a00_a22_each_field_sums_to_237", len(non_237_fields) == 0, f"Fields not 237: {non_237_fields[:5]}")
+
+    # source_category_counts_sum_to_total
+    src_vs_counts = {}
+    for s in sources:
+        vs = s.get('verification_state','MISSING')
+        src_vs_counts[vs] = src_vs_counts.get(vs, 0) + 1
+    src_sum = sum(src_vs_counts.values())
+    runner.test("source_category_counts_sum_to_total", src_sum == len(sources), f"sum={src_sum} total={len(sources)}")
+
+    # api_source_category_counts_sum_to_237
+    api_src_v = sum(1 for a in apis if a.get('a09_source_bound') in (True,'VERIFIED'))
+    api_src_b = sum(1 for a in apis if a.get('a09_source_bound') in ('BLOCKED_STATIC_EVIDENCE',))
+    api_src_na = sum(1 for a in apis if a.get('a09_source_bound') == 'NOT_APPLICABLE')
+    api_src_sum = api_src_v + api_src_b + api_src_na
+    runner.test("api_source_category_counts_sum_to_237", api_src_sum == 237, f"verified={api_src_v} blocked={api_src_b} na={api_src_na} sum={api_src_sum}")
+
+    # methodology_mapping_report_all_names_present
+    blank_method_names = [m['methodology_id'] for m in methods if not m.get('canonical_name') and not m.get('name')]
+    runner.test("methodology_mapping_report_all_names_present", len(blank_method_names) == 0, f"Blank names: {blank_method_names}")
+
+    # validation_report_all_role_names_present
+    blank_role_names = [r['role_id'] for r in roles if not r.get('canonical_name') and not r.get('name')]
+    runner.test("validation_report_all_role_names_present", len(blank_role_names) == 0, f"Blank names: {blank_role_names}")
+
     # Output
     result = runner.summary()
     print(json.dumps(result, indent=2))

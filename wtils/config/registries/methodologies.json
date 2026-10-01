@@ -98,7 +98,8 @@
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "legacy_classification": "OFFICIAL_DIRECT",
       "provenance_class": "OFFICIAL",
-      "execution_class": "DIRECT_API"
+      "execution_class": "DIRECT_API",
+      "canonical_name": "China Activity Nowcast"
     },
     {
       "methodology_id": "M02",
@@ -192,7 +193,8 @@
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "legacy_classification": "OFFICIAL_DIRECT",
       "provenance_class": "OFFICIAL",
-      "execution_class": "DIRECT_API"
+      "execution_class": "DIRECT_API",
+      "canonical_name": "News Digest & Briefing"
     },
     {
       "methodology_id": "M03",
@@ -298,7 +300,8 @@
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "legacy_classification": "OFFICIAL_DIRECT",
       "provenance_class": "OFFICIAL",
-      "execution_class": "COMPOSITE"
+      "execution_class": "COMPOSITE",
+      "canonical_name": "News Credibility"
     },
     {
       "methodology_id": "M04",
@@ -394,7 +397,8 @@
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "legacy_classification": "OFFICIAL_DIRECT",
       "provenance_class": "OFFICIAL",
-      "execution_class": "DIRECT_API"
+      "execution_class": "DIRECT_API",
+      "canonical_name": "Country Resilience Index"
     },
     {
       "methodology_id": "M05",
@@ -484,7 +488,8 @@
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "legacy_classification": "UNMAPPED_BLOCKED",
       "provenance_class": "OFFICIAL",
-      "execution_class": "DIRECT_API"
+      "execution_class": "DIRECT_API",
+      "canonical_name": "Resilience Indicators"
     },
     {
       "methodology_id": "M06",
@@ -571,11 +576,12 @@
       "weknora_eligible": true,
       "methodology_version_hash": "feb9c3d6a8f7c1da7d0b8978457539286a89167b5189189182b83602d4174709",
       "rebaseline_required": false,
-      "callable": true,
+      "callable": false,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "legacy_classification": "UNMAPPED_BLOCKED",
       "provenance_class": "OFFICIAL",
-      "execution_class": "NONCALLABLE"
+      "execution_class": "NONCALLABLE",
+      "canonical_name": "Resilience Indicator Licensing"
     },
     {
       "methodology_id": "M07",
@@ -658,11 +664,12 @@
       "weknora_eligible": false,
       "methodology_version_hash": "db238d59d9559761c8ed8edbd945565b09e427bcc10d0304e6f194f8cad0673f",
       "rebaseline_required": false,
-      "callable": true,
+      "callable": false,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "legacy_classification": "UNMAPPED_BLOCKED",
       "provenance_class": "OFFICIAL",
-      "execution_class": "NONCALLABLE"
+      "execution_class": "NONCALLABLE",
+      "canonical_name": "Known Limitations"
     },
     {
       "methodology_id": "M08",
@@ -762,7 +769,8 @@
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "legacy_classification": "OFFICIAL_DIRECT",
       "provenance_class": "OFFICIAL",
-      "execution_class": "COMPOSITE"
+      "execution_class": "COMPOSITE",
+      "canonical_name": "Financial System Exposure"
     },
     {
       "methodology_id": "M09",
@@ -854,7 +862,8 @@
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "legacy_classification": "OFFICIAL_DIRECT",
       "provenance_class": "OFFICIAL",
-      "execution_class": "COMPOSITE"
+      "execution_class": "COMPOSITE",
+      "canonical_name": "SWF Classification Rubric"
     },
     {
       "methodology_id": "M10",
@@ -947,7 +956,8 @@
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "legacy_classification": "OFFICIAL_DIRECT",
       "provenance_class": "OFFICIAL",
-      "execution_class": "DIRECT_API"
+      "execution_class": "DIRECT_API",
+      "canonical_name": "Five-Factor Country Scorecard"
     },
     {
       "methodology_id": "M11",
@@ -1041,7 +1051,8 @@
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "legacy_classification": "UNMAPPED_BLOCKED",
       "provenance_class": "OFFICIAL",
-      "execution_class": "DIRECT_API"
+      "execution_class": "DIRECT_API",
+      "canonical_name": "Demographics & Workforce Capability"
     },
     {
       "methodology_id": "M12",
@@ -1132,7 +1143,8 @@
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "legacy_classification": "OFFICIAL_DIRECT",
       "provenance_class": "OFFICIAL",
-      "execution_class": "DIRECT_API"
+      "execution_class": "DIRECT_API",
+      "canonical_name": "Food Stocks & Stocks-to-Use"
     },
     {
       "methodology_id": "M13",
@@ -1232,7 +1244,8 @@
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "legacy_classification": "OFFICIAL_DIRECT",
       "provenance_class": "OFFICIAL",
-      "execution_class": "DIRECT_API"
+      "execution_class": "DIRECT_API",
+      "canonical_name": "Defense Industrial Base"
     },
     {
       "methodology_id": "M14",
@@ -1330,7 +1343,8 @@
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "legacy_classification": "OFFICIAL_DIRECT",
       "provenance_class": "OFFICIAL",
-      "execution_class": "DIRECT_API"
+      "execution_class": "DIRECT_API",
+      "canonical_name": "Mineral Production & Processing Concentration"
     },
     {
       "methodology_id": "M15",
@@ -1429,7 +1443,8 @@
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "legacy_classification": "OFFICIAL_DIRECT",
       "provenance_class": "OFFICIAL",
-      "execution_class": "DIRECT_API"
+      "execution_class": "DIRECT_API",
+      "canonical_name": "Commodity / Supply Vulnerability"
     },
     {
       "methodology_id": "M16",
@@ -1531,7 +1546,8 @@
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "legacy_classification": "OFFICIAL_DIRECT",
       "provenance_class": "OFFICIAL",
-      "execution_class": "DIRECT_API"
+      "execution_class": "DIRECT_API",
+      "canonical_name": "Chokepoints"
     },
     {
       "methodology_id": "M17",
@@ -1626,7 +1642,8 @@
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "legacy_classification": "OFFICIAL_DIRECT",
       "provenance_class": "OFFICIAL",
-      "execution_class": "DIRECT_API"
+      "execution_class": "DIRECT_API",
+      "canonical_name": "Pipeline Registry"
     },
     {
       "methodology_id": "M18",
@@ -1724,7 +1741,8 @@
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "legacy_classification": "OFFICIAL_DIRECT",
       "provenance_class": "OFFICIAL",
-      "execution_class": "DIRECT_API"
+      "execution_class": "DIRECT_API",
+      "canonical_name": "Storage Facility"
     },
     {
       "methodology_id": "M19",
@@ -1818,7 +1836,8 @@
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "legacy_classification": "OFFICIAL_DIRECT",
       "provenance_class": "OFFICIAL",
-      "execution_class": "DIRECT_API"
+      "execution_class": "DIRECT_API",
+      "canonical_name": "Fuel Shortage Alert"
     },
     {
       "methodology_id": "M20",
@@ -1912,7 +1931,8 @@
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "legacy_classification": "OFFICIAL_DIRECT",
       "provenance_class": "OFFICIAL",
-      "execution_class": "DIRECT_API"
+      "execution_class": "DIRECT_API",
+      "canonical_name": "Energy Disruption Event Log"
     },
     {
       "methodology_id": "M21",
@@ -2000,7 +2020,8 @@
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "legacy_classification": "OFFICIAL_DIRECT",
       "provenance_class": "OFFICIAL",
-      "execution_class": "DIRECT_API"
+      "execution_class": "DIRECT_API",
+      "canonical_name": "CII Risk Scoring"
     },
     {
       "methodology_id": "M22",
@@ -2091,7 +2112,8 @@
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "legacy_classification": "UNMAPPED_BLOCKED",
       "provenance_class": "OFFICIAL",
-      "execution_class": "DIRECT_API"
+      "execution_class": "DIRECT_API",
+      "canonical_name": "Disease Outbreak Alert Level"
     },
     {
       "methodology_id": "M23",
@@ -2188,7 +2210,8 @@
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "legacy_classification": "OFFICIAL_DIRECT",
       "provenance_class": "OFFICIAL",
-      "execution_class": "DIRECT_API"
+      "execution_class": "DIRECT_API",
+      "canonical_name": "Thermal Escalation"
     },
     {
       "methodology_id": "M24",
@@ -2282,7 +2305,8 @@
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "legacy_classification": "OFFICIAL_DIRECT",
       "provenance_class": "OFFICIAL",
-      "execution_class": "DIRECT_API"
+      "execution_class": "DIRECT_API",
+      "canonical_name": "Physical Precious-Metals Divergence Index"
     },
     {
       "methodology_id": "C01",
@@ -2372,11 +2396,12 @@
       "weknora_eligible": true,
       "methodology_version_hash": "345f830595af49b48ceac6b4b2954a04809f9e7944b0feebcde3a1981a3aa9ce",
       "rebaseline_required": false,
-      "callable": true,
+      "callable": false,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "legacy_classification": "UNMAPPED_BLOCKED",
       "provenance_class": "OFFICIAL",
-      "execution_class": "NONCALLABLE"
+      "execution_class": "NONCALLABLE",
+      "canonical_name": "CII Operator Overview"
     },
     {
       "methodology_id": "C02",
@@ -2467,11 +2492,12 @@
       "weknora_eligible": true,
       "methodology_version_hash": "886dbc58f3fbc347761ce80cf5be5f3576a149709bd04f21e7bc3fe7abd83b63",
       "rebaseline_required": false,
-      "callable": true,
+      "callable": false,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "legacy_classification": "UNMAPPED_BLOCKED",
       "provenance_class": "OFFICIAL",
-      "execution_class": "NONCALLABLE"
+      "execution_class": "NONCALLABLE",
+      "canonical_name": "Revision & Corrections"
     },
     {
       "methodology_id": "C03",
@@ -2566,7 +2592,8 @@
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "legacy_classification": "UNMAPPED_BLOCKED",
       "provenance_class": "OFFICIAL",
-      "execution_class": "COMPOSITE"
+      "execution_class": "COMPOSITE",
+      "canonical_name": "Geographic Convergence"
     },
     {
       "methodology_id": "C04",
@@ -2667,7 +2694,8 @@
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "legacy_classification": "UNMAPPED_BLOCKED",
       "provenance_class": "OFFICIAL",
-      "execution_class": "COMPOSITE"
+      "execution_class": "COMPOSITE",
+      "canonical_name": "Strategic Risk"
     },
     {
       "methodology_id": "C05",
@@ -2749,7 +2777,8 @@
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "legacy_classification": "WTILS_GOVERNANCE",
       "provenance_class": "OFFICIAL",
-      "execution_class": "META"
+      "execution_class": "META",
+      "canonical_name": "Algorithms & Scoring"
     },
     {
       "methodology_id": "C06",
@@ -2831,11 +2860,12 @@
       "weknora_eligible": false,
       "methodology_version_hash": "56fcac497cb383e886fd7ee2d1cd14f89e8bedea9d2cea89e2c4a6718d825c2e",
       "rebaseline_required": true,
-      "callable": true,
+      "callable": false,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "legacy_classification": "WTILS_GOVERNANCE",
       "provenance_class": "OFFICIAL",
-      "execution_class": "GOVERNANCE"
+      "execution_class": "GOVERNANCE",
+      "canonical_name": "Decision-Signal Provenance"
     },
     {
       "methodology_id": "C07",
@@ -2917,11 +2947,12 @@
       "weknora_eligible": false,
       "methodology_version_hash": "0ee95c945bb825e41b7e98bcc3b4e0c6b732cc9af376d6e3f65e20693e28c830",
       "rebaseline_required": true,
-      "callable": true,
+      "callable": false,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "legacy_classification": "WTILS_GOVERNANCE",
       "provenance_class": "OFFICIAL",
-      "execution_class": "GOVERNANCE"
+      "execution_class": "GOVERNANCE",
+      "canonical_name": "Source Attribution"
     }
   ]
 }

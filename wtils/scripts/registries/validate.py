@@ -465,6 +465,16 @@ def collect_errors():
                 if m.get('methodology_id') == mid and m.get('execution_class') == 'UNMAPPED':
                     errors.append(f"METH_UNMAPPED_WITH_O: {mid} has O-binding but execution_class=UNMAPPED")
 
+
+    # execution_class_callable_consistency
+    exec_callable_map = {'DIRECT_API': True, 'COMPOSITE': True, 'NONCALLABLE': False, 'META': False, 'GOVERNANCE': False}
+    for m in methods:
+        mid = m.get('methodology_id', '?')
+        ec = m.get('execution_class', '')
+        expected = exec_callable_map.get(ec)
+        if expected is not None and m.get('callable') != expected:
+            errors.append(f"EXEC_CALLABLE_CONFLICT: {mid} execution_class={ec} but callable={m.get('callable')} (expected {expected})")
+
     return result
 
 

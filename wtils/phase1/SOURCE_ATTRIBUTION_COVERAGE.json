@@ -1,10 +1,17 @@
 {
-  "generated_at": "2026-10-01T17:23:50.953026Z",
+  "generated_at": "2026-10-01T17:58:36.834839Z",
   "total_sources": 20,
-  "verified": 0,
-  "partial": 0,
-  "unknown": 7,
-  "placeholder": 0,
+  "source_categories": {
+    "INFERRED": 13,
+    "SOURCE_HOST_UNKNOWN": 7
+  },
+  "source_category_sums_match_total": true,
+  "canonical_api_total": 237,
+  "api_source_verified": 119,
+  "api_source_blocked": 118,
+  "api_source_not_applicable": 0,
+  "api_source_pending": 0,
+  "api_source_sums_match_237": true,
   "entries": [
     {
       "source_id": "SRC_EIA",

@@ -179,7 +179,8 @@
         "strategic_reserve_draw",
         "energy_crisis_declaration"
       ],
-      "point_in_time_required": true
+      "point_in_time_required": true,
+      "canonical_name": "CRUDE_OIL"
     },
     {
       "profile_id": "P02",
@@ -321,7 +322,8 @@
         "lng_disruption",
         "russia_gas_flow_anomaly"
       ],
-      "point_in_time_required": true
+      "point_in_time_required": true,
+      "canonical_name": "NATURAL_GAS_LNG"
     },
     {
       "profile_id": "P03",
@@ -440,7 +442,8 @@
         "gold_price_breakout",
         "systemic_risk_spike"
       ],
-      "point_in_time_required": true
+      "point_in_time_required": true,
+      "canonical_name": "GOLD"
     },
     {
       "profile_id": "P04",
@@ -565,7 +568,8 @@
         "chokepoint_closure",
         "demand_surge_green_transition"
       ],
-      "point_in_time_required": true
+      "point_in_time_required": true,
+      "canonical_name": "COPPER"
     },
     {
       "profile_id": "P05",
@@ -684,7 +688,8 @@
         "china_import_surge",
         "trade_barrier_imposed"
       ],
-      "point_in_time_required": true
+      "point_in_time_required": true,
+      "canonical_name": "SOYBEAN"
     },
     {
       "profile_id": "P06",
@@ -792,7 +797,8 @@
         "intervention_event",
         "peg_break"
       ],
-      "point_in_time_required": true
+      "point_in_time_required": true,
+      "canonical_name": "FX"
     },
     {
       "profile_id": "P07",
@@ -904,7 +910,8 @@
         "curve_inversion_deepening",
         "credit_spread_spike"
       ],
-      "point_in_time_required": true
+      "point_in_time_required": true,
+      "canonical_name": "RATES"
     },
     {
       "profile_id": "P08",
@@ -1023,7 +1030,8 @@
         "extreme_fear_greed",
         "sector_breadth_divergence"
       ],
-      "point_in_time_required": true
+      "point_in_time_required": true,
+      "canonical_name": "EQUITIES"
     },
     {
       "profile_id": "P09",
@@ -1159,7 +1167,8 @@
         "chip_capacity_disruption",
         "rare_earth_supply_alert"
       ],
-      "point_in_time_required": true
+      "point_in_time_required": true,
+      "canonical_name": "AI_SUPPLY_CHAIN"
     },
     {
       "profile_id": "P10",
@@ -1314,7 +1323,8 @@
         "regime_change",
         "thermal_escalation"
       ],
-      "point_in_time_required": true
+      "point_in_time_required": true,
+      "canonical_name": "GEOPOLITICAL_EVENT"
     }
   ]
 }
