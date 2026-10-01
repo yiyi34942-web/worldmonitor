@@ -6,9 +6,25 @@
   "type": "object",
   "additionalProperties": false,
   "required": [
-    "source_id", "publisher_name", "provider_name", "host", "source_type", "transport",
-    "source_origin", "languages", "regions", "domains", "credibility_profile",
-    "freshness_profile", "lifecycle", "compliance_status", "reference_locations", "verification_state"
+    "source_id",
+    "publisher_name",
+    "provider_name",
+    "host",
+    "source_type",
+    "transport",
+    "source_origin",
+    "languages",
+    "regions",
+    "domains",
+    "credibility_profile",
+    "freshness_profile",
+    "lifecycle",
+    "compliance_status",
+    "reference_locations",
+    "verification_state",
+    "original_publisher",
+    "provider",
+    "collector"
   ],
   "properties": {
     "source_id": {
@@ -36,61 +52,159 @@
     },
     "transport": {
       "type": "string",
-      "enum": ["DIRECT", "RSS", "API", "RELAY", "TELEGRAM", "GOOGLE_NEWS", "FEEDBURNER", "WEBHOOK", "STREAM", "OTHER"]
+      "enum": [
+        "DIRECT",
+        "RSS",
+        "API",
+        "RELAY",
+        "TELEGRAM",
+        "GOOGLE_NEWS",
+        "FEEDBURNER",
+        "WEBHOOK",
+        "STREAM",
+        "OTHER"
+      ]
     },
     "source_origin": {
       "type": "string",
-      "enum": ["WM_CURATED", "USER_CUSTOM", "EXTERNAL_GAP"],
+      "enum": [
+        "WM_CURATED",
+        "USER_CUSTOM",
+        "EXTERNAL_GAP"
+      ],
       "description": "Origin classification"
     },
     "languages": {
       "type": "array",
-      "items": {"type": "string", "pattern": "^[a-z]{2}(-[A-Z]{2})?$"}
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z]{2}(-[A-Z]{2})?$"
+      }
     },
     "regions": {
       "type": "array",
-      "items": {"type": "string", "minLength": 2}
+      "items": {
+        "type": "string",
+        "minLength": 2
+      }
     },
     "domains": {
       "type": "array",
-      "items": {"type": "string", "minLength": 1}
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
     },
     "credibility_profile": {
       "type": "object",
-      "required": ["base_score", "independent_evidence", "publisher_reputation", "corroboration_required"],
+      "required": [
+        "base_score",
+        "independent_evidence",
+        "publisher_reputation",
+        "corroboration_required"
+      ],
       "additionalProperties": false,
       "properties": {
-        "base_score": {"type": "number", "minimum": 0, "maximum": 1},
-        "independent_evidence": {"type": "boolean"},
-        "publisher_reputation": {"type": "string", "enum": ["HIGH", "MEDIUM", "LOW", "UNKNOWN"]},
-        "corroboration_required": {"type": "boolean"}
+        "base_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "independent_evidence": {
+          "type": "boolean"
+        },
+        "publisher_reputation": {
+          "type": "string",
+          "enum": [
+            "HIGH",
+            "MEDIUM",
+            "LOW",
+            "UNKNOWN"
+          ]
+        },
+        "corroboration_required": {
+          "type": "boolean"
+        }
       }
     },
     "freshness_profile": {
       "type": "object",
-      "required": ["default_ttl_seconds", "max_stale_seconds", "update_frequency"],
+      "required": [
+        "default_ttl_seconds",
+        "max_stale_seconds",
+        "update_frequency"
+      ],
       "additionalProperties": false,
       "properties": {
-        "default_ttl_seconds": {"type": "integer", "minimum": 0},
-        "max_stale_seconds": {"type": "integer", "minimum": 0},
-        "update_frequency": {"type": "string", "minLength": 1}
+        "default_ttl_seconds": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "max_stale_seconds": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "update_frequency": {
+          "type": "string",
+          "minLength": 1
+        }
       }
     },
     "lifecycle": {
       "type": "string",
-      "enum": ["ACTIVE", "DEPRECATED", "RETIRED", "SEASONAL", "INTERMITTENT"]
+      "enum": [
+        "ACTIVE",
+        "DEPRECATED",
+        "RETIRED",
+        "SEASONAL",
+        "INTERMITTENT"
+      ]
     },
     "compliance_status": {
       "type": "string",
-      "enum": ["ALLOWED", "RESTRICTED", "RETIRED_TOS", "RETIRED_LEGAL", "LICENSE_LIMITED"]
+      "enum": [
+        "ALLOWED",
+        "RESTRICTED",
+        "RETIRED_TOS",
+        "RETIRED_LEGAL",
+        "LICENSE_LIMITED"
+      ]
     },
     "reference_locations": {
       "type": "array",
-      "items": {"type": "string", "minLength": 1}
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
     },
     "verification_state": {
       "type": "string",
-      "enum": ["VERIFIED", "INFERRED", "UNVERIFIED", "DISPUTED"]
+      "enum": [
+        "VERIFIED",
+        "INFERRED",
+        "UNVERIFIED",
+        "DISPUTED",
+        "SOURCE_LINEAGE_UNKNOWN"
+      ]
+    },
+    "original_publisher": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Original publisher of the data. Null if WM is the original creator (desk/relay). For aggregators, names the multiple upstream publishers."
+    },
+    "provider": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Entity providing the data to WM. For external sources, same as provider_name. For WM-internal relays/desks, 'WorldMonitor'."
+    },
+    "collector": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "WM-internal collector service name for relay/desk sources. Null for external direct sources."
     }
   }
 }

@@ -3,6 +3,9 @@
 
 Validates all registry files against their schemas, cross-validates references,
 and checks for consistency constraints.
+
+FAIL-CLOSED: Unknown references are ERRORS, not warnings.
+Only non-contract informational conditions can be warnings.
 """
 
 import json
@@ -14,6 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 SCHEMA_DIR = os.path.join(BASE_DIR, "schemas", "registries")
 RESEARCH_SCHEMA_DIR = os.path.join(BASE_DIR, "schemas", "research")
 CONFIG_DIR = os.path.join(BASE_DIR, "config", "registries")
+PHASE1_DIR = os.path.join(BASE_DIR, "phase1")
 
 
 def load_json(path):
@@ -95,18 +99,6 @@ def collect_errors():
             if field in entry and "enum" in prop:
                 if entry[field] not in prop["enum"]:
                     local_errors.append(f"{context}: field '{field}' value '{entry[field]}' not in enum {prop['enum']}")
-        return local_errors
-
-    def validate_type(entry, schema, context):
-        local_errors = []
-        props = schema.get("properties", {})
-        type_map = {"string": str, "boolean": bool, "integer": int, "number": (int, float), "array": list, "object": dict}
-        for field, prop in props.items():
-            if field in entry and entry[field] is not None:
-                expected = prop.get("type")
-                if expected and isinstance(expected, str) and expected in type_map:
-                    if not isinstance(entry[field], type_map[expected]):
-                        local_errors.append(f"{context}: field '{field}' expected type {expected}, got {type(entry[field]).__name__}")
         return local_errors
 
     # --- Validate roles ---
@@ -202,62 +194,124 @@ def collect_errors():
             errors.append(f"{ctx}: duplicate output_type {o['output_type']}")
         output_ids.add(o["output_type"])
 
-    # --- Cross-validation: role IDs in profiles exist ---
-    for pr in profiles:
-        for rid in pr.get("primary_roles", []) + pr.get("secondary_roles", []):
-            if rid not in role_ids:
-                errors.append(f"profile:{pr['profile_id']}: references unknown role_id '{rid}'")
-        for cr in pr.get("conditional_roles", []):
-            if cr["role"] not in role_ids:
-                errors.append(f"profile:{pr['profile_id']}: conditional role '{cr['role']}' not in role registry")
+    # ======================================================================
+    # FAIL-CLOSED CROSS-VALIDATION: Unknown references are ERRORS
+    # ======================================================================
 
-    # --- Cross-validation: methodology IDs in profiles exist ---
-    for pr in profiles:
-        for mid in pr.get("core_methodologies", []) + pr.get("audit_methodologies", []):
-            if mid not in method_ids:
-                errors.append(f"profile:{pr['profile_id']}: references unknown methodology_id '{mid}'")
-        for tm in pr.get("triggered_methodologies", []):
-            if tm["methodology_id"] not in method_ids:
-                errors.append(f"profile:{pr['profile_id']}: triggered methodology '{tm['methodology_id']}' not in methodology registry")
-
-    # --- Cross-validation: API operation IDs in profiles exist ---
+    # --- Profile referencing unknown API -> ERROR ---
     for pr in profiles:
         for api_ref in pr.get("l0_derived_api_refs", []) + pr.get("l1_fast_api_refs", []) + pr.get("l2_deep_api_refs", []):
             if api_ref not in api_ids:
-                warnings.append(f"profile:{pr['profile_id']}: API ref '{api_ref}' not found in api registry (may be from unregistered service)")
+                errors.append(f"profile:{pr['profile_id']}: references unknown API '{api_ref}' - FAIL-CLOSED")
 
-    # --- Cross-validation: role/methodology bindings in APIs exist ---
+    # --- Profile referencing unknown Role -> ERROR ---
+    for pr in profiles:
+        for rid in pr.get("primary_roles", []) + pr.get("secondary_roles", []):
+            if rid not in role_ids:
+                errors.append(f"profile:{pr['profile_id']}: references unknown role_id '{rid}' - FAIL-CLOSED")
+        for cr in pr.get("conditional_roles", []):
+            if cr["role"] not in role_ids:
+                errors.append(f"profile:{pr['profile_id']}: conditional role '{cr['role']}' not in role registry - FAIL-CLOSED")
+
+    # --- Profile referencing unknown Methodology -> ERROR ---
+    for pr in profiles:
+        for mid in pr.get("core_methodologies", []) + pr.get("audit_methodologies", []):
+            if mid not in method_ids:
+                errors.append(f"profile:{pr['profile_id']}: references unknown methodology_id '{mid}' - FAIL-CLOSED")
+        for tm in pr.get("triggered_methodologies", []):
+            if tm["methodology_id"] not in method_ids:
+                errors.append(f"profile:{pr['profile_id']}: triggered methodology '{tm['methodology_id']}' not in methodology registry - FAIL-CLOSED")
+
+    # --- API referencing unknown Role -> ERROR ---
     for a in apis:
         for rid in a.get("role_bindings", []):
             if rid not in role_ids:
-                warnings.append(f"api:{a['operation_id']}: role_binding '{rid}' not in role registry")
+                errors.append(f"api:{a['operation_id']}: role_binding '{rid}' not in role registry - FAIL-CLOSED")
+
+    # --- API referencing unknown Methodology -> ERROR ---
+    for a in apis:
         for mid in a.get("methodology_bindings", []):
             if mid not in method_ids:
-                warnings.append(f"api:{a['operation_id']}: methodology_binding '{mid}' not in methodology registry")
+                errors.append(f"api:{a['operation_id']}: methodology_binding '{mid}' not in methodology registry - FAIL-CLOSED")
+
+    # --- API referencing unknown Profile -> ERROR ---
+    for a in apis:
         for pid in a.get("profile_bindings", []):
             if pid not in profile_ids:
-                warnings.append(f"api:{a['operation_id']}: profile_binding '{pid}' not in profile registry")
+                errors.append(f"api:{a['operation_id']}: profile_binding '{pid}' not in profile registry - FAIL-CLOSED")
 
-    # --- Cross-validation: source refs in APIs exist ---
+    # --- API referencing unknown Source -> ERROR ---
     for a in apis:
         for sref in a.get("source_refs", []):
             if sref not in source_ids:
-                warnings.append(f"api:{a['operation_id']}: source_ref '{sref}' not in source registry")
+                errors.append(f"api:{a['operation_id']}: source_ref '{sref}' not in source registry - FAIL-CLOSED")
 
-    # --- Check lifecycle: no retired API in active binding ---
+    # --- API referencing unknown Delivery -> ERROR ---
+    delivery = registries.get("delivery_semantics", {}).get("entries", [])
+    delivery_types = {d["delivery_type"] for d in delivery}
+    for a in apis:
+        dref = a.get("delivery_semantics_ref")
+        if dref and dref not in delivery_types:
+            errors.append(f"api:{a['operation_id']}: delivery_semantics_ref '{dref}' not in delivery_semantics registry - FAIL-CLOSED")
+
+    # --- Active fast path using retired API -> ERROR ---
+    retired_ops = {a["operation_id"] for a in apis if a.get("status") == "RETIRED"}
+    for pr in profiles:
+        for api_ref in pr.get("l1_fast_api_refs", []):
+            if api_ref in retired_ops:
+                errors.append(f"profile:{pr['profile_id']}: fast path uses RETIRED API '{api_ref}' - FAIL-CLOSED")
+
+    # --- Bindings cross-validation -> ERROR ---
+    bindings = registries.get("bindings", {})
+    
+    # profile_methodology_bindings: profile and methodology must exist
+    for b in bindings.get("profile_methodology_bindings", []):
+        pid = b.get("profile_id")
+        mid = b.get("methodology_id")
+        if pid and pid not in profile_ids:
+            errors.append(f"binding:profile_method: profile_id '{pid}' not in profile registry - FAIL-CLOSED")
+        if mid and mid not in method_ids:
+            errors.append(f"binding:profile_method: methodology_id '{mid}' not in methodology registry - FAIL-CLOSED")
+
+    # methodology_api_bindings: methodology and API must exist
+    for b in bindings.get("methodology_api_bindings", []):
+        mid = b.get("methodology_id")
+        oid = b.get("operation_id")
+        if mid and mid not in method_ids:
+            errors.append(f"binding:method_api: methodology_id '{mid}' not in methodology registry - FAIL-CLOSED")
+        if oid and oid not in api_ids:
+            errors.append(f"binding:method_api: operation_id '{oid}' not in API registry - FAIL-CLOSED")
+
+    # api_source_bindings: API and source must exist
+    for b in bindings.get("api_source_bindings", []):
+        oid = b.get("operation_id")
+        sid = b.get("source_id")
+        if oid and oid not in api_ids:
+            errors.append(f"binding:api_source: operation_id '{oid}' not in API registry - FAIL-CLOSED")
+        if sid and sid not in source_ids:
+            errors.append(f"binding:api_source: source_id '{sid}' not in source registry - FAIL-CLOSED")
+
+    # ======================================================================
+    # Non-contract informational warnings (these are OK as warnings)
+    # ======================================================================
+
+    # --- Check lifecycle: no retired API with active bindings (informational) ---
     for a in apis:
         if a.get("status") == "RETIRED":
             if a.get("role_bindings") or a.get("methodology_bindings") or a.get("profile_bindings"):
                 warnings.append(f"api:{a['operation_id']}: RETIRED API still has active bindings")
 
+    # --- Check all active APIs source-bound (informational) ---
+    for a in apis:
+        if a.get("status") == "ACTIVE" and not a.get("source_refs"):
+            warnings.append(f"api:{a['operation_id']}: ACTIVE API has no source_refs")
+
     # --- Check measured_zero / unavailable ambiguity ---
     data_states = registries.get("data_states", {}).get("entries", [])
-    measured_zero_ok = True
     for ds in data_states:
         if ds["state"] == "MEASURED_ZERO":
             if ds.get("numeric_equivalent") != 0:
                 errors.append(f"data_state:MEASURED_ZERO must have numeric_equivalent=0, got {ds.get('numeric_equivalent')}")
-                measured_zero_ok = False
         elif ds.get("numeric_equivalent") is not None and ds["state"] != "MEASURED_ZERO":
             if ds["numeric_equivalent"] == 0:
                 errors.append(f"data_state:{ds['state']}: only MEASURED_ZERO may have numeric_equivalent=0")
@@ -272,19 +326,6 @@ def collect_errors():
         if a.get("status") == "ACTIVE" and not a.get("lifecycle_ref"):
             errors.append(f"api:{a['operation_id']}: ACTIVE API missing lifecycle_ref")
 
-    # --- Check all active APIs source-bound ---
-    for a in apis:
-        if a.get("status") == "ACTIVE" and not a.get("source_refs"):
-            warnings.append(f"api:{a['operation_id']}: ACTIVE API has no source_refs")
-
-    # --- Validate delivery semantics ---
-    delivery = registries.get("delivery_semantics", {}).get("entries", [])
-    delivery_types = {d["delivery_type"] for d in delivery}
-    for a in apis:
-        dref = a.get("delivery_semantics_ref")
-        if dref and dref not in delivery_types:
-            warnings.append(f"api:{a['operation_id']}: delivery_semantics_ref '{dref}' not in delivery_semantics registry")
-
     # --- Validate data states ---
     ds_states = {ds["state"] for ds in data_states}
     expected_states = {"AVAILABLE", "MEASURED_ZERO", "NOT_COVERED", "NO_DATA", "SEED_MISSING",
@@ -296,7 +337,7 @@ def collect_errors():
 
     # --- Summary ---
     valid = len(errors) == 0
-    return {
+    result = {
         "valid": valid,
         "error_count": len(errors),
         "warning_count": len(warnings),
@@ -315,6 +356,58 @@ def collect_errors():
             "data_states": len(data_states),
         }
     }
+    
+    # --- Generate PROFILE_BINDING_REPORT ---
+    generate_profile_binding_report(registries, result)
+    
+    return result
+
+
+def generate_profile_binding_report(registries, validation_result):
+    """Generate PROFILE_BINDING_REPORT.md with real IDs, no '?' placeholders."""
+    profiles = registries.get("profiles", {}).get("entries", [])
+    methods = registries.get("methodologies", {}).get("entries", [])
+    roles = registries.get("roles", {}).get("entries", [])
+    bindings = registries.get("bindings", {})
+    
+    profile_map = {p["profile_id"]: p for p in profiles}
+    method_map = {m["methodology_id"]: m for m in methods}
+    role_map = {r["role_id"]: r for r in roles}
+    
+    lines = ["# Profile Binding Report", ""]
+    lines.append("## Profile-Role Bindings")
+    lines.append("")
+    lines.append("| profile_id | profile_name | role_id | role_name | binding_type | default_prior |")
+    lines.append("|---|---|---|---|---|---|")
+    
+    for b in bindings.get("profile_role_bindings", []):
+        pid = b.get("profile_id", "?")
+        rid = b.get("role_id", "?")
+        bt = b.get("binding_type", "?")
+        dp = b.get("default_prior", b.get("weight", "?"))
+        pname = profile_map.get(pid, {}).get("name", pid)
+        rname = role_map.get(rid, {}).get("name", rid)
+        lines.append(f"| {pid} | {pname} | {rid} | {rname} | {bt} | {dp} |")
+    
+    lines.append("")
+    lines.append("## Profile-Methodology Bindings")
+    lines.append("")
+    lines.append("| profile_id | profile_name | methodology_id | methodology_name | binding_type |")
+    lines.append("|---|---|---|---|---|")
+    
+    for b in bindings.get("profile_methodology_bindings", []):
+        pid = b.get("profile_id", "?")
+        mid = b.get("methodology_id", "?")
+        bt = b.get("binding_type", "?")
+        pname = profile_map.get(pid, {}).get("name", pid)
+        mname = method_map.get(mid, {}).get("name", mid)
+        lines.append(f"| {pid} | {pname} | {mid} | {mname} | {bt} |")
+    
+    lines.append("")
+    
+    report_path = os.path.join(PHASE1_DIR, "PROFILE_BINDING_REPORT.md")
+    with open(report_path, "w") as f:
+        f.write("\n".join(lines))
 
 
 def main():

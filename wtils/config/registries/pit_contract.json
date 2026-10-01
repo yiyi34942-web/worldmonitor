@@ -1,7 +1,7 @@
 {
   "registry_type": "pit_contract",
   "version": "1.0.0",
-  "generated_at": "2025-01-15T00:00:00Z",
+  "generated_at": "2026-10-01T15:21:17Z",
   "description": "Point-in-Time contract defining all timestamp fields and rules for WTILS registries and research artifacts.",
   "timestamp_fields": [
     {

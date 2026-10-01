@@ -1,50 +1,41 @@
-# VALIDATION REPORT
+# Validation Report
 
-Generated: 2026-10-01T22:32:30.351912
+Generated: 2026-10-01T15:26:45Z
 
-## Validator Result
+## Overall: VALID
+- Errors: 0
+- Warnings: 118
 
-| Metric | Value |
-|---|---|
-| Valid | True |
-| Errors | 0 |
-| Warnings | 0 |
+### Warnings
+- api:GetAirportOpsSummary: ACTIVE API has no source_refs
+- api:GetCarrierOps: ACTIVE API has no source_refs
+- api:GetFlightStatus: ACTIVE API has no source_refs
+- api:GetYoutubeLiveStreamInfo: ACTIVE API has no source_refs
+- api:ListAirportDelays: ACTIVE API has no source_refs
+- api:ListAirportFlights: ACTIVE API has no source_refs
+- api:ListAviationNews: ACTIVE API has no source_refs
+- api:SearchFlightPrices: ACTIVE API has no source_refs
+- api:SearchGoogleDates: ACTIVE API has no source_refs
+- api:SearchGoogleFlights: ACTIVE API has no source_refs
+- api:TrackAircraft: ACTIVE API has no source_refs
+- api:ExecuteBatch: ACTIVE API has no source_refs
+- api:GetCo2Monitoring: ACTIVE API has no source_refs
+- api:GetOceanIceData: ACTIVE API has no source_refs
+- api:ListAirQualityData: ACTIVE API has no source_refs
+- api:ListClimateAnomalies: ACTIVE API has no source_refs
+- api:ListClimateDisasters: ACTIVE API has no source_refs
+- api:ListClimateNews: ACTIVE API has no source_refs
+- api:CreateMonitoredCompany: ACTIVE API has no source_refs
+- api:GetCompanyCoverage: ACTIVE API has no source_refs
 
-## Test Suite Result
-
-| Metric | Value |
-|---|---|
-| Total Tests | 39 |
-| Passed | 39 |
-| Failed | 0 |
-
-## Registry Counts
-
-| Registry | Count |
-|---|---|
-| Roles | 5 |
-| Methodologies | 31 |
-| Profiles | 10 |
-| APIs | 119 |
-| Sources | 20 |
-| Intelligence Catalog | 15 |
-| Contracts | 59 |
-| Outputs | 9 |
-| Delivery Types | 9 |
-| Data States | 11 |
-
-## Key Validations
-
-- ✅ Five Roles = 5
-- ✅ Methodologies = 31 (24 Formal + 7 Governance)
-- ✅ Profiles = 10
-- ✅ C05 callable = false (META type)
-- ✅ C06 has GLOBAL_PRECONDITION rule
-- ✅ C07 has GOVERNANCE_CONTRACT rule
-- ✅ Data states cardinal rule (missing != zero)
-- ✅ A00-A22 static completeness for CRUDE APIs
-- ✅ No duplicate canonical IDs
-- ✅ No retired APIs in active fast path
-- ✅ All active methods versioned
-- ✅ All methodology version hashes valid SHA256
-- ✅ P01 CRUDE_OIL has L0/L1/L2 API structure and dashboard_state
+### Counts
+- roles: 5
+- methodologies: 31
+- profiles: 10
+- apis: 237
+- sources: 20
+- intelligence_catalog: 15
+- contracts: 59
+- outputs: 9
+- delivery_semantics: 9
+- data_states: 11

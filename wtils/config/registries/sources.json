@@ -1,7 +1,7 @@
 {
   "registry_type": "sources",
   "version": "1.0.0",
-  "generated_at": "2025-01-15T00:00:00Z",
+  "generated_at": "2026-10-01T15:19:39Z",
   "entries": [
     {
       "source_id": "SRC_EIA",
@@ -11,15 +11,42 @@
       "source_type": "government_statistical",
       "transport": "API",
       "source_origin": "WM_CURATED",
-      "languages": ["en"],
-      "regions": ["NORTH_AMERICA", "GLOBAL"],
-      "domains": ["crude_oil", "natural_gas", "lng", "energy_infrastructure", "inventories", "refining"],
-      "credibility_profile": {"base_score": 0.95, "independent_evidence": true, "publisher_reputation": "HIGH", "corroboration_required": false},
-      "freshness_profile": {"default_ttl_seconds": 86400, "max_stale_seconds": 604800, "update_frequency": "daily"},
+      "languages": [
+        "en"
+      ],
+      "regions": [
+        "NORTH_AMERICA",
+        "GLOBAL"
+      ],
+      "domains": [
+        "crude_oil",
+        "natural_gas",
+        "lng",
+        "energy_infrastructure",
+        "inventories",
+        "refining"
+      ],
+      "credibility_profile": {
+        "base_score": 0.95,
+        "independent_evidence": true,
+        "publisher_reputation": "HIGH",
+        "corroboration_required": false
+      },
+      "freshness_profile": {
+        "default_ttl_seconds": 86400,
+        "max_stale_seconds": 604800,
+        "update_frequency": "daily"
+      },
       "lifecycle": "ACTIVE",
       "compliance_status": "ALLOWED",
-      "reference_locations": ["https://www.eia.gov", "https://api.eia.gov"],
-      "verification_state": "INFERRED"
+      "reference_locations": [
+        "https://www.eia.gov",
+        "https://api.eia.gov"
+      ],
+      "verification_state": "INFERRED",
+      "original_publisher": "U.S. Energy Information Administration",
+      "provider": "EIA",
+      "collector": null
     },
     {
       "source_id": "SRC_OPEC",
@@ -29,15 +56,39 @@
       "source_type": "intergovernmental",
       "transport": "DIRECT",
       "source_origin": "WM_CURATED",
-      "languages": ["en"],
-      "regions": ["MENA", "GLOBAL"],
-      "domains": ["crude_oil", "production", "inventories", "opec_policy"],
-      "credibility_profile": {"base_score": 0.85, "independent_evidence": false, "publisher_reputation": "HIGH", "corroboration_required": true},
-      "freshness_profile": {"default_ttl_seconds": 2592000, "max_stale_seconds": 7776000, "update_frequency": "monthly"},
+      "languages": [
+        "en"
+      ],
+      "regions": [
+        "MENA",
+        "GLOBAL"
+      ],
+      "domains": [
+        "crude_oil",
+        "production",
+        "inventories",
+        "opec_policy"
+      ],
+      "credibility_profile": {
+        "base_score": 0.85,
+        "independent_evidence": false,
+        "publisher_reputation": "HIGH",
+        "corroboration_required": true
+      },
+      "freshness_profile": {
+        "default_ttl_seconds": 2592000,
+        "max_stale_seconds": 7776000,
+        "update_frequency": "monthly"
+      },
       "lifecycle": "ACTIVE",
       "compliance_status": "ALLOWED",
-      "reference_locations": ["https://www.opec.org/opec_web/en/publications/338.htm"],
-      "verification_state": "INFERRED"
+      "reference_locations": [
+        "https://www.opec.org/opec_web/en/publications/338.htm"
+      ],
+      "verification_state": "INFERRED",
+      "original_publisher": "Organization of the Petroleum Exporting Countries",
+      "provider": "OPEC",
+      "collector": null
     },
     {
       "source_id": "SRC_IEA",
@@ -47,15 +98,43 @@
       "source_type": "intergovernmental",
       "transport": "API",
       "source_origin": "WM_CURATED",
-      "languages": ["en", "fr"],
-      "regions": ["GLOBAL", "EU", "NORTH_AMERICA", "EAST_ASIA"],
-      "domains": ["crude_oil", "natural_gas", "energy_policy", "energy_security", "critical_minerals"],
-      "credibility_profile": {"base_score": 0.9, "independent_evidence": true, "publisher_reputation": "HIGH", "corroboration_required": false},
-      "freshness_profile": {"default_ttl_seconds": 2592000, "max_stale_seconds": 7776000, "update_frequency": "monthly"},
+      "languages": [
+        "en",
+        "fr"
+      ],
+      "regions": [
+        "GLOBAL",
+        "EU",
+        "NORTH_AMERICA",
+        "EAST_ASIA"
+      ],
+      "domains": [
+        "crude_oil",
+        "natural_gas",
+        "energy_policy",
+        "energy_security",
+        "critical_minerals"
+      ],
+      "credibility_profile": {
+        "base_score": 0.9,
+        "independent_evidence": true,
+        "publisher_reputation": "HIGH",
+        "corroboration_required": false
+      },
+      "freshness_profile": {
+        "default_ttl_seconds": 2592000,
+        "max_stale_seconds": 7776000,
+        "update_frequency": "monthly"
+      },
       "lifecycle": "ACTIVE",
       "compliance_status": "ALLOWED",
-      "reference_locations": ["https://www.iea.org/data-and-statistics"],
-      "verification_state": "INFERRED"
+      "reference_locations": [
+        "https://www.iea.org/data-and-statistics"
+      ],
+      "verification_state": "INFERRED",
+      "original_publisher": "International Energy Agency",
+      "provider": "IEA",
+      "collector": null
     },
     {
       "source_id": "SRC_AIS",
@@ -63,17 +142,41 @@
       "provider_name": "AIS_HUB",
       "host": "ais.worldmonitor.dev",
       "source_type": "real_time_tracking",
-      "transport": "STREAM",
+      "transport": "RELAY",
       "source_origin": "WM_CURATED",
-      "languages": ["en"],
-      "regions": ["GLOBAL"],
-      "domains": ["vessel_tracking", "maritime", "shipping", "chokepoints", "dark_fleet"],
-      "credibility_profile": {"base_score": 0.8, "independent_evidence": true, "publisher_reputation": "MEDIUM", "corroboration_required": false},
-      "freshness_profile": {"default_ttl_seconds": 300, "max_stale_seconds": 3600, "update_frequency": "real_time"},
+      "languages": [
+        "en"
+      ],
+      "regions": [
+        "GLOBAL"
+      ],
+      "domains": [
+        "vessel_tracking",
+        "maritime",
+        "shipping",
+        "chokepoints",
+        "dark_fleet"
+      ],
+      "credibility_profile": {
+        "base_score": 0.8,
+        "independent_evidence": true,
+        "publisher_reputation": "MEDIUM",
+        "corroboration_required": false
+      },
+      "freshness_profile": {
+        "default_ttl_seconds": 300,
+        "max_stale_seconds": 3600,
+        "update_frequency": "real_time"
+      },
       "lifecycle": "ACTIVE",
       "compliance_status": "ALLOWED",
-      "reference_locations": ["ais.worldmonitor.dev/stream"],
-      "verification_state": "INFERRED"
+      "reference_locations": [
+        "ais.worldmonitor.dev/stream"
+      ],
+      "verification_state": "INFERRED",
+      "original_publisher": "Multiple AIS Providers",
+      "provider": "WorldMonitor",
+      "collector": "WM_AIS_SERVICE"
     },
     {
       "source_id": "SRC_ACLED",
@@ -83,15 +186,43 @@
       "source_type": "conflict_event_database",
       "transport": "API",
       "source_origin": "WM_CURATED",
-      "languages": ["en"],
-      "regions": ["GLOBAL", "AFRICA", "MENA", "SOUTH_ASIA", "EAST_ASIA"],
-      "domains": ["conflict", "protest", "violence", "political_violence"],
-      "credibility_profile": {"base_score": 0.9, "independent_evidence": true, "publisher_reputation": "HIGH", "corroboration_required": false},
-      "freshness_profile": {"default_ttl_seconds": 86400, "max_stale_seconds": 604800, "update_frequency": "weekly"},
+      "languages": [
+        "en"
+      ],
+      "regions": [
+        "GLOBAL",
+        "AFRICA",
+        "MENA",
+        "SOUTH_ASIA",
+        "EAST_ASIA"
+      ],
+      "domains": [
+        "conflict",
+        "protest",
+        "violence",
+        "political_violence"
+      ],
+      "credibility_profile": {
+        "base_score": 0.9,
+        "independent_evidence": true,
+        "publisher_reputation": "HIGH",
+        "corroboration_required": false
+      },
+      "freshness_profile": {
+        "default_ttl_seconds": 86400,
+        "max_stale_seconds": 604800,
+        "update_frequency": "weekly"
+      },
       "lifecycle": "ACTIVE",
       "compliance_status": "ALLOWED",
-      "reference_locations": ["https://acleddata.com", "https://api.acleddata.com"],
-      "verification_state": "INFERRED"
+      "reference_locations": [
+        "https://acleddata.com",
+        "https://api.acleddata.com"
+      ],
+      "verification_state": "INFERRED",
+      "original_publisher": "Armed Conflict Location & Event Data Project",
+      "provider": "ACLED",
+      "collector": null
     },
     {
       "source_id": "SRC_UCDP",
@@ -101,15 +232,37 @@
       "source_type": "conflict_event_database",
       "transport": "API",
       "source_origin": "WM_CURATED",
-      "languages": ["en"],
-      "regions": ["GLOBAL"],
-      "domains": ["armed_conflict", "battle_deaths", "conflict_episodes"],
-      "credibility_profile": {"base_score": 0.9, "independent_evidence": true, "publisher_reputation": "HIGH", "corroboration_required": false},
-      "freshness_profile": {"default_ttl_seconds": 2592000, "max_stale_seconds": 7776000, "update_frequency": "monthly"},
+      "languages": [
+        "en"
+      ],
+      "regions": [
+        "GLOBAL"
+      ],
+      "domains": [
+        "armed_conflict",
+        "battle_deaths",
+        "conflict_episodes"
+      ],
+      "credibility_profile": {
+        "base_score": 0.9,
+        "independent_evidence": true,
+        "publisher_reputation": "HIGH",
+        "corroboration_required": false
+      },
+      "freshness_profile": {
+        "default_ttl_seconds": 2592000,
+        "max_stale_seconds": 7776000,
+        "update_frequency": "monthly"
+      },
       "lifecycle": "ACTIVE",
       "compliance_status": "ALLOWED",
-      "reference_locations": ["https://ucdp.uu.se"],
-      "verification_state": "INFERRED"
+      "reference_locations": [
+        "https://ucdp.uu.se"
+      ],
+      "verification_state": "INFERRED",
+      "original_publisher": "Uppsala Conflict Data Program",
+      "provider": "UCDP",
+      "collector": null
     },
     {
       "source_id": "SRC_IRAN_EVENTS",
@@ -119,15 +272,40 @@
       "source_type": "event_tracker",
       "transport": "RELAY",
       "source_origin": "WM_CURATED",
-      "languages": ["en", "fa"],
-      "regions": ["MENA", "EURASIA"],
-      "domains": ["iran_politics", "sanctions_evasion", "nuclear_program", "proxy_activities"],
-      "credibility_profile": {"base_score": 0.75, "independent_evidence": true, "publisher_reputation": "MEDIUM", "corroboration_required": true},
-      "freshness_profile": {"default_ttl_seconds": 86400, "max_stale_seconds": 259200, "update_frequency": "daily"},
+      "languages": [
+        "en",
+        "fa"
+      ],
+      "regions": [
+        "MENA",
+        "EURASIA"
+      ],
+      "domains": [
+        "iran_politics",
+        "sanctions_evasion",
+        "nuclear_program",
+        "proxy_activities"
+      ],
+      "credibility_profile": {
+        "base_score": 0.75,
+        "independent_evidence": true,
+        "publisher_reputation": "MEDIUM",
+        "corroboration_required": true
+      },
+      "freshness_profile": {
+        "default_ttl_seconds": 86400,
+        "max_stale_seconds": 259200,
+        "update_frequency": "daily"
+      },
       "lifecycle": "ACTIVE",
       "compliance_status": "ALLOWED",
-      "reference_locations": ["iran.worldmonitor.dev/api"],
-      "verification_state": "INFERRED"
+      "reference_locations": [
+        "iran.worldmonitor.dev/api"
+      ],
+      "verification_state": "INFERRED",
+      "original_publisher": null,
+      "provider": "WorldMonitor",
+      "collector": "WM_IRAN_DESK"
     },
     {
       "source_id": "SRC_USNI",
@@ -137,15 +315,39 @@
       "source_type": "defense_publication",
       "transport": "RSS",
       "source_origin": "WM_CURATED",
-      "languages": ["en"],
-      "regions": ["GLOBAL", "NORTH_AMERICA"],
-      "domains": ["naval_operations", "fleet_tracking", "military_posture", "maritime_security"],
-      "credibility_profile": {"base_score": 0.85, "independent_evidence": true, "publisher_reputation": "HIGH", "corroboration_required": false},
-      "freshness_profile": {"default_ttl_seconds": 86400, "max_stale_seconds": 604800, "update_frequency": "daily"},
+      "languages": [
+        "en"
+      ],
+      "regions": [
+        "GLOBAL",
+        "NORTH_AMERICA"
+      ],
+      "domains": [
+        "naval_operations",
+        "fleet_tracking",
+        "military_posture",
+        "maritime_security"
+      ],
+      "credibility_profile": {
+        "base_score": 0.85,
+        "independent_evidence": true,
+        "publisher_reputation": "HIGH",
+        "corroboration_required": false
+      },
+      "freshness_profile": {
+        "default_ttl_seconds": 86400,
+        "max_stale_seconds": 604800,
+        "update_frequency": "daily"
+      },
       "lifecycle": "ACTIVE",
       "compliance_status": "ALLOWED",
-      "reference_locations": ["https://news.usni.org/feed"],
-      "verification_state": "INFERRED"
+      "reference_locations": [
+        "https://news.usni.org/feed"
+      ],
+      "verification_state": "INFERRED",
+      "original_publisher": "U.S. Naval Institute",
+      "provider": "USNI",
+      "collector": null
     },
     {
       "source_id": "SRC_OFAC",
@@ -155,15 +357,38 @@
       "source_type": "sanctions_database",
       "transport": "API",
       "source_origin": "WM_CURATED",
-      "languages": ["en"],
-      "regions": ["GLOBAL"],
-      "domains": ["sanctions", "designated_entities", "sdn_list", "sectoral_sanctions"],
-      "credibility_profile": {"base_score": 0.95, "independent_evidence": true, "publisher_reputation": "HIGH", "corroboration_required": false},
-      "freshness_profile": {"default_ttl_seconds": 86400, "max_stale_seconds": 604800, "update_frequency": "daily"},
+      "languages": [
+        "en"
+      ],
+      "regions": [
+        "GLOBAL"
+      ],
+      "domains": [
+        "sanctions",
+        "designated_entities",
+        "sdn_list",
+        "sectoral_sanctions"
+      ],
+      "credibility_profile": {
+        "base_score": 0.95,
+        "independent_evidence": true,
+        "publisher_reputation": "HIGH",
+        "corroboration_required": false
+      },
+      "freshness_profile": {
+        "default_ttl_seconds": 86400,
+        "max_stale_seconds": 604800,
+        "update_frequency": "daily"
+      },
       "lifecycle": "ACTIVE",
       "compliance_status": "ALLOWED",
-      "reference_locations": ["https://ofac.treasury.gov/sanctions-programs-and-information"],
-      "verification_state": "INFERRED"
+      "reference_locations": [
+        "https://ofac.treasury.gov/sanctions-programs-and-information"
+      ],
+      "verification_state": "INFERRED",
+      "original_publisher": "Office of Foreign Assets Control",
+      "provider": "OFAC",
+      "collector": null
     },
     {
       "source_id": "SRC_CME",
@@ -173,15 +398,41 @@
       "source_type": "exchange_data",
       "transport": "API",
       "source_origin": "WM_CURATED",
-      "languages": ["en"],
-      "regions": ["NORTH_AMERICA", "GLOBAL"],
-      "domains": ["futures", "options", "commodity_prices", "fx", "interest_rates", "yield_curves"],
-      "credibility_profile": {"base_score": 0.95, "independent_evidence": true, "publisher_reputation": "HIGH", "corroboration_required": false},
-      "freshness_profile": {"default_ttl_seconds": 3600, "max_stale_seconds": 86400, "update_frequency": "real_time"},
+      "languages": [
+        "en"
+      ],
+      "regions": [
+        "NORTH_AMERICA",
+        "GLOBAL"
+      ],
+      "domains": [
+        "futures",
+        "options",
+        "commodity_prices",
+        "fx",
+        "interest_rates",
+        "yield_curves"
+      ],
+      "credibility_profile": {
+        "base_score": 0.95,
+        "independent_evidence": true,
+        "publisher_reputation": "HIGH",
+        "corroboration_required": false
+      },
+      "freshness_profile": {
+        "default_ttl_seconds": 3600,
+        "max_stale_seconds": 86400,
+        "update_frequency": "real_time"
+      },
       "lifecycle": "ACTIVE",
       "compliance_status": "LICENSE_LIMITED",
-      "reference_locations": ["https://www.cmegroup.com/market-data"],
-      "verification_state": "INFERRED"
+      "reference_locations": [
+        "https://www.cmegroup.com/market-data"
+      ],
+      "verification_state": "INFERRED",
+      "original_publisher": "CME Group",
+      "provider": "CME",
+      "collector": null
     },
     {
       "source_id": "SRC_CFTC",
@@ -191,15 +442,37 @@
       "source_type": "government_regulatory",
       "transport": "API",
       "source_origin": "WM_CURATED",
-      "languages": ["en"],
-      "regions": ["NORTH_AMERICA"],
-      "domains": ["cot_reports", "positioning", "futures_market"],
-      "credibility_profile": {"base_score": 0.95, "independent_evidence": true, "publisher_reputation": "HIGH", "corroboration_required": false},
-      "freshness_profile": {"default_ttl_seconds": 604800, "max_stale_seconds": 1209600, "update_frequency": "weekly"},
+      "languages": [
+        "en"
+      ],
+      "regions": [
+        "NORTH_AMERICA"
+      ],
+      "domains": [
+        "cot_reports",
+        "positioning",
+        "futures_market"
+      ],
+      "credibility_profile": {
+        "base_score": 0.95,
+        "independent_evidence": true,
+        "publisher_reputation": "HIGH",
+        "corroboration_required": false
+      },
+      "freshness_profile": {
+        "default_ttl_seconds": 604800,
+        "max_stale_seconds": 1209600,
+        "update_frequency": "weekly"
+      },
       "lifecycle": "ACTIVE",
       "compliance_status": "ALLOWED",
-      "reference_locations": ["https://www.cftc.gov/MarketReports"],
-      "verification_state": "INFERRED"
+      "reference_locations": [
+        "https://www.cftc.gov/MarketReports"
+      ],
+      "verification_state": "INFERRED",
+      "original_publisher": "Commodity Futures Trading Commission",
+      "provider": "CFTC",
+      "collector": null
     },
     {
       "source_id": "SRC_NEWS_API",
@@ -207,17 +480,49 @@
       "provider_name": "NEWS_AGGREGATOR",
       "host": "news.worldmonitor.dev",
       "source_type": "news_aggregator",
-      "transport": "API",
+      "transport": "RELAY",
       "source_origin": "WM_CURATED",
-      "languages": ["en", "ru", "zh", "ar", "fr", "de", "es", "ja", "ko", "pt"],
-      "regions": ["GLOBAL"],
-      "domains": ["general_news", "energy_news", "financial_news", "geopolitical_news"],
-      "credibility_profile": {"base_score": 0.7, "independent_evidence": false, "publisher_reputation": "MEDIUM", "corroboration_required": true},
-      "freshness_profile": {"default_ttl_seconds": 3600, "max_stale_seconds": 86400, "update_frequency": "continuous"},
+      "languages": [
+        "en",
+        "ru",
+        "zh",
+        "ar",
+        "fr",
+        "de",
+        "es",
+        "ja",
+        "ko",
+        "pt"
+      ],
+      "regions": [
+        "GLOBAL"
+      ],
+      "domains": [
+        "general_news",
+        "energy_news",
+        "financial_news",
+        "geopolitical_news"
+      ],
+      "credibility_profile": {
+        "base_score": 0.7,
+        "independent_evidence": false,
+        "publisher_reputation": "MEDIUM",
+        "corroboration_required": true
+      },
+      "freshness_profile": {
+        "default_ttl_seconds": 3600,
+        "max_stale_seconds": 86400,
+        "update_frequency": "continuous"
+      },
       "lifecycle": "ACTIVE",
       "compliance_status": "ALLOWED",
-      "reference_locations": ["news.worldmonitor.dev/api/v1"],
-      "verification_state": "INFERRED"
+      "reference_locations": [
+        "news.worldmonitor.dev/api/v1"
+      ],
+      "verification_state": "INFERRED",
+      "original_publisher": "Multiple News Publishers",
+      "provider": "WorldMonitor",
+      "collector": "WM_NEWS_AGGREGATOR"
     },
     {
       "source_id": "SRC_GDELT",
@@ -227,15 +532,49 @@
       "source_type": "event_database",
       "transport": "API",
       "source_origin": "WM_CURATED",
-      "languages": ["en", "ru", "zh", "ar", "fr", "de", "es", "ja", "ko", "pt", "fa", "uk"],
-      "regions": ["GLOBAL"],
-      "domains": ["global_events", "media_sentiment", "conflict_signals", "diplomatic_activity"],
-      "credibility_profile": {"base_score": 0.75, "independent_evidence": true, "publisher_reputation": "MEDIUM", "corroboration_required": true},
-      "freshness_profile": {"default_ttl_seconds": 1800, "max_stale_seconds": 86400, "update_frequency": "15_minutes"},
+      "languages": [
+        "en",
+        "ru",
+        "zh",
+        "ar",
+        "fr",
+        "de",
+        "es",
+        "ja",
+        "ko",
+        "pt",
+        "fa",
+        "uk"
+      ],
+      "regions": [
+        "GLOBAL"
+      ],
+      "domains": [
+        "global_events",
+        "media_sentiment",
+        "conflict_signals",
+        "diplomatic_activity"
+      ],
+      "credibility_profile": {
+        "base_score": 0.75,
+        "independent_evidence": true,
+        "publisher_reputation": "MEDIUM",
+        "corroboration_required": true
+      },
+      "freshness_profile": {
+        "default_ttl_seconds": 1800,
+        "max_stale_seconds": 86400,
+        "update_frequency": "15_minutes"
+      },
       "lifecycle": "ACTIVE",
       "compliance_status": "ALLOWED",
-      "reference_locations": ["https://www.gdeltproject.org"],
-      "verification_state": "INFERRED"
+      "reference_locations": [
+        "https://www.gdeltproject.org"
+      ],
+      "verification_state": "INFERRED",
+      "original_publisher": "Global Database of Events, Language, and Tone",
+      "provider": "GDELT",
+      "collector": null
     },
     {
       "source_id": "SRC_IMF",
@@ -245,15 +584,39 @@
       "source_type": "international_financial",
       "transport": "API",
       "source_origin": "WM_CURATED",
-      "languages": ["en"],
-      "regions": ["GLOBAL"],
-      "domains": ["fx_rates", "sdr", "financial_stress", "economic_indicators", "policy_rates"],
-      "credibility_profile": {"base_score": 0.95, "independent_evidence": true, "publisher_reputation": "HIGH", "corroboration_required": false},
-      "freshness_profile": {"default_ttl_seconds": 86400, "max_stale_seconds": 604800, "update_frequency": "daily"},
+      "languages": [
+        "en"
+      ],
+      "regions": [
+        "GLOBAL"
+      ],
+      "domains": [
+        "fx_rates",
+        "sdr",
+        "financial_stress",
+        "economic_indicators",
+        "policy_rates"
+      ],
+      "credibility_profile": {
+        "base_score": 0.95,
+        "independent_evidence": true,
+        "publisher_reputation": "HIGH",
+        "corroboration_required": false
+      },
+      "freshness_profile": {
+        "default_ttl_seconds": 86400,
+        "max_stale_seconds": 604800,
+        "update_frequency": "daily"
+      },
       "lifecycle": "ACTIVE",
       "compliance_status": "ALLOWED",
-      "reference_locations": ["https://data.imf.org"],
-      "verification_state": "INFERRED"
+      "reference_locations": [
+        "https://data.imf.org"
+      ],
+      "verification_state": "INFERRED",
+      "original_publisher": "International Monetary Fund",
+      "provider": "IMF",
+      "collector": null
     },
     {
       "source_id": "SRC_WORLD_BANK",
@@ -263,15 +626,39 @@
       "source_type": "international_development",
       "transport": "API",
       "source_origin": "WM_CURATED",
-      "languages": ["en"],
-      "regions": ["GLOBAL"],
-      "domains": ["trade_flows", "economic_indicators", "comtrade", "development_metrics", "food_prices"],
-      "credibility_profile": {"base_score": 0.9, "independent_evidence": true, "publisher_reputation": "HIGH", "corroboration_required": false},
-      "freshness_profile": {"default_ttl_seconds": 2592000, "max_stale_seconds": 7776000, "update_frequency": "monthly"},
+      "languages": [
+        "en"
+      ],
+      "regions": [
+        "GLOBAL"
+      ],
+      "domains": [
+        "trade_flows",
+        "economic_indicators",
+        "comtrade",
+        "development_metrics",
+        "food_prices"
+      ],
+      "credibility_profile": {
+        "base_score": 0.9,
+        "independent_evidence": true,
+        "publisher_reputation": "HIGH",
+        "corroboration_required": false
+      },
+      "freshness_profile": {
+        "default_ttl_seconds": 2592000,
+        "max_stale_seconds": 7776000,
+        "update_frequency": "monthly"
+      },
       "lifecycle": "ACTIVE",
       "compliance_status": "ALLOWED",
-      "reference_locations": ["https://api.worldbank.org/v2"],
-      "verification_state": "INFERRED"
+      "reference_locations": [
+        "https://api.worldbank.org/v2"
+      ],
+      "verification_state": "INFERRED",
+      "original_publisher": "World Bank Group",
+      "provider": "WORLD_BANK",
+      "collector": null
     },
     {
       "source_id": "SRC_RUSSIAN_ENERGY",
@@ -281,15 +668,42 @@
       "source_type": "specialized_tracker",
       "transport": "RELAY",
       "source_origin": "WM_CURATED",
-      "languages": ["en", "ru"],
-      "regions": ["EURASIA", "EU", "GLOBAL"],
-      "domains": ["russian_oil", "russian_gas", "pipeline_flows", "sanctions_evasion", "urals_crude"],
-      "credibility_profile": {"base_score": 0.7, "independent_evidence": true, "publisher_reputation": "MEDIUM", "corroboration_required": true},
-      "freshness_profile": {"default_ttl_seconds": 86400, "max_stale_seconds": 259200, "update_frequency": "daily"},
+      "languages": [
+        "en",
+        "ru"
+      ],
+      "regions": [
+        "EURASIA",
+        "EU",
+        "GLOBAL"
+      ],
+      "domains": [
+        "russian_oil",
+        "russian_gas",
+        "pipeline_flows",
+        "sanctions_evasion",
+        "urals_crude"
+      ],
+      "credibility_profile": {
+        "base_score": 0.7,
+        "independent_evidence": true,
+        "publisher_reputation": "MEDIUM",
+        "corroboration_required": true
+      },
+      "freshness_profile": {
+        "default_ttl_seconds": 86400,
+        "max_stale_seconds": 259200,
+        "update_frequency": "daily"
+      },
       "lifecycle": "ACTIVE",
       "compliance_status": "ALLOWED",
-      "reference_locations": ["russia.worldmonitor.dev/api"],
-      "verification_state": "INFERRED"
+      "reference_locations": [
+        "russia.worldmonitor.dev/api"
+      ],
+      "verification_state": "SOURCE_LINEAGE_UNKNOWN",
+      "original_publisher": null,
+      "provider": "WorldMonitor",
+      "collector": "WM_RUSSIA_DESK"
     },
     {
       "source_id": "SRC_MENA_ENERGY",
@@ -299,15 +713,40 @@
       "source_type": "specialized_tracker",
       "transport": "RELAY",
       "source_origin": "WM_CURATED",
-      "languages": ["en", "ar"],
-      "regions": ["MENA", "GLOBAL"],
-      "domains": ["gcc_energy", "opec_production", "mena_pipelines", "lng_exports"],
-      "credibility_profile": {"base_score": 0.75, "independent_evidence": true, "publisher_reputation": "MEDIUM", "corroboration_required": true},
-      "freshness_profile": {"default_ttl_seconds": 86400, "max_stale_seconds": 259200, "update_frequency": "daily"},
+      "languages": [
+        "en",
+        "ar"
+      ],
+      "regions": [
+        "MENA",
+        "GLOBAL"
+      ],
+      "domains": [
+        "gcc_energy",
+        "opec_production",
+        "mena_pipelines",
+        "lng_exports"
+      ],
+      "credibility_profile": {
+        "base_score": 0.75,
+        "independent_evidence": true,
+        "publisher_reputation": "MEDIUM",
+        "corroboration_required": true
+      },
+      "freshness_profile": {
+        "default_ttl_seconds": 86400,
+        "max_stale_seconds": 259200,
+        "update_frequency": "daily"
+      },
       "lifecycle": "ACTIVE",
       "compliance_status": "ALLOWED",
-      "reference_locations": ["mena.worldmonitor.dev/api"],
-      "verification_state": "INFERRED"
+      "reference_locations": [
+        "mena.worldmonitor.dev/api"
+      ],
+      "verification_state": "SOURCE_LINEAGE_UNKNOWN",
+      "original_publisher": null,
+      "provider": "WorldMonitor",
+      "collector": "WM_MENA_DESK"
     },
     {
       "source_id": "SRC_SHIPPING_V2",
@@ -317,15 +756,38 @@
       "source_type": "shipping_intelligence",
       "transport": "API",
       "source_origin": "WM_CURATED",
-      "languages": ["en"],
-      "regions": ["GLOBAL"],
-      "domains": ["route_intelligence", "shipping_rates", "chokepoint_transit", "webhooks"],
-      "credibility_profile": {"base_score": 0.85, "independent_evidence": true, "publisher_reputation": "HIGH", "corroboration_required": false},
-      "freshness_profile": {"default_ttl_seconds": 3600, "max_stale_seconds": 86400, "update_frequency": "continuous"},
+      "languages": [
+        "en"
+      ],
+      "regions": [
+        "GLOBAL"
+      ],
+      "domains": [
+        "route_intelligence",
+        "shipping_rates",
+        "chokepoint_transit",
+        "webhooks"
+      ],
+      "credibility_profile": {
+        "base_score": 0.85,
+        "independent_evidence": true,
+        "publisher_reputation": "HIGH",
+        "corroboration_required": false
+      },
+      "freshness_profile": {
+        "default_ttl_seconds": 3600,
+        "max_stale_seconds": 86400,
+        "update_frequency": "continuous"
+      },
       "lifecycle": "ACTIVE",
       "compliance_status": "ALLOWED",
-      "reference_locations": ["shipping.worldmonitor.dev/v2"],
-      "verification_state": "INFERRED"
+      "reference_locations": [
+        "shipping.worldmonitor.dev/v2"
+      ],
+      "verification_state": "INFERRED",
+      "original_publisher": "Multiple Shipping Data Providers",
+      "provider": "WorldMonitor",
+      "collector": "WM_SHIPPING_V2"
     },
     {
       "source_id": "SRC_MARITIME_WARN",
@@ -333,17 +795,39 @@
       "provider_name": "MARITIME_WARN_DESK",
       "host": "maritime.worldmonitor.dev",
       "source_type": "navigational_safety",
-      "transport": "API",
+      "transport": "RELAY",
       "source_origin": "WM_CURATED",
-      "languages": ["en"],
-      "regions": ["GLOBAL"],
-      "domains": ["navigational_warnings", "maritime_safety", "chokepoint_hazards"],
-      "credibility_profile": {"base_score": 0.8, "independent_evidence": true, "publisher_reputation": "MEDIUM", "corroboration_required": false},
-      "freshness_profile": {"default_ttl_seconds": 86400, "max_stale_seconds": 259200, "update_frequency": "daily"},
+      "languages": [
+        "en"
+      ],
+      "regions": [
+        "GLOBAL"
+      ],
+      "domains": [
+        "navigational_warnings",
+        "maritime_safety",
+        "chokepoint_hazards"
+      ],
+      "credibility_profile": {
+        "base_score": 0.8,
+        "independent_evidence": true,
+        "publisher_reputation": "MEDIUM",
+        "corroboration_required": false
+      },
+      "freshness_profile": {
+        "default_ttl_seconds": 86400,
+        "max_stale_seconds": 259200,
+        "update_frequency": "daily"
+      },
       "lifecycle": "ACTIVE",
       "compliance_status": "ALLOWED",
-      "reference_locations": ["maritime.worldmonitor.dev/warnings"],
-      "verification_state": "INFERRED"
+      "reference_locations": [
+        "maritime.worldmonitor.dev/warnings"
+      ],
+      "verification_state": "INFERRED",
+      "original_publisher": "Multiple Maritime Authorities",
+      "provider": "WorldMonitor",
+      "collector": "WM_MARITIME_WARN"
     },
     {
       "source_id": "SRC_PENTAGON",
@@ -353,15 +837,39 @@
       "source_type": "government_military",
       "transport": "RSS",
       "source_origin": "WM_CURATED",
-      "languages": ["en"],
-      "regions": ["NORTH_AMERICA", "GLOBAL"],
-      "domains": ["military_posture", "defense_policy", "defense_industrial_base", "military_exercises"],
-      "credibility_profile": {"base_score": 0.85, "independent_evidence": true, "publisher_reputation": "HIGH", "corroboration_required": false},
-      "freshness_profile": {"default_ttl_seconds": 86400, "max_stale_seconds": 604800, "update_frequency": "daily"},
+      "languages": [
+        "en"
+      ],
+      "regions": [
+        "NORTH_AMERICA",
+        "GLOBAL"
+      ],
+      "domains": [
+        "military_posture",
+        "defense_policy",
+        "defense_industrial_base",
+        "military_exercises"
+      ],
+      "credibility_profile": {
+        "base_score": 0.85,
+        "independent_evidence": true,
+        "publisher_reputation": "HIGH",
+        "corroboration_required": false
+      },
+      "freshness_profile": {
+        "default_ttl_seconds": 86400,
+        "max_stale_seconds": 604800,
+        "update_frequency": "daily"
+      },
       "lifecycle": "ACTIVE",
       "compliance_status": "ALLOWED",
-      "reference_locations": ["https://www.defense.gov/news"],
-      "verification_state": "INFERRED"
+      "reference_locations": [
+        "https://www.defense.gov/news"
+      ],
+      "verification_state": "INFERRED",
+      "original_publisher": "U.S. Department of Defense",
+      "provider": "DOD",
+      "collector": null
     }
   ]
 }

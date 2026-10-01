@@ -1,226 +1,1136 @@
 {
   "registry_type": "bindings",
   "version": "1.0.0",
-  "generated_at": "2025-01-15T00:00:00Z",
+  "generated_at": "2026-10-01T15:21:03Z",
   "description": "Cross-registry binding graph connecting profiles, roles, methodologies, APIs, sources, delivery semantics, lifecycle, and outputs.",
   "profile_role_bindings": [
-    {"profile_id": "P01", "role_id": "ENERGY", "binding_type": "PRIMARY", "weight": 0.4},
-    {"profile_id": "P01", "role_id": "COMMODITY", "binding_type": "PRIMARY", "weight": 0.35},
-    {"profile_id": "P01", "role_id": "WORLD", "binding_type": "SECONDARY", "weight": 0.15},
-    {"profile_id": "P01", "role_id": "FINANCE", "binding_type": "SECONDARY", "weight": 0.1},
-    {"profile_id": "P02", "role_id": "ENERGY", "binding_type": "PRIMARY", "weight": 0.45},
-    {"profile_id": "P02", "role_id": "COMMODITY", "binding_type": "PRIMARY", "weight": 0.35},
-    {"profile_id": "P02", "role_id": "WORLD", "binding_type": "SECONDARY", "weight": 0.1},
-    {"profile_id": "P02", "role_id": "FINANCE", "binding_type": "SECONDARY", "weight": 0.1},
-    {"profile_id": "P03", "role_id": "COMMODITY", "binding_type": "PRIMARY", "weight": 0.4},
-    {"profile_id": "P03", "role_id": "FINANCE", "binding_type": "PRIMARY", "weight": 0.4},
-    {"profile_id": "P03", "role_id": "WORLD", "binding_type": "SECONDARY", "weight": 0.2},
-    {"profile_id": "P04", "role_id": "COMMODITY", "binding_type": "PRIMARY", "weight": 0.35},
-    {"profile_id": "P04", "role_id": "TECH", "binding_type": "PRIMARY", "weight": 0.35},
-    {"profile_id": "P04", "role_id": "FINANCE", "binding_type": "SECONDARY", "weight": 0.2},
-    {"profile_id": "P04", "role_id": "ENERGY", "binding_type": "SECONDARY", "weight": 0.1},
-    {"profile_id": "P05", "role_id": "COMMODITY", "binding_type": "PRIMARY", "weight": 0.5},
-    {"profile_id": "P05", "role_id": "WORLD", "binding_type": "SECONDARY", "weight": 0.3},
-    {"profile_id": "P05", "role_id": "FINANCE", "binding_type": "SECONDARY", "weight": 0.2},
-    {"profile_id": "P06", "role_id": "FINANCE", "binding_type": "PRIMARY", "weight": 0.7},
-    {"profile_id": "P06", "role_id": "WORLD", "binding_type": "SECONDARY", "weight": 0.3},
-    {"profile_id": "P07", "role_id": "FINANCE", "binding_type": "PRIMARY", "weight": 0.7},
-    {"profile_id": "P07", "role_id": "WORLD", "binding_type": "SECONDARY", "weight": 0.3},
-    {"profile_id": "P08", "role_id": "FINANCE", "binding_type": "PRIMARY", "weight": 0.7},
-    {"profile_id": "P08", "role_id": "WORLD", "binding_type": "SECONDARY", "weight": 0.3},
-    {"profile_id": "P09", "role_id": "TECH", "binding_type": "PRIMARY", "weight": 0.4},
-    {"profile_id": "P09", "role_id": "FINANCE", "binding_type": "SECONDARY", "weight": 0.2},
-    {"profile_id": "P09", "role_id": "COMMODITY", "binding_type": "SECONDARY", "weight": 0.2},
-    {"profile_id": "P09", "role_id": "ENERGY", "binding_type": "SECONDARY", "weight": 0.1},
-    {"profile_id": "P09", "role_id": "WORLD", "binding_type": "SECONDARY", "weight": 0.1},
-    {"profile_id": "P10", "role_id": "WORLD", "binding_type": "PRIMARY", "weight": 0.5},
-    {"profile_id": "P10", "role_id": "ENERGY", "binding_type": "SECONDARY", "weight": 0.2},
-    {"profile_id": "P10", "role_id": "COMMODITY", "binding_type": "SECONDARY", "weight": 0.2},
-    {"profile_id": "P10", "role_id": "FINANCE", "binding_type": "SECONDARY", "weight": 0.1}
+    {
+      "profile_id": "P01",
+      "role_id": "ENERGY",
+      "binding_type": "PRIMARY",
+      "default_prior": 0.4
+    },
+    {
+      "profile_id": "P01",
+      "role_id": "COMMODITY",
+      "binding_type": "PRIMARY",
+      "default_prior": 0.35
+    },
+    {
+      "profile_id": "P01",
+      "role_id": "WORLD",
+      "binding_type": "SECONDARY",
+      "default_prior": 0.15
+    },
+    {
+      "profile_id": "P01",
+      "role_id": "FINANCE",
+      "binding_type": "SECONDARY",
+      "default_prior": 0.1
+    },
+    {
+      "profile_id": "P02",
+      "role_id": "ENERGY",
+      "binding_type": "PRIMARY",
+      "default_prior": 0.45
+    },
+    {
+      "profile_id": "P02",
+      "role_id": "COMMODITY",
+      "binding_type": "PRIMARY",
+      "default_prior": 0.35
+    },
+    {
+      "profile_id": "P02",
+      "role_id": "WORLD",
+      "binding_type": "SECONDARY",
+      "default_prior": 0.1
+    },
+    {
+      "profile_id": "P02",
+      "role_id": "FINANCE",
+      "binding_type": "SECONDARY",
+      "default_prior": 0.1
+    },
+    {
+      "profile_id": "P03",
+      "role_id": "COMMODITY",
+      "binding_type": "PRIMARY",
+      "default_prior": 0.4
+    },
+    {
+      "profile_id": "P03",
+      "role_id": "FINANCE",
+      "binding_type": "PRIMARY",
+      "default_prior": 0.4
+    },
+    {
+      "profile_id": "P03",
+      "role_id": "WORLD",
+      "binding_type": "SECONDARY",
+      "default_prior": 0.2
+    },
+    {
+      "profile_id": "P04",
+      "role_id": "COMMODITY",
+      "binding_type": "PRIMARY",
+      "default_prior": 0.35
+    },
+    {
+      "profile_id": "P04",
+      "role_id": "TECH",
+      "binding_type": "PRIMARY",
+      "default_prior": 0.35
+    },
+    {
+      "profile_id": "P04",
+      "role_id": "FINANCE",
+      "binding_type": "SECONDARY",
+      "default_prior": 0.2
+    },
+    {
+      "profile_id": "P04",
+      "role_id": "ENERGY",
+      "binding_type": "SECONDARY",
+      "default_prior": 0.1
+    },
+    {
+      "profile_id": "P05",
+      "role_id": "COMMODITY",
+      "binding_type": "PRIMARY",
+      "default_prior": 0.5
+    },
+    {
+      "profile_id": "P05",
+      "role_id": "WORLD",
+      "binding_type": "SECONDARY",
+      "default_prior": 0.3
+    },
+    {
+      "profile_id": "P05",
+      "role_id": "FINANCE",
+      "binding_type": "SECONDARY",
+      "default_prior": 0.2
+    },
+    {
+      "profile_id": "P06",
+      "role_id": "FINANCE",
+      "binding_type": "PRIMARY",
+      "default_prior": 0.7
+    },
+    {
+      "profile_id": "P06",
+      "role_id": "WORLD",
+      "binding_type": "SECONDARY",
+      "default_prior": 0.3
+    },
+    {
+      "profile_id": "P07",
+      "role_id": "FINANCE",
+      "binding_type": "PRIMARY",
+      "default_prior": 0.7
+    },
+    {
+      "profile_id": "P07",
+      "role_id": "WORLD",
+      "binding_type": "SECONDARY",
+      "default_prior": 0.3
+    },
+    {
+      "profile_id": "P08",
+      "role_id": "FINANCE",
+      "binding_type": "PRIMARY",
+      "default_prior": 0.7
+    },
+    {
+      "profile_id": "P08",
+      "role_id": "WORLD",
+      "binding_type": "SECONDARY",
+      "default_prior": 0.3
+    },
+    {
+      "profile_id": "P09",
+      "role_id": "TECH",
+      "binding_type": "PRIMARY",
+      "default_prior": 0.4
+    },
+    {
+      "profile_id": "P09",
+      "role_id": "FINANCE",
+      "binding_type": "SECONDARY",
+      "default_prior": 0.2
+    },
+    {
+      "profile_id": "P09",
+      "role_id": "COMMODITY",
+      "binding_type": "SECONDARY",
+      "default_prior": 0.2
+    },
+    {
+      "profile_id": "P09",
+      "role_id": "ENERGY",
+      "binding_type": "SECONDARY",
+      "default_prior": 0.1
+    },
+    {
+      "profile_id": "P09",
+      "role_id": "WORLD",
+      "binding_type": "SECONDARY",
+      "default_prior": 0.1
+    },
+    {
+      "profile_id": "P10",
+      "role_id": "WORLD",
+      "binding_type": "PRIMARY",
+      "default_prior": 0.5
+    },
+    {
+      "profile_id": "P10",
+      "role_id": "ENERGY",
+      "binding_type": "SECONDARY",
+      "default_prior": 0.2
+    },
+    {
+      "profile_id": "P10",
+      "role_id": "COMMODITY",
+      "binding_type": "SECONDARY",
+      "default_prior": 0.2
+    },
+    {
+      "profile_id": "P10",
+      "role_id": "FINANCE",
+      "binding_type": "SECONDARY",
+      "default_prior": 0.1
+    }
   ],
   "profile_methodology_bindings": [
-    {"profile_id": "P01", "methodology_id": "M15", "binding_type": "CORE", "classification": "O"},
-    {"profile_id": "P01", "methodology_id": "M16", "binding_type": "CORE", "classification": "O"},
-    {"profile_id": "P01", "methodology_id": "M20", "binding_type": "CORE", "classification": "O"},
-    {"profile_id": "P01", "methodology_id": "M03", "binding_type": "CORE", "classification": "O"},
-    {"profile_id": "P01", "methodology_id": "M17", "binding_type": "TRIGGERED", "classification": "R"},
-    {"profile_id": "P01", "methodology_id": "M18", "binding_type": "TRIGGERED", "classification": "R"},
-    {"profile_id": "P01", "methodology_id": "M19", "binding_type": "TRIGGERED", "classification": "R"},
-    {"profile_id": "P01", "methodology_id": "M21", "binding_type": "TRIGGERED", "classification": "R"},
-    {"profile_id": "P01", "methodology_id": "M23", "binding_type": "TRIGGERED", "classification": "R"},
-    {"profile_id": "P01", "methodology_id": "C03", "binding_type": "TRIGGERED", "classification": "E"},
-    {"profile_id": "P01", "methodology_id": "C04", "binding_type": "TRIGGERED", "classification": "E"},
-    {"profile_id": "P01", "methodology_id": "C06", "binding_type": "AUDIT", "classification": "O"},
-    {"profile_id": "P01", "methodology_id": "C07", "binding_type": "AUDIT", "classification": "O"},
-    {"profile_id": "P02", "methodology_id": "M15", "binding_type": "CORE", "classification": "O"},
-    {"profile_id": "P02", "methodology_id": "M17", "binding_type": "CORE", "classification": "O"},
-    {"profile_id": "P02", "methodology_id": "M18", "binding_type": "CORE", "classification": "O"},
-    {"profile_id": "P02", "methodology_id": "M20", "binding_type": "CORE", "classification": "O"},
-    {"profile_id": "P03", "methodology_id": "M24", "binding_type": "CORE", "classification": "O"},
-    {"profile_id": "P03", "methodology_id": "M15", "binding_type": "CORE", "classification": "O"},
-    {"profile_id": "P03", "methodology_id": "M03", "binding_type": "CORE", "classification": "O"},
-    {"profile_id": "P04", "methodology_id": "M14", "binding_type": "CORE", "classification": "O"},
-    {"profile_id": "P04", "methodology_id": "M15", "binding_type": "CORE", "classification": "O"},
-    {"profile_id": "P04", "methodology_id": "M16", "binding_type": "CORE", "classification": "O"},
-    {"profile_id": "P05", "methodology_id": "M12", "binding_type": "CORE", "classification": "O"},
-    {"profile_id": "P05", "methodology_id": "M15", "binding_type": "CORE", "classification": "O"},
-    {"profile_id": "P05", "methodology_id": "M03", "binding_type": "CORE", "classification": "O"},
-    {"profile_id": "P06", "methodology_id": "M08", "binding_type": "CORE", "classification": "O"},
-    {"profile_id": "P06", "methodology_id": "M10", "binding_type": "CORE", "classification": "O"},
-    {"profile_id": "P06", "methodology_id": "M03", "binding_type": "CORE", "classification": "O"},
-    {"profile_id": "P07", "methodology_id": "M08", "binding_type": "CORE", "classification": "O"},
-    {"profile_id": "P07", "methodology_id": "M10", "binding_type": "CORE", "classification": "O"},
-    {"profile_id": "P07", "methodology_id": "M03", "binding_type": "CORE", "classification": "O"},
-    {"profile_id": "P08", "methodology_id": "M08", "binding_type": "CORE", "classification": "O"},
-    {"profile_id": "P08", "methodology_id": "M03", "binding_type": "CORE", "classification": "O"},
-    {"profile_id": "P09", "methodology_id": "M14", "binding_type": "CORE", "classification": "O"},
-    {"profile_id": "P09", "methodology_id": "M13", "binding_type": "CORE", "classification": "O"},
-    {"profile_id": "P09", "methodology_id": "M16", "binding_type": "CORE", "classification": "O"},
-    {"profile_id": "P10", "methodology_id": "M03", "binding_type": "CORE", "classification": "O"},
-    {"profile_id": "P10", "methodology_id": "M04", "binding_type": "CORE", "classification": "O"},
-    {"profile_id": "P10", "methodology_id": "M23", "binding_type": "CORE", "classification": "O"},
-    {"profile_id": "P10", "methodology_id": "M22", "binding_type": "CORE", "classification": "O"}
+    {
+      "profile_id": "P01",
+      "methodology_id": "M15",
+      "binding_type": "CORE"
+    },
+    {
+      "profile_id": "P01",
+      "methodology_id": "M16",
+      "binding_type": "CORE"
+    },
+    {
+      "profile_id": "P01",
+      "methodology_id": "M20",
+      "binding_type": "CORE"
+    },
+    {
+      "profile_id": "P01",
+      "methodology_id": "M03",
+      "binding_type": "CORE"
+    },
+    {
+      "profile_id": "P01",
+      "methodology_id": "M17",
+      "binding_type": "TRIGGERED"
+    },
+    {
+      "profile_id": "P01",
+      "methodology_id": "M18",
+      "binding_type": "TRIGGERED"
+    },
+    {
+      "profile_id": "P01",
+      "methodology_id": "M19",
+      "binding_type": "TRIGGERED"
+    },
+    {
+      "profile_id": "P01",
+      "methodology_id": "M21",
+      "binding_type": "TRIGGERED"
+    },
+    {
+      "profile_id": "P01",
+      "methodology_id": "M23",
+      "binding_type": "TRIGGERED"
+    },
+    {
+      "profile_id": "P01",
+      "methodology_id": "C03",
+      "binding_type": "TRIGGERED"
+    },
+    {
+      "profile_id": "P01",
+      "methodology_id": "C04",
+      "binding_type": "TRIGGERED"
+    },
+    {
+      "profile_id": "P01",
+      "methodology_id": "C06",
+      "binding_type": "AUDIT"
+    },
+    {
+      "profile_id": "P01",
+      "methodology_id": "C07",
+      "binding_type": "AUDIT"
+    },
+    {
+      "profile_id": "P02",
+      "methodology_id": "M15",
+      "binding_type": "CORE"
+    },
+    {
+      "profile_id": "P02",
+      "methodology_id": "M17",
+      "binding_type": "CORE"
+    },
+    {
+      "profile_id": "P02",
+      "methodology_id": "M18",
+      "binding_type": "CORE"
+    },
+    {
+      "profile_id": "P02",
+      "methodology_id": "M20",
+      "binding_type": "CORE"
+    },
+    {
+      "profile_id": "P03",
+      "methodology_id": "M24",
+      "binding_type": "CORE"
+    },
+    {
+      "profile_id": "P03",
+      "methodology_id": "M15",
+      "binding_type": "CORE"
+    },
+    {
+      "profile_id": "P03",
+      "methodology_id": "M03",
+      "binding_type": "CORE"
+    },
+    {
+      "profile_id": "P04",
+      "methodology_id": "M14",
+      "binding_type": "CORE"
+    },
+    {
+      "profile_id": "P04",
+      "methodology_id": "M15",
+      "binding_type": "CORE"
+    },
+    {
+      "profile_id": "P04",
+      "methodology_id": "M16",
+      "binding_type": "CORE"
+    },
+    {
+      "profile_id": "P05",
+      "methodology_id": "M12",
+      "binding_type": "CORE"
+    },
+    {
+      "profile_id": "P05",
+      "methodology_id": "M15",
+      "binding_type": "CORE"
+    },
+    {
+      "profile_id": "P05",
+      "methodology_id": "M03",
+      "binding_type": "CORE"
+    },
+    {
+      "profile_id": "P06",
+      "methodology_id": "M08",
+      "binding_type": "CORE"
+    },
+    {
+      "profile_id": "P06",
+      "methodology_id": "M10",
+      "binding_type": "CORE"
+    },
+    {
+      "profile_id": "P06",
+      "methodology_id": "M03",
+      "binding_type": "CORE"
+    },
+    {
+      "profile_id": "P07",
+      "methodology_id": "M08",
+      "binding_type": "CORE"
+    },
+    {
+      "profile_id": "P07",
+      "methodology_id": "M10",
+      "binding_type": "CORE"
+    },
+    {
+      "profile_id": "P07",
+      "methodology_id": "M03",
+      "binding_type": "CORE"
+    },
+    {
+      "profile_id": "P08",
+      "methodology_id": "M08",
+      "binding_type": "CORE"
+    },
+    {
+      "profile_id": "P08",
+      "methodology_id": "M03",
+      "binding_type": "CORE"
+    },
+    {
+      "profile_id": "P09",
+      "methodology_id": "M14",
+      "binding_type": "CORE"
+    },
+    {
+      "profile_id": "P09",
+      "methodology_id": "M13",
+      "binding_type": "CORE"
+    },
+    {
+      "profile_id": "P09",
+      "methodology_id": "M16",
+      "binding_type": "CORE"
+    },
+    {
+      "profile_id": "P10",
+      "methodology_id": "M03",
+      "binding_type": "CORE"
+    },
+    {
+      "profile_id": "P10",
+      "methodology_id": "M04",
+      "binding_type": "CORE"
+    },
+    {
+      "profile_id": "P10",
+      "methodology_id": "M23",
+      "binding_type": "CORE"
+    },
+    {
+      "profile_id": "P10",
+      "methodology_id": "M22",
+      "binding_type": "CORE"
+    }
   ],
   "role_methodology_bindings": [
-    {"role_id": "WORLD", "methodology_id": "M04", "binding_type": "DEFAULT", "classification": "O"},
-    {"role_id": "WORLD", "methodology_id": "M05", "binding_type": "DEFAULT", "classification": "O"},
-    {"role_id": "WORLD", "methodology_id": "M03", "binding_type": "DEFAULT", "classification": "O"},
-    {"role_id": "WORLD", "methodology_id": "M23", "binding_type": "DEFAULT", "classification": "O"},
-    {"role_id": "WORLD", "methodology_id": "M22", "binding_type": "DEFAULT", "classification": "O"},
-    {"role_id": "WORLD", "methodology_id": "C03", "binding_type": "DEFAULT", "classification": "O"},
-    {"role_id": "WORLD", "methodology_id": "C04", "binding_type": "DEFAULT", "classification": "O"},
-    {"role_id": "TECH", "methodology_id": "M14", "binding_type": "DEFAULT", "classification": "O"},
-    {"role_id": "TECH", "methodology_id": "M16", "binding_type": "DEFAULT", "classification": "O"},
-    {"role_id": "TECH", "methodology_id": "M13", "binding_type": "DEFAULT", "classification": "O"},
-    {"role_id": "TECH", "methodology_id": "M01", "binding_type": "DEFAULT", "classification": "O"},
-    {"role_id": "TECH", "methodology_id": "C04", "binding_type": "DEFAULT", "classification": "O"},
-    {"role_id": "FINANCE", "methodology_id": "M08", "binding_type": "DEFAULT", "classification": "O"},
-    {"role_id": "FINANCE", "methodology_id": "M09", "binding_type": "DEFAULT", "classification": "O"},
-    {"role_id": "FINANCE", "methodology_id": "M10", "binding_type": "DEFAULT", "classification": "O"},
-    {"role_id": "FINANCE", "methodology_id": "C05", "binding_type": "DEFAULT", "classification": "O"},
-    {"role_id": "COMMODITY", "methodology_id": "M15", "binding_type": "DEFAULT", "classification": "O"},
-    {"role_id": "COMMODITY", "methodology_id": "M12", "binding_type": "DEFAULT", "classification": "O"},
-    {"role_id": "COMMODITY", "methodology_id": "M16", "binding_type": "DEFAULT", "classification": "O"},
-    {"role_id": "COMMODITY", "methodology_id": "M03", "binding_type": "DEFAULT", "classification": "O"},
-    {"role_id": "ENERGY", "methodology_id": "M20", "binding_type": "DEFAULT", "classification": "O"},
-    {"role_id": "ENERGY", "methodology_id": "M17", "binding_type": "DEFAULT", "classification": "O"},
-    {"role_id": "ENERGY", "methodology_id": "M18", "binding_type": "DEFAULT", "classification": "O"},
-    {"role_id": "ENERGY", "methodology_id": "M19", "binding_type": "DEFAULT", "classification": "O"},
-    {"role_id": "ENERGY", "methodology_id": "M15", "binding_type": "DEFAULT", "classification": "O"}
+    {
+      "role_id": "WORLD",
+      "methodology_id": "M04",
+      "binding_type": "DEFAULT"
+    },
+    {
+      "role_id": "WORLD",
+      "methodology_id": "M05",
+      "binding_type": "DEFAULT"
+    },
+    {
+      "role_id": "WORLD",
+      "methodology_id": "M03",
+      "binding_type": "DEFAULT"
+    },
+    {
+      "role_id": "WORLD",
+      "methodology_id": "M23",
+      "binding_type": "DEFAULT"
+    },
+    {
+      "role_id": "WORLD",
+      "methodology_id": "M22",
+      "binding_type": "DEFAULT"
+    },
+    {
+      "role_id": "WORLD",
+      "methodology_id": "C03",
+      "binding_type": "DEFAULT"
+    },
+    {
+      "role_id": "WORLD",
+      "methodology_id": "C04",
+      "binding_type": "DEFAULT"
+    },
+    {
+      "role_id": "TECH",
+      "methodology_id": "M14",
+      "binding_type": "DEFAULT"
+    },
+    {
+      "role_id": "TECH",
+      "methodology_id": "M16",
+      "binding_type": "DEFAULT"
+    },
+    {
+      "role_id": "TECH",
+      "methodology_id": "M13",
+      "binding_type": "DEFAULT"
+    },
+    {
+      "role_id": "TECH",
+      "methodology_id": "M01",
+      "binding_type": "DEFAULT"
+    },
+    {
+      "role_id": "TECH",
+      "methodology_id": "C04",
+      "binding_type": "DEFAULT"
+    },
+    {
+      "role_id": "FINANCE",
+      "methodology_id": "M08",
+      "binding_type": "DEFAULT"
+    },
+    {
+      "role_id": "FINANCE",
+      "methodology_id": "M09",
+      "binding_type": "DEFAULT"
+    },
+    {
+      "role_id": "FINANCE",
+      "methodology_id": "M10",
+      "binding_type": "DEFAULT"
+    },
+    {
+      "role_id": "FINANCE",
+      "methodology_id": "C05",
+      "binding_type": "DEFAULT"
+    },
+    {
+      "role_id": "COMMODITY",
+      "methodology_id": "M15",
+      "binding_type": "DEFAULT"
+    },
+    {
+      "role_id": "COMMODITY",
+      "methodology_id": "M12",
+      "binding_type": "DEFAULT"
+    },
+    {
+      "role_id": "COMMODITY",
+      "methodology_id": "M16",
+      "binding_type": "DEFAULT"
+    },
+    {
+      "role_id": "COMMODITY",
+      "methodology_id": "M03",
+      "binding_type": "DEFAULT"
+    },
+    {
+      "role_id": "ENERGY",
+      "methodology_id": "M20",
+      "binding_type": "DEFAULT"
+    },
+    {
+      "role_id": "ENERGY",
+      "methodology_id": "M17",
+      "binding_type": "DEFAULT"
+    },
+    {
+      "role_id": "ENERGY",
+      "methodology_id": "M18",
+      "binding_type": "DEFAULT"
+    },
+    {
+      "role_id": "ENERGY",
+      "methodology_id": "M19",
+      "binding_type": "DEFAULT"
+    },
+    {
+      "role_id": "ENERGY",
+      "methodology_id": "M15",
+      "binding_type": "DEFAULT"
+    }
   ],
   "methodology_api_bindings": [
-    {"methodology_id": "M15", "operation_id": "GetEnergyPrices", "classification": "O"},
-    {"methodology_id": "M15", "operation_id": "ListCommodityQuotes", "classification": "O"},
-    {"methodology_id": "M18", "operation_id": "GetCrudeInventories", "classification": "O"},
-    {"methodology_id": "M18", "operation_id": "GetOilInventories", "classification": "O"},
-    {"methodology_id": "M18", "operation_id": "GetNatGasStorage", "classification": "O"},
-    {"methodology_id": "M18", "operation_id": "GetEuGasStorage", "classification": "O"},
-    {"methodology_id": "M20", "operation_id": "ListEnergyDisruptions", "classification": "O"},
-    {"methodology_id": "M20", "operation_id": "GetEnergyCrisisPolicies", "classification": "O"},
-    {"methodology_id": "M17", "operation_id": "GetPipelineDetail", "classification": "O"},
-    {"methodology_id": "M17", "operation_id": "ListPipelines", "classification": "O"},
-    {"methodology_id": "M19", "operation_id": "GetFuelShortageDetail", "classification": "O"},
-    {"methodology_id": "M19", "operation_id": "ListFuelShortages", "classification": "O"},
-    {"methodology_id": "M16", "operation_id": "GetShippingStress", "classification": "O"},
-    {"methodology_id": "M16", "operation_id": "GetShippingRates", "classification": "O"},
-    {"methodology_id": "M16", "operation_id": "GetCountryCostShock", "classification": "O"},
-    {"methodology_id": "M14", "operation_id": "GetChokepointStatus", "classification": "O"},
-    {"methodology_id": "M14", "operation_id": "GetChokepointDependencies", "classification": "O"},
-    {"methodology_id": "M14", "operation_id": "GetBypassOptions", "classification": "O"},
-    {"methodology_id": "M04", "operation_id": "ListAcledEvents", "classification": "O"},
-    {"methodology_id": "M04", "operation_id": "ListUcdpEvents", "classification": "O"},
-    {"methodology_id": "M05", "operation_id": "ListSanctionsPressure", "classification": "O"},
-    {"methodology_id": "M05", "operation_id": "LookupSanctionEntity", "classification": "O"},
-    {"methodology_id": "M06", "operation_id": "GetTheaterPosture", "classification": "O"},
-    {"methodology_id": "M06", "operation_id": "GetUSNIFleetReport", "classification": "O"},
-    {"methodology_id": "M07", "operation_id": "GetHumanitarianSummary", "classification": "O"},
-    {"methodology_id": "M08", "operation_id": "GetEconomicStress", "classification": "O"},
-    {"methodology_id": "M08", "operation_id": "GetEuFsi", "classification": "O"},
-    {"methodology_id": "M09", "operation_id": "GetCotPositioning", "classification": "O"},
-    {"methodology_id": "M10", "operation_id": "GetUsTreasuryParYieldCurve", "classification": "O"},
-    {"methodology_id": "M10", "operation_id": "GetEuYieldCurve", "classification": "O"},
-    {"methodology_id": "M11", "operation_id": "GetTradeFlows", "classification": "O"},
-    {"methodology_id": "M11", "operation_id": "ListComtradeFlows", "classification": "O"},
-    {"methodology_id": "M12", "operation_id": "GetFaoFoodPriceIndex", "classification": "O"},
-    {"methodology_id": "M13", "operation_id": "GetCriticalMinerals", "classification": "O"},
-    {"methodology_id": "M13", "operation_id": "GetMineralProduction", "classification": "O"},
-    {"methodology_id": "M22", "operation_id": "GetSocialVelocity", "classification": "O"},
-    {"methodology_id": "M23", "operation_id": "ListThermalEscalations", "classification": "O"},
-    {"methodology_id": "M24", "operation_id": "GetGoldIntelligence", "classification": "O"},
-    {"methodology_id": "M03", "operation_id": "ListFeedDigest", "classification": "O"},
-    {"methodology_id": "M01", "operation_id": "ClassifyEvent", "classification": "O"},
-    {"methodology_id": "C04", "operation_id": "GetCountryRisk", "classification": "O"},
-    {"methodology_id": "C04", "operation_id": "GetRiskScores", "classification": "O"}
+    {
+      "methodology_id": "M15",
+      "operation_id": "GetEnergyPrices",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M15",
+      "operation_id": "ListCommodityQuotes",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M15",
+      "operation_id": "GetFaoFoodPriceIndex",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "M16",
+      "operation_id": "GetChokepointStatus",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M16",
+      "operation_id": "GetChokepointHistory",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M16",
+      "operation_id": "GetCountryChokepointIndex",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M16",
+      "operation_id": "GetChokepointDependencies",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M16",
+      "operation_id": "GetVesselSnapshot",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M16",
+      "operation_id": "ListNavigationalWarnings",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M16",
+      "operation_id": "RouteIntelligence",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M16",
+      "operation_id": "GetShippingStress",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M16",
+      "operation_id": "ListAcledEvents",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "M16",
+      "operation_id": "GetTheaterPosture",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "M16",
+      "operation_id": "GetUSNIFleetReport",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "M16",
+      "operation_id": "ListSanctionsPressure",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "M16",
+      "operation_id": "ListCommodityQuotes",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "M18",
+      "operation_id": "GetCrudeInventories",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M18",
+      "operation_id": "GetOilInventories",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M18",
+      "operation_id": "GetNatGasStorage",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M18",
+      "operation_id": "GetEuGasStorage",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M20",
+      "operation_id": "ListEnergyDisruptions",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M20",
+      "operation_id": "GetEnergyCrisisPolicies",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M20",
+      "operation_id": "GetEnergyCapacity",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M17",
+      "operation_id": "GetPipelineDetail",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M17",
+      "operation_id": "ListPipelines",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M19",
+      "operation_id": "GetFuelShortageDetail",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M19",
+      "operation_id": "ListFuelShortages",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M04",
+      "operation_id": "ListAcledEvents",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M04",
+      "operation_id": "ListUcdpEvents",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M04",
+      "operation_id": "GetCountryRisk",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M05",
+      "operation_id": "ListSanctionsPressure",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "M05",
+      "operation_id": "LookupSanctionEntity",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "M08",
+      "operation_id": "GetEconomicStress",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M08",
+      "operation_id": "GetEuFsi",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M08",
+      "operation_id": "GetBisExchangeRates",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M08",
+      "operation_id": "GetBisPolicyRates",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M09",
+      "operation_id": "GetCotPositioning",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M10",
+      "operation_id": "GetUsTreasuryParYieldCurve",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M10",
+      "operation_id": "GetEuYieldCurve",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M10",
+      "operation_id": "GetGovernmentYieldCurve",
+      "classification": "R"
+    },
+    {
+      "methodology_id": "M11",
+      "operation_id": "GetTradeFlows",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "M11",
+      "operation_id": "ListComtradeFlows",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "M12",
+      "operation_id": "GetFaoFoodPriceIndex",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M13",
+      "operation_id": "GetCriticalMinerals",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M13",
+      "operation_id": "GetMineralProduction",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M14",
+      "operation_id": "GetChokepointStatus",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M14",
+      "operation_id": "GetChokepointDependencies",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M14",
+      "operation_id": "GetBypassOptions",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M01",
+      "operation_id": "GetChinaActivityNowcast",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M02",
+      "operation_id": "ListFeedDigest",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M03",
+      "operation_id": "ListFeedDigest",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M21",
+      "operation_id": "GetVesselSnapshot",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M22",
+      "operation_id": "GetSocialVelocity",
+      "classification": "E"
+    },
+    {
+      "methodology_id": "M23",
+      "operation_id": "ListThermalEscalations",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "M24",
+      "operation_id": "GetGoldIntelligence",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "C04",
+      "operation_id": "GetCountryRisk",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "C04",
+      "operation_id": "GetRiskScores",
+      "classification": "O"
+    },
+    {
+      "methodology_id": "C03",
+      "operation_id": "GetCountryRisk",
+      "classification": "X"
+    }
   ],
   "api_source_bindings": [
-    {"operation_id": "GetEnergyPrices", "source_id": "SRC_EIA", "binding_type": "PRIMARY"},
-    {"operation_id": "GetEnergyPrices", "source_id": "SRC_CME", "binding_type": "SECONDARY"},
-    {"operation_id": "GetCrudeInventories", "source_id": "SRC_EIA", "binding_type": "PRIMARY"},
-    {"operation_id": "GetCrudeInventories", "source_id": "SRC_OPEC", "binding_type": "SECONDARY"},
-    {"operation_id": "GetOilInventories", "source_id": "SRC_EIA", "binding_type": "PRIMARY"},
-    {"operation_id": "GetOilInventories", "source_id": "SRC_IEA", "binding_type": "SECONDARY"},
-    {"operation_id": "GetNatGasStorage", "source_id": "SRC_EIA", "binding_type": "PRIMARY"},
-    {"operation_id": "GetEuGasStorage", "source_id": "SRC_EIA", "binding_type": "PRIMARY"},
-    {"operation_id": "GetEuGasStorage", "source_id": "SRC_IEA", "binding_type": "SECONDARY"},
-    {"operation_id": "GetVesselSnapshot", "source_id": "SRC_AIS", "binding_type": "PRIMARY"},
-    {"operation_id": "ListAcledEvents", "source_id": "SRC_ACLED", "binding_type": "PRIMARY"},
-    {"operation_id": "ListUcdpEvents", "source_id": "SRC_UCDP", "binding_type": "PRIMARY"},
-    {"operation_id": "ListIranEvents", "source_id": "SRC_IRAN_EVENTS", "binding_type": "PRIMARY"},
-    {"operation_id": "GetTheaterPosture", "source_id": "SRC_USNI", "binding_type": "PRIMARY"},
-    {"operation_id": "GetUSNIFleetReport", "source_id": "SRC_USNI", "binding_type": "PRIMARY"},
-    {"operation_id": "ListSanctionsPressure", "source_id": "SRC_OFAC", "binding_type": "PRIMARY"},
-    {"operation_id": "GetCotPositioning", "source_id": "SRC_CFTC", "binding_type": "PRIMARY"},
-    {"operation_id": "ListCommodityQuotes", "source_id": "SRC_CME", "binding_type": "PRIMARY"},
-    {"operation_id": "ListFeedDigest", "source_id": "SRC_NEWS_API", "binding_type": "PRIMARY"},
-    {"operation_id": "ListFeedDigest", "source_id": "SRC_GDELT", "binding_type": "SECONDARY"},
-    {"operation_id": "GetCountryRisk", "source_id": "SRC_GDELT", "binding_type": "PRIMARY"},
-    {"operation_id": "GetGoldIntelligence", "source_id": "SRC_CME", "binding_type": "PRIMARY"},
-    {"operation_id": "ListThermalEscalations", "source_id": "SRC_ACLED", "binding_type": "PRIMARY"},
-    {"operation_id": "RouteIntelligence", "source_id": "SRC_SHIPPING_V2", "binding_type": "PRIMARY"},
-    {"operation_id": "GetChokepointStatus", "source_id": "SRC_AIS", "binding_type": "PRIMARY"},
-    {"operation_id": "ListPipelines", "source_id": "SRC_EIA", "binding_type": "PRIMARY"},
-    {"operation_id": "ListEnergyDisruptions", "source_id": "SRC_EIA", "binding_type": "PRIMARY"},
-    {"operation_id": "GetTradeFlows", "source_id": "SRC_WORLD_BANK", "binding_type": "PRIMARY"},
-    {"operation_id": "ListNavigationalWarnings", "source_id": "SRC_MARITIME_WARN", "binding_type": "PRIMARY"},
-    {"operation_id": "GetDefenseIndustrialBase", "source_id": "SRC_PENTAGON", "binding_type": "PRIMARY"}
+    {
+      "operation_id": "GetEnergyPrices",
+      "source_id": "SRC_EIA",
+      "binding_type": "PRIMARY"
+    },
+    {
+      "operation_id": "GetEnergyPrices",
+      "source_id": "SRC_CME",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "operation_id": "GetCrudeInventories",
+      "source_id": "SRC_EIA",
+      "binding_type": "PRIMARY"
+    },
+    {
+      "operation_id": "GetCrudeInventories",
+      "source_id": "SRC_OPEC",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "operation_id": "GetOilInventories",
+      "source_id": "SRC_EIA",
+      "binding_type": "PRIMARY"
+    },
+    {
+      "operation_id": "GetOilInventories",
+      "source_id": "SRC_IEA",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "operation_id": "GetNatGasStorage",
+      "source_id": "SRC_EIA",
+      "binding_type": "PRIMARY"
+    },
+    {
+      "operation_id": "GetEuGasStorage",
+      "source_id": "SRC_EIA",
+      "binding_type": "PRIMARY"
+    },
+    {
+      "operation_id": "GetEuGasStorage",
+      "source_id": "SRC_IEA",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "operation_id": "GetVesselSnapshot",
+      "source_id": "SRC_AIS",
+      "binding_type": "PRIMARY"
+    },
+    {
+      "operation_id": "ListAcledEvents",
+      "source_id": "SRC_ACLED",
+      "binding_type": "PRIMARY"
+    },
+    {
+      "operation_id": "ListUcdpEvents",
+      "source_id": "SRC_UCDP",
+      "binding_type": "PRIMARY"
+    },
+    {
+      "operation_id": "ListIranEvents",
+      "source_id": "SRC_IRAN_EVENTS",
+      "binding_type": "PRIMARY"
+    },
+    {
+      "operation_id": "GetTheaterPosture",
+      "source_id": "SRC_USNI",
+      "binding_type": "PRIMARY"
+    },
+    {
+      "operation_id": "GetUSNIFleetReport",
+      "source_id": "SRC_USNI",
+      "binding_type": "PRIMARY"
+    },
+    {
+      "operation_id": "ListSanctionsPressure",
+      "source_id": "SRC_OFAC",
+      "binding_type": "PRIMARY"
+    },
+    {
+      "operation_id": "GetCotPositioning",
+      "source_id": "SRC_CFTC",
+      "binding_type": "PRIMARY"
+    },
+    {
+      "operation_id": "ListCommodityQuotes",
+      "source_id": "SRC_CME",
+      "binding_type": "PRIMARY"
+    },
+    {
+      "operation_id": "ListFeedDigest",
+      "source_id": "SRC_NEWS_API",
+      "binding_type": "PRIMARY"
+    },
+    {
+      "operation_id": "ListFeedDigest",
+      "source_id": "SRC_GDELT",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "operation_id": "GetCountryRisk",
+      "source_id": "SRC_GDELT",
+      "binding_type": "PRIMARY"
+    },
+    {
+      "operation_id": "GetGoldIntelligence",
+      "source_id": "SRC_CME",
+      "binding_type": "PRIMARY"
+    },
+    {
+      "operation_id": "ListThermalEscalations",
+      "source_id": "SRC_ACLED",
+      "binding_type": "PRIMARY"
+    },
+    {
+      "operation_id": "RouteIntelligence",
+      "source_id": "SRC_SHIPPING_V2",
+      "binding_type": "PRIMARY"
+    },
+    {
+      "operation_id": "GetChokepointStatus",
+      "source_id": "SRC_AIS",
+      "binding_type": "PRIMARY"
+    },
+    {
+      "operation_id": "ListPipelines",
+      "source_id": "SRC_EIA",
+      "binding_type": "PRIMARY"
+    },
+    {
+      "operation_id": "ListEnergyDisruptions",
+      "source_id": "SRC_EIA",
+      "binding_type": "PRIMARY"
+    },
+    {
+      "operation_id": "GetTradeFlows",
+      "source_id": "SRC_WORLD_BANK",
+      "binding_type": "PRIMARY"
+    },
+    {
+      "operation_id": "ListNavigationalWarnings",
+      "source_id": "SRC_MARITIME_WARN",
+      "binding_type": "PRIMARY"
+    },
+    {
+      "operation_id": "GetDefenseIndustrialBase",
+      "source_id": "SRC_PENTAGON",
+      "binding_type": "PRIMARY"
+    }
   ],
   "api_delivery_bindings": [
-    {"operation_id": "GetEnergyPrices", "delivery_type": "REQUEST"},
-    {"operation_id": "GetCrudeInventories", "delivery_type": "REQUEST"},
-    {"operation_id": "GetVesselSnapshot", "delivery_type": "REQUEST"},
-    {"operation_id": "ListAcledEvents", "delivery_type": "REQUEST"},
-    {"operation_id": "RouteIntelligence", "delivery_type": "REQUEST"},
-    {"operation_id": "GetHumanitarianSummaryBatch", "delivery_type": "ASYNC_JOB"},
-    {"operation_id": "GetAircraftDetailsBatch", "delivery_type": "ASYNC_JOB"},
-    {"operation_id": "ListBigMacPrices", "delivery_type": "SEEDED"},
-    {"operation_id": "ListGroceryBasketPrices", "delivery_type": "SEEDED"},
-    {"operation_id": "ListMilitaryBases", "delivery_type": "SEEDED"},
-    {"operation_id": "RegisterWebhook", "delivery_type": "WEBHOOK"},
-    {"operation_id": "GetSummarizeArticleCache", "delivery_type": "CACHE"}
+    {
+      "operation_id": "GetEnergyPrices",
+      "delivery_type": "REQUEST"
+    },
+    {
+      "operation_id": "GetCrudeInventories",
+      "delivery_type": "REQUEST"
+    },
+    {
+      "operation_id": "GetVesselSnapshot",
+      "delivery_type": "REQUEST"
+    },
+    {
+      "operation_id": "ListAcledEvents",
+      "delivery_type": "REQUEST"
+    },
+    {
+      "operation_id": "RouteIntelligence",
+      "delivery_type": "REQUEST"
+    },
+    {
+      "operation_id": "GetHumanitarianSummaryBatch",
+      "delivery_type": "ASYNC_JOB"
+    },
+    {
+      "operation_id": "GetAircraftDetailsBatch",
+      "delivery_type": "ASYNC_JOB"
+    },
+    {
+      "operation_id": "ListBigMacPrices",
+      "delivery_type": "SEEDED"
+    },
+    {
+      "operation_id": "ListGroceryBasketPrices",
+      "delivery_type": "SEEDED"
+    },
+    {
+      "operation_id": "ListMilitaryBases",
+      "delivery_type": "SEEDED"
+    },
+    {
+      "operation_id": "RegisterWebhook",
+      "delivery_type": "WEBHOOK"
+    },
+    {
+      "operation_id": "GetSummarizeArticleCache",
+      "delivery_type": "CACHE"
+    }
   ],
   "api_lifecycle_bindings": [
-    {"operation_id": "GetEnergyPrices", "lifecycle": "ACTIVE"},
-    {"operation_id": "GetCrudeInventories", "lifecycle": "ACTIVE"},
-    {"operation_id": "GetChokepointStatus", "lifecycle": "ACTIVE"},
-    {"operation_id": "ListAcledEvents", "lifecycle": "ACTIVE"},
-    {"operation_id": "RouteIntelligence", "lifecycle": "ACTIVE"},
-    {"operation_id": "ListWebhooks", "lifecycle": "ACTIVE"},
-    {"operation_id": "RegisterWebhook", "lifecycle": "ACTIVE"}
+    {
+      "operation_id": "GetEnergyPrices",
+      "lifecycle": "ACTIVE"
+    },
+    {
+      "operation_id": "GetCrudeInventories",
+      "lifecycle": "ACTIVE"
+    },
+    {
+      "operation_id": "GetChokepointStatus",
+      "lifecycle": "ACTIVE"
+    },
+    {
+      "operation_id": "ListAcledEvents",
+      "lifecycle": "ACTIVE"
+    },
+    {
+      "operation_id": "RouteIntelligence",
+      "lifecycle": "ACTIVE"
+    },
+    {
+      "operation_id": "ListWebhooks",
+      "lifecycle": "ACTIVE"
+    },
+    {
+      "operation_id": "RegisterWebhook",
+      "lifecycle": "ACTIVE"
+    }
   ],
   "output_profile_bindings": [
-    {"output_type": "LIVE_REPORT", "profile_id": "P01", "priority": 1},
-    {"output_type": "LIVE_REPORT", "profile_id": "P02", "priority": 2},
-    {"output_type": "LIVE_REPORT", "profile_id": "P10", "priority": 1},
-    {"output_type": "ALERT", "profile_id": "P01", "priority": 1},
-    {"output_type": "ALERT", "profile_id": "P02", "priority": 2},
-    {"output_type": "ALERT", "profile_id": "P10", "priority": 1},
-    {"output_type": "DASHBOARD_STATE", "profile_id": "P01", "priority": 1},
-    {"output_type": "DASHBOARD_STATE", "profile_id": "P02", "priority": 2},
-    {"output_type": "DASHBOARD_STATE", "profile_id": "P10", "priority": 3},
-    {"output_type": "RESEARCH_ARTIFACT", "profile_id": "P01", "priority": 1},
-    {"output_type": "RESEARCH_ARTIFACT", "profile_id": "P10", "priority": 2},
-    {"output_type": "BACKTEST_ARTIFACT", "profile_id": "P01", "priority": 3},
-    {"output_type": "KNOWLEDGE_PACKAGE", "profile_id": "P01", "priority": 2},
-    {"output_type": "KNOWLEDGE_PACKAGE", "profile_id": "P10", "priority": 3}
+    {
+      "output_type": "LIVE_REPORT",
+      "profile_id": "P01",
+      "priority": 1
+    },
+    {
+      "output_type": "LIVE_REPORT",
+      "profile_id": "P02",
+      "priority": 2
+    },
+    {
+      "output_type": "LIVE_REPORT",
+      "profile_id": "P10",
+      "priority": 1
+    },
+    {
+      "output_type": "ALERT",
+      "profile_id": "P01",
+      "priority": 1
+    },
+    {
+      "output_type": "ALERT",
+      "profile_id": "P02",
+      "priority": 2
+    },
+    {
+      "output_type": "ALERT",
+      "profile_id": "P10",
+      "priority": 1
+    },
+    {
+      "output_type": "DASHBOARD_STATE",
+      "profile_id": "P01",
+      "priority": 1
+    },
+    {
+      "output_type": "DASHBOARD_STATE",
+      "profile_id": "P02",
+      "priority": 2
+    },
+    {
+      "output_type": "DASHBOARD_STATE",
+      "profile_id": "P10",
+      "priority": 3
+    },
+    {
+      "output_type": "RESEARCH_ARTIFACT",
+      "profile_id": "P01",
+      "priority": 1
+    },
+    {
+      "output_type": "RESEARCH_ARTIFACT",
+      "profile_id": "P10",
+      "priority": 2
+    },
+    {
+      "output_type": "BACKTEST_ARTIFACT",
+      "profile_id": "P01",
+      "priority": 3
+    },
+    {
+      "output_type": "KNOWLEDGE_PACKAGE",
+      "profile_id": "P01",
+      "priority": 2
+    },
+    {
+      "output_type": "KNOWLEDGE_PACKAGE",
+      "profile_id": "P10",
+      "priority": 3
+    }
   ]
 }

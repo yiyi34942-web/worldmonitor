@@ -1,13 +1,62 @@
 {
-  "registry_type": "SOURCE_ATTRIBUTION_COVERAGE",
-  "version": "1.0.0",
-  "generated_at": "2026-10-01T22:32:30.349775",
+  "generated_at": "2026-10-01T15:26:45Z",
   "total_sources": 20,
-  "sources_with_attribution": 20,
-  "wm_curated": 20,
-  "user_custom": 0,
-  "external_gap": 0,
-  "independent_evidence_sources": 18,
-  "compliance_allowed": 19,
-  "compliance_restricted": 0
+  "wm_internal_sources": 7,
+  "external_sources": 13,
+  "verified_source_bindings": 30,
+  "unknown_source_bindings": 0,
+  "placeholder_source_bindings": 0,
+  "sources_with_original_publisher": 17,
+  "sources_with_collector": 7,
+  "wm_dev_sources_detail": [
+    {
+      "source_id": "SRC_AIS",
+      "host": "ais.worldmonitor.dev",
+      "transport": "RELAY",
+      "original_publisher": "Multiple AIS Providers",
+      "collector": "WM_AIS_SERVICE"
+    },
+    {
+      "source_id": "SRC_IRAN_EVENTS",
+      "host": "iran.worldmonitor.dev",
+      "transport": "RELAY",
+      "original_publisher": null,
+      "collector": "WM_IRAN_DESK"
+    },
+    {
+      "source_id": "SRC_NEWS_API",
+      "host": "news.worldmonitor.dev",
+      "transport": "RELAY",
+      "original_publisher": "Multiple News Publishers",
+      "collector": "WM_NEWS_AGGREGATOR"
+    },
+    {
+      "source_id": "SRC_RUSSIAN_ENERGY",
+      "host": "russia.worldmonitor.dev",
+      "transport": "RELAY",
+      "original_publisher": null,
+      "collector": "WM_RUSSIA_DESK"
+    },
+    {
+      "source_id": "SRC_MENA_ENERGY",
+      "host": "mena.worldmonitor.dev",
+      "transport": "RELAY",
+      "original_publisher": null,
+      "collector": "WM_MENA_DESK"
+    },
+    {
+      "source_id": "SRC_SHIPPING_V2",
+      "host": "shipping.worldmonitor.dev",
+      "transport": "API",
+      "original_publisher": "Multiple Shipping Data Providers",
+      "collector": "WM_SHIPPING_V2"
+    },
+    {
+      "source_id": "SRC_MARITIME_WARN",
+      "host": "maritime.worldmonitor.dev",
+      "transport": "RELAY",
+      "original_publisher": "Multiple Maritime Authorities",
+      "collector": "WM_MARITIME_WARN"
+    }
+  ]
 }
