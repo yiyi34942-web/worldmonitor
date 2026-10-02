@@ -1,4 +1,6 @@
 export {
+  ARTIFACT_FIELDS,
+  CONTRACT_VERSION,
   DELIVERY_MODES,
   EIGHT_REGISTRIES,
   FIVE_ROLES,
@@ -12,8 +14,10 @@ export {
 export {
   AGENT_ADAPTERS,
   UI_INTEGRATION,
+  appendRevision,
   applyPit,
   blankTimestamps,
+  buildDeltaT,
   buildResearchArtifact,
   buildResearchResult,
   canonicalJson,
@@ -24,6 +28,7 @@ export {
   externalGapCatalog,
   levelGate,
   lineage,
+  methodSemanticView,
   modelEndpoints,
   planApis,
   resolveCatalog,
@@ -43,3 +48,5 @@ export {
 } from "./runtime.mjs";
 
 export { evaluateA24, indexOpenApi, loadOpenApiIndex, runA23, runA24 } from "./acceptance.mjs";
+
+export { scanPortability } from "./portability.mjs";

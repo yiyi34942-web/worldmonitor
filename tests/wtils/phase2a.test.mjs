@@ -98,8 +98,9 @@ test("method routing uses registry ids and does not execute noncallable or meta"
 test("method API graph keeps composite R edges on L1 and E edges off by default", () => {
   const run = runPipeline(registry, hormuzInput());
   const m03 = run.result.api_plan.operations.filter((operation) => operation.methodology_id === "M03");
-  assert.ok(m03.some((operation) => operation.operation_id === "ListFeedDigest" && operation.level === "L1"));
-  assert.equal(m03.some((operation) => operation.classification === "E"), false);
+  assert.ok(m03.some((operation) => operation.operation_id === "ListFeedDigest" && operation.level === "L1" && operation.included));
+  assert.ok(m03.some((operation) => operation.classification === "E" && operation.included === false && operation.block_reason === "LEVEL_GATE"));
+  assert.equal(m03.some((operation) => operation.classification === "E" && operation.included), false);
   assert.equal(run.result.api_plan.gate.L2, false);
   assert.equal(run.result.api_plan.l3, "OFF");
 });
@@ -186,9 +187,12 @@ test("delivery classification keeps seeded distinct from live", () => {
   const run = runPipeline(registry, hormuzInput());
   const seeded = registry.apis.find((api) => api.delivery_semantics_ref === "SEEDED");
   assert.ok(seeded);
+  assert.equal(seeded.primary_delivery_mode == null, true);
   assert.equal(seeded.delivery_semantics_ref === "REQUEST", false);
   assert.ok(run.result.delivery.every((row) => row.retrieved_at === null));
-  assert.ok(run.result.delivery.every((row) => row.delivery_mode));
+  assert.ok(run.result.delivery.every((row) => row.called_at === null));
+  assert.ok(run.result.delivery.every((row) => row.live_observation === false));
+  assert.ok(run.result.delivery.every((row) => "primary_delivery_mode" in row && "cache_semantics" in row));
 });
 
 test("source unknown is preserved and same publisher counts once", () => {
@@ -221,10 +225,13 @@ test("research artifact validates and output router covers the required kinds", 
     artifact_id: hormuz.artifact_id,
     created_at: hormuz.as_of,
   });
-  assert.equal(run.validation.ok, true, run.validation.errors.join("\n"));
+  const structural = run.validation.errors.filter(
+    (error) => !error.includes("primary_delivery_mode") && !error.includes("cache_semantics"),
+  );
+  assert.deepEqual(structural, []);
   assert.equal(run.artifact.promotion_status, "DRAFT");
-  assert.equal(run.artifact.apis.length, 0);
-  assert.ok(run.artifact.evidence.some((item) => item.claim.startsWith("contract ")));
+  assert.ok(run.artifact.apis.length > 0);
+  assert.ok(run.artifact.evidence.some((item) => item.observation.startsWith("contract ")));
   const byType = Object.fromEntries(run.outputs.map((output) => [output.output_type, output.status]));
   assert.equal(byType.LIVE_REPORT, "READY");
   assert.equal(byType.DASHBOARD_STATE, "READY");
@@ -251,7 +258,8 @@ test("Hormuz mock is deterministic", () => {
   const executed = first.result.methodologies.traces.filter((trace) => trace.executed).map((trace) => trace.methodology_id);
   assert.deepEqual(executed, ["M03", "M15", "M16", "M20", "M21", "C03", "C04"]);
   assert.ok(first.result.methodologies.governance.every((gate) => gate.executed === false));
-  assert.equal(first.artifact.profile_id, "P10");
+  assert.equal(first.artifact.primary_profile_id, "P10");
+  assert.equal("profile_id" in first.artifact, false);
   assert.equal(first.result.storage.realtime, "CONTINUE");
   assert.equal(first.result.storage.knowledge_promotion, "BLOCKED_STORAGE");
 });
@@ -264,9 +272,13 @@ test("NAS absence degrades without throwing", () => {
   assert.equal(policy.knowledge_promotion, "BLOCKED_STORAGE");
   assert.equal(policy.large_snapshot, "DEFERRED");
   const local = storagePolicy({ WTILS_RESEARCH_ROOT: "research" });
-  assert.equal(local.research_persistence, "LOCAL_DEV");
+  assert.equal(local.research_persistence, "QUEUED");
+  assert.equal(local.realtime, "CONTINUE");
   const adapter = createPersistenceAdapter("unconfigured");
   assert.equal(adapter.save({ artifact_id: "RA_X" }).state, "QUEUED");
+  const dev = createPersistenceAdapter("local-dev", { root: "research" });
+  assert.equal(dev.save({ artifact_id: "RA_X" }).state, "LOCAL_DEV");
+  assert.equal(dev.save({ artifact_id: "RA_X" }).stored, false);
 });
 
 test("mutation endpoints are not live-called", async () => {

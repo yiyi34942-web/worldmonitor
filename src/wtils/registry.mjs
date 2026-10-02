@@ -66,6 +66,38 @@ export const OBSERVATION_TIMESTAMPS = Object.freeze([
   "outcome_time",
 ]);
 
+export const CONTRACT_VERSION = "2.1.0";
+
+/** Research Artifact contract v2.1. The builder emits every field. */
+export const ARTIFACT_FIELDS = Object.freeze([
+  "artifact_id",
+  "artifact_version",
+  "event_id",
+  "created_at",
+  "as_of_time",
+  "query",
+  "intent",
+  "primary_profile_id",
+  "profile_ids",
+  "roles",
+  "role_weights",
+  "methodologies",
+  "apis",
+  "sources",
+  "pit",
+  "timeline",
+  "evidence",
+  "contradictions",
+  "unknowns",
+  "market_reaction",
+  "delta_t",
+  "replay",
+  "backtest",
+  "confidence",
+  "promotion_status",
+  "revision",
+]);
+
 export const EIGHT_REGISTRIES = Object.freeze([
   ["R1", "profiles", "profiles.json"],
   ["R2", "roles", "roles.json"],
@@ -111,10 +143,10 @@ const A_FIELDS = Object.freeze([
 ]);
 
 export class BaselineError extends Error {
-  constructor(message) {
+  constructor(message, code = "STOP_AND_REPORT_CONTRACT_BASELINE_MISMATCH") {
     super(message);
     this.name = "BaselineError";
-    this.code = "STOP_AND_REPORT_MISSING_PHASE1_BASELINE";
+    this.code = code;
   }
 }
 
@@ -125,6 +157,60 @@ function readJson(filePath) {
 function expectCount(label, actual, expected) {
   if (actual !== expected) {
     throw new BaselineError(`${label} count ${actual}, expected ${expected}`);
+  }
+}
+
+function assertContractBaseline(root, loaded, methods, apis) {
+  const version = loaded.registriesVersion?.new_version;
+  if (version !== CONTRACT_VERSION) {
+    throw new BaselineError(`contract version ${version ?? "missing"}, expected ${CONTRACT_VERSION}`);
+  }
+  const withContractRef = apis.filter(
+    (api) => typeof api.request_contract_ref === "string" && api.request_contract_ref.length > 0,
+  );
+  if (withContractRef.length !== apis.length) {
+    throw new BaselineError(`request_contract_ref ${withContractRef.length}/${apis.length}`);
+  }
+  for (const api of apis) {
+    for (const key of Object.keys(api)) {
+      if (key.endsWith("_state_state")) {
+        throw new BaselineError(`${api.operation_id} still has ${key}`);
+      }
+    }
+  }
+  for (const method of methods) {
+    if ("legacy_classification" in method) {
+      throw new BaselineError(`${method.methodology_id} still has legacy_classification`);
+    }
+    if (!method.provenance_class || !method.execution_class) {
+      throw new BaselineError(`${method.methodology_id} missing two-axis classification`);
+    }
+  }
+  const props = loaded.researchArtifactSchema.properties ?? {};
+  if (Object.keys(props).length !== ARTIFACT_FIELDS.length) {
+    throw new BaselineError(`research artifact properties ${Object.keys(props).length}, expected ${ARTIFACT_FIELDS.length}`);
+  }
+  for (const field of ARTIFACT_FIELDS) {
+    if (!(field in props)) {
+      throw new BaselineError(`research artifact schema missing ${field}`);
+    }
+  }
+  const pitFields = Object.keys(loaded.pit.timestamp_fields ?? {});
+  if (pitFields.length !== OBSERVATION_TIMESTAMPS.length) {
+    throw new BaselineError(`PIT observation fields ${pitFields.length}, expected ${OBSERVATION_TIMESTAMPS.length}`);
+  }
+  for (const field of OBSERVATION_TIMESTAMPS) {
+    if (!pitFields.includes(field)) {
+      throw new BaselineError(`PIT contract missing ${field}`);
+    }
+  }
+  const persistencePath = path.join(root, "wtils", "docs", "contracts", "RESEARCH_PERSISTENCE_REQUIREMENTS.md");
+  const persistence = readFileSync(persistencePath, "utf8");
+  if (!persistence.includes("DEDICATED_RESEARCH_STORE = JUSTIFIED")) {
+    throw new BaselineError("research store is not JUSTIFIED");
+  }
+  if (!persistence.includes("IMPLEMENTATION_TECHNOLOGY = UNBOUND")) {
+    throw new BaselineError("research store technology is not UNBOUND");
   }
 }
 
@@ -145,8 +231,9 @@ export function loadRegistry(root = repoRoot) {
       loaded[key] = readJson(path.join(dir, file));
     }
     loaded.researchArtifactSchema = readJson(schemaPath);
+    loaded.registriesVersion = readJson(path.join(dir, "registries_version.json"));
   } catch (error) {
-    throw new BaselineError(`unreadable Phase 1 baseline: ${error.message}`);
+    throw new BaselineError(`unreadable contract baseline: ${error.message}`);
   }
 
   const roles = loaded.roles.entries ?? [];
@@ -192,6 +279,7 @@ export function loadRegistry(root = repoRoot) {
       throw new BaselineError(`delivery registry missing ${mode}`);
     }
   }
+  assertContractBaseline(root, loaded, methods, apis);
 
   const byId = {
     role: new Map(roles.map((entry) => [entry.role_id, entry])),
@@ -219,6 +307,7 @@ export function loadRegistry(root = repoRoot) {
     sources: loaded.sources.entries ?? [],
     catalog: loaded.intelligence_catalog.entries ?? [],
     researchArtifactSchema: loaded.researchArtifactSchema,
+    contractVersion: loaded.registriesVersion.new_version,
     aFields: A_FIELDS,
   };
 }

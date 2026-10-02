@@ -1,0 +1,830 @@
+{
+  "artifact_id": "RA_HORMUZ_DISRUPTION",
+  "artifact_version": "2.1.0",
+  "event_id": "EVT_HORMUZ_DISRUPTION",
+  "created_at": "2026-03-01T12:00:00Z",
+  "as_of_time": "2026-03-01T12:00:00Z",
+  "query": "Hormuz disruption",
+  "intent": "geopolitical_energy_disruption",
+  "primary_profile_id": "P10",
+  "profile_ids": [
+    "P10",
+    "P01",
+    "P02"
+  ],
+  "roles": [
+    "WORLD",
+    "FINANCE",
+    "COMMODITY",
+    "ENERGY"
+  ],
+  "role_weights": {
+    "WORLD": 0.25,
+    "ENERGY": 0.35,
+    "COMMODITY": 0.3,
+    "FINANCE": 0.1
+  },
+  "methodologies": [
+    {
+      "id": "M03",
+      "version": "1.1.0",
+      "provenance_class": "OFFICIAL",
+      "execution_class": "COMPOSITE",
+      "methodology_version_hash": "7fd3f0b3d0a21ff4d20723f6fb1019caeb7a8abb85508b9e765dedd782d36019",
+      "trace_state": "EXECUTED"
+    },
+    {
+      "id": "M15",
+      "version": "1.1.0",
+      "provenance_class": "OFFICIAL",
+      "execution_class": "DIRECT_API",
+      "methodology_version_hash": "11a0f85600a91bf285533843928e974d83e51302cf0d6c0579947ea8b25e7b7a",
+      "trace_state": "EXECUTED"
+    },
+    {
+      "id": "M16",
+      "version": "1.1.0",
+      "provenance_class": "OFFICIAL",
+      "execution_class": "DIRECT_API",
+      "methodology_version_hash": "78ef9666ec7c717df0e7949580ef9f8ddce8f99fb28a8e58626b2d993651051e",
+      "trace_state": "EXECUTED"
+    },
+    {
+      "id": "M20",
+      "version": "1.1.0",
+      "provenance_class": "OFFICIAL",
+      "execution_class": "DIRECT_API",
+      "methodology_version_hash": "e7036831ca8d49a868cd98febee2544f5859954236b9f47e4b44349b51659540",
+      "trace_state": "EXECUTED"
+    },
+    {
+      "id": "M21",
+      "version": "1.1.0",
+      "provenance_class": "OFFICIAL",
+      "execution_class": "DIRECT_API",
+      "methodology_version_hash": "5b5fe978a21e5a5e295b47673140c74bcad4e0fa9b6c890e14ae3565622ebf81",
+      "trace_state": "EXECUTED"
+    },
+    {
+      "id": "C03",
+      "version": "1.1.0",
+      "provenance_class": "OFFICIAL",
+      "execution_class": "COMPOSITE",
+      "methodology_version_hash": "fb5cd6836cc6e1cc25b5448198631583a1eee9ad3268cf453b190f347f23ff71",
+      "trace_state": "EXECUTED"
+    },
+    {
+      "id": "C04",
+      "version": "1.1.0",
+      "provenance_class": "OFFICIAL",
+      "execution_class": "COMPOSITE",
+      "methodology_version_hash": "7efad0f3510324fb298a018406c80517b0f0181ea00a6323c168d4593a4ced8d",
+      "trace_state": "EXECUTED"
+    },
+    {
+      "id": "C06",
+      "version": "1.1.0",
+      "provenance_class": "OFFICIAL",
+      "execution_class": "GOVERNANCE",
+      "methodology_version_hash": "41a6d6e4ef04e56a2980dfa8f0be0dc945717dc1b4a3f73eacc55b477fa5589f",
+      "trace_state": "GOVERNANCE_TRACE"
+    },
+    {
+      "id": "C07",
+      "version": "1.1.0",
+      "provenance_class": "OFFICIAL",
+      "execution_class": "GOVERNANCE",
+      "methodology_version_hash": "de58b31fba09d57da0235058251df3e7ba3d386540b5cf246656e328e749a9e9",
+      "trace_state": "GOVERNANCE_TRACE"
+    }
+  ],
+  "apis": [
+    {
+      "service": "SupplyChainService",
+      "operation": "GetCountryVulnerabilities",
+      "contract_version": "1.0.0",
+      "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetCountryVulnerabilities:GET:/api/supply-chain/v1/get-country-vulnerabilities",
+      "called_at": null,
+      "primary_delivery_mode": null,
+      "cache_semantics": null,
+      "a23_state": "BLOCKED_AUTH",
+      "a24_state": "BLOCKED",
+      "live_observation": false
+    },
+    {
+      "service": "SupplyChainService",
+      "operation": "ListVulnerabilityRankings",
+      "contract_version": "1.0.0",
+      "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListVulnerabilityRankings:GET:/api/supply-chain/v1/list-vulnerability-rankings",
+      "called_at": null,
+      "primary_delivery_mode": null,
+      "cache_semantics": null,
+      "a23_state": "BLOCKED_AUTH",
+      "a24_state": "BLOCKED",
+      "live_observation": false
+    },
+    {
+      "service": "SupplyChainService",
+      "operation": "GetChokepointDependencies",
+      "contract_version": "1.0.0",
+      "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetChokepointDependencies:GET:/api/supply-chain/v1/get-chokepoint-dependencies",
+      "called_at": null,
+      "primary_delivery_mode": null,
+      "cache_semantics": null,
+      "a23_state": "BLOCKED_AUTH",
+      "a24_state": "BLOCKED",
+      "live_observation": false
+    },
+    {
+      "service": "SupplyChainService",
+      "operation": "GetChokepointHistory",
+      "contract_version": "1.0.0",
+      "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetChokepointHistory:GET:/api/supply-chain/v1/get-chokepoint-history",
+      "called_at": null,
+      "primary_delivery_mode": null,
+      "cache_semantics": null,
+      "a23_state": "BLOCKED_AUTH",
+      "a24_state": "BLOCKED",
+      "live_observation": false
+    },
+    {
+      "service": "SupplyChainService",
+      "operation": "GetChokepointStatus",
+      "contract_version": "1.0.0",
+      "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetChokepointStatus:GET:/api/supply-chain/v1/get-chokepoint-status",
+      "called_at": null,
+      "primary_delivery_mode": null,
+      "cache_semantics": null,
+      "a23_state": "BLOCKED_AUTH",
+      "a24_state": "BLOCKED",
+      "live_observation": false
+    },
+    {
+      "service": "SupplyChainService",
+      "operation": "GetCountryChokepointIndex",
+      "contract_version": "1.0.0",
+      "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetCountryChokepointIndex:GET:/api/supply-chain/v1/get-country-chokepoint-index",
+      "called_at": null,
+      "primary_delivery_mode": null,
+      "cache_semantics": null,
+      "a23_state": "BLOCKED_AUTH",
+      "a24_state": "BLOCKED",
+      "live_observation": false
+    },
+    {
+      "service": "SupplyChainService",
+      "operation": "ListEnergyDisruptions",
+      "contract_version": "1.0.0",
+      "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListEnergyDisruptions:GET:/api/supply-chain/v1/list-energy-disruptions",
+      "called_at": null,
+      "primary_delivery_mode": null,
+      "cache_semantics": null,
+      "a23_state": "BLOCKED_AUTH",
+      "a24_state": "BLOCKED",
+      "live_observation": false
+    },
+    {
+      "service": "IntelligenceService",
+      "operation": "GetCountryRisk",
+      "contract_version": "1.0.0",
+      "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetCountryRisk:GET:/api/intelligence/v1/get-country-risk",
+      "called_at": null,
+      "primary_delivery_mode": null,
+      "cache_semantics": null,
+      "a23_state": "BLOCKED_AUTH",
+      "a24_state": "BLOCKED",
+      "live_observation": false
+    },
+    {
+      "service": "IntelligenceService",
+      "operation": "GetRiskScores",
+      "contract_version": "1.0.0",
+      "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetRiskScores:GET:/api/intelligence/v1/get-risk-scores",
+      "called_at": null,
+      "primary_delivery_mode": null,
+      "cache_semantics": null,
+      "a23_state": "BLOCKED_AUTH",
+      "a24_state": "BLOCKED",
+      "live_observation": false
+    },
+    {
+      "service": "MaritimeService",
+      "operation": "GetVesselSnapshot",
+      "contract_version": "1.0.0",
+      "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetVesselSnapshot:GET:/api/maritime/v1/get-vessel-snapshot",
+      "called_at": null,
+      "primary_delivery_mode": null,
+      "cache_semantics": null,
+      "a23_state": "BLOCKED_AUTH",
+      "a24_state": "BLOCKED",
+      "live_observation": false
+    },
+    {
+      "service": "SeismologyService",
+      "operation": "ListEarthquakes",
+      "contract_version": "1.0.0",
+      "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListEarthquakes:GET:/api/seismology/v1/list-earthquakes",
+      "called_at": null,
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH",
+      "a23_state": "BLOCKED_AUTH",
+      "a24_state": "BLOCKED",
+      "live_observation": false
+    },
+    {
+      "service": "MilitaryService",
+      "operation": "ListMilitaryFlights",
+      "contract_version": "1.0.0",
+      "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListMilitaryFlights:GET:/api/military/v1/list-military-flights",
+      "called_at": null,
+      "primary_delivery_mode": null,
+      "cache_semantics": null,
+      "a23_state": "BLOCKED_AUTH",
+      "a24_state": "BLOCKED",
+      "live_observation": false
+    },
+    {
+      "service": "UnrestService",
+      "operation": "ListUnrestEvents",
+      "contract_version": "1.0.0",
+      "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListUnrestEvents:GET:/api/unrest/v1/list-unrest-events",
+      "called_at": null,
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH",
+      "a23_state": "BLOCKED_AUTH",
+      "a24_state": "BLOCKED",
+      "live_observation": false
+    },
+    {
+      "service": "IntelligenceService",
+      "operation": "GetRiskScores",
+      "contract_version": "1.0.0",
+      "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetRiskScores:GET:/api/intelligence/v1/get-risk-scores",
+      "called_at": null,
+      "primary_delivery_mode": null,
+      "cache_semantics": null,
+      "a23_state": "BLOCKED_AUTH",
+      "a24_state": "BLOCKED",
+      "live_observation": false
+    },
+    {
+      "service": "NewsService",
+      "operation": "ListCountryHeadlines",
+      "contract_version": "1.0.0",
+      "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListCountryHeadlines:GET:/api/news/v1/list-country-headlines",
+      "called_at": null,
+      "primary_delivery_mode": null,
+      "cache_semantics": null,
+      "a23_state": "BLOCKED_AUTH",
+      "a24_state": "BLOCKED",
+      "live_observation": false
+    },
+    {
+      "service": "NewsService",
+      "operation": "ListFeedDigest",
+      "contract_version": "1.0.0",
+      "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListFeedDigest:GET:/api/news/v1/list-feed-digest",
+      "called_at": null,
+      "primary_delivery_mode": null,
+      "cache_semantics": null,
+      "a23_state": "BLOCKED_AUTH",
+      "a24_state": "BLOCKED",
+      "live_observation": false
+    },
+    {
+      "service": "IntelligenceService",
+      "operation": "SearchGdeltDocuments",
+      "contract_version": "1.0.0",
+      "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#SearchGdeltDocuments:GET:/api/intelligence/v1/search-gdelt-documents",
+      "called_at": null,
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH",
+      "a23_state": "BLOCKED_AUTH",
+      "a24_state": "BLOCKED",
+      "live_observation": false
+    },
+    {
+      "service": "EconomicService",
+      "operation": "GetEnergyPrices",
+      "contract_version": "1.0.0",
+      "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetEnergyPrices:GET:/api/economic/v1/get-energy-prices",
+      "called_at": null,
+      "primary_delivery_mode": null,
+      "cache_semantics": null,
+      "a23_state": "BLOCKED_AUTH",
+      "a24_state": "BLOCKED",
+      "live_observation": false
+    },
+    {
+      "service": "EconomicService",
+      "operation": "GetOilStocksAnalysis",
+      "contract_version": "1.0.0",
+      "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetOilStocksAnalysis:GET:/api/economic/v1/get-oil-stocks-analysis",
+      "called_at": null,
+      "primary_delivery_mode": null,
+      "cache_semantics": null,
+      "a23_state": "BLOCKED_AUTH",
+      "a24_state": "BLOCKED",
+      "live_observation": false
+    },
+    {
+      "service": "MarketService",
+      "operation": "ListCommodityQuotes",
+      "contract_version": "1.0.0",
+      "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListCommodityQuotes:GET:/api/market/v1/list-commodity-quotes",
+      "called_at": null,
+      "primary_delivery_mode": null,
+      "cache_semantics": null,
+      "a23_state": "BLOCKED_AUTH",
+      "a24_state": "BLOCKED",
+      "live_observation": false
+    },
+    {
+      "service": "SupplyChainService",
+      "operation": "GetShippingStress",
+      "contract_version": "1.0.0",
+      "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetShippingStress:GET:/api/supply-chain/v1/get-shipping-stress",
+      "called_at": null,
+      "primary_delivery_mode": null,
+      "cache_semantics": null,
+      "a23_state": "BLOCKED_AUTH",
+      "a24_state": "BLOCKED",
+      "live_observation": false
+    },
+    {
+      "service": "MaritimeService",
+      "operation": "GetVesselSnapshot",
+      "contract_version": "1.0.0",
+      "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetVesselSnapshot:GET:/api/maritime/v1/get-vessel-snapshot",
+      "called_at": null,
+      "primary_delivery_mode": null,
+      "cache_semantics": null,
+      "a23_state": "BLOCKED_AUTH",
+      "a24_state": "BLOCKED",
+      "live_observation": false
+    },
+    {
+      "service": "MaritimeService",
+      "operation": "ListNavigationalWarnings",
+      "contract_version": "1.0.0",
+      "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListNavigationalWarnings:GET:/api/maritime/v1/list-navigational-warnings",
+      "called_at": null,
+      "primary_delivery_mode": null,
+      "cache_semantics": null,
+      "a23_state": "BLOCKED_AUTH",
+      "a24_state": "BLOCKED",
+      "live_observation": false
+    },
+    {
+      "service": "ShippingV2Service",
+      "operation": "RouteIntelligence",
+      "contract_version": "1.0.0",
+      "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#RouteIntelligence:GET:/api/v2/shipping/route-intelligence",
+      "called_at": null,
+      "primary_delivery_mode": null,
+      "cache_semantics": null,
+      "a23_state": "BLOCKED_AUTH",
+      "a24_state": "BLOCKED",
+      "live_observation": false
+    },
+    {
+      "service": "IntelligenceService",
+      "operation": "GetCountryEnergyProfile",
+      "contract_version": "1.0.0",
+      "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetCountryEnergyProfile:GET:/api/intelligence/v1/get-country-energy-profile",
+      "called_at": null,
+      "primary_delivery_mode": null,
+      "cache_semantics": null,
+      "a23_state": "BLOCKED_AUTH",
+      "a24_state": "BLOCKED",
+      "live_observation": false
+    },
+    {
+      "service": "EconomicService",
+      "operation": "GetEnergyPrices",
+      "contract_version": "1.0.0",
+      "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetEnergyPrices:GET:/api/economic/v1/get-energy-prices",
+      "called_at": null,
+      "primary_delivery_mode": null,
+      "cache_semantics": null,
+      "a23_state": "BLOCKED_AUTH",
+      "a24_state": "BLOCKED",
+      "live_observation": false
+    },
+    {
+      "service": "IntelligenceService",
+      "operation": "ListCrossSourceSignals",
+      "contract_version": "1.0.0",
+      "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListCrossSourceSignals:GET:/api/intelligence/v1/list-cross-source-signals",
+      "called_at": null,
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH",
+      "a23_state": "BLOCKED_AUTH",
+      "a24_state": "BLOCKED",
+      "live_observation": false
+    }
+  ],
+  "sources": [
+    {
+      "publisher": "Global Database of Events, Language, and Tone",
+      "provider": "GDELT",
+      "host": "api.gdeltproject.org",
+      "transport": "API",
+      "verification_state": "INFERRED"
+    },
+    {
+      "publisher": "Armed Conflict Location & Event Data Project",
+      "provider": "ACLED",
+      "host": "api.acleddata.com",
+      "transport": "API",
+      "verification_state": "INFERRED"
+    },
+    {
+      "publisher": "Multiple News Publishers",
+      "provider": "WorldMonitor",
+      "host": null,
+      "transport": "RELAY",
+      "verification_state": "SOURCE_HOST_UNKNOWN"
+    },
+    {
+      "publisher": "International Monetary Fund",
+      "provider": "IMF",
+      "host": "data.imf.org",
+      "transport": "API",
+      "verification_state": "INFERRED"
+    },
+    {
+      "publisher": "CME Group",
+      "provider": "CME",
+      "host": "www.cmegroup.com",
+      "transport": "API",
+      "verification_state": "INFERRED"
+    },
+    {
+      "publisher": "U.S. Energy Information Administration",
+      "provider": "EIA",
+      "host": "api.eia.gov",
+      "transport": "API",
+      "verification_state": "INFERRED"
+    },
+    {
+      "publisher": "Organization of the Petroleum Exporting Countries",
+      "provider": "OPEC",
+      "host": "www.opec.org",
+      "transport": "DIRECT",
+      "verification_state": "INFERRED"
+    },
+    {
+      "publisher": "Multiple AIS Providers",
+      "provider": "WorldMonitor",
+      "host": null,
+      "transport": "RELAY",
+      "verification_state": "SOURCE_HOST_UNKNOWN"
+    },
+    {
+      "publisher": "Multiple Shipping Data Providers",
+      "provider": "WorldMonitor",
+      "host": null,
+      "transport": "API",
+      "verification_state": "SOURCE_HOST_UNKNOWN"
+    },
+    {
+      "publisher": "International Energy Agency",
+      "provider": "IEA",
+      "host": "www.iea.org",
+      "transport": "API",
+      "verification_state": "INFERRED"
+    },
+    {
+      "publisher": "Office of Foreign Assets Control",
+      "provider": "OFAC",
+      "host": "ofac.treasury.gov",
+      "transport": "API",
+      "verification_state": "INFERRED"
+    },
+    {
+      "publisher": "U.S. Naval Institute",
+      "provider": "USNI",
+      "host": "news.usni.org",
+      "transport": "RSS",
+      "verification_state": "INFERRED"
+    }
+  ],
+  "pit": {
+    "event_time": "2026-03-01T08:00:00Z",
+    "original_publish_time": "2026-03-01T09:00:00Z",
+    "source_observed_time": null,
+    "wm_first_seen_time": null,
+    "webhook_emitted_time": null,
+    "webhook_received_time": null,
+    "normalized_time": null,
+    "methodology_started_time": null,
+    "methodology_completed_time": null,
+    "analyst_available_time": null,
+    "market_first_reaction_time": null,
+    "research_snapshot_time": null,
+    "outcome_time": null
+  },
+  "timeline": [
+    {
+      "ts": "2026-03-01T08:00:00Z",
+      "event": "event_time"
+    },
+    {
+      "ts": "2026-03-01T09:00:00Z",
+      "event": "original_publish_time"
+    }
+  ],
+  "evidence": [
+    {
+      "observation": "primary_profile P10",
+      "claim": "primary_profile P10",
+      "source_ref": "profile_router",
+      "confidence": 1
+    },
+    {
+      "observation": "resolved_profile P01",
+      "claim": "resolved_profile P01",
+      "source_ref": "profile_router",
+      "confidence": 1
+    },
+    {
+      "observation": "resolved_profile P02",
+      "claim": "resolved_profile P02",
+      "source_ref": "profile_router",
+      "confidence": 1
+    },
+    {
+      "observation": "contract GetCountryVulnerabilities 1.0.0 GET /api/supply-chain/v1/get-country-vulnerabilities delivery UNBOUND UNBOUND",
+      "claim": "contract GetCountryVulnerabilities 1.0.0 GET /api/supply-chain/v1/get-country-vulnerabilities delivery UNBOUND UNBOUND",
+      "source_ref": "contract_resolver",
+      "confidence": 1
+    },
+    {
+      "observation": "contract ListVulnerabilityRankings 1.0.0 GET /api/supply-chain/v1/list-vulnerability-rankings delivery UNBOUND UNBOUND",
+      "claim": "contract ListVulnerabilityRankings 1.0.0 GET /api/supply-chain/v1/list-vulnerability-rankings delivery UNBOUND UNBOUND",
+      "source_ref": "contract_resolver",
+      "confidence": 1
+    },
+    {
+      "observation": "contract GetChokepointDependencies 1.0.0 GET /api/supply-chain/v1/get-chokepoint-dependencies delivery UNBOUND UNBOUND",
+      "claim": "contract GetChokepointDependencies 1.0.0 GET /api/supply-chain/v1/get-chokepoint-dependencies delivery UNBOUND UNBOUND",
+      "source_ref": "contract_resolver",
+      "confidence": 1
+    },
+    {
+      "observation": "contract GetChokepointHistory 1.0.0 GET /api/supply-chain/v1/get-chokepoint-history delivery UNBOUND UNBOUND",
+      "claim": "contract GetChokepointHistory 1.0.0 GET /api/supply-chain/v1/get-chokepoint-history delivery UNBOUND UNBOUND",
+      "source_ref": "contract_resolver",
+      "confidence": 1
+    },
+    {
+      "observation": "contract GetChokepointStatus 1.0.0 GET /api/supply-chain/v1/get-chokepoint-status delivery UNBOUND UNBOUND",
+      "claim": "contract GetChokepointStatus 1.0.0 GET /api/supply-chain/v1/get-chokepoint-status delivery UNBOUND UNBOUND",
+      "source_ref": "contract_resolver",
+      "confidence": 1
+    },
+    {
+      "observation": "contract GetCountryChokepointIndex 1.0.0 GET /api/supply-chain/v1/get-country-chokepoint-index delivery UNBOUND UNBOUND",
+      "claim": "contract GetCountryChokepointIndex 1.0.0 GET /api/supply-chain/v1/get-country-chokepoint-index delivery UNBOUND UNBOUND",
+      "source_ref": "contract_resolver",
+      "confidence": 1
+    },
+    {
+      "observation": "contract ListEnergyDisruptions 1.0.0 GET /api/supply-chain/v1/list-energy-disruptions delivery UNBOUND UNBOUND",
+      "claim": "contract ListEnergyDisruptions 1.0.0 GET /api/supply-chain/v1/list-energy-disruptions delivery UNBOUND UNBOUND",
+      "source_ref": "contract_resolver",
+      "confidence": 1
+    },
+    {
+      "observation": "contract GetCountryRisk 1.0.0 GET /api/intelligence/v1/get-country-risk delivery UNBOUND UNBOUND",
+      "claim": "contract GetCountryRisk 1.0.0 GET /api/intelligence/v1/get-country-risk delivery UNBOUND UNBOUND",
+      "source_ref": "contract_resolver",
+      "confidence": 1
+    },
+    {
+      "observation": "contract GetRiskScores 1.0.0 GET /api/intelligence/v1/get-risk-scores delivery UNBOUND UNBOUND",
+      "claim": "contract GetRiskScores 1.0.0 GET /api/intelligence/v1/get-risk-scores delivery UNBOUND UNBOUND",
+      "source_ref": "contract_resolver",
+      "confidence": 1
+    },
+    {
+      "observation": "contract GetVesselSnapshot 1.0.0 GET /api/maritime/v1/get-vessel-snapshot delivery UNBOUND UNBOUND",
+      "claim": "contract GetVesselSnapshot 1.0.0 GET /api/maritime/v1/get-vessel-snapshot delivery UNBOUND UNBOUND",
+      "source_ref": "contract_resolver",
+      "confidence": 1
+    },
+    {
+      "observation": "contract ListEarthquakes 1.0.0 GET /api/seismology/v1/list-earthquakes delivery REQUEST CACHED_FETCH",
+      "claim": "contract ListEarthquakes 1.0.0 GET /api/seismology/v1/list-earthquakes delivery REQUEST CACHED_FETCH",
+      "source_ref": "contract_resolver",
+      "confidence": 1
+    },
+    {
+      "observation": "contract ListMilitaryFlights 1.0.0 GET /api/military/v1/list-military-flights delivery UNBOUND UNBOUND",
+      "claim": "contract ListMilitaryFlights 1.0.0 GET /api/military/v1/list-military-flights delivery UNBOUND UNBOUND",
+      "source_ref": "contract_resolver",
+      "confidence": 1
+    },
+    {
+      "observation": "contract ListUnrestEvents 1.0.0 GET /api/unrest/v1/list-unrest-events delivery REQUEST CACHED_FETCH",
+      "claim": "contract ListUnrestEvents 1.0.0 GET /api/unrest/v1/list-unrest-events delivery REQUEST CACHED_FETCH",
+      "source_ref": "contract_resolver",
+      "confidence": 1
+    },
+    {
+      "observation": "contract GetRiskScores 1.0.0 GET /api/intelligence/v1/get-risk-scores delivery UNBOUND UNBOUND",
+      "claim": "contract GetRiskScores 1.0.0 GET /api/intelligence/v1/get-risk-scores delivery UNBOUND UNBOUND",
+      "source_ref": "contract_resolver",
+      "confidence": 1
+    },
+    {
+      "observation": "contract ListCountryHeadlines 1.0.0 GET /api/news/v1/list-country-headlines delivery UNBOUND UNBOUND",
+      "claim": "contract ListCountryHeadlines 1.0.0 GET /api/news/v1/list-country-headlines delivery UNBOUND UNBOUND",
+      "source_ref": "contract_resolver",
+      "confidence": 1
+    },
+    {
+      "observation": "contract ListFeedDigest 1.0.0 GET /api/news/v1/list-feed-digest delivery UNBOUND UNBOUND",
+      "claim": "contract ListFeedDigest 1.0.0 GET /api/news/v1/list-feed-digest delivery UNBOUND UNBOUND",
+      "source_ref": "contract_resolver",
+      "confidence": 1
+    },
+    {
+      "observation": "contract SearchGdeltDocuments 1.0.0 GET /api/intelligence/v1/search-gdelt-documents delivery REQUEST CACHED_FETCH",
+      "claim": "contract SearchGdeltDocuments 1.0.0 GET /api/intelligence/v1/search-gdelt-documents delivery REQUEST CACHED_FETCH",
+      "source_ref": "contract_resolver",
+      "confidence": 1
+    },
+    {
+      "observation": "contract GetEnergyPrices 1.0.0 GET /api/economic/v1/get-energy-prices delivery UNBOUND UNBOUND",
+      "claim": "contract GetEnergyPrices 1.0.0 GET /api/economic/v1/get-energy-prices delivery UNBOUND UNBOUND",
+      "source_ref": "contract_resolver",
+      "confidence": 1
+    },
+    {
+      "observation": "contract GetOilStocksAnalysis 1.0.0 GET /api/economic/v1/get-oil-stocks-analysis delivery UNBOUND UNBOUND",
+      "claim": "contract GetOilStocksAnalysis 1.0.0 GET /api/economic/v1/get-oil-stocks-analysis delivery UNBOUND UNBOUND",
+      "source_ref": "contract_resolver",
+      "confidence": 1
+    },
+    {
+      "observation": "contract ListCommodityQuotes 1.0.0 GET /api/market/v1/list-commodity-quotes delivery UNBOUND UNBOUND",
+      "claim": "contract ListCommodityQuotes 1.0.0 GET /api/market/v1/list-commodity-quotes delivery UNBOUND UNBOUND",
+      "source_ref": "contract_resolver",
+      "confidence": 1
+    },
+    {
+      "observation": "contract GetShippingStress 1.0.0 GET /api/supply-chain/v1/get-shipping-stress delivery UNBOUND UNBOUND",
+      "claim": "contract GetShippingStress 1.0.0 GET /api/supply-chain/v1/get-shipping-stress delivery UNBOUND UNBOUND",
+      "source_ref": "contract_resolver",
+      "confidence": 1
+    },
+    {
+      "observation": "contract GetVesselSnapshot 1.0.0 GET /api/maritime/v1/get-vessel-snapshot delivery UNBOUND UNBOUND",
+      "claim": "contract GetVesselSnapshot 1.0.0 GET /api/maritime/v1/get-vessel-snapshot delivery UNBOUND UNBOUND",
+      "source_ref": "contract_resolver",
+      "confidence": 1
+    },
+    {
+      "observation": "contract ListNavigationalWarnings 1.0.0 GET /api/maritime/v1/list-navigational-warnings delivery UNBOUND UNBOUND",
+      "claim": "contract ListNavigationalWarnings 1.0.0 GET /api/maritime/v1/list-navigational-warnings delivery UNBOUND UNBOUND",
+      "source_ref": "contract_resolver",
+      "confidence": 1
+    },
+    {
+      "observation": "contract RouteIntelligence 1.0.0 GET /api/v2/shipping/route-intelligence delivery UNBOUND UNBOUND",
+      "claim": "contract RouteIntelligence 1.0.0 GET /api/v2/shipping/route-intelligence delivery UNBOUND UNBOUND",
+      "source_ref": "contract_resolver",
+      "confidence": 1
+    },
+    {
+      "observation": "contract GetCountryEnergyProfile 1.0.0 GET /api/intelligence/v1/get-country-energy-profile delivery UNBOUND UNBOUND",
+      "claim": "contract GetCountryEnergyProfile 1.0.0 GET /api/intelligence/v1/get-country-energy-profile delivery UNBOUND UNBOUND",
+      "source_ref": "contract_resolver",
+      "confidence": 1
+    },
+    {
+      "observation": "contract GetEnergyPrices 1.0.0 GET /api/economic/v1/get-energy-prices delivery UNBOUND UNBOUND",
+      "claim": "contract GetEnergyPrices 1.0.0 GET /api/economic/v1/get-energy-prices delivery UNBOUND UNBOUND",
+      "source_ref": "contract_resolver",
+      "confidence": 1
+    },
+    {
+      "observation": "contract ListCrossSourceSignals 1.0.0 GET /api/intelligence/v1/list-cross-source-signals delivery REQUEST CACHED_FETCH",
+      "claim": "contract ListCrossSourceSignals 1.0.0 GET /api/intelligence/v1/list-cross-source-signals delivery REQUEST CACHED_FETCH",
+      "source_ref": "contract_resolver",
+      "confidence": 1
+    },
+    {
+      "observation": "governance gate C06 trace only",
+      "claim": "governance gate C06 trace only",
+      "source_ref": "methodology_router",
+      "confidence": 1
+    },
+    {
+      "observation": "governance gate C07 trace only",
+      "claim": "governance gate C07 trace only",
+      "source_ref": "methodology_router",
+      "confidence": 1
+    }
+  ],
+  "contradictions": [],
+  "unknowns": [
+    {
+      "code": "source_host_unknown:SRC_NEWS_API",
+      "verification_state": "UNKNOWN"
+    },
+    {
+      "code": "source_host_unknown:SRC_AIS",
+      "verification_state": "UNKNOWN"
+    },
+    {
+      "code": "source_host_unknown:SRC_SHIPPING_V2",
+      "verification_state": "UNKNOWN"
+    }
+  ],
+  "market_reaction": [],
+  "delta_t": [
+    {
+      "from_event": "event_time",
+      "to_event": "original_publish_time",
+      "from_time": "2026-03-01T08:00:00Z",
+      "to_time": "2026-03-01T09:00:00Z",
+      "duration_ms": 3600000,
+      "basis": "observed_timestamps",
+      "confidence": 1
+    },
+    {
+      "from_event": "original_publish_time",
+      "to_event": "wm_first_seen_time",
+      "from_time": "2026-03-01T09:00:00Z",
+      "to_time": null,
+      "duration_ms": null,
+      "basis": "not_computable",
+      "confidence": null
+    },
+    {
+      "from_event": "original_publish_time",
+      "to_event": "source_observed_time",
+      "from_time": "2026-03-01T09:00:00Z",
+      "to_time": null,
+      "duration_ms": null,
+      "basis": "not_computable",
+      "confidence": null
+    },
+    {
+      "from_event": "wm_first_seen_time",
+      "to_event": "normalized_time",
+      "from_time": null,
+      "to_time": null,
+      "duration_ms": null,
+      "basis": "not_computable",
+      "confidence": null
+    },
+    {
+      "from_event": "methodology_started_time",
+      "to_event": "methodology_completed_time",
+      "from_time": null,
+      "to_time": null,
+      "duration_ms": null,
+      "basis": "not_computable",
+      "confidence": null
+    },
+    {
+      "from_event": "event_time",
+      "to_event": "market_first_reaction_time",
+      "from_time": "2026-03-01T08:00:00Z",
+      "to_time": null,
+      "duration_ms": null,
+      "basis": "not_computable",
+      "confidence": null
+    },
+    {
+      "from_event": "event_time",
+      "to_event": "outcome_time",
+      "from_time": "2026-03-01T08:00:00Z",
+      "to_time": null,
+      "duration_ms": null,
+      "basis": "not_computable",
+      "confidence": null
+    }
+  ],
+  "replay": {
+    "supported": true,
+    "as_of_field": "as_of_time"
+  },
+  "backtest": {
+    "available": false,
+    "period": null
+  },
+  "confidence": 0.75,
+  "promotion_status": "DRAFT",
+  "revision": {
+    "revision_number": 0,
+    "previous_revision_ref": null,
+    "revision_reason": "initial",
+    "created_at": "2026-03-01T12:00:00Z",
+    "revision_created_at": "2026-03-01T12:00:00Z"
+  }
+}

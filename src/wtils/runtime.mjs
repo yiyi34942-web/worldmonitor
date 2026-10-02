@@ -47,16 +47,14 @@ const INPUT_KINDS = new Set([
 export function storagePolicy(env = {}) {
   const present = String(env.NAS_PRESENT ?? "false").toLowerCase() === "true";
   if (!present) {
-    const research = env.WTILS_RESEARCH_ROOT
-      ? "LOCAL_DEV"
-      : "QUEUED";
     return {
       nas_present: false,
       hardware: "UNBOUND",
       realtime: "CONTINUE",
-      research_persistence: research,
+      research_persistence: "QUEUED",
       knowledge_promotion: "BLOCKED_STORAGE",
       large_snapshot: "DEFERRED",
+      adapters: ["memory", "queued", "local-dev"],
     };
   }
   return {
@@ -267,11 +265,21 @@ export function routeRoles(registry, resolvedInput, profileRoute) {
   };
 }
 
-function artifactClassification(method) {
-  if (method.execution_class === "COMPOSITE") return "OFFICIAL_COMPOSITE";
-  if (method.execution_class === "DIRECT_API") return "OFFICIAL_DIRECT";
-  if (method.execution_class === "GOVERNANCE" || method.execution_class === "META") return "WTILS_GOVERNANCE";
-  return "UNMAPPED_BLOCKED";
+/**
+ * Routing identity comes from the registry record's canonical name,
+ * provenance class, and execution class. Narrative payload fields are not copied.
+ */
+export function methodSemanticView(method) {
+  return {
+    methodology_id: method.methodology_id,
+    canonical_name: method.canonical_name ?? method.name ?? null,
+    provenance_class: method.provenance_class ?? null,
+    execution_class: method.execution_class ?? null,
+    methodology_version: method.methodology_version ?? method.version ?? null,
+    methodology_version_hash: method.methodology_version_hash ?? null,
+    callable: method.callable === true && CALLABLE.has(method.execution_class),
+    payload_authority: "NOT_USED_FOR_ROUTING",
+  };
 }
 
 export function routeMethodologies(registry, resolvedInput, profileRoute) {
@@ -319,17 +327,24 @@ export function routeMethodologies(registry, resolvedInput, profileRoute) {
 }
 
 function traceMethod(method, disposition) {
+  const semantic = methodSemanticView(method);
+  const executed = disposition === "CALLABLE" && semantic.callable;
+  let traceState = "NOT_EXECUTED";
+  if (disposition === "GOVERNANCE_GATE") traceState = "GOVERNANCE_TRACE";
+  else if (executed) traceState = "EXECUTED";
   return {
-    methodology_id: method.methodology_id,
-    name: method.canonical_name ?? method.name,
-    version: method.version,
-    version_hash: method.methodology_version_hash ?? null,
-    execution_class: method.execution_class,
-    callable: CALLABLE.has(method.execution_class),
+    methodology_id: semantic.methodology_id,
+    name: semantic.canonical_name,
+    version: semantic.methodology_version,
+    methodology_version: semantic.methodology_version,
+    version_hash: semantic.methodology_version_hash,
+    provenance_class: semantic.provenance_class,
+    execution_class: semantic.execution_class,
+    callable: semantic.callable,
     disposition,
-    classification: artifactClassification(method),
-    legacy_classification: method.legacy_classification ?? null,
-    executed: disposition === "CALLABLE",
+    trace_state: traceState,
+    executed,
+    semantic_authority: semantic.payload_authority,
   };
 }
 
@@ -353,14 +368,17 @@ export function planApis(registry, resolvedInput, methodologyRoute) {
     const related = bindings.filter((binding) => binding.methodology_id === trace.methodology_id);
     for (const binding of related) {
       const level = LEVEL_BY_CLASS[binding.classification];
-      if (!level || !gate[level]) continue;
       const api = registry.byId.api.get(binding.operation_id);
-      if (!api) continue;
+      if (!api || !level) continue;
       const key = `${trace.methodology_id}:${binding.operation_id}:${binding.classification}`;
       if (seen.has(key)) continue;
       seen.add(key);
       const lifecycle = api.lifecycle_ref ?? null;
       const lifecycleOpen = lifecycle === "ACTIVE";
+      const levelOpen = gate[level] === true;
+      let blockReason = null;
+      if (!lifecycleOpen) blockReason = "LIFECYCLE_GATE";
+      else if (!levelOpen) blockReason = "LEVEL_GATE";
       operations.push({
         methodology_id: trace.methodology_id,
         operation_id: binding.operation_id,
@@ -374,8 +392,8 @@ export function planApis(registry, resolvedInput, methodologyRoute) {
         role_binding_mode: api.role_binding_mode,
         lifecycle_ref: lifecycle,
         lifecycle_open: lifecycleOpen,
-        included: lifecycleOpen,
-        block_reason: lifecycleOpen ? null : "LIFECYCLE_GATE",
+        included: lifecycleOpen && levelOpen,
+        block_reason: blockReason,
       });
     }
   }
@@ -399,8 +417,13 @@ export function resolveContract(registry, operationId, openapiIndex = null) {
     return { operation_id: operationId, status: "CONTRACT_CONFLICT", conflicts: [{ field: "operation_id", reason: "MISSING" }] };
   }
   const openapi = openapiIndex?.get(operationId) ?? null;
-  const requestResolved = api.request_schema_ref
-    ? "REGISTRY_REF"
+  const requestContractRef = typeof api.request_contract_ref === "string" && api.request_contract_ref.length > 0
+    ? api.request_contract_ref
+    : null;
+  const hasBody = ["POST", "PUT", "PATCH"].includes(String(api.http_method || "").toUpperCase());
+  const requestBodySchemaRef = hasBody ? (api.request_body_schema_ref ?? null) : null;
+  const requestResolved = requestContractRef
+    ? "REQUEST_CONTRACT_REF"
     : openapi
       ? "OPENAPI_OPERATION"
       : "UNRESOLVED";
@@ -413,8 +436,11 @@ export function resolveContract(registry, operationId, openapiIndex = null) {
   if (!api.canonical_route || !api.http_method) {
     conflicts.push({ field: "canonical_route", reason: "MISSING_ROUTE", blocking: true });
   }
-  if (requestResolved === "UNRESOLVED" && api.a06_request_schema_bound === true) {
-    conflicts.push({ field: "request_schema_ref", reason: "BOUND_WITHOUT_SCHEMA", blocking: false });
+  if (!requestContractRef) {
+    conflicts.push({ field: "request_contract_ref", reason: "UNRESOLVED", blocking: false });
+  }
+  if (hasBody && !requestBodySchemaRef) {
+    conflicts.push({ field: "request_body_schema_ref", reason: "BODY_SCHEMA_UNBOUND", blocking: false });
   }
   for (const roleId of api.role_bindings ?? []) {
     if (!FIVE_ROLES.includes(roleId)) {
@@ -430,7 +456,9 @@ export function resolveContract(registry, operationId, openapiIndex = null) {
     contract_version: api.contract_version ?? null,
     auth: api.authentication ?? null,
     entitlement: api.entitlement ?? null,
-    request_schema: { ref: api.request_schema_ref ?? null, resolved_from: requestResolved },
+    request_contract_ref: requestContractRef,
+    request_body_schema_ref: requestBodySchemaRef,
+    request_resolved_from: requestResolved,
     response_schema: { ref: api.response_schema_ref ?? null, resolved_from: responseResolved },
     jmespath: api.jmespath ?? null,
     pagination: api.pagination ?? null,
@@ -443,7 +471,8 @@ export function resolveContract(registry, operationId, openapiIndex = null) {
     profiles: api.profile_bindings ?? [],
     source_state: api.a09_source_bound ?? null,
     delivery_state: api.a11_delivery_bound ?? null,
-    delivery_mode: api.delivery_semantics_ref ?? null,
+    primary_delivery_mode: api.primary_delivery_mode ?? null,
+    cache_semantics: api.cache_semantics ?? null,
     freshness_ref: api.freshness_ref ?? null,
     seed_state: api.a12_seed_cache_bound ?? null,
     rate_limit: api.rate_limit ?? null,
@@ -454,15 +483,18 @@ export function resolveContract(registry, operationId, openapiIndex = null) {
 
 export function resolveDelivery(registry, operationId) {
   const api = registry.byId.api.get(operationId);
-  const mode = api?.delivery_semantics_ref ?? null;
-  const known = DELIVERY_MODES.includes(mode);
+  const primary = api?.primary_delivery_mode ?? null;
+  const cache = api?.cache_semantics ?? null;
+  const seeded = primary === "SEED" || primary === "SEEDED";
+  const cached = cache === "CACHED_FETCH";
   return {
     operation_id: operationId,
-    delivery_mode: known ? mode : null,
-    registry_mode: mode,
-    known,
-    seeded: mode === "SEEDED" || mode === "SEED_FIRST_GAP",
-    live_observation: mode === "REQUEST" || mode === "POLL" || mode === "STREAM" || mode === "RELAY" || mode === "WEBHOOK",
+    primary_delivery_mode: primary,
+    cache_semantics: cache,
+    known: primary == null || DELIVERY_MODES.includes(primary) || primary === "SEED",
+    seeded,
+    cached,
+    live_observation: (primary === "REQUEST" || primary === "RELAY") && !seeded && !cached,
   };
 }
 
@@ -587,9 +619,11 @@ export function buildResearchResult(registry, input) {
       ...delivery,
       as_of: resolvedInput.as_of,
       retrieved_at: null,
-      cache_state: delivery.delivery_mode === "CACHE" ? "UNVERIFIED" : null,
+      called_at: null,
+      cache_state: delivery.cached ? "CACHED_NOT_LIVE" : null,
       seed_state: delivery.seeded ? "SEEDED_NOT_LIVE" : null,
       freshness_state: registry.byId.api.get(operation.operation_id)?.freshness_ref ?? null,
+      live_observation: false,
     };
   });
   const executedIds = methodologyRoute.traces.filter((trace) => trace.executed).map((trace) => trace.methodology_id);
@@ -623,74 +657,181 @@ export function buildResearchResult(registry, input) {
   };
 }
 
-function evidenceClaim(claim, sourceRef) {
-  return { claim, source_ref: sourceRef, confidence: 1 };
+function evidenceRecord(observation, sourceRef) {
+  return { observation, claim: observation, source_ref: sourceRef, confidence: 1 };
+}
+
+export function buildDeltaT(timestamps) {
+  const pairs = [
+    ["event_time", "original_publish_time"],
+    ["original_publish_time", "wm_first_seen_time"],
+    ["original_publish_time", "source_observed_time"],
+    ["wm_first_seen_time", "normalized_time"],
+    ["methodology_started_time", "methodology_completed_time"],
+    ["event_time", "market_first_reaction_time"],
+    ["event_time", "outcome_time"],
+  ];
+  return pairs.map(([fromEvent, toEvent]) => {
+    const fromTime = timestamps?.[fromEvent] ?? null;
+    const toTime = timestamps?.[toEvent] ?? null;
+    if (!fromTime || !toTime) {
+      return {
+        from_event: fromEvent,
+        to_event: toEvent,
+        from_time: fromTime,
+        to_time: toTime,
+        duration_ms: null,
+        basis: "not_computable",
+        confidence: null,
+      };
+    }
+    const duration = Date.parse(toTime) - Date.parse(fromTime);
+    if (!Number.isFinite(duration)) {
+      return {
+        from_event: fromEvent,
+        to_event: toEvent,
+        from_time: fromTime,
+        to_time: toTime,
+        duration_ms: null,
+        basis: "not_computable",
+        confidence: null,
+      };
+    }
+    return {
+      from_event: fromEvent,
+      to_event: toEvent,
+      from_time: fromTime,
+      to_time: toTime,
+      duration_ms: duration,
+      basis: "observed_timestamps",
+      confidence: 1,
+    };
+  });
+}
+
+function methodArtifactItem(trace) {
+  return {
+    id: trace.methodology_id,
+    version: trace.methodology_version ?? trace.version,
+    provenance_class: trace.provenance_class,
+    execution_class: trace.execution_class,
+    methodology_version_hash: trace.version_hash,
+    trace_state: trace.trace_state,
+  };
+}
+
+function apiArtifactItem(registry, operation) {
+  const api = registry.byId.api.get(operation.operation_id);
+  const call = classifyCall(api);
+  return {
+    service: api.service,
+    operation: api.operation_id,
+    contract_version: api.contract_version,
+    request_contract_ref: api.request_contract_ref,
+    called_at: null,
+    primary_delivery_mode: api.primary_delivery_mode ?? null,
+    cache_semantics: api.cache_semantics ?? null,
+    a23_state: call.a23_candidate ? "BLOCKED_AUTH" : "NOT_SAFE_TO_CALL",
+    a24_state: "BLOCKED",
+    live_observation: false,
+  };
 }
 
 export function buildResearchArtifact(registry, result, options = {}) {
-  const primary = result.profiles.profile_ids[0] ?? "P00";
+  const profileIds = [...new Set(result.profiles.profile_ids)];
+  const primary = profileIds[0] ?? null;
   const asOf = result.as_of ?? options.as_of;
   const createdAt = options.created_at ?? asOf;
-  const executed = result.methodologies.traces.filter((trace) => trace.executed);
+  const pit = {};
+  for (const field of OBSERVATION_TIMESTAMPS) {
+    pit[field] = result.timeline.timestamps[field] ?? null;
+  }
   const timeline = [];
   for (const field of OBSERVATION_TIMESTAMPS) {
-    const ts = result.timeline.timestamps[field];
-    if (ts) timeline.push({ ts, event: field });
+    if (pit[field]) timeline.push({ ts: pit[field], event: field });
   }
   const schemaSources = result.sources.records.map((record) => ({
-    publisher: record.original_publisher ?? "UNKNOWN",
-    provider: record.provider ?? "UNKNOWN",
-    host: record.host ?? "UNKNOWN",
-    transport: record.transport ?? "UNKNOWN",
+    publisher: record.original_publisher ?? null,
+    provider: record.provider ?? null,
+    host: record.host ?? null,
+    transport: record.transport ?? null,
+    verification_state: record.state ?? "UNKNOWN",
   }));
-  const extraProfiles = result.profiles.profile_ids.slice(1);
+  const methodSeen = new Set();
+  const methodologies = [];
+  for (const trace of [...result.methodologies.traces, ...result.methodologies.governance]) {
+    if (methodSeen.has(trace.methodology_id)) continue;
+    methodSeen.add(trace.methodology_id);
+    methodologies.push(methodArtifactItem(trace));
+  }
+  const apis = result.api_plan.included.map((operation) => apiArtifactItem(registry, operation));
   const evidence = [
-    evidenceClaim(`primary_profile ${primary}`, "profile_router"),
-    ...extraProfiles.map((profileId) => evidenceClaim(`resolved_profile ${profileId}`, "profile_router")),
+    evidenceRecord(`primary_profile ${primary}`, "profile_router"),
+    ...profileIds.slice(1).map((profileId) => evidenceRecord(`resolved_profile ${profileId}`, "profile_router")),
     ...result.contracts.map((contract) =>
-      evidenceClaim(
-        `contract ${contract.operation_id} ${contract.contract_version ?? ""} ${contract.http_method} ${contract.canonical_route} delivery ${contract.delivery_mode}`.replace(/\s+/g, " ").trim(),
+      evidenceRecord(
+        `contract ${contract.operation_id} ${contract.contract_version ?? ""} ${contract.http_method} ${contract.canonical_route} delivery ${contract.primary_delivery_mode ?? "UNBOUND"} ${contract.cache_semantics ?? "UNBOUND"}`.replace(/\s+/g, " ").trim(),
         "contract_resolver",
       ),
     ),
     ...result.methodologies.governance.map((gate) =>
-      evidenceClaim(`governance gate ${gate.methodology_id} not executed`, "methodology_router"),
+      evidenceRecord(`governance gate ${gate.methodology_id} trace only`, "methodology_router"),
     ),
   ];
   const knownHosts = result.sources.records.filter((record) => record.host).length;
   const confidence = result.sources.records.length === 0
     ? 0
     : Number((knownHosts / result.sources.records.length).toFixed(4));
+  const revision = options.revision && typeof options.revision === "object"
+    ? options.revision
+    : {
+        revision_number: 0,
+        previous_revision_ref: null,
+        revision_reason: "initial",
+        created_at: createdAt,
+        revision_created_at: createdAt,
+      };
   return {
     artifact_id: options.artifact_id ?? "RA_UNNAMED",
-    artifact_version: options.artifact_version ?? 1,
-    event_id: result.event.event_id ?? "EVT_UNNAMED",
+    artifact_version: options.artifact_version ?? "2.1.0",
+    event_id: result.event.event_id ?? null,
     created_at: createdAt,
     as_of_time: asOf,
-    query: result.event.query || "unspecified",
-    intent: result.event.intent || "unspecified",
-    profile_id: primary,
+    query: result.event.query || null,
+    intent: result.event.intent || null,
+    primary_profile_id: primary,
+    profile_ids: profileIds,
     roles: result.roles.roles,
     role_weights: result.roles.role_weights,
-    methodologies: executed.map((trace) => ({
-      id: trace.methodology_id,
-      version: trace.version,
-      classification: trace.classification,
-    })),
-    apis: [],
+    methodologies,
+    apis,
     sources: schemaSources,
+    pit,
     timeline,
     evidence,
     contradictions: result.contradictions,
-    unknowns: result.unknowns,
+    unknowns: result.unknowns.map((item) => (typeof item === "string" ? { code: item, verification_state: "UNKNOWN" } : item)),
     market_reaction: result.market_reaction ?? [],
-    delta_t: options.delta_t ?? [],
+    delta_t: options.delta_t ?? buildDeltaT(pit),
     replay: { supported: Boolean(asOf), as_of_field: asOf ? "as_of_time" : null },
     backtest: { available: false, period: null },
     confidence,
     promotion_status: options.promotion_status ?? "DRAFT",
-    revision: options.revision ?? 0,
+    revision,
   };
+}
+
+export function appendRevision(artifact, reason, createdAt) {
+  const next = structuredClone(artifact);
+  const previousNumber = artifact.revision?.revision_number ?? 0;
+  next.revision = {
+    revision_number: previousNumber + 1,
+    previous_revision_ref: `${artifact.artifact_id}#r${previousNumber}`,
+    revision_reason: reason,
+    created_at: createdAt,
+    revision_created_at: createdAt,
+  };
+  return { previous: artifact, next };
 }
 
 export function validateResearchArtifact(artifact, schema) {
