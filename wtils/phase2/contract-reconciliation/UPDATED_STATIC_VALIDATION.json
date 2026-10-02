@@ -1,0 +1,186 @@
+{
+  "generated_at": "2026-10-02T02:06:24.343314Z",
+  "validator_result": "PASS",
+  "validator_errors": 0,
+  "test_result": "PASS",
+  "tests_passed": 75,
+  "tests_total": 75,
+  "tests_failed": 0,
+  "a_field_coverage": {
+    "a00_registered": {
+      "VERIFIED": 237,
+      "NOT_APPLICABLE": 0,
+      "BLOCKED_STATIC_EVIDENCE": 0,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a01_http_method_verified": {
+      "VERIFIED": 237,
+      "NOT_APPLICABLE": 0,
+      "BLOCKED_STATIC_EVIDENCE": 0,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a02_canonical_route_verified": {
+      "VERIFIED": 237,
+      "NOT_APPLICABLE": 0,
+      "BLOCKED_STATIC_EVIDENCE": 0,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a03_auth_defined": {
+      "VERIFIED": 237,
+      "NOT_APPLICABLE": 0,
+      "BLOCKED_STATIC_EVIDENCE": 0,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a04_entitlement_bound": {
+      "VERIFIED": 237,
+      "NOT_APPLICABLE": 0,
+      "BLOCKED_STATIC_EVIDENCE": 0,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a05_declared_availability": {
+      "VERIFIED": 237,
+      "NOT_APPLICABLE": 0,
+      "BLOCKED_STATIC_EVIDENCE": 0,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a06_request_schema_bound": {
+      "VERIFIED": 237,
+      "NOT_APPLICABLE": 0,
+      "BLOCKED_STATIC_EVIDENCE": 0,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a07_response_schema_bound": {
+      "VERIFIED": 237,
+      "NOT_APPLICABLE": 0,
+      "BLOCKED_STATIC_EVIDENCE": 0,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a08_nullability_bound": {
+      "VERIFIED": 119,
+      "NOT_APPLICABLE": 118,
+      "BLOCKED_STATIC_EVIDENCE": 0,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a09_source_bound": {
+      "VERIFIED": 119,
+      "NOT_APPLICABLE": 0,
+      "BLOCKED_STATIC_EVIDENCE": 118,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a10_attribution_bound": {
+      "VERIFIED": 119,
+      "NOT_APPLICABLE": 0,
+      "BLOCKED_STATIC_EVIDENCE": 118,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a11_delivery_bound": {
+      "VERIFIED": 223,
+      "NOT_APPLICABLE": 0,
+      "BLOCKED_STATIC_EVIDENCE": 14,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a12_seed_cache_bound": {
+      "VERIFIED": 192,
+      "NOT_APPLICABLE": 0,
+      "BLOCKED_STATIC_EVIDENCE": 45,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a13_freshness_bound": {
+      "VERIFIED": 119,
+      "NOT_APPLICABLE": 0,
+      "BLOCKED_STATIC_EVIDENCE": 118,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a14_lifecycle_bound": {
+      "VERIFIED": 237,
+      "NOT_APPLICABLE": 0,
+      "BLOCKED_STATIC_EVIDENCE": 0,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a15_contract_version_bound": {
+      "VERIFIED": 237,
+      "NOT_APPLICABLE": 0,
+      "BLOCKED_STATIC_EVIDENCE": 0,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a16_role_bound": {
+      "VERIFIED": 237,
+      "NOT_APPLICABLE": 0,
+      "BLOCKED_STATIC_EVIDENCE": 0,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a17_methodology_bound": {
+      "VERIFIED": 237,
+      "NOT_APPLICABLE": 0,
+      "BLOCKED_STATIC_EVIDENCE": 0,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a18_profile_bound": {
+      "VERIFIED": 237,
+      "NOT_APPLICABLE": 0,
+      "BLOCKED_STATIC_EVIDENCE": 0,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a19_rate_limit_bound": {
+      "VERIFIED": 237,
+      "NOT_APPLICABLE": 0,
+      "BLOCKED_STATIC_EVIDENCE": 0,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a20_jmespath_bound": {
+      "VERIFIED": 225,
+      "NOT_APPLICABLE": 12,
+      "BLOCKED_STATIC_EVIDENCE": 0,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a21_pagination_truncation_bound": {
+      "VERIFIED": 45,
+      "NOT_APPLICABLE": 192,
+      "BLOCKED_STATIC_EVIDENCE": 0,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    },
+    "a22_error_semantics_bound": {
+      "VERIFIED": 237,
+      "NOT_APPLICABLE": 0,
+      "BLOCKED_STATIC_EVIDENCE": 0,
+      "PENDING_GROK_BUILD": 0,
+      "total": 237
+    }
+  },
+  "five_roles": [
+    "WORLD",
+    "TECH",
+    "FINANCE",
+    "COMMODITY",
+    "ENERGY"
+  ],
+  "canonical_methods": 31,
+  "canonical_apis": 237,
+  "no_duplicate_state_state": true,
+  "no_legacy_classification": true,
+  "all_request_contract_ref_populated": true,
+  "pit_observation_fields": 13,
+  "contract_version": "2.0.0"
+}

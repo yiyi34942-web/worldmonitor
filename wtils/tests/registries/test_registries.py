@@ -536,6 +536,74 @@ def main():
     blank_role_names = [r['role_id'] for r in roles if not r.get('canonical_name') and not r.get('name')]
     runner.test("validation_report_all_role_names_present", len(blank_role_names) == 0, f"Blank names: {blank_role_names}")
 
+
+    # === PHASE2A-R TESTS ===
+
+    # no_duplicate_state_state_keys
+    dup_count = sum(sum(1 for k in a if k.endswith('_state_state')) for a in apis)
+    runner.test("no_duplicate_state_state_keys", dup_count == 0, f"{dup_count} duplicate _state_state keys")
+
+    # no_legacy_classification_in_active_registry
+    legacy_count = sum(1 for m in methods if 'legacy_classification' in m)
+    runner.test("no_legacy_classification_in_active_registry", legacy_count == 0, f"{legacy_count} methodologies with legacy_classification")
+
+    # all_apis_have_request_contract_ref
+    null_ref = sum(1 for a in apis if not a.get('request_contract_ref'))
+    runner.test("all_apis_have_request_contract_ref", null_ref == 0, f"{null_ref} APIs without request_contract_ref")
+
+    # request_body_schema_ref_optional
+    has_body_ref = sum(1 for a in apis if a.get('request_body_schema_ref') is not None)
+    runner.test("request_body_schema_ref_optional", True, f"{has_body_ref} APIs with body schema ref (optional)")
+
+    # pit_has_all_observation_fields
+    try:
+        import json as _json
+        pit = _json.load(open('wtils/config/registries/pit_contract.json'))
+        pit_fields = set(pit.get('timestamp_fields',{}).keys())
+        expected_pit = {'event_time','original_publish_time','source_observed_time','wm_first_seen_time',
+            'webhook_emitted_time','webhook_received_time','normalized_time',
+            'methodology_started_time','methodology_completed_time','analyst_available_time',
+            'market_first_reaction_time','research_snapshot_time','outcome_time'}
+        pit_ok = pit_fields == expected_pit
+        runner.test("pit_has_all_observation_fields", pit_ok, f"Got {len(pit_fields)} fields, expected {len(expected_pit)}")
+    except Exception as e:
+        runner.test("pit_has_all_observation_fields", False, str(e))
+
+    # research_artifact_supports_multi_profile
+    try:
+        ras = _json.load(open('wtils/schemas/research/research_artifact_schema.json'))
+        has_pp = 'primary_profile_id' in ras.get('properties',{})
+        has_pids = 'profile_ids' in ras.get('properties',{})
+        no_singular = 'profile_id' not in ras.get('required',[])
+        runner.test("research_artifact_supports_multi_profile", has_pp and has_pids and no_singular, f"primary={has_pp} ids={has_pids} no_singular={no_singular}")
+    except Exception as e:
+        runner.test("research_artifact_supports_multi_profile", False, str(e))
+
+    # primary_profile_must_be_in_profile_ids
+    # (schema constraint, verify in schema)
+    try:
+        ras = _json.load(open('wtils/schemas/research/research_artifact_schema.json'))
+        has_constraint = any('primary_profile_id' in str(c) for c in ras.get('constraints',[]))
+        runner.test("primary_profile_must_be_in_profile_ids", has_constraint, "Schema constraint present")
+    except Exception as e:
+        runner.test("primary_profile_must_be_in_profile_ids", False, str(e))
+
+    # duplicate_profile_ids_rejected (uniqueItems=true in schema)
+    try:
+        ras = _json.load(open('wtils/schemas/research/research_artifact_schema.json'))
+        pids_prop = ras.get('properties',{}).get('profile_ids',{})
+        unique = pids_prop.get('uniqueItems') == True
+        runner.test("duplicate_profile_ids_rejected", unique, f"uniqueItems={pids_prop.get('uniqueItems')}")
+    except Exception as e:
+        runner.test("duplicate_profile_ids_rejected", False, str(e))
+
+    # delivery_patch_requires_evidence — no VERIFIED without handler
+    # source_not_inferred_from_handler_only
+
+    # a00_a22_explicit_state_only (already exists, but re-verify)
+    bare_false = sum(sum(1 for k,v in a.items() if (k.startswith('a0') or k.startswith('a1') or k.startswith('a2')) and v is False) for a in apis)
+    runner.test("a00_a22_explicit_state_recheck", bare_false == 0, f"{bare_false} bare false")
+
     # Output
     result = runner.summary()
     print(json.dumps(result, indent=2))

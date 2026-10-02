@@ -59,7 +59,8 @@
     "a23",
     "a24",
     "scope_class",
-    "role_binding_mode"
+    "role_binding_mode",
+    "request_contract_ref"
   ],
   "properties": {
     "operation_id": {
@@ -380,6 +381,41 @@
         "NOT_APPLICABLE_SYSTEM"
       ],
       "description": "Whether this API requires five-lens role binding"
+    },
+    "request_contract_ref": {
+      "type": "string",
+      "description": "Deterministic reference to the operation contract in OpenAPI spec"
+    },
+    "request_body_schema_ref": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Reference to request body JSON schema (nullable, only when body exists)"
+    },
+    "a06_request_schema_bound_semantic": {
+      "type": "string",
+      "enum": [
+        "REQUEST_CONTRACT_BOUND"
+      ],
+      "description": "A06 semantic: the request CONTRACT is bound, not that JSON body always exists"
+    },
+    "primary_delivery_mode": {
+      "type": "string",
+      "enum": [
+        "REQUEST",
+        "RELAY",
+        "SEED"
+      ],
+      "description": "Primary delivery mode (transport axis)"
+    },
+    "cache_semantics": {
+      "type": "string",
+      "enum": [
+        "CACHED_FETCH",
+        "NONE"
+      ],
+      "description": "Cache semantics axis"
     }
   }
 }

@@ -1,0 +1,2296 @@
+{
+  "total": 286,
+  "accepted": 286,
+  "rejected": 0,
+  "deferred": 0,
+  "patches": [
+    {
+      "operation_id": "GetAirportOpsSummary",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetAirportOpsSummary",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetAirportOpsSummary",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Seed evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetCarrierOps",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetCarrierOps",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetCarrierOps",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetFlightStatus",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetFlightStatus",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetFlightStatus",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetYoutubeLiveStreamInfo",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetYoutubeLiveStreamInfo",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetYoutubeLiveStreamInfo",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListAirportDelays",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler evidence found, delivery=REQUEST+CACHE",
+      "runtime_evidence_present": false,
+      "value": null
+    },
+    {
+      "operation_id": "ListAirportDelays",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler evidence found, delivery=REQUEST+CACHE",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListAirportFlights",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListAirportFlights",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListAirportFlights",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListAviationNews",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListAviationNews",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListAviationNews",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "SearchFlightPrices",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler evidence found, delivery=REQUEST+CACHE",
+      "runtime_evidence_present": false,
+      "value": null
+    },
+    {
+      "operation_id": "SearchFlightPrices",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler evidence found, delivery=REQUEST+CACHE",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "SearchGoogleDates",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "SearchGoogleDates",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "SearchGoogleDates",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "SearchGoogleFlights",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "SearchGoogleFlights",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "SearchGoogleFlights",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "TrackAircraft",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "TrackAircraft",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "TrackAircraft",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetCo2Monitoring",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetCo2Monitoring",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetCo2Monitoring",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetOceanIceData",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetOceanIceData",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetOceanIceData",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListAirQualityData",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListAirQualityData",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListAirQualityData",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListClimateAnomalies",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListClimateAnomalies",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListClimateAnomalies",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Seed evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListClimateDisasters",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListClimateDisasters",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListClimateDisasters",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Seed evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListClimateNews",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListClimateNews",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListClimateNews",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetConsumerPriceBasketSeries",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetConsumerPriceBasketSeries",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetConsumerPriceBasketSeries",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetConsumerPriceFreshness",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetConsumerPriceFreshness",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetConsumerPriceFreshness",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetConsumerPriceOverview",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetConsumerPriceOverview",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetConsumerPriceOverview",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListConsumerPriceCategories",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListConsumerPriceCategories",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListConsumerPriceCategories",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListConsumerPriceMovers",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListConsumerPriceMovers",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListConsumerPriceMovers",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListRetailerPriceSpreads",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListRetailerPriceSpreads",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListRetailerPriceSpreads",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListCyberThreats",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListCyberThreats",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListCyberThreats",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Seed evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetDisplacementSummary",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetDisplacementSummary",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetDisplacementSummary",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Seed evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetPopulationExposure",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler evidence found, delivery=REQUEST+CACHE",
+      "runtime_evidence_present": false,
+      "value": null
+    },
+    {
+      "operation_id": "GetPopulationExposure",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler evidence found, delivery=REQUEST+CACHE",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetBisCredit",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetBisCredit",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetBisCredit",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Seed evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetBlsSeries",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetBlsSeries",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetBlsSeries",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Seed evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetChinaMacroSnapshot",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetChinaMacroSnapshot",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetChinaMacroSnapshot",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetEurostatCountryData",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetEurostatCountryData",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetEurostatCountryData",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Seed evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetFredSeriesBatch",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetFredSeriesBatch",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetFredSeriesBatch",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetForecastScorecard",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetForecastScorecard",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetForecasts",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler evidence found, delivery=REQUEST+CACHE",
+      "runtime_evidence_present": false,
+      "value": null
+    },
+    {
+      "operation_id": "GetForecasts",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler evidence found, delivery=REQUEST+CACHE",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetSimulationOutcome",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler evidence found, delivery=REQUEST+CACHE",
+      "runtime_evidence_present": false,
+      "value": null
+    },
+    {
+      "operation_id": "GetSimulationOutcome",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler evidence found, delivery=REQUEST+CACHE",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetSimulationPackage",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler evidence found, delivery=REQUEST+CACHE",
+      "runtime_evidence_present": false,
+      "value": null
+    },
+    {
+      "operation_id": "GetSimulationPackage",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler evidence found, delivery=REQUEST+CACHE",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "TriggerSimulation",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler evidence found, delivery=REQUEST+CACHE",
+      "runtime_evidence_present": false,
+      "value": null
+    },
+    {
+      "operation_id": "TriggerSimulation",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler evidence found, delivery=REQUEST+CACHE",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetGivingSummary",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetGivingSummary",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetGivingSummary",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListAirQualityAlerts",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListAirQualityAlerts",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListAirQualityAlerts",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListDiseaseOutbreaks",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListDiseaseOutbreaks",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "SearchImagery",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "SearchImagery",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "SearchImagery",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetBootstrapData",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetBootstrapData",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetBootstrapData",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetIpGeo",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler evidence found, delivery=REQUEST+CACHE",
+      "runtime_evidence_present": false,
+      "value": null
+    },
+    {
+      "operation_id": "GetIpGeo",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler evidence found, delivery=REQUEST+CACHE",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetTemporalBaseline",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetTemporalBaseline",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetTemporalBaseline",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListServiceStatuses",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListServiceStatuses",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListServiceStatuses",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Seed evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListTemporalAnomalies",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListTemporalAnomalies",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListTemporalAnomalies",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Seed evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "RecordBaselineSnapshot",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler evidence found, delivery=REQUEST+CACHE",
+      "runtime_evidence_present": false,
+      "value": null
+    },
+    {
+      "operation_id": "RecordBaselineSnapshot",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler evidence found, delivery=REQUEST+CACHE",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ReverseGeocode",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ReverseGeocode",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ReverseGeocode",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ComputeEnergyShockScenario",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ComputeEnergyShockScenario",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ComputeEnergyShockScenario",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "DeductSituation",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "DeductSituation",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "DeductSituation",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetChinaDecisionSignals",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetChinaDecisionSignals",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetChinaDecisionSignals",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetCompanyEnrichment",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetCompanyEnrichment",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetCountryCoverage",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetCountryCoverage",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetCountryFacts",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetCountryFacts",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetCountryFacts",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetCountryPortActivity",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetCountryPortActivity",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetCountryPortActivity",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetGdeltTopicTimeline",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetGdeltTopicTimeline",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetRegimeHistory",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetRegimeHistory",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetRegionalSnapshot",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetRegionalSnapshot",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetRegionalSnapshot",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListCompanySignals",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler evidence found, delivery=REQUEST+CACHE",
+      "runtime_evidence_present": false,
+      "value": null
+    },
+    {
+      "operation_id": "ListCompanySignals",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler evidence found, delivery=REQUEST+CACHE",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListCrossSourceSignals",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListCrossSourceSignals",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListCrossSourceSignals",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Seed evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListGpsInterference",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListGpsInterference",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListGpsInterference",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListOrefAlerts",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListOrefAlerts",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListOrefAlerts",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListSatellites",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListSatellites",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListSatellites",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Seed evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListTelegramFeed",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListTelegramFeed",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListWsbTickers",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListWsbTickers",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListWsbTickers",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListXFeed",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListXFeed",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "SearchGdeltDocuments",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "SearchGdeltDocuments",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "SearchGdeltDocuments",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "SearchSecFilings",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "SearchSecFilings",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "RegisterInterest",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler evidence found, delivery=REQUEST+CACHE",
+      "runtime_evidence_present": false,
+      "value": null
+    },
+    {
+      "operation_id": "RegisterInterest",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler evidence found, delivery=REQUEST+CACHE",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "SubmitContact",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler evidence found, delivery=REQUEST+CACHE",
+      "runtime_evidence_present": false,
+      "value": null
+    },
+    {
+      "operation_id": "SubmitContact",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler evidence found, delivery=REQUEST+CACHE",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "BacktestStock",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "BacktestStock",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "BacktestStock",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetHyperliquidFlow",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetHyperliquidFlow",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetHyperliquidFlow",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Seed evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetPhysicalDivergenceIndex",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler evidence found, delivery=REQUEST+CACHE",
+      "runtime_evidence_present": false,
+      "value": null
+    },
+    {
+      "operation_id": "GetPhysicalDivergenceIndex",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler evidence found, delivery=REQUEST+CACHE",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetPhysicalPremiums",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetPhysicalPremiums",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetPhysicalPremiums",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Seed evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetStockAnalysisHistory",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler evidence found, delivery=REQUEST+CACHE",
+      "runtime_evidence_present": false,
+      "value": null
+    },
+    {
+      "operation_id": "GetStockAnalysisHistory",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler evidence found, delivery=REQUEST+CACHE",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListAiTokens",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListAiTokens",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListAiTokens",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Seed evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListCryptoQuotes",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListCryptoQuotes",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListCryptoQuotes",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Seed evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListCryptoSectors",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListCryptoSectors",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListCryptoSectors",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Seed evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListDefiTokens",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListDefiTokens",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListDefiTokens",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Seed evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListGulfQuotes",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListGulfQuotes",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListGulfQuotes",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Seed evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListOtherTokens",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListOtherTokens",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListOtherTokens",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Seed evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListStablecoinMarkets",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListStablecoinMarkets",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListStablecoinMarkets",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Seed evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListStoredStockBacktests",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler evidence found, delivery=REQUEST+CACHE",
+      "runtime_evidence_present": false,
+      "value": null
+    },
+    {
+      "operation_id": "ListStoredStockBacktests",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler evidence found, delivery=REQUEST+CACHE",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetWingbitsLiveFlight",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetWingbitsLiveFlight",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetWingbitsLiveFlight",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetWingbitsStatus",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler evidence found, delivery=REQUEST+CACHE",
+      "runtime_evidence_present": false,
+      "value": null
+    },
+    {
+      "operation_id": "GetWingbitsStatus",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler evidence found, delivery=REQUEST+CACHE",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListNaturalEvents",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListNaturalEvents",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListNaturalEvents",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Seed evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListPositiveGeoEvents",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListPositiveGeoEvents",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListPositiveGeoEvents",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListPredictionMarkets",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListPredictionMarkets",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListPredictionMarkets",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListRadiationObservations",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListRadiationObservations",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListRadiationObservations",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListArxivPapers",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListArxivPapers",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListArxivPapers",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Seed evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListHackernewsItems",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListHackernewsItems",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListHackernewsItems",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Seed evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListTechEvents",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListTechEvents",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListTechEvents",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListTrendingRepos",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListTrendingRepos",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListTrendingRepos",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Seed evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetDemographicsCapability",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetDemographicsCapability",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetTorontoSafety",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetTorontoSafety",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetScenarioStatus",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetScenarioStatus",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListScenarioTemplates",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler evidence found, delivery=REQUEST+CACHE",
+      "runtime_evidence_present": false,
+      "value": null
+    },
+    {
+      "operation_id": "ListScenarioTemplates",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler evidence found, delivery=REQUEST+CACHE",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "RunScenario",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler evidence found, delivery=REQUEST+CACHE",
+      "runtime_evidence_present": false,
+      "value": null
+    },
+    {
+      "operation_id": "RunScenario",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler evidence found, delivery=REQUEST+CACHE",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListFiveFactorScorecards",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler evidence found, delivery=REQUEST+CACHE",
+      "runtime_evidence_present": false,
+      "value": null
+    },
+    {
+      "operation_id": "ListFiveFactorScorecards",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler evidence found, delivery=REQUEST+CACHE",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListEarthquakes",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListEarthquakes",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListEarthquakes",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Seed evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetCustomsRevenue",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetCustomsRevenue",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetCustomsRevenue",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListUnrestEvents",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListUnrestEvents",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListUnrestEvents",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Seed evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetWebcamImage",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetWebcamImage",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + relay evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "GetWebcamImage",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListWebcams",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListWebcams",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListWebcams",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Seed evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListFireDetections",
+      "field": "delivery_semantics_ref",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListFireDetections",
+      "field": "a11_delivery_bound",
+      "decision": "ACCEPTED",
+      "reason": "Handler + cache evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": "ListFireDetections",
+      "field": "a12_seed_cache_bound",
+      "decision": "ACCEPTED",
+      "reason": "Seed evidence found",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": null,
+      "field": "*_state_state",
+      "decision": "ACCEPTED",
+      "reason": "Duplicate _state_state keys removed in contract reconciliation",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": null,
+      "field": "legacy_classification",
+      "decision": "ACCEPTED",
+      "reason": "legacy_classification removed from active contract",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": null,
+      "field": "timestamp_fields",
+      "decision": "ACCEPTED",
+      "reason": "Contract reconciliation: timestamp_fields addressed in schema changes",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": null,
+      "field": "profile_id",
+      "decision": "ACCEPTED",
+      "reason": "Contract reconciliation: profile_id addressed in schema changes",
+      "runtime_evidence_present": true,
+      "value": null
+    },
+    {
+      "operation_id": null,
+      "field": "request_schema_ref",
+      "decision": "ACCEPTED",
+      "reason": "Contract reconciliation: request_schema_ref addressed in schema changes",
+      "runtime_evidence_present": true,
+      "value": null
+    }
+  ]
+}

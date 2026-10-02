@@ -1,0 +1,15 @@
+{
+  "previous_version": "1.0.0",
+  "new_version": "2.0.0",
+  "breaking": true,
+  "nonbreaking": false,
+  "migration_notes": [
+    "profile_id \u2192 primary_profile_id + profile_ids (breaking: singular \u2192 array)",
+    "request_schema_ref \u2192 request_contract_ref + optional request_body_schema_ref (semantic change)",
+    "legacy_classification \u2192 removed (breaking: field deleted)",
+    "*_state_state \u2192 removed (duplicate keys deleted)",
+    "PIT timestamp lineage \u2192 expanded from metadata to 13 observation fields",
+    "delivery_semantics \u2192 primary_delivery_mode + cache_semantics (two-axis)",
+    "A06 semantic \u2192 REQUEST_CONTRACT_BOUND (not JSON body always exists)"
+  ]
+}

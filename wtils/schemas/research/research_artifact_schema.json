@@ -1,199 +1,46 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "wtils:schemas:research:research_artifact_schema",
-  "title": "WTILS Research Artifact Schema",
-  "description": "Schema for WTILS Phase 1 Research Artifacts. Captures the full provenance, evidence, and revision history of a research output.",
   "type": "object",
-  "additionalProperties": false,
-  "required": [
-    "artifact_id", "artifact_version", "event_id", "created_at", "as_of_time",
-    "query", "intent", "profile_id", "roles", "role_weights", "methodologies",
-    "apis", "sources", "timeline", "evidence", "contradictions", "unknowns",
-    "market_reaction", "delta_t", "replay", "backtest", "confidence",
-    "promotion_status", "revision"
-  ],
+  "description": "WTILS Research Artifact contract with multi-profile support",
   "properties": {
     "artifact_id": {
       "type": "string",
-      "pattern": "^RA_[A-Z0-9_]+$"
+      "description": "Unique artifact identifier"
     },
-    "artifact_version": {
-      "type": "integer",
-      "minimum": 1
-    },
-    "event_id": {
+    "primary_profile_id": {
       "type": "string",
-      "minLength": 1
+      "description": "Primary analysis profile"
     },
-    "created_at": {
-      "type": "string",
-      "format": "date-time"
-    },
-    "as_of_time": {
-      "type": "string",
-      "format": "date-time"
-    },
-    "query": {
-      "type": "string",
-      "minLength": 1
-    },
-    "intent": {
-      "type": "string",
-      "minLength": 1
-    },
-    "profile_id": {
-      "type": "string",
-      "pattern": "^P\\d{2}$"
-    },
-    "roles": {
+    "profile_ids": {
       "type": "array",
-      "items": {"type": "string", "pattern": "^[A-Z]+$"}
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true,
+      "description": "All applicable profiles (includes primary)"
     },
-    "role_weights": {
+    "methodology_id": {
+      "type": "string"
+    },
+    "role_id": {
+      "type": "string"
+    },
+    "pit": {
       "type": "object",
-      "additionalProperties": {"type": "number", "minimum": 0, "maximum": 1}
+      "description": "PIT observation lineage"
     },
-    "methodologies": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": ["id", "version", "classification"],
-        "additionalProperties": false,
-        "properties": {
-          "id": {"type": "string", "pattern": "^(M|C)\\d{2}$"},
-          "version": {"type": "string"},
-          "classification": {"type": "string", "enum": ["OFFICIAL_DIRECT", "OFFICIAL_COMPOSITE", "WTILS_GOVERNANCE", "UNMAPPED_BLOCKED"]}
-        }
-      }
-    },
-    "apis": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": ["service", "operation", "contract_version", "called_at", "delivery_mode"],
-        "additionalProperties": false,
-        "properties": {
-          "service": {"type": "string"},
-          "operation": {"type": "string"},
-          "contract_version": {"type": "string"},
-          "called_at": {"type": "string", "format": "date-time"},
-          "delivery_mode": {"type": "string", "enum": ["REST", "MCP", "WEBHOOK", "STREAM", "CACHE", "SEED"]}
-        }
-      }
-    },
-    "sources": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": ["publisher", "provider", "host", "transport"],
-        "additionalProperties": false,
-        "properties": {
-          "publisher": {"type": "string"},
-          "provider": {"type": "string"},
-          "host": {"type": "string"},
-          "transport": {"type": "string"}
-        }
-      }
-    },
-    "timeline": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": ["ts", "event"],
-        "additionalProperties": true,
-        "properties": {
-          "ts": {"type": "string", "format": "date-time"},
-          "event": {"type": "string"}
-        }
-      }
-    },
-    "evidence": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": ["claim", "source_ref", "confidence"],
-        "additionalProperties": true,
-        "properties": {
-          "claim": {"type": "string"},
-          "source_ref": {"type": "string"},
-          "confidence": {"type": "number", "minimum": 0, "maximum": 1}
-        }
-      }
-    },
-    "contradictions": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": ["claim_a", "claim_b", "resolution"],
-        "additionalProperties": true,
-        "properties": {
-          "claim_a": {"type": "string"},
-          "claim_b": {"type": "string"},
-          "resolution": {"type": "string", "enum": ["UNRESOLVED", "A_PREFERRED", "B_PREFERRED", "MERGED", "DEFERRED"]}
-        }
-      }
-    },
-    "unknowns": {
-      "type": "array",
-      "items": {"type": "string"}
-    },
-    "market_reaction": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": ["asset", "direction", "magnitude"],
-        "additionalProperties": true,
-        "properties": {
-          "asset": {"type": "string"},
-          "direction": {"type": "string", "enum": ["UP", "DOWN", "FLAT", "VOLATILE"]},
-          "magnitude": {"type": "string", "enum": ["NEGLIGIBLE", "MODERATE", "SIGNIFICANT", "EXTREME"]}
-        }
-      }
-    },
-    "delta_t": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": ["field", "previous", "current", "ts"],
-        "additionalProperties": true,
-        "properties": {
-          "field": {"type": "string"},
-          "previous": {},
-          "current": {},
-          "ts": {"type": "string", "format": "date-time"}
-        }
-      }
-    },
-    "replay": {
-      "type": "object",
-      "required": ["supported", "as_of_field"],
-      "additionalProperties": false,
-      "properties": {
-        "supported": {"type": "boolean"},
-        "as_of_field": {"type": ["string", "null"]}
-      }
-    },
-    "backtest": {
-      "type": "object",
-      "required": ["available", "period"],
-      "additionalProperties": false,
-      "properties": {
-        "available": {"type": "boolean"},
-        "period": {"type": ["string", "null"]}
-      }
-    },
-    "confidence": {
-      "type": "number",
-      "minimum": 0,
-      "maximum": 1
-    },
-    "promotion_status": {
-      "type": "string",
-      "enum": ["DRAFT", "REVIEW", "PROMOTED", "SUPERSEDED", "RETRACTED"]
-    },
-    "revision": {
-      "type": "integer",
-      "minimum": 0
+    "version": {
+      "type": "string"
     }
-  }
+  },
+  "required": [
+    "artifact_id",
+    "primary_profile_id",
+    "profile_ids"
+  ],
+  "constraints": [
+    "primary_profile_id MUST exist in profile_ids",
+    "profile_ids minItems=1, uniqueItems=true",
+    "No singular profile_id field in active contract"
+  ]
 }

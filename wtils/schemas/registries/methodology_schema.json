@@ -322,10 +322,6 @@
       ],
       "description": "Execution classification: how this methodology is realized"
     },
-    "legacy_classification": {
-      "type": "string",
-      "description": "Deprecated single-axis classification (migration reference only)"
-    },
     "valid_from_state": {
       "type": "string",
       "enum": [

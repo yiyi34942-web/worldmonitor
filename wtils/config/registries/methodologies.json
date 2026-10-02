@@ -96,7 +96,6 @@
       "rebaseline_required": false,
       "callable": true,
       "valid_from_state": "VALID_FROM_UNKNOWN",
-      "legacy_classification": "OFFICIAL_DIRECT",
       "provenance_class": "OFFICIAL",
       "execution_class": "DIRECT_API",
       "canonical_name": "China Activity Nowcast"
@@ -191,7 +190,6 @@
       "rebaseline_required": false,
       "callable": true,
       "valid_from_state": "VALID_FROM_UNKNOWN",
-      "legacy_classification": "OFFICIAL_DIRECT",
       "provenance_class": "OFFICIAL",
       "execution_class": "DIRECT_API",
       "canonical_name": "News Digest & Briefing"
@@ -298,7 +296,6 @@
       "rebaseline_required": false,
       "callable": true,
       "valid_from_state": "VALID_FROM_UNKNOWN",
-      "legacy_classification": "OFFICIAL_DIRECT",
       "provenance_class": "OFFICIAL",
       "execution_class": "COMPOSITE",
       "canonical_name": "News Credibility"
@@ -395,7 +392,6 @@
       "rebaseline_required": false,
       "callable": true,
       "valid_from_state": "VALID_FROM_UNKNOWN",
-      "legacy_classification": "OFFICIAL_DIRECT",
       "provenance_class": "OFFICIAL",
       "execution_class": "DIRECT_API",
       "canonical_name": "Country Resilience Index"
@@ -486,7 +482,6 @@
       "rebaseline_required": false,
       "callable": true,
       "valid_from_state": "VALID_FROM_UNKNOWN",
-      "legacy_classification": "UNMAPPED_BLOCKED",
       "provenance_class": "OFFICIAL",
       "execution_class": "DIRECT_API",
       "canonical_name": "Resilience Indicators"
@@ -578,7 +573,6 @@
       "rebaseline_required": false,
       "callable": false,
       "valid_from_state": "VALID_FROM_UNKNOWN",
-      "legacy_classification": "UNMAPPED_BLOCKED",
       "provenance_class": "OFFICIAL",
       "execution_class": "NONCALLABLE",
       "canonical_name": "Resilience Indicator Licensing"
@@ -666,7 +660,6 @@
       "rebaseline_required": false,
       "callable": false,
       "valid_from_state": "VALID_FROM_UNKNOWN",
-      "legacy_classification": "UNMAPPED_BLOCKED",
       "provenance_class": "OFFICIAL",
       "execution_class": "NONCALLABLE",
       "canonical_name": "Known Limitations"
@@ -767,7 +760,6 @@
       "rebaseline_required": false,
       "callable": true,
       "valid_from_state": "VALID_FROM_UNKNOWN",
-      "legacy_classification": "OFFICIAL_DIRECT",
       "provenance_class": "OFFICIAL",
       "execution_class": "COMPOSITE",
       "canonical_name": "Financial System Exposure"
@@ -860,7 +852,6 @@
       "rebaseline_required": false,
       "callable": true,
       "valid_from_state": "VALID_FROM_UNKNOWN",
-      "legacy_classification": "OFFICIAL_DIRECT",
       "provenance_class": "OFFICIAL",
       "execution_class": "COMPOSITE",
       "canonical_name": "SWF Classification Rubric"
@@ -954,7 +945,6 @@
       "rebaseline_required": false,
       "callable": true,
       "valid_from_state": "VALID_FROM_UNKNOWN",
-      "legacy_classification": "OFFICIAL_DIRECT",
       "provenance_class": "OFFICIAL",
       "execution_class": "DIRECT_API",
       "canonical_name": "Five-Factor Country Scorecard"
@@ -1049,7 +1039,6 @@
       "rebaseline_required": false,
       "callable": true,
       "valid_from_state": "VALID_FROM_UNKNOWN",
-      "legacy_classification": "UNMAPPED_BLOCKED",
       "provenance_class": "OFFICIAL",
       "execution_class": "DIRECT_API",
       "canonical_name": "Demographics & Workforce Capability"
@@ -1141,7 +1130,6 @@
       "rebaseline_required": false,
       "callable": true,
       "valid_from_state": "VALID_FROM_UNKNOWN",
-      "legacy_classification": "OFFICIAL_DIRECT",
       "provenance_class": "OFFICIAL",
       "execution_class": "DIRECT_API",
       "canonical_name": "Food Stocks & Stocks-to-Use"
@@ -1242,7 +1230,6 @@
       "rebaseline_required": false,
       "callable": true,
       "valid_from_state": "VALID_FROM_UNKNOWN",
-      "legacy_classification": "OFFICIAL_DIRECT",
       "provenance_class": "OFFICIAL",
       "execution_class": "DIRECT_API",
       "canonical_name": "Defense Industrial Base"
@@ -1341,7 +1328,6 @@
       "rebaseline_required": false,
       "callable": true,
       "valid_from_state": "VALID_FROM_UNKNOWN",
-      "legacy_classification": "OFFICIAL_DIRECT",
       "provenance_class": "OFFICIAL",
       "execution_class": "DIRECT_API",
       "canonical_name": "Mineral Production & Processing Concentration"
@@ -1441,7 +1427,6 @@
       "rebaseline_required": false,
       "callable": true,
       "valid_from_state": "VALID_FROM_UNKNOWN",
-      "legacy_classification": "OFFICIAL_DIRECT",
       "provenance_class": "OFFICIAL",
       "execution_class": "DIRECT_API",
       "canonical_name": "Commodity / Supply Vulnerability"
@@ -1544,7 +1529,6 @@
       "rebaseline_required": false,
       "callable": true,
       "valid_from_state": "VALID_FROM_UNKNOWN",
-      "legacy_classification": "OFFICIAL_DIRECT",
       "provenance_class": "OFFICIAL",
       "execution_class": "DIRECT_API",
       "canonical_name": "Chokepoints"
@@ -1640,7 +1624,6 @@
       "rebaseline_required": false,
       "callable": true,
       "valid_from_state": "VALID_FROM_UNKNOWN",
-      "legacy_classification": "OFFICIAL_DIRECT",
       "provenance_class": "OFFICIAL",
       "execution_class": "DIRECT_API",
       "canonical_name": "Pipeline Registry"
@@ -1739,7 +1722,6 @@
       "rebaseline_required": false,
       "callable": true,
       "valid_from_state": "VALID_FROM_UNKNOWN",
-      "legacy_classification": "OFFICIAL_DIRECT",
       "provenance_class": "OFFICIAL",
       "execution_class": "DIRECT_API",
       "canonical_name": "Storage Facility"
@@ -1834,7 +1816,6 @@
       "rebaseline_required": false,
       "callable": true,
       "valid_from_state": "VALID_FROM_UNKNOWN",
-      "legacy_classification": "OFFICIAL_DIRECT",
       "provenance_class": "OFFICIAL",
       "execution_class": "DIRECT_API",
       "canonical_name": "Fuel Shortage Alert"
@@ -1929,7 +1910,6 @@
       "rebaseline_required": false,
       "callable": true,
       "valid_from_state": "VALID_FROM_UNKNOWN",
-      "legacy_classification": "OFFICIAL_DIRECT",
       "provenance_class": "OFFICIAL",
       "execution_class": "DIRECT_API",
       "canonical_name": "Energy Disruption Event Log"
@@ -2018,7 +1998,6 @@
       "rebaseline_required": false,
       "callable": true,
       "valid_from_state": "VALID_FROM_UNKNOWN",
-      "legacy_classification": "OFFICIAL_DIRECT",
       "provenance_class": "OFFICIAL",
       "execution_class": "DIRECT_API",
       "canonical_name": "CII Risk Scoring"
@@ -2110,7 +2089,6 @@
       "rebaseline_required": false,
       "callable": true,
       "valid_from_state": "VALID_FROM_UNKNOWN",
-      "legacy_classification": "UNMAPPED_BLOCKED",
       "provenance_class": "OFFICIAL",
       "execution_class": "DIRECT_API",
       "canonical_name": "Disease Outbreak Alert Level"
@@ -2208,7 +2186,6 @@
       "rebaseline_required": false,
       "callable": true,
       "valid_from_state": "VALID_FROM_UNKNOWN",
-      "legacy_classification": "OFFICIAL_DIRECT",
       "provenance_class": "OFFICIAL",
       "execution_class": "DIRECT_API",
       "canonical_name": "Thermal Escalation"
@@ -2303,7 +2280,6 @@
       "rebaseline_required": false,
       "callable": true,
       "valid_from_state": "VALID_FROM_UNKNOWN",
-      "legacy_classification": "OFFICIAL_DIRECT",
       "provenance_class": "OFFICIAL",
       "execution_class": "DIRECT_API",
       "canonical_name": "Physical Precious-Metals Divergence Index"
@@ -2398,7 +2374,6 @@
       "rebaseline_required": false,
       "callable": false,
       "valid_from_state": "VALID_FROM_UNKNOWN",
-      "legacy_classification": "UNMAPPED_BLOCKED",
       "provenance_class": "OFFICIAL",
       "execution_class": "NONCALLABLE",
       "canonical_name": "CII Operator Overview"
@@ -2494,7 +2469,6 @@
       "rebaseline_required": false,
       "callable": false,
       "valid_from_state": "VALID_FROM_UNKNOWN",
-      "legacy_classification": "UNMAPPED_BLOCKED",
       "provenance_class": "OFFICIAL",
       "execution_class": "NONCALLABLE",
       "canonical_name": "Revision & Corrections"
@@ -2590,7 +2564,6 @@
       "rebaseline_required": false,
       "callable": true,
       "valid_from_state": "VALID_FROM_UNKNOWN",
-      "legacy_classification": "UNMAPPED_BLOCKED",
       "provenance_class": "OFFICIAL",
       "execution_class": "COMPOSITE",
       "canonical_name": "Geographic Convergence"
@@ -2692,7 +2665,6 @@
       "rebaseline_required": false,
       "callable": true,
       "valid_from_state": "VALID_FROM_UNKNOWN",
-      "legacy_classification": "UNMAPPED_BLOCKED",
       "provenance_class": "OFFICIAL",
       "execution_class": "COMPOSITE",
       "canonical_name": "Strategic Risk"
@@ -2775,7 +2747,6 @@
       "rebaseline_required": true,
       "callable": false,
       "valid_from_state": "VALID_FROM_UNKNOWN",
-      "legacy_classification": "WTILS_GOVERNANCE",
       "provenance_class": "OFFICIAL",
       "execution_class": "META",
       "canonical_name": "Algorithms & Scoring"
@@ -2862,7 +2833,6 @@
       "rebaseline_required": true,
       "callable": false,
       "valid_from_state": "VALID_FROM_UNKNOWN",
-      "legacy_classification": "WTILS_GOVERNANCE",
       "provenance_class": "OFFICIAL",
       "execution_class": "GOVERNANCE",
       "canonical_name": "Decision-Signal Provenance"
@@ -2949,7 +2919,6 @@
       "rebaseline_required": true,
       "callable": false,
       "valid_from_state": "VALID_FROM_UNKNOWN",
-      "legacy_classification": "WTILS_GOVERNANCE",
       "provenance_class": "OFFICIAL",
       "execution_class": "GOVERNANCE",
       "canonical_name": "Source Attribution"
