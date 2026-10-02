@@ -604,6 +604,158 @@ def main():
     bare_false = sum(sum(1 for k,v in a.items() if (k.startswith('a0') or k.startswith('a1') or k.startswith('a2')) and v is False) for a in apis)
     runner.test("a00_a22_explicit_state_recheck", bare_false == 0, f"{bare_false} bare false")
 
+
+    # === PHASE2A-R2 TESTS ===
+
+    # all_31_methodologies_semantically_audited
+    has_semantic_fields = sum(1 for m in methods if m.get('rules_structured') and m.get('primary_roles'))
+    runner.test("all_31_methodologies_semantically_audited", has_semantic_fields == 31, f"{has_semantic_fields}/31 with semantic fields")
+
+    # no_legacy_method_semantic_residue
+    import json as _json
+    audit_path = 'wtils/phase2/semantic-recovery/METHOD_SEMANTIC_AUDIT.json'
+    try:
+        audit = _json.load(open(audit_path))
+        residue_count = sum(len(a.get('old_semantic_residue_found',[])) for a in audit.get('entries',[]))
+        runner.test("no_legacy_method_semantic_residue", residue_count == 0, f"{residue_count} residue items found")
+    except:
+        runner.test("no_legacy_method_semantic_residue", False, "Audit file not found")
+
+    # M01_is_china_nowcast_not_event_classifier
+    m01 = next((m for m in methods if m.get('methodology_id')=='M01'), None)
+    m01_str = _json.dumps(m01).lower() if m01 else ''
+    m01_ok = m01 and 'event classification' not in m01_str
+    runner.test("M01_is_china_nowcast_not_event_classifier", m01_ok, f"M01 correct domain")
+
+    # M02_is_news_digest_not_temporal_anomaly
+    m02 = next((m for m in methods if m.get('methodology_id')=='M02'), None)
+    m02_str = _json.dumps(m02).lower() if m02 else ''
+    m02_ok = m02 and 'temporal anomaly' not in m02_str
+    runner.test("M02_is_news_digest_not_temporal_anomaly", m02_ok, "M02 correct domain")
+
+    # M04_is_cri_not_conflict_intensity
+    m04 = next((m for m in methods if m.get('methodology_id')=='M04'), None)
+    m04_str = _json.dumps(m04).lower() if m04 else ''
+    m04_ok = m04 and 'conflict intensity' not in m04_str
+    runner.test("M04_is_cri_not_conflict_intensity", m04_ok, "M04 correct domain")
+
+    # M05_is_resilience_indicator_not_sanctions_network
+    m05 = next((m for m in methods if m.get('methodology_id')=='M05'), None)
+    m05_str = _json.dumps(m05).lower() if m05 else ''
+    m05_ok = m05 and 'sanctions network' not in m05_str
+    runner.test("M05_is_resilience_indicator_not_sanctions_network", m05_ok, "M05 correct domain")
+
+    # M06_is_licensing_not_military_posture
+    m06 = next((m for m in methods if m.get('methodology_id')=='M06'), None)
+    m06_str = _json.dumps(m06).lower() if m06 else ''
+    m06_ok = m06 and 'military' not in m06_str and 'aircraft' not in m06_str
+    runner.test("M06_is_licensing_not_military_posture", m06_ok, "M06 correct domain")
+
+    # M07_is_known_limitations_not_humanitarian
+    m07 = next((m for m in methods if m.get('methodology_id')=='M07'), None)
+    m07_str = _json.dumps(m07).lower() if m07 else ''
+    m07_ok = m07 and 'humanitarian' not in m07_str and 'displacement' not in m07_str
+    runner.test("M07_is_known_limitations_not_humanitarian", m07_ok, "M07 correct domain")
+
+    # M09_is_swf_not_cot
+    m09 = next((m for m in methods if m.get('methodology_id')=='M09'), None)
+    m09_str = _json.dumps(m09).lower() if m09 else ''
+    m09_ok = m09 and 'commitments of traders' not in m09_str
+    runner.test("M09_is_swf_not_cot", m09_ok, "M09 correct domain")
+
+    # M10_is_scorecard_not_yield_curve
+    m10 = next((m for m in methods if m.get('methodology_id')=='M10'), None)
+    m10_str = _json.dumps(m10).lower() if m10 else ''
+    m10_ok = m10 and 'yield curve' not in m10_str and 'recession probability' not in m10_str
+    runner.test("M10_is_scorecard_not_yield_curve", m10_ok, "M10 correct domain")
+
+    # M11_is_demographics_not_trade_flow
+    m11 = next((m for m in methods if m.get('methodology_id')=='M11'), None)
+    m11_str = _json.dumps(m11).lower() if m11 else ''
+    m11_ok = m11 and 'trade flow' not in m11_str
+    runner.test("M11_is_demographics_not_trade_flow", m11_ok, "M11 correct domain")
+
+    # M21_is_country_instability_not_imo_cii
+    m21 = next((m for m in methods if m.get('methodology_id')=='M21'), None)
+    m21_str = _json.dumps(m21).lower() if m21 else ''
+    m21_ok = m21 and 'imo' not in m21_str and 'scrubber' not in m21_str
+    runner.test("M21_is_country_instability_not_imo_cii", m21_ok, "M21 correct: Country Instability not IMO CII")
+
+    # C01_is_operator_not_geopolitical_overlay
+    c01 = next((m for m in methods if m.get('methodology_id')=='C01'), None)
+    c01_str = _json.dumps(c01).lower() if c01 else ''
+    c01_ok = c01 and 'geopolitical overlay' not in c01_str
+    runner.test("C01_is_operator_not_geopolitical_overlay", c01_ok, "C01 correct domain")
+
+    # C06_is_provenance
+    c06 = next((m for m in methods if m.get('methodology_id')=='C06'), None)
+    c06_ok = c06 and c06.get('execution_class') == 'GOVERNANCE'
+    runner.test("C06_is_provenance", c06_ok, "C06 is governance provenance contract")
+
+    # C07_is_source_attribution
+    c07 = next((m for m in methods if m.get('methodology_id')=='C07'), None)
+    c07_ok = c07 and c07.get('execution_class') == 'GOVERNANCE'
+    runner.test("C07_is_source_attribution", c07_ok, "C07 is governance source attribution")
+
+    # research_artifact_full_contract_preserved
+    try:
+        ras = _json.load(open('wtils/schemas/research/research_artifact_schema.json'))
+        required_fields = ras.get('required',[])
+        has_all = all(f in ras.get('properties',{}) for f in ['artifact_id','artifact_version','created_at','as_of_time','primary_profile_id','profile_ids','methodologies','apis','sources','pit','timeline','evidence','contradictions','unknowns','market_reaction','delta_t','replay','backtest','confidence','promotion_status','revision'])
+        runner.test("research_artifact_full_contract_preserved", has_all, f"26-field schema: {has_all}")
+    except Exception as e:
+        runner.test("research_artifact_full_contract_preserved", False, str(e))
+
+    # research_artifact_has_evidence_timeline_market_delta_replay_backtest
+    try:
+        ras = _json.load(open('wtils/schemas/research/research_artifact_schema.json'))
+        props = ras.get('properties',{})
+        has_all = all(k in props for k in ['evidence','timeline','market_reaction','delta_t','replay','backtest'])
+        runner.test("research_artifact_has_evidence_timeline_market_delta_replay_backtest", has_all, f"Missing: {[k for k in ['evidence','timeline','market_reaction','delta_t','replay','backtest'] if k not in props]}")
+    except Exception as e:
+        runner.test("research_artifact_has_evidence_timeline_market_delta_replay_backtest", False, str(e))
+
+    # artifact_methods_use_two_axis_classification
+    try:
+        ras = _json.load(open('wtils/schemas/research/research_artifact_schema.json'))
+        meth_items = ras.get('properties',{}).get('methodologies',{}).get('items',{})
+        meth_props = meth_items.get('properties',{})
+        has_two_axis = 'provenance_class' in meth_props and 'execution_class' in meth_props
+        has_no_legacy = 'classification' not in meth_props
+        runner.test("artifact_methods_use_two_axis_classification", has_two_axis and has_no_legacy, f"two_axis={has_two_axis} no_legacy={has_no_legacy}")
+    except Exception as e:
+        runner.test("artifact_methods_use_two_axis_classification", False, str(e))
+
+    # artifact_sources_allow_unknown
+    try:
+        ras = _json.load(open('wtils/schemas/research/research_artifact_schema.json'))
+        src_items = ras.get('properties',{}).get('sources',{}).get('items',{})
+        src_props = src_items.get('properties',{})
+        publisher_nullable = src_props.get('publisher',{}).get('type') == ['string','null']
+        runner.test("artifact_sources_allow_unknown", publisher_nullable, f"publisher nullable: {publisher_nullable}")
+    except Exception as e:
+        runner.test("artifact_sources_allow_unknown", False, str(e))
+
+    # artifact_pit_matches_pit_contract
+    try:
+        ras = _json.load(open('wtils/schemas/research/research_artifact_schema.json'))
+        pit = _json.load(open('wtils/config/registries/pit_contract.json'))
+        artifact_pit = ras.get('properties',{}).get('pit',{}).get('properties',{})
+        pit_fields = set(pit.get('timestamp_fields',{}).keys())
+        artifact_pit_fields = set(artifact_pit.keys())
+        match = pit_fields == artifact_pit_fields
+        runner.test("artifact_pit_matches_pit_contract", match, f"PIT fields match: {match}")
+    except Exception as e:
+        runner.test("artifact_pit_matches_pit_contract", False, str(e))
+
+    # accepted_patch_must_have_evidence
+    try:
+        patch_report = _json.load(open('wtils/phase2/contract-reconciliation/PATCH_RECONCILIATION_REPORT.json'))
+        no_evidence = sum(1 for p in patch_report.get('patches',[]) if p.get('decision')=='ACCEPTED' and not p.get('runtime_evidence_present') and not p.get('contract_reason_evidence_present'))
+        runner.test("accepted_patch_must_have_evidence", no_evidence == 0, f"{no_evidence} ACCEPTED without evidence")
+    except Exception as e:
+        runner.test("accepted_patch_must_have_evidence", False, str(e))
+
     # Output
     result = runner.summary()
     print(json.dumps(result, indent=2))

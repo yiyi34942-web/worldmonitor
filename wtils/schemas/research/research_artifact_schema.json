@@ -1,14 +1,50 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
-  "description": "WTILS Research Artifact contract with multi-profile support",
+  "description": "WTILS Research Artifact contract v2.1.0 \u2014 full specification with multi-profile, PIT lineage, evidence timeline, market reaction, delta-t, replay, backtest, confidence, promotion, revision",
   "properties": {
     "artifact_id": {
       "type": "string",
       "description": "Unique artifact identifier"
     },
+    "artifact_version": {
+      "type": "string",
+      "description": "Artifact version (semver)"
+    },
+    "event_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Triggering event ID"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Artifact creation time"
+    },
+    "as_of_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Point-in-time the artifact represents"
+    },
+    "query": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Original query/intent text"
+    },
+    "intent": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Parsed intent"
+    },
     "primary_profile_id": {
       "type": "string",
-      "description": "Primary analysis profile"
+      "description": "Primary analysis profile (must be in profile_ids)"
     },
     "profile_ids": {
       "type": "array",
@@ -17,30 +53,449 @@
       },
       "minItems": 1,
       "uniqueItems": true,
-      "description": "All applicable profiles (includes primary)"
+      "description": "All applicable profiles"
     },
-    "methodology_id": {
-      "type": "string"
+    "roles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Active role lenses"
     },
-    "role_id": {
-      "type": "string"
+    "role_weights": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "number"
+      },
+      "description": "Role weight assignments"
+    },
+    "methodologies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "provenance_class": {
+            "type": "string",
+            "enum": [
+              "OFFICIAL",
+              "WTILS_EXTENSION"
+            ]
+          },
+          "execution_class": {
+            "type": "string",
+            "enum": [
+              "DIRECT_API",
+              "COMPOSITE",
+              "NONCALLABLE",
+              "META",
+              "GOVERNANCE",
+              "UNMAPPED"
+            ]
+          },
+          "methodology_version_hash": {
+            "type": "string"
+          },
+          "trace_state": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "version",
+          "provenance_class",
+          "execution_class"
+        ]
+      },
+      "description": "Methodology items with two-axis classification (no legacy classification)"
+    },
+    "apis": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "service": {
+            "type": "string"
+          },
+          "operation": {
+            "type": "string"
+          },
+          "contract_version": {
+            "type": "string"
+          },
+          "request_contract_ref": {
+            "type": "string"
+          },
+          "called_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "primary_delivery_mode": {
+            "type": "string",
+            "enum": [
+              "REQUEST",
+              "RELAY",
+              "SEED"
+            ]
+          },
+          "cache_semantics": {
+            "type": "string",
+            "enum": [
+              "CACHED_FETCH",
+              "NONE"
+            ]
+          },
+          "a23_state": {
+            "type": "string"
+          },
+          "a24_state": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "service",
+          "operation",
+          "request_contract_ref"
+        ]
+      },
+      "description": "API invocation records"
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "publisher": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "provider": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "host": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "transport": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "verification_state": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "verification_state"
+        ]
+      },
+      "description": "Source records \u2014 all nullable, UNKNOWN preferred over invention"
     },
     "pit": {
       "type": "object",
-      "description": "PIT observation lineage"
+      "description": "Point-in-time observation lineage (aligned to pit_contract v2)",
+      "properties": {
+        "event_time": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "original_publish_time": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "source_observed_time": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "wm_first_seen_time": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "webhook_emitted_time": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "webhook_received_time": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "normalized_time": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "methodology_started_time": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "methodology_completed_time": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "analyst_available_time": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "market_first_reaction_time": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "research_snapshot_time": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "outcome_time": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        }
+      }
     },
-    "version": {
-      "type": "string"
+    "timeline": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "description": "Event timeline entries"
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "source_ref": {
+            "type": "string"
+          },
+          "observation": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": "number"
+          },
+          "corroboration": {
+            "type": "integer"
+          }
+        }
+      },
+      "description": "Evidence records"
+    },
+    "contradictions": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "description": "Contradiction records between sources"
+    },
+    "unknowns": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "description": "Unknown/unresolved items"
+    },
+    "market_reaction": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "market": {
+            "type": "string"
+          },
+          "reaction_time": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "direction": {
+            "type": "string"
+          },
+          "magnitude": {
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        }
+      },
+      "description": "Market reaction records"
+    },
+    "delta_t": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "from_event": {
+            "type": "string"
+          },
+          "to_event": {
+            "type": "string"
+          },
+          "from_time": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "to_time": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "duration_ms": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "basis": {
+            "type": "string"
+          },
+          "confidence": {
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "description": "Delta-T between events. null if not computable. Never guessed."
+      },
+      "description": "Inter-event timing deltas"
+    },
+    "replay": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "description": "Point-in-time replay capability"
+    },
+    "backtest": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "description": "Backtest results if applicable"
+    },
+    "confidence": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Overall confidence score"
+    },
+    "promotion_status": {
+      "type": "string",
+      "enum": [
+        "DRAFT",
+        "REVIEW",
+        "PROMOTED",
+        "SUPERSEDED",
+        "RETRACTED"
+      ],
+      "description": "Promotion status for WeKnora"
+    },
+    "revision": {
+      "type": "object",
+      "properties": {
+        "revision_number": {
+          "type": "integer"
+        },
+        "previous_revision_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "revision_reason": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "description": "Append-only revision chain"
     }
   },
   "required": [
     "artifact_id",
+    "artifact_version",
+    "created_at",
+    "as_of_time",
     "primary_profile_id",
-    "profile_ids"
+    "profile_ids",
+    "promotion_status"
   ],
   "constraints": [
     "primary_profile_id MUST exist in profile_ids",
     "profile_ids minItems=1, uniqueItems=true",
-    "No singular profile_id field in active contract"
+    "No singular profile_id field in active contract",
+    "PIT timestamps: missing=null, never fabricate",
+    "original_publish_time MUST NOT be used as wm_first_seen_time",
+    "source_observed_time MUST NOT be replaced by retrieval time",
+    "delta_t: null/not computable when timestamps missing, never guess",
+    "revision: append-only, previous_revision_ref links chain",
+    "PROMOTED artifacts: no TTL eviction, only demotion removes status",
+    "Sources: all nullable (publisher/provider/host/transport), UNKNOWN preferred over invention",
+    "Methodologies: use provenance_class+execution_class, no legacy classification"
   ]
 }

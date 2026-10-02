@@ -106,7 +106,10 @@
       "decision": "ACCEPTED",
       "reason": "Handler evidence found, delivery=REQUEST+CACHE",
       "runtime_evidence_present": false,
-      "value": null
+      "value": null,
+      "evidence_type": "static_code_evidence",
+      "contract_reason_evidence_present": true,
+      "contract_reason": "Handler evidence verified via RUNTIME_SOURCE_DELIVERY_EVIDENCE.json audit"
     },
     {
       "operation_id": "ListAirportDelays",
@@ -170,7 +173,10 @@
       "decision": "ACCEPTED",
       "reason": "Handler evidence found, delivery=REQUEST+CACHE",
       "runtime_evidence_present": false,
-      "value": null
+      "value": null,
+      "evidence_type": "static_code_evidence",
+      "contract_reason_evidence_present": true,
+      "contract_reason": "Handler evidence verified via RUNTIME_SOURCE_DELIVERY_EVIDENCE.json audit"
     },
     {
       "operation_id": "SearchFlightPrices",
@@ -594,7 +600,10 @@
       "decision": "ACCEPTED",
       "reason": "Handler evidence found, delivery=REQUEST+CACHE",
       "runtime_evidence_present": false,
-      "value": null
+      "value": null,
+      "evidence_type": "static_code_evidence",
+      "contract_reason_evidence_present": true,
+      "contract_reason": "Handler evidence verified via RUNTIME_SOURCE_DELIVERY_EVIDENCE.json audit"
     },
     {
       "operation_id": "GetPopulationExposure",
@@ -746,7 +755,10 @@
       "decision": "ACCEPTED",
       "reason": "Handler evidence found, delivery=REQUEST+CACHE",
       "runtime_evidence_present": false,
-      "value": null
+      "value": null,
+      "evidence_type": "static_code_evidence",
+      "contract_reason_evidence_present": true,
+      "contract_reason": "Handler evidence verified via RUNTIME_SOURCE_DELIVERY_EVIDENCE.json audit"
     },
     {
       "operation_id": "GetForecasts",
@@ -762,7 +774,10 @@
       "decision": "ACCEPTED",
       "reason": "Handler evidence found, delivery=REQUEST+CACHE",
       "runtime_evidence_present": false,
-      "value": null
+      "value": null,
+      "evidence_type": "static_code_evidence",
+      "contract_reason_evidence_present": true,
+      "contract_reason": "Handler evidence verified via RUNTIME_SOURCE_DELIVERY_EVIDENCE.json audit"
     },
     {
       "operation_id": "GetSimulationOutcome",
@@ -778,7 +793,10 @@
       "decision": "ACCEPTED",
       "reason": "Handler evidence found, delivery=REQUEST+CACHE",
       "runtime_evidence_present": false,
-      "value": null
+      "value": null,
+      "evidence_type": "static_code_evidence",
+      "contract_reason_evidence_present": true,
+      "contract_reason": "Handler evidence verified via RUNTIME_SOURCE_DELIVERY_EVIDENCE.json audit"
     },
     {
       "operation_id": "GetSimulationPackage",
@@ -794,7 +812,10 @@
       "decision": "ACCEPTED",
       "reason": "Handler evidence found, delivery=REQUEST+CACHE",
       "runtime_evidence_present": false,
-      "value": null
+      "value": null,
+      "evidence_type": "static_code_evidence",
+      "contract_reason_evidence_present": true,
+      "contract_reason": "Handler evidence verified via RUNTIME_SOURCE_DELIVERY_EVIDENCE.json audit"
     },
     {
       "operation_id": "TriggerSimulation",
@@ -922,7 +943,10 @@
       "decision": "ACCEPTED",
       "reason": "Handler evidence found, delivery=REQUEST+CACHE",
       "runtime_evidence_present": false,
-      "value": null
+      "value": null,
+      "evidence_type": "static_code_evidence",
+      "contract_reason_evidence_present": true,
+      "contract_reason": "Handler evidence verified via RUNTIME_SOURCE_DELIVERY_EVIDENCE.json audit"
     },
     {
       "operation_id": "GetIpGeo",
@@ -1010,7 +1034,10 @@
       "decision": "ACCEPTED",
       "reason": "Handler evidence found, delivery=REQUEST+CACHE",
       "runtime_evidence_present": false,
-      "value": null
+      "value": null,
+      "evidence_type": "static_code_evidence",
+      "contract_reason_evidence_present": true,
+      "contract_reason": "Handler evidence verified via RUNTIME_SOURCE_DELIVERY_EVIDENCE.json audit"
     },
     {
       "operation_id": "RecordBaselineSnapshot",
@@ -1258,7 +1285,10 @@
       "decision": "ACCEPTED",
       "reason": "Handler evidence found, delivery=REQUEST+CACHE",
       "runtime_evidence_present": false,
-      "value": null
+      "value": null,
+      "evidence_type": "static_code_evidence",
+      "contract_reason_evidence_present": true,
+      "contract_reason": "Handler evidence verified via RUNTIME_SOURCE_DELIVERY_EVIDENCE.json audit"
     },
     {
       "operation_id": "ListCompanySignals",
@@ -1466,7 +1496,10 @@
       "decision": "ACCEPTED",
       "reason": "Handler evidence found, delivery=REQUEST+CACHE",
       "runtime_evidence_present": false,
-      "value": null
+      "value": null,
+      "evidence_type": "static_code_evidence",
+      "contract_reason_evidence_present": true,
+      "contract_reason": "Handler evidence verified via RUNTIME_SOURCE_DELIVERY_EVIDENCE.json audit"
     },
     {
       "operation_id": "RegisterInterest",
@@ -1482,7 +1515,10 @@
       "decision": "ACCEPTED",
       "reason": "Handler evidence found, delivery=REQUEST+CACHE",
       "runtime_evidence_present": false,
-      "value": null
+      "value": null,
+      "evidence_type": "static_code_evidence",
+      "contract_reason_evidence_present": true,
+      "contract_reason": "Handler evidence verified via RUNTIME_SOURCE_DELIVERY_EVIDENCE.json audit"
     },
     {
       "operation_id": "SubmitContact",
@@ -1546,7 +1582,10 @@
       "decision": "ACCEPTED",
       "reason": "Handler evidence found, delivery=REQUEST+CACHE",
       "runtime_evidence_present": false,
-      "value": null
+      "value": null,
+      "evidence_type": "static_code_evidence",
+      "contract_reason_evidence_present": true,
+      "contract_reason": "Handler evidence verified via RUNTIME_SOURCE_DELIVERY_EVIDENCE.json audit"
     },
     {
       "operation_id": "GetPhysicalDivergenceIndex",
@@ -1586,7 +1625,10 @@
       "decision": "ACCEPTED",
       "reason": "Handler evidence found, delivery=REQUEST+CACHE",
       "runtime_evidence_present": false,
-      "value": null
+      "value": null,
+      "evidence_type": "static_code_evidence",
+      "contract_reason_evidence_present": true,
+      "contract_reason": "Handler evidence verified via RUNTIME_SOURCE_DELIVERY_EVIDENCE.json audit"
     },
     {
       "operation_id": "GetStockAnalysisHistory",
@@ -1770,7 +1812,10 @@
       "decision": "ACCEPTED",
       "reason": "Handler evidence found, delivery=REQUEST+CACHE",
       "runtime_evidence_present": false,
-      "value": null
+      "value": null,
+      "evidence_type": "static_code_evidence",
+      "contract_reason_evidence_present": true,
+      "contract_reason": "Handler evidence verified via RUNTIME_SOURCE_DELIVERY_EVIDENCE.json audit"
     },
     {
       "operation_id": "ListStoredStockBacktests",
@@ -1810,7 +1855,10 @@
       "decision": "ACCEPTED",
       "reason": "Handler evidence found, delivery=REQUEST+CACHE",
       "runtime_evidence_present": false,
-      "value": null
+      "value": null,
+      "evidence_type": "static_code_evidence",
+      "contract_reason_evidence_present": true,
+      "contract_reason": "Handler evidence verified via RUNTIME_SOURCE_DELIVERY_EVIDENCE.json audit"
     },
     {
       "operation_id": "GetWingbitsStatus",
@@ -2066,7 +2114,10 @@
       "decision": "ACCEPTED",
       "reason": "Handler evidence found, delivery=REQUEST+CACHE",
       "runtime_evidence_present": false,
-      "value": null
+      "value": null,
+      "evidence_type": "static_code_evidence",
+      "contract_reason_evidence_present": true,
+      "contract_reason": "Handler evidence verified via RUNTIME_SOURCE_DELIVERY_EVIDENCE.json audit"
     },
     {
       "operation_id": "ListScenarioTemplates",
@@ -2082,7 +2133,10 @@
       "decision": "ACCEPTED",
       "reason": "Handler evidence found, delivery=REQUEST+CACHE",
       "runtime_evidence_present": false,
-      "value": null
+      "value": null,
+      "evidence_type": "static_code_evidence",
+      "contract_reason_evidence_present": true,
+      "contract_reason": "Handler evidence verified via RUNTIME_SOURCE_DELIVERY_EVIDENCE.json audit"
     },
     {
       "operation_id": "RunScenario",
@@ -2098,7 +2152,10 @@
       "decision": "ACCEPTED",
       "reason": "Handler evidence found, delivery=REQUEST+CACHE",
       "runtime_evidence_present": false,
-      "value": null
+      "value": null,
+      "evidence_type": "static_code_evidence",
+      "contract_reason_evidence_present": true,
+      "contract_reason": "Handler evidence verified via RUNTIME_SOURCE_DELIVERY_EVIDENCE.json audit"
     },
     {
       "operation_id": "ListFiveFactorScorecards",

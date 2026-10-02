@@ -1,8 +1,8 @@
 {
-  "previous_version": "1.0.0",
-  "new_version": "2.0.0",
-  "breaking": true,
-  "nonbreaking": false,
+  "previous_version": "2.0.0",
+  "new_version": "2.1.0",
+  "breaking": false,
+  "nonbreaking": true,
   "migration_notes": [
     "profile_id \u2192 primary_profile_id + profile_ids (breaking: singular \u2192 array)",
     "request_schema_ref \u2192 request_contract_ref + optional request_body_schema_ref (semantic change)",
@@ -10,6 +10,16 @@
     "*_state_state \u2192 removed (duplicate keys deleted)",
     "PIT timestamp lineage \u2192 expanded from metadata to 13 observation fields",
     "delivery_semantics \u2192 primary_delivery_mode + cache_semantics (two-axis)",
-    "A06 semantic \u2192 REQUEST_CONTRACT_BOUND (not JSON body always exists)"
+    "A06 semantic \u2192 REQUEST_CONTRACT_BOUND (not JSON body always exists)",
+    "2.0.0 \u2192 2.1.0: Methodology semantic payloads rebuilt with correct domain content",
+    "M21 CII corrected: Country Instability/Intelligence, NOT IMO Carbon Intensity",
+    "M06 corrected: Indicator Licensing, NOT military posture",
+    "M07 corrected: Known Limitations, NOT humanitarian impact",
+    "Research Artifact schema restored to full 26-field contract",
+    "Research Artifact methodologies[] use provenance_class+execution_class (no legacy classification)",
+    "Research Artifact delta_t has from_event/to_event/duration_ms/basis/confidence semantics",
+    "Research Artifact PIT aligned to pit_contract v2 with 13 observation fields",
+    "Patch evidence reaudit: 19 patches resolved with contract/static_code evidence",
+    "Methodology version bumped to 1.1.0 with rebuilt semantic hashes"
   ]
 }

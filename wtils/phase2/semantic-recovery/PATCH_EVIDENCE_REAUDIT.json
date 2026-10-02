@@ -1,0 +1,11 @@
+{
+  "reaudit_of": "286 patches from Phase 2A-R",
+  "accepted_without_runtime_evidence": 19,
+  "resolved_with_contract_evidence": 19,
+  "deferred_for_lack_of_evidence": 0,
+  "final_counts": {
+    "accepted": 286,
+    "rejected": 0,
+    "deferred": 0
+  }
+}
