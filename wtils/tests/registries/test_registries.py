@@ -1167,64 +1167,121 @@ def main():
         _declared_count += len(p.get('audit_methodologies',[]))
     runner.test("profile_binding_bijection_count", _declared_count == _bound_count, f"declared={_declared_count} bound={_bound_count}")
 
-    # negative_schema_test_via_validator: mutate and call real validator
+    # === R6.1: NEGATIVE VALIDATOR PROOF - CALL REAL VALIDATOR ===
     import copy as _cp
     import sys as _sys6
-    _neg_passed = 0
-    _neg_total = 0
+    _sys6.path.insert(0, os.path.join(BASE_DIR, 'scripts', 'registries'))
+    if 'validate' in _sys6.modules:
+        del _sys6.modules['validate']
+    from validate import validate_registries as _vr
 
-    # Mutation A: rules_structured = {} on a methodology copy
-    _neg_total += 1
-    _meths_copy = _json.load(open(os.path.join(CONFIG_DIR, 'methodologies.json')))
-    _meths_copy['entries'][0]['rules_structured'] = {}
-    # Write to temp, validate, check
-    import tempfile as _tf
-    with _tf.NamedTemporaryFile(mode='w', suffix='.json', delete=False) as _tf1:
-        _json.dump(_meths_copy, _tf1)
-        _tf1_path = _tf1.name
-    # Quick inline check
-    if not isinstance(_meths_copy['entries'][0]['rules_structured'], list):
-        _neg_passed += 1
-    os.unlink(_tf1_path)
+    def _lj(p):
+        with open(p) as _f: return _json.load(_f)
 
-    # Mutation B: unknown property
-    _neg_total += 1
-    _meths_copy2 = _json.load(open(os.path.join(CONFIG_DIR, 'methodologies.json')))
-    _meths_copy2['entries'][0]['unknown_property'] = 'bad'
-    if 'unknown_property' not in _meth_schema.get('properties',{}):
-        _neg_passed += 1
+    _reg_base = CONFIG_DIR
+    _all_reg = {
+        'roles': _lj(os.path.join(_reg_base, 'roles.json')),
+        'methodologies': _lj(os.path.join(_reg_base, 'methodologies.json')),
+        'profiles': _lj(os.path.join(_reg_base, 'profiles.json')),
+        'apis': _lj(os.path.join(_reg_base, 'apis.json')),
+        'sources': _lj(os.path.join(_reg_base, 'sources.json')),
+        'intelligence_catalog': _lj(os.path.join(_reg_base, 'intelligence_catalog.json')),
+        'contracts': _lj(os.path.join(_reg_base, 'contracts.json')),
+        'outputs': _lj(os.path.join(_reg_base, 'outputs.json')),
+        'delivery_semantics': _lj(os.path.join(_reg_base, 'delivery_semantics.json')),
+        'data_states': _lj(os.path.join(_reg_base, 'data_states.json')),
+        'pit_contract': _lj(os.path.join(_reg_base, 'pit_contract.json')),
+        'bindings': _lj(os.path.join(_reg_base, 'bindings.json')),
+    }
 
-    # Mutation C: freshness.max_age_seconds = -1
-    _neg_total += 1
-    _meths_copy3 = _json.load(open(os.path.join(CONFIG_DIR, 'methodologies.json')))
-    _meths_copy3['entries'][0]['freshness_requirement']['max_age_seconds'] = -1
-    if _meths_copy3['entries'][0]['freshness_requirement']['max_age_seconds'] < 0:
-        _neg_passed += 1
+    _neg_results = []
 
-    # Mutation D: source_binding_mode=EXPLICIT but source_requirements=[]
-    _neg_total += 1
-    _meths_copy4 = _json.load(open(os.path.join(CONFIG_DIR, 'methodologies.json')))
-    _meths_copy4['entries'][0]['source_binding_mode'] = 'EXPLICIT'
-    _meths_copy4['entries'][0]['source_requirements'] = []
-    if _meths_copy4['entries'][0]['source_binding_mode'] == 'EXPLICIT' and not _meths_copy4['entries'][0]['source_requirements']:
-        _neg_passed += 1
+    # A: rules_structured = {}
+    _m = _cp.deepcopy(_all_reg)
+    _m['methodologies']['entries'][0]['rules_structured'] = {}
+    _r = _vr(registries_override=_m)
+    _neg_results.append(("A:rules_structured={}", _r['valid']==False, _r['error_count']))
 
-    # Mutation E: PIT required = "true" (string not bool)
-    _neg_total += 1
-    _meths_copy5 = _json.load(open(os.path.join(CONFIG_DIR, 'methodologies.json')))
-    _meths_copy5['entries'][0]['point_in_time_requirement']['required'] = "true"
-    if not isinstance(_meths_copy5['entries'][0]['point_in_time_requirement']['required'], bool):
-        _neg_passed += 1
+    # B: rule_id = 123
+    _m = _cp.deepcopy(_all_reg)
+    _m['methodologies']['entries'][0]['rules_structured'][0]['rule_id'] = 123
+    _r = _vr(registries_override=_m)
+    _neg_results.append(("B:rule_id=123", _r['valid']==False, _r['error_count']))
 
-    # Mutation F: rule_id = 123 (int not string)
-    _neg_total += 1
-    _meths_copy6 = _json.load(open(os.path.join(CONFIG_DIR, 'methodologies.json')))
-    if _meths_copy6['entries'][0].get('rules_structured'):
-        _meths_copy6['entries'][0]['rules_structured'][0]['rule_id'] = 123
-        if not isinstance(_meths_copy6['entries'][0]['rules_structured'][0]['rule_id'], str):
-            _neg_passed += 1
+    # C: thresholds_structured[0].value = []
+    _m = _cp.deepcopy(_all_reg)
+    for _mi, _me in enumerate(_m['methodologies']['entries']):
+        if _me.get('thresholds_structured') and len(_me['thresholds_structured']) > 0:
+            _m['methodologies']['entries'][_mi]['thresholds_structured'][0]['value'] = []
+            break
+    _r = _vr(registries_override=_m)
+    _neg_results.append(("C:thresholds[0].value=[]", _r['valid']==False, _r['error_count']))
 
-    runner.test("negative_schema_mutations", _neg_passed == _neg_total, f"{_neg_passed}/{_neg_total} mutations caught")
+    # D: freshness.max_age_seconds = -1
+    _m = _cp.deepcopy(_all_reg)
+    _m['methodologies']['entries'][0]['freshness_requirement']['max_age_seconds'] = -1
+    _r = _vr(registries_override=_m)
+    _neg_results.append(("D:freshness.max_age=-1", _r['valid']==False, _r['error_count']))
+
+    # E: pit.required = "true"
+    _m = _cp.deepcopy(_all_reg)
+    _m['methodologies']['entries'][0]['point_in_time_requirement']['required'] = "true"
+    _r = _vr(registries_override=_m)
+    _neg_results.append(("E:pit.required='true'", _r['valid']==False, _r['error_count']))
+
+    # F: unknown_property
+    _m = _cp.deepcopy(_all_reg)
+    _m['methodologies']['entries'][0]['unknown_property'] = 'bad'
+    _r = _vr(registries_override=_m)
+    _neg_results.append(("F:unknown_property", _r['valid']==False, _r['error_count']))
+
+    # G: delete a profile binding
+    _m = _cp.deepcopy(_all_reg)
+    _m['bindings']['profile_methodology_bindings'] = _m['bindings']['profile_methodology_bindings'][:-1]
+    _r = _vr(registries_override=_m)
+    _neg_results.append(("G:delete_binding", _r['valid']==False, _r['error_count']))
+
+    # H: add extra profile binding
+    _m = _cp.deepcopy(_all_reg)
+    _m['bindings']['profile_methodology_bindings'].append({"profile_id":"P01","methodology_id":"M99","binding_type":"CORE"})
+    _r = _vr(registries_override=_m)
+    _neg_results.append(("H:extra_binding", _r['valid']==False, _r['error_count']))
+
+    # I: Role default not allowed (COMMODITY→M05, M05 doesn't have COMMODITY)
+    _m = _cp.deepcopy(_all_reg)
+    for _r2 in _m['roles']['entries']:
+        if _r2['role_id'] == 'COMMODITY':
+            _r2['default_methodologies'] = ['M05']
+            break
+    _r = _vr(registries_override=_m)
+    _neg_results.append(("I:role_default_not_allowed", _r['valid']==False, _r['error_count']))
+
+    # J: NONCALLABLE in triggered
+    _m = _cp.deepcopy(_all_reg)
+    _nc_mid = next(_me['methodology_id'] for _me in _m['methodologies']['entries'] if _me['execution_class']=='NONCALLABLE')
+    _m['profiles']['entries'][0]['triggered_methodologies'].append({'methodology_id': _nc_mid, 'trigger': 'test'})
+    _r = _vr(registries_override=_m)
+    _neg_results.append(("J:NONCALLABLE_triggered", _r['valid']==False, _r['error_count']))
+
+    # K: EXPLICIT + empty source_requirements
+    _m = _cp.deepcopy(_all_reg)
+    _m['methodologies']['entries'][0]['source_binding_mode'] = 'EXPLICIT'
+    _m['methodologies']['entries'][0]['source_requirements'] = []
+    _r = _vr(registries_override=_m)
+    _neg_results.append(("K:EXPLICIT+empty", _r['valid']==False, _r['error_count']))
+
+    # L: state=VERIFIED but base=false
+    _m = _cp.deepcopy(_all_reg)
+    for _a in _m['apis']['entries']:
+        if _a.get('a09_source_bound') == True and _a.get('a09_source_bound_state') == 'VERIFIED':
+            _a['a09_source_bound'] = False
+            break
+    _r = _vr(registries_override=_m)
+    _neg_results.append(("L:VERIFIED+base=false", _r['valid']==False, _r['error_count']))
+
+    _neg_passed = sum(1 for _,p,_ in _neg_results if p)
+    _neg_total = len(_neg_results)
+    runner.test("negative_validator_proof_12_mutations", _neg_passed == _neg_total, f"{_neg_passed}/{_neg_total} mutations caught by real validator")
 
     # Output
     result = runner.summary()

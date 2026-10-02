@@ -898,6 +898,28 @@ def collect_errors():
     except Exception as ex:
         errors.append(f"RESEARCH_ARTIFACT_SCHEMA: {ex}")
 
+
+    # R6.1: A-state consistency - state=VERIFIED must have base=true
+    for a2 in apis:
+        op2 = a2.get('operation_id', '?')
+        for k2, v2 in a2.items():
+            if k2.endswith('_state') and k2 not in ('a23_state', 'a24_state'):
+                base_key = k2.replace('_state', '').replace('_semantic', '')
+                if base_key in a2:
+                    base_val = a2[base_key]
+                    if v2 == 'VERIFIED' and base_val is not True:
+                        errors.append(f"A_STATE_INCONSISTENT: {op2}.{base_key}=false but {k2}=VERIFIED")
+                    if v2 in ('NOT_APPLICABLE', 'BLOCKED_STATIC_EVIDENCE') and base_val is not False:
+                        errors.append(f"A_STATE_INCONSISTENT: {op2}.{base_key}=true but {k2}={v2}")
+
+    # R6.1: Role default method must be in method's allowed roles
+    for r2 in roles:
+        rid2 = r2.get('role_id', '?')
+        for mid2 in r2.get('default_methodologies', []):
+            m2 = next((x for x in methods if x.get('methodology_id') == mid2), None)
+            if m2 and rid2 not in m2.get('primary_roles', []) + m2.get('secondary_roles', []):
+                errors.append(f"ROLE_DEFAULT_NOT_ALLOWED: {rid2} default {mid2} not in method allowed roles")
+
     # === FINAL SUMMARY (single path, after ALL checks) ===
     valid = len(errors) == 0
     result = {
@@ -1018,6 +1040,63 @@ def generate_method_api_binding_audit(registries, validation_result):
     report_path = os.path.join(PHASE1_DIR, "METHOD_API_BINDING_AUDIT.md")
     with open(report_path, "w") as f:
         f.write("\n".join(lines))
+
+
+def validate_registries(registries_override=None, schemas_override=None):
+    """Validate registries with optional in-memory overrides for testing.
+    
+    If registries_override is provided (dict of registry name -> data),
+    those are used instead of loading from files.
+    Same for schemas_override.
+    
+    Returns the same result dict as collect_errors.
+    """
+    if registries_override is None and schemas_override is None:
+        return collect_errors()
+    
+    original_load = load_json
+    _config_dir = CONFIG_DIR
+    _schema_dir = SCHEMA_DIR
+    _research_schema_dir = RESEARCH_SCHEMA_DIR
+    
+    _registry_files = {
+        "roles": "roles.json", "methodologies": "methodologies.json",
+        "profiles": "profiles.json", "apis": "apis.json",
+        "sources": "sources.json", "intelligence_catalog": "intelligence_catalog.json",
+        "contracts": "contracts.json", "outputs": "outputs.json",
+        "delivery_semantics": "delivery_semantics.json", "data_states": "data_states.json",
+        "pit_contract": "pit_contract.json", "bindings": "bindings.json",
+    }
+    _schema_files = {
+        "role": "role_schema.json", "methodology": "methodology_schema.json",
+        "profile": "profile_schema.json", "api": "api_schema.json",
+        "source": "source_schema.json", "intelligence_catalog": "intelligence_catalog_schema.json",
+        "contract_lifecycle": "contract_lifecycle_schema.json", "output": "output_schema.json",
+    }
+    
+    def patched_load(path):
+        if registries_override is not None:
+            for name, fname in _registry_files.items():
+                if path == os.path.join(_config_dir, fname) and name in registries_override:
+                    return registries_override[name]
+        if schemas_override is not None:
+            for name, fname in _schema_files.items():
+                if path == os.path.join(_schema_dir, fname) and name in schemas_override:
+                    return schemas_override[name]
+            if path == os.path.join(_research_schema_dir, "research_artifact_schema.json") and "research_artifact" in schemas_override:
+                return schemas_override["research_artifact"]
+        return original_load(path)
+    
+    import __main__ as _self_mod
+    _self = sys.modules.get('validate', _self_mod)
+    _self.load_json = patched_load
+    
+    try:
+        result = collect_errors()
+    finally:
+        _self.load_json = original_load
+    
+    return result
 
 
 def main():

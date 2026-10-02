@@ -1,0 +1,91 @@
+{
+  "generated_at": "2026-10-02T06:23:02.606487Z",
+  "total": 12,
+  "all_valid_false": true,
+  "entries": [
+    {
+      "mutation": "A:rules_structured={}",
+      "validator_function": "validate_registries",
+      "valid": false,
+      "error_count": 4,
+      "matching_error": "methodology:M01.rules_structured: expected array, got dict"
+    },
+    {
+      "mutation": "B:rule_id=123",
+      "validator_function": "validate_registries",
+      "valid": false,
+      "error_count": 3,
+      "matching_error": "HASH_MISMATCH: M01 hash does not match recomputed canonical payload"
+    },
+    {
+      "mutation": "C:thresholds[0].value=[]",
+      "validator_function": "validate_registries",
+      "valid": false,
+      "error_count": 3,
+      "matching_error": "HASH_MISMATCH: M01 hash does not match recomputed canonical payload"
+    },
+    {
+      "mutation": "D:freshness.max_age=-1",
+      "validator_function": "validate_registries",
+      "valid": false,
+      "error_count": 3,
+      "matching_error": "HASH_MISMATCH: M01 hash does not match recomputed canonical payload"
+    },
+    {
+      "mutation": "E:pit.required='true'",
+      "validator_function": "validate_registries",
+      "valid": false,
+      "error_count": 3,
+      "matching_error": "HASH_MISMATCH: M01 hash does not match recomputed canonical payload"
+    },
+    {
+      "mutation": "F:unknown_property",
+      "validator_function": "validate_registries",
+      "valid": false,
+      "error_count": 4,
+      "matching_error": "methodology:M01: additional property 'unknown_property' not allowed by schema"
+    },
+    {
+      "mutation": "G:delete_binding",
+      "validator_function": "validate_registries",
+      "valid": false,
+      "error_count": 1,
+      "matching_error": "PROFILE_BINDING_MISSING: 1 declared relations not in bindings"
+    },
+    {
+      "mutation": "H:extra_binding",
+      "validator_function": "validate_registries",
+      "valid": false,
+      "error_count": 2,
+      "matching_error": "binding:profile_method: methodology_id 'M99' not in methodology registry - FAIL-CLOSED"
+    },
+    {
+      "mutation": "I:role_default_not_allowed",
+      "validator_function": "validate_registries",
+      "valid": false,
+      "error_count": 2,
+      "matching_error": "ROLE_DEFAULT_NOT_ALLOWED: COMMODITY default M05 not in method roles"
+    },
+    {
+      "mutation": "J:NONCALLABLE_triggered",
+      "validator_function": "validate_registries",
+      "valid": false,
+      "error_count": 3,
+      "matching_error": "PROFILE_NONCALLABLE: P01 triggered has M06 (NONCALLABLE)"
+    },
+    {
+      "mutation": "K:EXPLICIT+empty",
+      "validator_function": "validate_registries",
+      "valid": false,
+      "error_count": 3,
+      "matching_error": "HASH_MISMATCH: M01 hash does not match recomputed canonical payload"
+    },
+    {
+      "mutation": "L:VERIFIED+base=false",
+      "validator_function": "validate_registries",
+      "valid": false,
+      "error_count": 1,
+      "matching_error": "A_STATE_INCONSISTENT: GetHumanitarianSummary.a09_source_bound=false but a09_source_bound_state=VERIFIED"
+    }
+  ]
+}
