@@ -1,485 +1,545 @@
 {
   "registry_type": "methodologies",
-  "version": "1.0.0",
-  "generated_at": "2026-10-01T15:17:50Z",
+  "version": "1.2.0",
+  "generated_at": "2026-10-02T04:54:00Z",
   "entries": [
     {
       "methodology_id": "M01",
+      "canonical_name": "China Activity Nowcast",
       "name": "China Activity Nowcast",
-      "version": "1.0.0",
+      "version": "1.2.0",
+      "provenance_class": "OFFICIAL",
+      "execution_class": "DIRECT_API",
+      "callable": true,
+      "valid_from": null,
+      "valid_from_state": "VALID_FROM_UNKNOWN",
+      "valid_to": null,
+      "methodology_version": "1.2.0",
+      "methodology_version_hash": "3278b2b0f3310d9657bf981a5ff9a0a2442e4fd76a1d933f61ca2b373ead3767",
       "primary_roles": [
         "WORLD",
-        "TECH"
+        "COMMODITY"
       ],
       "secondary_roles": [
+        "ENERGY",
         "FINANCE"
       ],
       "applicable_profiles": [
-        "P09",
-        "P10"
+        "P01",
+        "P04"
       ],
       "trigger_conditions": [
-        "event_detected",
-        "signal_threshold_exceeded"
+        "proxy_data_refresh",
+        "direction_change",
+        "vintage_stale"
       ],
       "asset_types": [
-        "event"
+        "china_activity_proxy",
+        "freight_index",
+        "port_activity",
+        "aviation_volume",
+        "energy_consumption",
+        "commodity_flow",
+        "corridor_traffic",
+        "market_signal"
       ],
       "event_types": [
-        "geopolitical",
-        "conflict",
-        "sanction",
-        "disruption"
+        "direction_agreement",
+        "direction_divergence",
+        "mixed_state",
+        "insufficient_evidence"
       ],
       "entity_types": [
-        "country",
-        "region",
-        "entity"
+        "china",
+        "economic_proxy_family",
+        "activity_direction"
       ],
       "required_inputs": [
-        "event_data"
+        "GetChinaActivityNowcast",
+        "GetChinaMacroSnapshot"
       ],
       "enrichment_inputs": [
-        "context_data",
-        "historical_events"
+        "GetEnergyPrices",
+        "ListCommodityQuotes"
       ],
-      "output_bindings": [],
+      "output_bindings": [
+        "GetChinaActivityNowcast"
+      ],
       "rules_structured": [
         {
-          "rule_id": "M01_R01",
-          "description": "Classify event by type, severity, and geographic scope"
+          "rule": "proxy_families",
+          "families": [
+            "freight",
+            "ports",
+            "aviation",
+            "energy",
+            "commodities",
+            "corridors",
+            "markets"
+          ]
         },
         {
-          "rule_id": "M01_R02",
-          "description": "Assign confidence score based on source corroboration"
-        }
-      ],
-      "thresholds_structured": [
-        {
-          "threshold_id": "M01_T01",
-          "value": 0.7
+          "rule": "freshness_gate",
+          "description": "Stale proxies removed before consensus"
         },
         {
-          "threshold_id": "M01_T02",
-          "value": 3
+          "rule": "direction_consensus",
+          "states": [
+            "AGREEMENT",
+            "DIVERGENCE",
+            "MIXED",
+            "INSUFFICIENT"
+          ]
+        },
+        {
+          "rule": "leave_one_family_sensitivity",
+          "description": "Test robustness by removing one proxy family"
+        },
+        {
+          "rule": "point_in_time_required",
+          "description": "as_of_time is mandatory"
         }
       ],
+      "thresholds_structured": {
+        "min_proxy_families": 3,
+        "stale_max_hours": 48
+      },
       "limitations": [
-        "Requires structured event input",
-        "Confidence degrades with single-source events"
+        "Proxy coverage varies by sector",
+        "Real-time freight data may lag",
+        "Some corridors have sparse data"
       ],
       "freshness_requirement": {
-        "max_age_seconds": 300,
-        "strategy": "REQUIRE_FRESH",
-        "stale_threshold_seconds": 600,
-        "degraded_threshold_seconds": 1800
+        "max_stale_minutes": 2880,
+        "priority": "HIGH"
       },
-      "source_requirements": [
-        "SRC_GDELT",
-        "SRC_ACLED",
-        "SRC_NEWS_API"
-      ],
+      "source_requirements": {
+        "min_sources": 3,
+        "cross_validation": true
+      },
       "point_in_time_requirement": {
         "required": true,
-        "as_of_field": "as_of",
-        "default_lookback": "7d"
+        "field": "as_of_time"
       },
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "methodology_version_hash": "99b70d9ebb732b4ea53e1f42033003b013f4561c49374ce505c2c81d1381e8a7",
-      "rebaseline_required": false,
-      "callable": true,
-      "valid_from_state": "VALID_FROM_UNKNOWN",
-      "provenance_class": "OFFICIAL",
-      "execution_class": "DIRECT_API",
-      "canonical_name": "China Activity Nowcast",
-      "methodology_version": "1.1.0",
-      "valid_to": null,
-      "valid_from": null
+      "rebaseline_required": false
     },
     {
       "methodology_id": "M02",
+      "canonical_name": "News Digest & Briefing",
       "name": "News Digest & Briefing",
-      "version": "1.0.0",
+      "version": "1.2.0",
+      "provenance_class": "OFFICIAL",
+      "execution_class": "DIRECT_API",
+      "callable": true,
+      "valid_from": null,
+      "valid_from_state": "VALID_FROM_UNKNOWN",
+      "valid_to": null,
+      "methodology_version": "1.2.0",
+      "methodology_version_hash": "f4efa780bdd2625e1922ab4fbeaa0e7554900bcd3baac9ee2bd2d3af508e0b6e",
       "primary_roles": [
         "WORLD"
       ],
       "secondary_roles": [
-        "ENERGY",
-        "COMMODITY"
-      ],
-      "applicable_profiles": [
-        "P10",
-        "P01"
-      ],
-      "trigger_conditions": [
-        "baseline_deviation",
-        "seasonal_anomaly"
-      ],
-      "asset_types": [
-        "time_series"
-      ],
-      "event_types": [
-        "anomaly",
-        "baseline_deviation"
-      ],
-      "entity_types": [
-        "metric",
-        "indicator"
-      ],
-      "required_inputs": [
-        "baseline",
-        "temporal_data"
-      ],
-      "enrichment_inputs": [
-        "seasonal_adjustment",
-        "event_calendar"
-      ],
-      "output_bindings": [
-        "anomaly_flags",
-        "deviation_scores"
-      ],
-      "rules_structured": [
-        {
-          "rule_id": "M02_R01",
-          "description": "Compare current value against temporal baseline distribution"
-        },
-        {
-          "rule_id": "M02_R02"
-        }
-      ],
-      "thresholds_structured": [
-        {
-          "threshold_id": "M02_T01",
-          "value": 2.0
-        },
-        {
-          "threshold_id": "M02_T02",
-          "value": 3.0
-        }
-      ],
-      "limitations": [
-        "Baseline must cover at least 90 days",
-        "Seasonal adjustment may lag"
-      ],
-      "freshness_requirement": {
-        "max_age_seconds": 3600,
-        "strategy": "FRESH_FIRST",
-        "stale_threshold_seconds": 7200,
-        "degraded_threshold_seconds": 28800
-      },
-      "source_requirements": [
-        "SRC_EIA",
-        "SRC_IEA"
-      ],
-      "point_in_time_requirement": {
-        "required": true,
-        "as_of_field": "as_of",
-        "default_lookback": "30d"
-      },
-      "fast_path_allowed": true,
-      "deep_path_allowed": true,
-      "weknora_eligible": false,
-      "methodology_version_hash": "6876d1ce3fea3ed699f55d47c531171a3c33e2e01b749cdef17c01cf4ac9b9b5",
-      "rebaseline_required": false,
-      "callable": true,
-      "valid_from_state": "VALID_FROM_UNKNOWN",
-      "provenance_class": "OFFICIAL",
-      "execution_class": "DIRECT_API",
-      "canonical_name": "News Digest & Briefing",
-      "methodology_version": "1.1.0",
-      "valid_to": null,
-      "valid_from": null
-    },
-    {
-      "methodology_id": "M03",
-      "name": "News Credibility",
-      "version": "1.0.0",
-      "valid_from": null,
-      "valid_to": null,
-      "primary_roles": [
-        "WORLD",
+        "FINANCE",
         "COMMODITY",
-        "FINANCE"
-      ],
-      "secondary_roles": [
-        "TECH",
         "ENERGY"
       ],
       "applicable_profiles": [
         "P01",
-        "P03",
-        "P05",
-        "P06",
-        "P07",
-        "P08",
-        "P10"
+        "P02",
+        "P05"
       ],
       "trigger_conditions": [
-        "multiple_sources_available",
-        "contradiction_detected"
+        "new_article_ingested",
+        "story_update",
+        "mention_count_change"
       ],
       "asset_types": [
-        "multi_source"
+        "news_article",
+        "story_cluster",
+        "briefing"
       ],
       "event_types": [
-        "corroboration",
-        "contradiction"
+        "story_identified",
+        "duplicate_detected",
+        "importance_scored",
+        "corroboration_found"
       ],
       "entity_types": [
-        "any"
+        "article",
+        "story",
+        "source",
+        "topic"
       ],
       "required_inputs": [
-        "multi_source_data"
+        "ListFeedDigest",
+        "ListCountryHeadlines"
       ],
       "enrichment_inputs": [
-        "source_credibility_scores",
-        "temporal_alignment"
+        "GetSummarizeArticleCache",
+        "SummarizeArticle"
       ],
       "output_bindings": [
-        "corroboration_score",
-        "contradiction_report",
-        "consensus_narrative"
+        "ListFeedDigest",
+        "ListCountryHeadlines"
       ],
       "rules_structured": [
         {
-          "rule_id": "M03_R01",
-          "description": "Weight sources by credibility and recency"
+          "rule": "pipeline",
+          "steps": [
+            "freshness",
+            "classification",
+            "importance",
+            "story_identity",
+            "dedupe",
+            "tracking",
+            "corroboration",
+            "grounded_summary",
+            "brief"
+          ]
         },
         {
-          "rule_id": "M03_R02",
-          "description": "Flag contradictions between sources above threshold"
+          "rule": "story_identity",
+          "fields": [
+            "first_seen",
+            "last_seen",
+            "mention_count"
+          ]
         },
         {
-          "rule_id": "M03_R03",
-          "description": "Build consensus narrative from corroborated claims"
+          "rule": "deduplication",
+          "method": "story_identity_matching"
         }
       ],
-      "thresholds_structured": [
-        {
-          "threshold_id": "M03_T01",
-          "value": 0.6
-        },
-        {
-          "threshold_id": "M03_T02",
-          "value": 2
-        }
-      ],
+      "thresholds_structured": {
+        "min_importance_score": 0.3,
+        "dedup_similarity": 0.85
+      },
       "limitations": [
-        "Minimum 2 sources required",
-        "Credibility scores must be pre-computed"
+        "Dedup depends on language coverage",
+        "Importance scoring is heuristic",
+        "Summarization may lose nuance"
       ],
       "freshness_requirement": {
-        "max_age_seconds": 7200,
-        "strategy": "STALE_OK",
-        "stale_threshold_seconds": 86400,
-        "degraded_threshold_seconds": 259200
+        "max_stale_minutes": 30,
+        "priority": "CRITICAL"
       },
-      "source_requirements": [
-        "SRC_GDELT",
-        "SRC_ACLED",
-        "SRC_NEWS_API",
-        "SRC_IMF"
-      ],
+      "source_requirements": {
+        "min_sources": 1,
+        "cross_validation": false
+      },
       "point_in_time_requirement": {
         "required": true,
-        "as_of_field": "as_of",
-        "default_lookback": "7d"
+        "field": "as_of_time"
       },
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "methodology_version_hash": "7fd3f0b3d0a21ff4d20723f6fb1019caeb7a8abb85508b9e765dedd782d36019",
-      "rebaseline_required": false,
-      "callable": true,
-      "valid_from_state": "VALID_FROM_UNKNOWN",
+      "rebaseline_required": false
+    },
+    {
+      "methodology_id": "M03",
+      "canonical_name": "News Credibility",
+      "name": "News Credibility",
+      "version": "1.2.0",
       "provenance_class": "OFFICIAL",
       "execution_class": "COMPOSITE",
-      "canonical_name": "News Credibility",
-      "methodology_version": "1.1.0"
+      "callable": true,
+      "valid_from": null,
+      "valid_from_state": "VALID_FROM_UNKNOWN",
+      "valid_to": null,
+      "methodology_version": "1.2.0",
+      "methodology_version_hash": "907e91400dec51de5fa1c5070ff392970e223c02a96f544417d5080f07fe0433",
+      "primary_roles": [
+        "WORLD"
+      ],
+      "secondary_roles": [
+        "TECH"
+      ],
+      "applicable_profiles": [
+        "P01",
+        "P02"
+      ],
+      "trigger_conditions": [
+        "article_credibility_check",
+        "propaganda_risk_assessment"
+      ],
+      "asset_types": [
+        "credibility_assessment",
+        "propaganda_risk",
+        "source_tier_rating"
+      ],
+      "event_types": [
+        "credibility_scored",
+        "propaganda_flagged",
+        "corroboration_verified"
+      ],
+      "entity_types": [
+        "article",
+        "publisher",
+        "claim"
+      ],
+      "required_inputs": [
+        "ListFeedDigest",
+        "ListCountryHeadlines",
+        "SearchGdeltDocuments"
+      ],
+      "enrichment_inputs": [
+        "ListCrossSourceSignals",
+        "ListTelegramFeed",
+        "ListXFeed"
+      ],
+      "output_bindings": [],
+      "rules_structured": [
+        {
+          "rule": "credibility_dimensions",
+          "propaganda_risk_weight": 0.5,
+          "source_tier_weight": 0.3,
+          "corroboration_weight": 0.2
+        },
+        {
+          "rule": "same_publisher_dedup",
+          "description": "Same publisher family counts as one corroboration"
+        }
+      ],
+      "thresholds_structured": {
+        "min_corroboration_sources": 2
+      },
+      "limitations": [
+        "Propaganda detection is heuristic",
+        "Source tier may lag",
+        "Non-English underrepresented"
+      ],
+      "freshness_requirement": {
+        "max_stale_minutes": 60,
+        "priority": "HIGH"
+      },
+      "source_requirements": {
+        "min_sources": 2,
+        "cross_validation": true
+      },
+      "point_in_time_requirement": {
+        "required": true,
+        "field": "as_of_time"
+      },
+      "fast_path_allowed": false,
+      "deep_path_allowed": true,
+      "weknora_eligible": true,
+      "rebaseline_required": false
     },
     {
       "methodology_id": "M04",
+      "canonical_name": "Country Resilience Index",
       "name": "Country Resilience Index",
-      "version": "1.0.0",
-      "primary_roles": [
-        "WORLD"
-      ],
-      "secondary_roles": [
-        "ENERGY"
-      ],
-      "applicable_profiles": [
-        "P10"
-      ],
-      "trigger_conditions": [
-        "conflict_event_received"
-      ],
-      "asset_types": [
-        "conflict_event"
-      ],
-      "event_types": [
-        "armed_conflict",
-        "protest",
-        "violence"
-      ],
-      "entity_types": [
-        "country",
-        "region",
-        "group"
-      ],
-      "required_inputs": [],
-      "enrichment_inputs": [
-        "iran_events",
-        "humanitarian_data"
-      ],
-      "output_bindings": [
-        "intensity_score",
-        "conflict_trend",
-        "escalation_probability"
-      ],
-      "rules_structured": [
-        {
-          "rule_id": "M04_R01"
-        },
-        {
-          "rule_id": "M04_R02",
-          "description": "Compute trend direction and acceleration"
-        }
-      ],
-      "thresholds_structured": [
-        {
-          "threshold_id": "M04_T01",
-          "value": 0.5
-        },
-        {
-          "threshold_id": "M04_T02",
-          "value": 0.8
-        }
-      ],
-      "limitations": [],
-      "freshness_requirement": {
-        "max_age_seconds": 86400,
-        "strategy": "DEGRADED_OK",
-        "stale_threshold_seconds": 172800,
-        "degraded_threshold_seconds": 604800
-      },
-      "source_requirements": [
-        "SRC_IRAN_EVENTS"
-      ],
-      "point_in_time_requirement": {
-        "required": true,
-        "as_of_field": "as_of",
-        "default_lookback": "30d"
-      },
-      "fast_path_allowed": true,
-      "deep_path_allowed": true,
-      "weknora_eligible": true,
-      "methodology_version_hash": "370b28723e34554ba7a3069a5a8b6b077e05df13b50527b9f4d837b5fcbc03af",
-      "rebaseline_required": false,
-      "callable": true,
-      "valid_from_state": "VALID_FROM_UNKNOWN",
+      "version": "1.2.0",
       "provenance_class": "OFFICIAL",
       "execution_class": "DIRECT_API",
-      "canonical_name": "Country Resilience Index",
-      "methodology_version": "1.1.0",
+      "callable": true,
+      "valid_from": null,
+      "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
-      "valid_from": null
-    },
-    {
-      "methodology_id": "M05",
-      "name": "Resilience Indicators",
-      "version": "1.0.0",
+      "methodology_version": "1.2.0",
+      "methodology_version_hash": "e3986635c6ec1fb28318a97e22b505a751f71c528e12df15472e3c36f68cfae6",
       "primary_roles": [
-        "WORLD"
+        "WORLD",
+        "FINANCE"
       ],
       "secondary_roles": [
         "TECH",
-        "FINANCE"
+        "COMMODITY"
       ],
       "applicable_profiles": [
-        "P10"
+        "P01",
+        "P04"
       ],
       "trigger_conditions": [
-        "sanctions_designation",
-        "entity_lookup"
+        "indicator_data_refresh",
+        "annual_dataset_update"
       ],
       "asset_types": [
-        "sanctions_designation"
+        "resilience_score",
+        "resilience_ranking",
+        "indicator_observation"
       ],
       "event_types": [
-        "designation",
-        "delisting"
+        "score_updated",
+        "rank_change",
+        "indicator_imputed"
       ],
       "entity_types": [
-        "entity",
-        "individual",
-        "vessel"
+        "country",
+        "indicator",
+        "dimension",
+        "domain"
       ],
       "required_inputs": [
-        "sanctions_data"
+        "GetResilienceScore",
+        "GetResilienceRanking"
       ],
       "enrichment_inputs": [
-        "company_enrichment",
-        "vessel_tracking"
+        "GetCountryRisk",
+        "GetRiskScores",
+        "GetResilienceIndicators"
       ],
       "output_bindings": [
-        "network_graph",
-        "designated_entities",
-        "exposure_score"
+        "GetResilienceScore",
+        "GetResilienceRanking"
       ],
       "rules_structured": [
         {
-          "rule_id": "M05_R01",
-          "description": "Build entity relationship graph from designation data"
+          "rule": "indicator_pipeline",
+          "steps": [
+            "observation",
+            "normalization",
+            "imputation",
+            "dimension_aggregation",
+            "domain_aggregation",
+            "penalty",
+            "score"
+          ]
         },
         {
-          "rule_id": "M05_R02",
-          "description": "Compute exposure score for connected but non-designated entities"
+          "rule": "structure",
+          "indicators": 72,
+          "dimensions": 21,
+          "domains": 6,
+          "score_range": "0-100"
         }
       ],
-      "thresholds_structured": [
-        {
-          "threshold_id": "M05_T01",
-          "value": 0.3
-        }
-      ],
+      "thresholds_structured": {
+        "min_indicator_coverage": 0.6
+      },
       "limitations": [
-        "Network analysis limited to available designation data",
-        "Dark fleet vessels may not appear"
+        "Indicator coverage varies by country",
+        "Imputation may distort for sparse data",
+        "Annual data lag"
       ],
       "freshness_requirement": {
-        "max_age_seconds": 86400,
-        "strategy": "STALE_OK",
-        "stale_threshold_seconds": 172800,
-        "degraded_threshold_seconds": 604800
+        "max_stale_minutes": 43200,
+        "priority": "MEDIUM"
       },
-      "source_requirements": [
-        "SRC_GDELT"
-      ],
+      "source_requirements": {
+        "min_sources": 1,
+        "cross_validation": false
+      },
       "point_in_time_requirement": {
         "required": true,
-        "as_of_field": "as_of",
-        "default_lookback": "7d"
+        "field": "as_of_time"
       },
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "methodology_version_hash": "1f52dab0b086ed50b3320f9b21ccf7991568330d3e988febbcc03026c51111a6",
-      "rebaseline_required": false,
-      "callable": true,
-      "valid_from_state": "VALID_FROM_UNKNOWN",
+      "rebaseline_required": false
+    },
+    {
+      "methodology_id": "M05",
+      "canonical_name": "Resilience Indicators",
+      "name": "Resilience Indicators",
+      "version": "1.2.0",
       "provenance_class": "OFFICIAL",
       "execution_class": "DIRECT_API",
-      "canonical_name": "Resilience Indicators",
-      "methodology_version": "1.1.0",
+      "callable": true,
+      "valid_from": null,
+      "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
-      "valid_from": null
+      "methodology_version": "1.2.0",
+      "methodology_version_hash": "365fcd718a4e8b720ccb9e1e9c2ebc9d945a9fbf22ab65e1feda9c12bd47dc04",
+      "primary_roles": [
+        "WORLD",
+        "FINANCE"
+      ],
+      "secondary_roles": [
+        "TECH"
+      ],
+      "applicable_profiles": [
+        "P01",
+        "P04"
+      ],
+      "trigger_conditions": [
+        "indicator_update",
+        "source_refresh"
+      ],
+      "asset_types": [
+        "indicator_observation",
+        "normalized_indicator",
+        "weighted_contribution"
+      ],
+      "event_types": [
+        "indicator_loaded",
+        "normalization_applied",
+        "imputation_performed"
+      ],
+      "entity_types": [
+        "indicator",
+        "country",
+        "year",
+        "source"
+      ],
+      "required_inputs": [
+        "GetResilienceIndicators"
+      ],
+      "enrichment_inputs": [
+        "GetResilienceScore",
+        "GetDemographicsCapability"
+      ],
+      "output_bindings": [
+        "GetResilienceIndicators"
+      ],
+      "rules_structured": [
+        {
+          "rule": "indicator_lifecycle",
+          "fields": [
+            "observation",
+            "year",
+            "unit",
+            "source",
+            "normalization",
+            "weight",
+            "contribution",
+            "age",
+            "availability",
+            "imputation"
+          ]
+        }
+      ],
+      "thresholds_structured": {},
+      "limitations": [
+        "Some indicators have sparse historical data",
+        "Normalization method affects comparability"
+      ],
+      "freshness_requirement": {
+        "max_stale_minutes": 43200,
+        "priority": "MEDIUM"
+      },
+      "source_requirements": {
+        "min_sources": 1,
+        "cross_validation": false
+      },
+      "point_in_time_requirement": {
+        "required": true,
+        "field": "as_of_time"
+      },
+      "fast_path_allowed": true,
+      "deep_path_allowed": true,
+      "weknora_eligible": true,
+      "rebaseline_required": false
     },
     {
       "methodology_id": "M06",
+      "canonical_name": "Resilience Indicator Licensing",
       "name": "Resilience Indicator Licensing",
-      "version": "1.0.0",
+      "version": "1.2.0",
+      "provenance_class": "OFFICIAL",
+      "execution_class": "NONCALLABLE",
+      "callable": false,
+      "valid_from": null,
+      "valid_from_state": "VALID_FROM_UNKNOWN",
+      "valid_to": null,
+      "methodology_version": "1.2.0",
+      "methodology_version_hash": "2c963d018351d887513b6f70746a6b49aebdca2e1930882784e5bad37ddd0ff9",
       "primary_roles": [
         "WORLD",
         "TECH"
@@ -488,11 +548,11 @@
         "FINANCE"
       ],
       "applicable_profiles": [
-        "P10"
+        "P01"
       ],
       "trigger_conditions": [
-        "exercise_announced",
-        "flight_anomaly"
+        "license_change",
+        "provider_update"
       ],
       "asset_types": [
         "indicator_license",
@@ -508,19 +568,9 @@
         "indicator_source",
         "license_contract"
       ],
-      "required_inputs": [
-        "posture_data",
-        "flight_data"
-      ],
-      "enrichment_inputs": [
-        "satellite_imagery",
-        "osint_reports"
-      ],
-      "output_bindings": [
-        "posture_summary",
-        "force_disposition",
-        "activity_level"
-      ],
+      "required_inputs": [],
+      "enrichment_inputs": [],
+      "output_bindings": [],
       "rules_structured": [
         {
           "rule": "withheld_not_zero",
@@ -528,78 +578,68 @@
         },
         {
           "rule": "license_check_before_calculation",
-          "description": "Verify calculation_allowed before using indicator in methodology"
+          "description": "Verify calculation_allowed before using indicator"
         },
         {
           "rule": "redistribution_check_before_export",
           "description": "Verify redistribution_allowed before including in output"
         }
       ],
-      "thresholds_structured": [
-        {
-          "threshold_id": "M06_T01",
-          "value": 0.5
-        }
-      ],
+      "thresholds_structured": {},
       "limitations": [
         "Licensing terms may change without notice",
-        "Some providers restrict redistribution",
-        "Withheld data must not be treated as zero"
+        "Some providers restrict redistribution"
       ],
       "freshness_requirement": {
-        "max_age_seconds": 43200,
-        "strategy": "DEGRADED_OK",
-        "stale_threshold_seconds": 86400,
-        "degraded_threshold_seconds": 259200
+        "max_stale_minutes": null,
+        "priority": "LOW"
       },
-      "source_requirements": [
-        "SRC_USNI",
-        "SRC_PENTAGON",
-        "SRC_AIS"
-      ],
+      "source_requirements": {
+        "min_sources": 1,
+        "cross_validation": false
+      },
       "point_in_time_requirement": {
-        "required": true,
-        "as_of_field": "as_of",
-        "default_lookback": "7d"
+        "required": false,
+        "field": null
       },
-      "fast_path_allowed": true,
-      "deep_path_allowed": true,
-      "weknora_eligible": true,
-      "methodology_version_hash": "368c4ef0eec215ded2606ae8f1e1ef25da467b67623390c9b0ae3c66f0385fab",
-      "rebaseline_required": false,
-      "callable": false,
-      "valid_from_state": "VALID_FROM_UNKNOWN",
-      "provenance_class": "OFFICIAL",
-      "execution_class": "NONCALLABLE",
-      "canonical_name": "Resilience Indicator Licensing",
-      "methodology_version": "1.1.0",
-      "valid_to": null,
-      "valid_from": null
+      "fast_path_allowed": false,
+      "deep_path_allowed": false,
+      "weknora_eligible": false,
+      "rebaseline_required": false
     },
     {
       "methodology_id": "M07",
+      "canonical_name": "Known Limitations",
       "name": "Known Limitations",
-      "version": "1.0.0",
+      "version": "1.2.0",
+      "provenance_class": "OFFICIAL",
+      "execution_class": "NONCALLABLE",
+      "callable": false,
+      "valid_from": null,
+      "valid_from_state": "VALID_FROM_UNKNOWN",
+      "valid_to": null,
+      "methodology_version": "1.2.0",
+      "methodology_version_hash": "8b393438054f760c385b2732f388c2e2092bcf378973f97d7ff303226c25c87c",
       "primary_roles": [
-        "WORLD"
+        "WORLD",
+        "TECH"
       ],
       "secondary_roles": [],
       "applicable_profiles": [
-        "P10"
+        "P01"
       ],
       "trigger_conditions": [
-        "crisis_declaration"
+        "limitation_discovered",
+        "limitation_status_change"
       ],
       "asset_types": [
         "methodology_limitation",
-        "input_limitation",
-        "known_issue"
+        "input_limitation"
       ],
       "event_types": [
         "limitation_discovered",
         "limitation_fixed",
-        "limitation_accepted",
-        "limitation_blocked"
+        "limitation_accepted"
       ],
       "entity_types": [
         "affected_method",
@@ -607,288 +647,284 @@
         "limitation_record"
       ],
       "required_inputs": [],
-      "enrichment_inputs": [
-        "health_data"
-      ],
-      "output_bindings": [
-        "impact_assessment",
-        "aid_gap_analysis"
-      ],
+      "enrichment_inputs": [],
+      "output_bindings": [],
       "rules_structured": [
         {
-          "rule_id": "M07_R01"
+          "rule": "limitation_tracking",
+          "fields": [
+            "limitation_id",
+            "affected_method",
+            "affected_input",
+            "signature",
+            "effect",
+            "status"
+          ]
         },
         {
-          "rule_id": "M07_R02"
+          "rule": "status_values",
+          "values": [
+            "FIXED",
+            "ACCEPTED",
+            "BLOCKED",
+            "OPEN"
+          ]
         }
       ],
-      "thresholds_structured": [
-        {
-          "threshold_id": "M07_T01",
-          "value": 10000
-        }
-      ],
+      "thresholds_structured": {},
       "limitations": [
-        "Limitations are tracked per-methodology and per-input",
-        "Some limitations may be permanent (accepted)",
-        "Limitation status can be FIXED/ACCEPTED/BLOCKED/OPEN",
-        "Version and validity tracked for each limitation"
+        "Limitations are tracked per-methodology",
+        "Some limitations may be permanent"
       ],
       "freshness_requirement": {
-        "max_age_seconds": 86400,
-        "strategy": "STALE_OK",
-        "stale_threshold_seconds": 172800,
-        "degraded_threshold_seconds": 604800
+        "max_stale_minutes": null,
+        "priority": "LOW"
       },
-      "source_requirements": [
-        "SRC_ACLED",
-        "SRC_UCDP"
-      ],
+      "source_requirements": {
+        "min_sources": 0,
+        "cross_validation": false
+      },
       "point_in_time_requirement": {
-        "required": true,
-        "as_of_field": "as_of",
-        "default_lookback": "30d"
+        "required": false,
+        "field": null
       },
       "fast_path_allowed": false,
-      "deep_path_allowed": true,
+      "deep_path_allowed": false,
       "weknora_eligible": false,
-      "methodology_version_hash": "5cb14dd63e5e3c33d5303c7fc0be4b89a40cb6f858c4636f64fd584f1bcf1a9e",
-      "rebaseline_required": false,
-      "callable": false,
-      "valid_from_state": "VALID_FROM_UNKNOWN",
-      "provenance_class": "OFFICIAL",
-      "execution_class": "NONCALLABLE",
-      "canonical_name": "Known Limitations",
-      "methodology_version": "1.1.0",
-      "valid_to": null,
-      "valid_from": null
+      "rebaseline_required": false
     },
     {
       "methodology_id": "M08",
+      "canonical_name": "Financial System Exposure",
       "name": "Financial System Exposure",
-      "version": "1.0.0",
-      "valid_from": null,
-      "valid_to": null,
-      "primary_roles": [
-        "FINANCE"
-      ],
-      "secondary_roles": [
-        "WORLD",
-        "COMMODITY"
-      ],
-      "applicable_profiles": [
-        "P06",
-        "P07",
-        "P08"
-      ],
-      "trigger_conditions": [
-        "fx_volatility_spike",
-        "rate_decision",
-        "credit_spread_widening"
-      ],
-      "asset_types": [
-        "financial_indicator"
-      ],
-      "event_types": [
-        "rate_change",
-        "fx_move",
-        "credit_event"
-      ],
-      "entity_types": [
-        "central_bank",
-        "market"
-      ],
-      "required_inputs": [
-        "fx_data",
-        "rate_data",
-        "credit_data"
-      ],
-      "enrichment_inputs": [
-        "equity_data",
-        "cot_data"
-      ],
-      "output_bindings": [
-        "stress_index",
-        "component_breakdown",
-        "trend_direction"
-      ],
-      "rules_structured": [
-        {
-          "rule_id": "M08_R01",
-          "description": "Compute composite stress index from FX, rate, and credit components"
-        },
-        {
-          "rule_id": "M08_R02",
-          "description": "Compare current stress against historical distribution"
-        }
-      ],
-      "thresholds_structured": [
-        {
-          "threshold_id": "M08_T01",
-          "value": 0.6
-        },
-        {
-          "threshold_id": "M08_T02",
-          "value": 0.8
-        }
-      ],
-      "limitations": [
-        "Index composition may not capture all stress channels",
-        "Lag in credit data"
-      ],
-      "freshness_requirement": {
-        "max_age_seconds": 3600,
-        "strategy": "FRESH_FIRST",
-        "stale_threshold_seconds": 14400,
-        "degraded_threshold_seconds": 86400
-      },
-      "source_requirements": [
-        "SRC_CME",
-        "SRC_CFTC",
-        "SRC_IMF"
-      ],
-      "point_in_time_requirement": {
-        "required": true,
-        "as_of_field": "as_of",
-        "default_lookback": "30d"
-      },
-      "fast_path_allowed": true,
-      "deep_path_allowed": true,
-      "weknora_eligible": true,
-      "methodology_version_hash": "9ef6ce9bf44d1d6241af9eeece2dc68fb7d5bb6d6535fd6169d80825703488e2",
-      "rebaseline_required": false,
-      "callable": true,
-      "valid_from_state": "VALID_FROM_UNKNOWN",
+      "version": "1.2.0",
       "provenance_class": "OFFICIAL",
       "execution_class": "COMPOSITE",
-      "canonical_name": "Financial System Exposure",
-      "methodology_version": "1.1.0"
+      "callable": true,
+      "valid_from": null,
+      "valid_from_state": "VALID_FROM_UNKNOWN",
+      "valid_to": null,
+      "methodology_version": "1.2.0",
+      "methodology_version_hash": "3c7e06362c45453696b33ba1df3646752728540d7e7b85e2ae1b83d39475a115",
+      "primary_roles": [
+        "FINANCE",
+        "WORLD"
+      ],
+      "secondary_roles": [
+        "COMMODITY",
+        "ENERGY"
+      ],
+      "applicable_profiles": [
+        "P04",
+        "P01"
+      ],
+      "trigger_conditions": [
+        "financial_data_update",
+        "stress_indicator_change"
+      ],
+      "asset_types": [
+        "financial_exposure_score",
+        "banking_linkage",
+        "external_debt"
+      ],
+      "event_types": [
+        "exposure_updated",
+        "stress_change",
+        "sanction_impact"
+      ],
+      "entity_types": [
+        "country",
+        "banking_system",
+        "external_position"
+      ],
+      "required_inputs": [
+        "GetBisCredit",
+        "GetNationalDebt",
+        "GetEconomicStress",
+        "GetEuFsi"
+      ],
+      "enrichment_inputs": [
+        "GetBisExchangeRates",
+        "GetBisPolicyRates",
+        "ListCommodityQuotes"
+      ],
+      "output_bindings": [],
+      "rules_structured": [
+        {
+          "rule": "exposure_model",
+          "components": [
+            "external_exposure",
+            "short_term_financing",
+            "banking_linkage",
+            "fatf_status",
+            "redundancy_buffers"
+          ]
+        },
+        {
+          "rule": "blend",
+          "description": "Normalize and blend with caps"
+        }
+      ],
+      "thresholds_structured": {},
+      "limitations": [
+        "BIS data has reporting lag",
+        "Not all countries report to BIS"
+      ],
+      "freshness_requirement": {
+        "max_stale_minutes": 43200,
+        "priority": "MEDIUM"
+      },
+      "source_requirements": {
+        "min_sources": 2,
+        "cross_validation": true
+      },
+      "point_in_time_requirement": {
+        "required": true,
+        "field": "as_of_time"
+      },
+      "fast_path_allowed": false,
+      "deep_path_allowed": true,
+      "weknora_eligible": true,
+      "rebaseline_required": false
     },
     {
       "methodology_id": "M09",
+      "canonical_name": "SWF Classification Rubric",
       "name": "SWF Classification Rubric",
-      "version": "1.0.0",
+      "version": "1.2.0",
+      "provenance_class": "OFFICIAL",
+      "execution_class": "COMPOSITE",
+      "callable": true,
+      "valid_from": null,
+      "valid_from_state": "VALID_FROM_UNKNOWN",
+      "valid_to": null,
+      "methodology_version": "1.2.0",
+      "methodology_version_hash": "966d7cd5f87e931615940edb661139d6d05054609ca006956837070ebb8dc990",
       "primary_roles": [
-        "FINANCE"
+        "FINANCE",
+        "WORLD"
       ],
-      "secondary_roles": [
-        "COMMODITY"
-      ],
+      "secondary_roles": [],
       "applicable_profiles": [
-        "P06",
-        "P08"
+        "P04"
       ],
-      "trigger_conditions": [],
-      "asset_types": [],
-      "event_types": [],
+      "trigger_conditions": [
+        "swf_data_update",
+        "classification_review"
+      ],
+      "asset_types": [
+        "swf_classification",
+        "effective_months",
+        "saturation_score"
+      ],
+      "event_types": [
+        "swf_classified",
+        "saturation_computed"
+      ],
       "entity_types": [
-        "market",
-        "commodity"
+        "sovereign_wealth_fund",
+        "country"
       ],
-      "required_inputs": [],
+      "required_inputs": [
+        "GetBisCredit",
+        "ListWorldBankIndicators"
+      ],
       "enrichment_inputs": [
-        "price_data",
-        "fundamental_data"
+        "GetEconomicStress"
       ],
-      "output_bindings": [
-        "extreme_flags",
-        "crowding_risk"
-      ],
+      "output_bindings": [],
       "rules_structured": [
         {
           "rule": "swf_classification",
-          "description": "AUM / months of imports"
-        },
-        {
-          "rule": "access_liquidity_transparency",
-          "description": "Access \u00d7 Liquidity \u00d7 Transparency scoring"
-        },
-        {
-          "rule": "haircut_effective_months",
-          "description": "Apply haircut, compute effective months of import cover"
-        },
-        {
-          "rule": "saturation_score",
-          "description": "Compute saturation and classification score"
+          "steps": [
+            "AUM",
+            "months_of_imports",
+            "access",
+            "liquidity",
+            "transparency",
+            "haircut",
+            "effective_months",
+            "saturation"
+          ]
         }
       ],
-      "thresholds_structured": [
-        {
-          "threshold_id": "M09_T01",
-          "value": 90
-        },
-        {
-          "threshold_id": "M09_T02",
-          "value": 0.8
-        }
-      ],
+      "thresholds_structured": {},
       "limitations": [
-        "Does not capture OTC positions"
+        "SWF transparency varies widely",
+        "AUM may be estimated"
       ],
       "freshness_requirement": {
-        "max_age_seconds": 604800,
-        "strategy": "STALE_OK",
-        "stale_threshold_seconds": 1209600,
-        "degraded_threshold_seconds": 2592000
+        "max_stale_minutes": 43200,
+        "priority": "MEDIUM"
       },
-      "source_requirements": [
-        "SRC_CFTC",
-        "SRC_CME"
-      ],
+      "source_requirements": {
+        "min_sources": 1,
+        "cross_validation": false
+      },
       "point_in_time_requirement": {
         "required": true,
-        "as_of_field": "as_of",
-        "default_lookback": "52w"
+        "field": "as_of_time"
       },
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "methodology_version_hash": "e0d13edcb112e352b81fd3884f591f74e8df1e3d8a1b8dcc27aaaacb7277df0a",
-      "rebaseline_required": false,
-      "callable": true,
-      "valid_from_state": "VALID_FROM_UNKNOWN",
-      "provenance_class": "OFFICIAL",
-      "execution_class": "COMPOSITE",
-      "canonical_name": "SWF Classification Rubric",
-      "methodology_version": "1.1.0",
-      "valid_to": null,
-      "valid_from": null
+      "rebaseline_required": false
     },
     {
       "methodology_id": "M10",
+      "canonical_name": "Five-Factor Country Scorecard",
       "name": "Five-Factor Country Scorecard",
-      "version": "1.0.0",
+      "version": "1.2.0",
+      "provenance_class": "OFFICIAL",
+      "execution_class": "DIRECT_API",
+      "callable": true,
+      "valid_from": null,
+      "valid_from_state": "VALID_FROM_UNKNOWN",
+      "valid_to": null,
+      "methodology_version": "1.2.0",
+      "methodology_version_hash": "a7136a802e00b73079f44fce332426dcb1186dd3a5dd319dcbb54bbcdcff0d99",
       "primary_roles": [
-        "FINANCE"
+        "WORLD",
+        "TECH"
       ],
       "secondary_roles": [
-        "WORLD"
+        "FINANCE",
+        "COMMODITY",
+        "ENERGY"
       ],
       "applicable_profiles": [
-        "P06",
-        "P07"
+        "P01",
+        "P04"
       ],
       "trigger_conditions": [
-        "curve_shift_detected"
+        "factor_data_refresh",
+        "score_recalculation"
       ],
       "asset_types": [
-        "yield_curve"
+        "five_factor_scorecard",
+        "factor_subscore"
       ],
       "event_types": [
-        "curve_shift"
+        "score_updated",
+        "factor_change"
       ],
       "entity_types": [
-        "government",
-        "central_bank"
+        "country",
+        "factor"
       ],
       "required_inputs": [
-        "yield_data"
+        "GetFiveFactorScorecard",
+        "ListFiveFactorScorecards"
       ],
       "enrichment_inputs": [
-        "forward_rates",
-        "inflation_expectations"
+        "GetCountryRisk",
+        "GetRiskScores",
+        "GetResilienceScore"
       ],
-      "output_bindings": [],
+      "output_bindings": [
+        "GetFiveFactorScorecard",
+        "ListFiveFactorScorecards"
+      ],
       "rules_structured": [
         {
           "rule": "five_factors",
@@ -903,72 +939,56 @@
         {
           "rule": "independent_subscore",
           "description": "Each factor retains independent subscore and band"
-        },
-        {
-          "rule": "bloc_scorecard",
-          "description": "GetBlocScorecard where applicable"
         }
       ],
-      "thresholds_structured": [
-        {
-          "threshold_id": "M10_T01",
-          "value": 0
-        },
-        {
-          "threshold_id": "M10_T02",
-          "value": 0.5
-        }
-      ],
+      "thresholds_structured": {},
       "limitations": [
-        "Global curves may diverge"
+        "Factor weighting is heuristic",
+        "Data availability varies by factor"
       ],
       "freshness_requirement": {
-        "max_age_seconds": 86400,
-        "strategy": "STALE_OK",
-        "stale_threshold_seconds": 172800,
-        "degraded_threshold_seconds": 604800
+        "max_stale_minutes": 43200,
+        "priority": "MEDIUM"
       },
-      "source_requirements": [
-        "SRC_IMF",
-        "SRC_CME"
-      ],
+      "source_requirements": {
+        "min_sources": 1,
+        "cross_validation": false
+      },
       "point_in_time_requirement": {
         "required": true,
-        "as_of_field": "as_of",
-        "default_lookback": "30d"
+        "field": "as_of_time"
       },
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "methodology_version_hash": "68d54a3546631112792cfd5a586ab49360ca800f2b36b912e99fae36265b0235",
-      "rebaseline_required": false,
-      "callable": true,
-      "valid_from_state": "VALID_FROM_UNKNOWN",
-      "provenance_class": "OFFICIAL",
-      "execution_class": "DIRECT_API",
-      "canonical_name": "Five-Factor Country Scorecard",
-      "methodology_version": "1.1.0",
-      "valid_to": null,
-      "valid_from": null
+      "rebaseline_required": false
     },
     {
       "methodology_id": "M11",
+      "canonical_name": "Demographics & Workforce Capability",
       "name": "Demographics & Workforce Capability",
-      "version": "1.0.0",
+      "version": "1.2.0",
+      "provenance_class": "OFFICIAL",
+      "execution_class": "DIRECT_API",
+      "callable": true,
+      "valid_from": null,
+      "valid_from_state": "VALID_FROM_UNKNOWN",
+      "valid_to": null,
+      "methodology_version": "1.2.0",
+      "methodology_version_hash": "3bbdca480437fadfc62a4e2770a27f309afcc8043073f93c9ab4418f1286aef1",
       "primary_roles": [
-        "COMMODITY",
-        "WORLD"
+        "WORLD",
+        "TECH"
       ],
       "secondary_roles": [
-        "ENERGY"
+        "FINANCE"
       ],
       "applicable_profiles": [
-        "P01",
-        "P05",
-        "P10"
+        "P01"
       ],
       "trigger_conditions": [
-        "embargo_imposed"
+        "census_update",
+        "labor_data_refresh"
       ],
       "asset_types": [
         "demographics_profile",
@@ -976,9 +996,9 @@
         "education_pipeline"
       ],
       "event_types": [
-        "census_update",
-        "labor_market_change",
-        "education_data_update"
+        "age_structure_updated",
+        "education_data_loaded",
+        "workforce_data_loaded"
       ],
       "entity_types": [
         "country",
@@ -987,954 +1007,940 @@
         "industrial_workforce"
       ],
       "required_inputs": [
-        "comtrade_data"
+        "GetDemographicsCapability"
       ],
       "enrichment_inputs": [
-        "sanctions_data",
-        "chokepoint_data"
+        "GetResilienceIndicators",
+        "ListWorldBankIndicators"
       ],
       "output_bindings": [
-        "flow_summary",
-        "dependency_score",
-        "diversification_index"
+        "GetDemographicsCapability"
       ],
       "rules_structured": [
         {
-          "rule_id": "M11_R01"
+          "rule": "dimensions",
+          "fields": [
+            "age_structure",
+            "education_pipeline",
+            "industrial_workforce"
+          ]
         },
         {
-          "rule_id": "M11_R02",
-          "description": "Assess diversification and substitution potential"
+          "rule": "separate_reporting",
+          "description": "Each dimension reported separately, not single composite"
         }
       ],
-      "thresholds_structured": [
-        {
-          "threshold_id": "M11_T01",
-          "value": 0.3
-        }
-      ],
+      "thresholds_structured": {},
       "limitations": [
-        "Comtrade data has 2-6 month publication lag",
-        "Informal trade not captured"
+        "Census data has multi-year lag",
+        "Education pipeline data incomplete for many countries"
       ],
       "freshness_requirement": {
-        "max_age_seconds": 2592000,
-        "strategy": "STALE_OK",
-        "stale_threshold_seconds": 7776000,
-        "degraded_threshold_seconds": 15552000
+        "max_stale_minutes": 43200,
+        "priority": "MEDIUM"
       },
-      "source_requirements": [
-        "SRC_WORLD_BANK",
-        "SRC_IMF"
-      ],
+      "source_requirements": {
+        "min_sources": 1,
+        "cross_validation": false
+      },
       "point_in_time_requirement": {
         "required": true,
-        "as_of_field": "as_of",
-        "default_lookback": "12m"
+        "field": "as_of_time"
       },
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "methodology_version_hash": "4399762e3f6d22977c089d97a11fca6ed845f26344993cc07c80ad02898fad91",
-      "rebaseline_required": false,
-      "callable": true,
-      "valid_from_state": "VALID_FROM_UNKNOWN",
-      "provenance_class": "OFFICIAL",
-      "execution_class": "DIRECT_API",
-      "canonical_name": "Demographics & Workforce Capability",
-      "methodology_version": "1.1.0",
-      "valid_to": null,
-      "valid_from": null
+      "rebaseline_required": false
     },
     {
       "methodology_id": "M12",
+      "canonical_name": "Food Stocks & Stocks-to-Use",
       "name": "Food Stocks & Stocks-to-Use",
-      "version": "1.0.0",
+      "version": "1.2.0",
+      "provenance_class": "OFFICIAL",
+      "execution_class": "DIRECT_API",
+      "callable": true,
       "valid_from": null,
+      "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
+      "methodology_version": "1.2.0",
+      "methodology_version_hash": "fab2573086f4312d8f56c986337e835848f4112b64b0ef848d4aeda2d26df5e1",
       "primary_roles": [
-        "COMMODITY"
-      ],
-      "secondary_roles": [
+        "COMMODITY",
         "WORLD"
       ],
+      "secondary_roles": [
+        "ENERGY"
+      ],
       "applicable_profiles": [
-        "P05"
+        "P03"
       ],
       "trigger_conditions": [
-        "crop_report_released",
-        "weather_event",
-        "price_spike"
+        "psd_update",
+        "fao_release"
       ],
       "asset_types": [
-        "crop_data"
+        "food_stock",
+        "stocks_to_use_ratio",
+        "marketing_year_balance"
       ],
       "event_types": [
-        "harvest",
-        "drought",
-        "disease"
+        "stock_updated",
+        "ratio_recalculated"
       ],
       "entity_types": [
+        "commodity",
         "country",
-        "commodity"
+        "marketing_year"
       ],
       "required_inputs": [
-        "fao_data",
-        "weather_data"
+        "GetFoodStocks"
       ],
       "enrichment_inputs": [
-        "trade_data",
-        "price_data"
+        "GetOilStocksAnalysis",
+        "ListCommodityQuotes"
       ],
       "output_bindings": [
-        "balance_sheet",
-        "stocks_to_use_ratio",
-        "production_forecast"
+        "GetFoodStocks"
       ],
       "rules_structured": [
         {
-          "rule_id": "M12_R01",
-          "description": "Compute supply-demand balance and stocks-to-use ratios"
+          "rule": "stocks_model",
+          "fields": [
+            "production",
+            "domestic_use",
+            "ending_stocks",
+            "stocks_to_use",
+            "marketing_year"
+          ]
         },
         {
-          "rule_id": "M12_R02",
-          "description": "Assess production risk from weather and disease factors"
-        }
-      ],
-      "thresholds_structured": [
+          "rule": "fao_price_is_enrichment",
+          "description": "FAO food price index is context only, not stocks methodology core"
+        },
         {
-          "threshold_id": "M12_T01",
-          "value": 0.2
+          "rule": "primary_source",
+          "source": "USDA_PSD",
+          "fallback": "FAOSTAT"
         }
       ],
+      "thresholds_structured": {},
       "limitations": [
-        "FAO estimates revised frequently",
-        "Weather impact models are approximate"
+        "Marketing year definitions vary by commodity",
+        "Some countries underreport stocks"
       ],
       "freshness_requirement": {
-        "max_age_seconds": 604800,
-        "strategy": "STALE_OK",
-        "stale_threshold_seconds": 2592000,
-        "degraded_threshold_seconds": 7776000
+        "max_stale_minutes": 43200,
+        "priority": "MEDIUM"
       },
-      "source_requirements": [
-        "SRC_WORLD_BANK",
-        "SRC_EIA"
-      ],
+      "source_requirements": {
+        "min_sources": 1,
+        "cross_validation": false
+      },
       "point_in_time_requirement": {
         "required": true,
-        "as_of_field": "as_of",
-        "default_lookback": "12m"
+        "field": "as_of_time"
       },
       "fast_path_allowed": true,
       "deep_path_allowed": true,
-      "weknora_eligible": false,
-      "methodology_version_hash": "326269c889252e2545265b4925a2fc904b72e755ff902f31718d5be0d8742130",
-      "rebaseline_required": false,
-      "callable": true,
-      "valid_from_state": "VALID_FROM_UNKNOWN",
-      "provenance_class": "OFFICIAL",
-      "execution_class": "DIRECT_API",
-      "canonical_name": "Food Stocks & Stocks-to-Use",
-      "methodology_version": "1.1.0"
+      "weknora_eligible": true,
+      "rebaseline_required": false
     },
     {
       "methodology_id": "M13",
-      "name": "Defense Industrial Base",
-      "version": "1.0.0",
-      "primary_roles": [
-        "TECH",
-        "COMMODITY"
-      ],
-      "secondary_roles": [
-        "ENERGY"
-      ],
-      "applicable_profiles": [
-        "P04",
-        "P09"
-      ],
-      "trigger_conditions": [
-        "mineral_supply_alert",
-        "export_control_imposed"
-      ],
-      "asset_types": [
-        "mineral_data"
-      ],
-      "event_types": [
-        "supply_disruption",
-        "export_control"
-      ],
-      "entity_types": [
-        "country",
-        "mineral",
-        "company"
-      ],
-      "required_inputs": [
-        "mineral_production",
-        "trade_data"
-      ],
-      "enrichment_inputs": [
-        "chokepoint_data",
-        "company_data"
-      ],
-      "output_bindings": [
-        "dependency_map",
-        "concentration_score",
-        "substitution_options"
-      ],
-      "rules_structured": [
-        {
-          "rule_id": "M13_R01",
-          "description": "Map mineral production concentration by country"
-        },
-        {
-          "rule_id": "M13_R02",
-          "description": "Compute import dependency for each mineral"
-        },
-        {
-          "rule_id": "M13_R03",
-          "description": "Assess substitution and recycling potential"
-        }
-      ],
-      "thresholds_structured": [
-        {
-          "threshold_id": "M13_T01",
-          "value": 0.4
-        },
-        {
-          "threshold_id": "M13_T02",
-          "value": 3
-        }
-      ],
-      "limitations": [
-        "Processing stage data less available than mining data",
-        "Recycling rates often estimated"
-      ],
-      "freshness_requirement": {
-        "max_age_seconds": 2592000,
-        "strategy": "STALE_OK",
-        "stale_threshold_seconds": 7776000,
-        "degraded_threshold_seconds": 15552000
-      },
-      "source_requirements": [
-        "SRC_WORLD_BANK",
-        "SRC_IEA"
-      ],
-      "point_in_time_requirement": {
-        "required": true,
-        "as_of_field": "as_of",
-        "default_lookback": "12m"
-      },
-      "fast_path_allowed": true,
-      "deep_path_allowed": true,
-      "weknora_eligible": true,
-      "methodology_version_hash": "c4a36b573cf22efbed1cd9828246aae0f7b4f663297b9808a79afc98e4cc05e7",
-      "rebaseline_required": false,
-      "callable": true,
-      "valid_from_state": "VALID_FROM_UNKNOWN",
-      "provenance_class": "OFFICIAL",
-      "execution_class": "DIRECT_API",
       "canonical_name": "Defense Industrial Base",
-      "methodology_version": "1.1.0",
-      "valid_to": null,
-      "valid_from": null
-    },
-    {
-      "methodology_id": "M14",
-      "name": "Mineral Production & Processing Concentration",
-      "version": "1.0.0",
-      "primary_roles": [
-        "TECH",
-        "COMMODITY"
-      ],
-      "secondary_roles": [
-        "ENERGY"
-      ],
-      "applicable_profiles": [
-        "P04",
-        "P09",
-        "P01"
-      ],
-      "trigger_conditions": [
-        "corridor_disruption"
-      ],
-      "asset_types": [],
-      "event_types": [
-        "disruption",
-        "control_tower_change"
-      ],
-      "entity_types": [
-        "corridor",
-        "country"
-      ],
-      "required_inputs": [
-        "corridor_data"
-      ],
-      "enrichment_inputs": [
-        "shipping_data",
-        "pipeline_data"
-      ],
-      "output_bindings": [
-        "dependency_map",
-        "impact_assessment"
-      ],
-      "rules_structured": [
-        {
-          "rule_id": "M14_R01"
-        },
-        {
-          "rule_id": "M14_R02"
-        },
-        {
-          "rule_id": "M14_R03",
-          "description": "Compute impact of hypothetical closure"
-        }
-      ],
-      "thresholds_structured": [
-        {
-          "threshold_id": "M14_T01",
-          "value": 0.3
-        }
-      ],
-      "limitations": [
-        "Real-time disruption data may lag"
-      ],
-      "freshness_requirement": {
-        "max_age_seconds": 86400,
-        "strategy": "DEGRADED_OK",
-        "stale_threshold_seconds": 172800,
-        "degraded_threshold_seconds": 604800
-      },
-      "source_requirements": [
-        "SRC_AIS",
-        "SRC_SHIPPING_V2",
-        "SRC_EIA"
-      ],
-      "point_in_time_requirement": {
-        "required": true,
-        "as_of_field": "as_of",
-        "default_lookback": "30d"
-      },
-      "fast_path_allowed": true,
-      "deep_path_allowed": true,
-      "weknora_eligible": true,
-      "methodology_version_hash": "01c7f10230aa6718d9f4b8601cab517f85f3c7adfeb97f7f6cac2d9882453d21",
-      "rebaseline_required": false,
-      "callable": true,
-      "valid_from_state": "VALID_FROM_UNKNOWN",
+      "name": "Defense Industrial Base",
+      "version": "1.2.0",
       "provenance_class": "OFFICIAL",
       "execution_class": "DIRECT_API",
-      "canonical_name": "Mineral Production & Processing Concentration",
-      "methodology_version": "1.1.0",
+      "callable": true,
+      "valid_from": null,
+      "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
-      "valid_from": null
-    },
-    {
-      "methodology_id": "M15",
-      "name": "Commodity / Supply Vulnerability",
-      "version": "1.0.0",
+      "methodology_version": "1.2.0",
+      "methodology_version_hash": "f8b20bac60c0bde244fca0b0b9639df3a5cc78cb90c924e45f82e35b061d7b96",
       "primary_roles": [
-        "COMMODITY",
-        "ENERGY"
+        "WORLD",
+        "TECH"
       ],
       "secondary_roles": [
         "FINANCE"
       ],
       "applicable_profiles": [
-        "P01",
-        "P02",
-        "P03",
-        "P04",
-        "P05"
+        "P01"
       ],
       "trigger_conditions": [
-        "price_move_exceeded",
-        "spread_change"
+        "spending_data_update",
+        "transfer_data_refresh"
       ],
       "asset_types": [
-        "commodity_price"
+        "defense_industrial_base",
+        "supplier_concentration"
       ],
       "event_types": [
-        "price_move",
-        "spread_change"
+        "spending_updated",
+        "hhi_computed"
+      ],
+      "entity_types": [
+        "country",
+        "defense_spending",
+        "arms_transfer",
+        "defense_patent"
+      ],
+      "required_inputs": [
+        "GetDefenseIndustrialBase"
+      ],
+      "enrichment_inputs": [
+        "ListMilitaryBases",
+        "ListDefensePatents",
+        "GetTheaterPosture"
+      ],
+      "output_bindings": [
+        "GetDefenseIndustrialBase"
+      ],
+      "rules_structured": [
+        {
+          "rule": "dib_components",
+          "fields": [
+            "military_spending",
+            "gdp_context",
+            "personnel",
+            "arms_transfers",
+            "industrial_balance",
+            "supplier_concentration"
+          ]
+        },
+        {
+          "rule": "hhi",
+          "description": "Supplier concentration via Herfindahl-Hirschman Index"
+        },
+        {
+          "rule": "tiv_not_monetary",
+          "description": "TIV is trade indicator value, not monetary value"
+        }
+      ],
+      "thresholds_structured": {},
+      "limitations": [
+        "SIPRI data has reporting gaps",
+        "Arms transfer data may lag years"
+      ],
+      "freshness_requirement": {
+        "max_stale_minutes": 43200,
+        "priority": "MEDIUM"
+      },
+      "source_requirements": {
+        "min_sources": 1,
+        "cross_validation": false
+      },
+      "point_in_time_requirement": {
+        "required": true,
+        "field": "as_of_time"
+      },
+      "fast_path_allowed": true,
+      "deep_path_allowed": true,
+      "weknora_eligible": true,
+      "rebaseline_required": false
+    },
+    {
+      "methodology_id": "M14",
+      "canonical_name": "Mineral Production & Processing Concentration",
+      "name": "Mineral Production & Processing Concentration",
+      "version": "1.2.0",
+      "provenance_class": "OFFICIAL",
+      "execution_class": "DIRECT_API",
+      "callable": true,
+      "valid_from": null,
+      "valid_from_state": "VALID_FROM_UNKNOWN",
+      "valid_to": null,
+      "methodology_version": "1.2.0",
+      "methodology_version_hash": "228b441022f06e83594afb7d162eb15ea980ef2d1402c9f0996cdaae603a9f03",
+      "primary_roles": [
+        "COMMODITY",
+        "TECH"
+      ],
+      "secondary_roles": [
+        "WORLD"
+      ],
+      "applicable_profiles": [
+        "P03"
+      ],
+      "trigger_conditions": [
+        "mineral_data_update",
+        "production_year_change"
+      ],
+      "asset_types": [
+        "mineral_production",
+        "processing_concentration",
+        "country_share"
+      ],
+      "event_types": [
+        "production_updated",
+        "hhi_computed",
+        "stage_analyzed"
       ],
       "entity_types": [
         "commodity",
-        "exchange"
+        "country",
+        "mine",
+        "refinery",
+        "processing_facility"
       ],
       "required_inputs": [
-        "price_data"
+        "GetMineralProduction",
+        "GetCriticalMinerals"
       ],
       "enrichment_inputs": [
-        "inventory_data",
-        "trade_data",
-        "fx_data"
+        "GetCountryVulnerabilities",
+        "GetRiskScores"
       ],
       "output_bindings": [
-        "price_summary",
-        "technical_signals",
-        "fundamental_assessment"
+        "GetMineralProduction",
+        "GetCriticalMinerals"
       ],
       "rules_structured": [
         {
-          "rule_id": "M15_R01",
-          "description": "Analyze price action with technical and fundamental factors"
+          "rule": "stage_separation",
+          "stages": [
+            "mine",
+            "processing_refinery"
+          ]
         },
         {
-          "rule_id": "M15_R02"
-        }
-      ],
-      "thresholds_structured": [
-        {
-          "threshold_id": "M15_T01",
-          "value": 5.0
+          "rule": "concentration",
+          "metrics": [
+            "country_share",
+            "HHI",
+            "residual",
+            "withheld"
+          ]
         },
         {
-          "threshold_id": "M15_T02",
-          "value": 0.3
+          "rule": "year_specific",
+          "description": "Each stage has its own year reference"
         }
       ],
+      "thresholds_structured": {},
       "limitations": [
-        "Technical analysis is supplementary, not predictive",
-        "After-hours data may be incomplete"
+        "USGS data has reporting gaps",
+        "Some countries withhold production data"
       ],
       "freshness_requirement": {
-        "max_age_seconds": 3600,
-        "strategy": "FRESH_FIRST",
-        "stale_threshold_seconds": 14400,
-        "degraded_threshold_seconds": 86400
+        "max_stale_minutes": 43200,
+        "priority": "MEDIUM"
       },
-      "source_requirements": [
-        "SRC_CME",
-        "SRC_EIA",
-        "SRC_OPEC"
-      ],
+      "source_requirements": {
+        "min_sources": 1,
+        "cross_validation": false
+      },
       "point_in_time_requirement": {
         "required": true,
-        "as_of_field": "as_of",
-        "default_lookback": "7d"
+        "field": "as_of_time"
       },
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "methodology_version_hash": "0a818c3adea8dbd78e2c5a0c6d7f866cb8df1b237868559d9fccafbb4adbee90",
-      "rebaseline_required": false,
-      "callable": true,
-      "valid_from_state": "VALID_FROM_UNKNOWN",
+      "rebaseline_required": false
+    },
+    {
+      "methodology_id": "M15",
+      "canonical_name": "Commodity / Supply Vulnerability",
+      "name": "Commodity / Supply Vulnerability",
+      "version": "1.2.0",
       "provenance_class": "OFFICIAL",
       "execution_class": "DIRECT_API",
-      "canonical_name": "Commodity / Supply Vulnerability",
-      "methodology_version": "1.1.0",
+      "callable": true,
+      "valid_from": null,
+      "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
-      "valid_from": null
+      "methodology_version": "1.2.0",
+      "methodology_version_hash": "01e4176c557258696e8264cace701ddf19317d75375ff88ef7335a37523f4238",
+      "primary_roles": [
+        "COMMODITY",
+        "ENERGY"
+      ],
+      "secondary_roles": [
+        "WORLD",
+        "TECH"
+      ],
+      "applicable_profiles": [
+        "P03"
+      ],
+      "trigger_conditions": [
+        "concentration_data_update",
+        "trade_flow_refresh"
+      ],
+      "asset_types": [
+        "supply_vulnerability",
+        "compound_risk_score"
+      ],
+      "event_types": [
+        "vulnerability_updated",
+        "compound_risk_computed"
+      ],
+      "entity_types": [
+        "country",
+        "commodity",
+        "supplier",
+        "import_source"
+      ],
+      "required_inputs": [
+        "GetCountryVulnerabilities",
+        "ListVulnerabilityRankings"
+      ],
+      "enrichment_inputs": [
+        "GetEnergyPrices",
+        "ListCommodityQuotes",
+        "GetOilStocksAnalysis",
+        "GetChokepointStatus",
+        "ListEnergyDisruptions"
+      ],
+      "output_bindings": [
+        "GetCountryVulnerabilities",
+        "ListVulnerabilityRankings"
+      ],
+      "rules_structured": [
+        {
+          "rule": "vulnerability_components",
+          "fields": [
+            "supplier_concentration",
+            "import_concentration",
+            "mine_concentration",
+            "processing_concentration",
+            "trade_dependency",
+            "chokepoint_exposure",
+            "buffers",
+            "disruption_exposure"
+          ]
+        },
+        {
+          "rule": "compound_vulnerability",
+          "description": "concentration \u00d7 transit compound risk"
+        },
+        {
+          "rule": "price_is_confirmation",
+          "description": "Price is confirmation context only, not vulnerability method core"
+        }
+      ],
+      "thresholds_structured": {},
+      "limitations": [
+        "Concentration data may be incomplete",
+        "Buffer data often not publicly available"
+      ],
+      "freshness_requirement": {
+        "max_stale_minutes": 43200,
+        "priority": "MEDIUM"
+      },
+      "source_requirements": {
+        "min_sources": 1,
+        "cross_validation": false
+      },
+      "point_in_time_requirement": {
+        "required": true,
+        "field": "as_of_time"
+      },
+      "fast_path_allowed": true,
+      "deep_path_allowed": true,
+      "weknora_eligible": true,
+      "rebaseline_required": false
     },
     {
       "methodology_id": "M16",
+      "canonical_name": "Chokepoints",
       "name": "Chokepoints",
-      "version": "1.0.0",
+      "version": "1.2.0",
+      "provenance_class": "OFFICIAL",
+      "execution_class": "DIRECT_API",
+      "callable": true,
+      "valid_from": null,
+      "valid_from_state": "VALID_FROM_UNKNOWN",
+      "valid_to": null,
+      "methodology_version": "1.2.0",
+      "methodology_version_hash": "fa7d0a67574bde5dc09fda7f8d1eddc10bb6d9cc844e3b1b260e64f9a5c7031d",
       "primary_roles": [
-        "TECH",
         "COMMODITY",
         "ENERGY"
       ],
       "secondary_roles": [
-        "WORLD"
+        "WORLD",
+        "TECH"
       ],
       "applicable_profiles": [
-        "P01",
-        "P02",
-        "P04",
-        "P09"
+        "P03"
       ],
       "trigger_conditions": [
-        "shipping_stress_increase",
-        "cost_shock_detected",
-        "disruption_report"
+        "chokepoint_status_change",
+        "navigation_warning",
+        "disruption_event"
       ],
       "asset_types": [
-        "supply_chain_data"
+        "chokepoint_status",
+        "chokepoint_history",
+        "country_dependency"
       ],
       "event_types": [
-        "disruption",
-        "shortage",
-        "cost_shock"
+        "status_updated",
+        "disruption_detected",
+        "dependency_computed"
       ],
       "entity_types": [
-        "sector",
+        "chokepoint",
+        "route",
         "country",
-        "product"
+        "vessel"
       ],
       "required_inputs": [
-        "shipping_data",
-        "cost_shock_data"
+        "GetChokepointStatus",
+        "GetChokepointHistory",
+        "GetCountryChokepointIndex",
+        "GetChokepointDependencies"
       ],
       "enrichment_inputs": [
-        "chokepoint_data",
-        "inventory_data"
+        "GetVesselSnapshot",
+        "ListNavigationalWarnings",
+        "RouteIntelligence",
+        "GetShippingStress"
       ],
       "output_bindings": [
-        "stress_index",
-        "component_scores",
-        "bottleneck_map"
+        "GetChokepointStatus",
+        "GetChokepointHistory",
+        "GetCountryChokepointIndex",
+        "GetChokepointDependencies"
       ],
       "rules_structured": [
         {
-          "rule_id": "M16_R01",
-          "description": "Aggregate shipping rates, cost shocks, and disruption events into composite index"
-        },
-        {
-          "rule_id": "M16_R02",
-          "description": "Identify sector-specific bottlenecks"
+          "rule": "chokepoint_model",
+          "fields": [
+            "identity",
+            "flow",
+            "baseline",
+            "warnings",
+            "security",
+            "routes",
+            "country_dependency",
+            "disruption_state"
+          ]
         }
       ],
-      "thresholds_structured": [
-        {
-          "threshold_id": "M16_T01",
-          "value": 0.6
-        },
-        {
-          "threshold_id": "M16_T02",
-          "value": 0.8
-        }
-      ],
+      "thresholds_structured": {},
       "limitations": [
-        "Index weighting is subjective",
-        "Some cost shock data only available monthly"
+        "AIS coverage gaps in some regions",
+        "Disruption attribution can be uncertain"
       ],
       "freshness_requirement": {
-        "max_age_seconds": 86400,
-        "strategy": "DEGRADED_OK",
-        "stale_threshold_seconds": 172800,
-        "degraded_threshold_seconds": 604800
+        "max_stale_minutes": 60,
+        "priority": "HIGH"
       },
-      "source_requirements": [
-        "SRC_AIS",
-        "SRC_SHIPPING_V2",
-        "SRC_EIA"
-      ],
+      "source_requirements": {
+        "min_sources": 2,
+        "cross_validation": true
+      },
       "point_in_time_requirement": {
         "required": true,
-        "as_of_field": "as_of",
-        "default_lookback": "30d"
+        "field": "as_of_time"
       },
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "methodology_version_hash": "78ef9666ec7c717df0e7949580ef9f8ddce8f99fb28a8e58626b2d993651051e",
-      "rebaseline_required": false,
-      "callable": true,
-      "valid_from_state": "VALID_FROM_UNKNOWN",
-      "provenance_class": "OFFICIAL",
-      "execution_class": "DIRECT_API",
-      "canonical_name": "Chokepoints",
-      "methodology_version": "1.1.0",
-      "valid_to": null,
-      "valid_from": null
+      "rebaseline_required": false
     },
     {
       "methodology_id": "M17",
-      "name": "Pipeline Registry",
-      "version": "1.0.0",
-      "valid_from": null,
-      "valid_to": null,
-      "primary_roles": [
-        "ENERGY"
-      ],
-      "secondary_roles": [
-        "COMMODITY",
-        "WORLD"
-      ],
-      "applicable_profiles": [
-        "P01",
-        "P02"
-      ],
-      "trigger_conditions": [
-        "pipeline_incident",
-        "maintenance_scheduled",
-        "closure_report"
-      ],
-      "asset_types": [
-        "pipeline_data"
-      ],
-      "event_types": [
-        "incident",
-        "maintenance",
-        "closure"
-      ],
-      "entity_types": [
-        "pipeline",
-        "facility",
-        "country"
-      ],
-      "required_inputs": [
-        "pipeline_detail",
-        "incident_data"
-      ],
-      "enrichment_inputs": [
-        "chokepoint_data",
-        "sanctions_data"
-      ],
-      "output_bindings": [
-        "risk_score",
-        "incident_history",
-        "bypass_assessment"
-      ],
-      "rules_structured": [
-        {
-          "rule_id": "M17_R01",
-          "description": "Score pipeline risk from incident history and current status"
-        },
-        {
-          "rule_id": "M17_R02",
-          "description": "Assess bypass options if pipeline is disrupted"
-        }
-      ],
-      "thresholds_structured": [
-        {
-          "threshold_id": "M17_T01",
-          "value": 0.5
-        }
-      ],
-      "limitations": [
-        "Incident reporting is inconsistent across countries",
-        "Maintenance schedules may change"
-      ],
-      "freshness_requirement": {
-        "max_age_seconds": 43200,
-        "strategy": "FRESH_FIRST",
-        "stale_threshold_seconds": 86400,
-        "degraded_threshold_seconds": 259200
-      },
-      "source_requirements": [
-        "SRC_EIA",
-        "SRC_MENA_ENERGY",
-        "SRC_RUSSIAN_ENERGY"
-      ],
-      "point_in_time_requirement": {
-        "required": true,
-        "as_of_field": "as_of",
-        "default_lookback": "30d"
-      },
-      "fast_path_allowed": true,
-      "deep_path_allowed": true,
-      "weknora_eligible": true,
-      "methodology_version_hash": "8a9035d1e8ec9b0e0c9c41d833be1653155ace3ecb910a37260feb6c949f0154",
-      "rebaseline_required": false,
-      "callable": true,
-      "valid_from_state": "VALID_FROM_UNKNOWN",
-      "provenance_class": "OFFICIAL",
-      "execution_class": "DIRECT_API",
       "canonical_name": "Pipeline Registry",
-      "methodology_version": "1.1.0"
-    },
-    {
-      "methodology_id": "M18",
-      "name": "Storage Facility",
-      "version": "1.0.0",
-      "valid_from": null,
-      "valid_to": null,
-      "primary_roles": [
-        "ENERGY"
-      ],
-      "secondary_roles": [
-        "COMMODITY"
-      ],
-      "applicable_profiles": [
-        "P01",
-        "P02"
-      ],
-      "trigger_conditions": [
-        "storage_draw_report",
-        "storage_refill",
-        "anomaly_detected"
-      ],
-      "asset_types": [
-        "storage_data"
-      ],
-      "event_types": [
-        "draw",
-        "refill",
-        "anomaly"
-      ],
-      "entity_types": [
-        "facility",
-        "country",
-        "commodity"
-      ],
-      "required_inputs": [
-        "storage_data",
-        "inventory_data"
-      ],
-      "enrichment_inputs": [
-        "weather_data",
-        "demand_forecast"
-      ],
-      "output_bindings": [
-        "storage_summary",
-        "vs_5yr_average",
-        "anomaly_flags"
-      ],
-      "rules_structured": [
-        {
-          "rule_id": "M18_R01",
-          "description": "Compare storage levels to 5-year average and seasonal pattern"
-        },
-        {
-          "rule_id": "M18_R02",
-          "description": "Flag deviations exceeding threshold"
-        }
-      ],
-      "thresholds_structured": [
-        {
-          "threshold_id": "M18_T01",
-          "value": 1.5
-        },
-        {
-          "threshold_id": "M18_T02",
-          "value": 2.0
-        }
-      ],
-      "limitations": [
-        "Storage data publication varies by country",
-        "Some facilities report weekly, others monthly"
-      ],
-      "freshness_requirement": {
-        "max_age_seconds": 86400,
-        "strategy": "FRESH_FIRST",
-        "stale_threshold_seconds": 172800,
-        "degraded_threshold_seconds": 604800
-      },
-      "source_requirements": [
-        "SRC_EIA",
-        "SRC_IEA",
-        "SRC_OPEC"
-      ],
-      "point_in_time_requirement": {
-        "required": true,
-        "as_of_field": "as_of",
-        "default_lookback": "7d"
-      },
-      "fast_path_allowed": true,
-      "deep_path_allowed": true,
-      "weknora_eligible": true,
-      "methodology_version_hash": "5f7e0911161f91582cf000c010351dfcee0779d223fd06f43b284b44842ad47d",
-      "rebaseline_required": false,
-      "callable": true,
-      "valid_from_state": "VALID_FROM_UNKNOWN",
+      "name": "Pipeline Registry",
+      "version": "1.2.0",
       "provenance_class": "OFFICIAL",
       "execution_class": "DIRECT_API",
-      "canonical_name": "Storage Facility",
-      "methodology_version": "1.1.0"
-    },
-    {
-      "methodology_id": "M19",
-      "name": "Fuel Shortage Alert",
-      "version": "1.0.0",
-      "valid_from": null,
-      "valid_to": null,
-      "primary_roles": [
-        "ENERGY"
-      ],
-      "secondary_roles": [
-        "COMMODITY",
-        "WORLD"
-      ],
-      "applicable_profiles": [
-        "P01",
-        "P02"
-      ],
-      "trigger_conditions": [
-        "shortage_report",
-        "rationing_imposed",
-        "price_spike_fuel"
-      ],
-      "asset_types": [
-        "fuel_shortage_data"
-      ],
-      "event_types": [
-        "shortage",
-        "rationing",
-        "price_spike"
-      ],
-      "entity_types": [
-        "country",
-        "fuel_type"
-      ],
-      "required_inputs": [
-        "shortage_data",
-        "price_data"
-      ],
-      "enrichment_inputs": [
-        "inventory_data",
-        "refining_data"
-      ],
-      "output_bindings": [
-        "shortage_severity",
-        "affected_regions",
-        "duration_estimate"
-      ],
-      "rules_structured": [
-        {
-          "rule_id": "M19_R01",
-          "description": "Assess shortage severity from price, inventory, and report data"
-        },
-        {
-          "rule_id": "M19_R02",
-          "description": "Estimate duration based on supply response options"
-        }
-      ],
-      "thresholds_structured": [
-        {
-          "threshold_id": "M19_T01",
-          "value": 0.5
-        }
-      ],
-      "limitations": [
-        "Shortage reporting is inconsistent globally",
-        "Informal rationing not captured"
-      ],
-      "freshness_requirement": {
-        "max_age_seconds": 43200,
-        "strategy": "FRESH_FIRST",
-        "stale_threshold_seconds": 86400,
-        "degraded_threshold_seconds": 259200
-      },
-      "source_requirements": [
-        "SRC_EIA",
-        "SRC_IEA",
-        "SRC_NEWS_API"
-      ],
-      "point_in_time_requirement": {
-        "required": true,
-        "as_of_field": "as_of",
-        "default_lookback": "7d"
-      },
-      "fast_path_allowed": true,
-      "deep_path_allowed": true,
-      "weknora_eligible": false,
-      "methodology_version_hash": "9cafa85b7bb272f55116e3390c168ad2eea01c94cfbfa7ab2772a194679858c8",
-      "rebaseline_required": false,
       "callable": true,
-      "valid_from_state": "VALID_FROM_UNKNOWN",
-      "provenance_class": "OFFICIAL",
-      "execution_class": "DIRECT_API",
-      "canonical_name": "Fuel Shortage Alert",
-      "methodology_version": "1.1.0"
-    },
-    {
-      "methodology_id": "M20",
-      "name": "Energy Disruption Event Log",
-      "version": "1.0.0",
       "valid_from": null,
-      "valid_to": null,
-      "primary_roles": [
-        "ENERGY"
-      ],
-      "secondary_roles": [
-        "WORLD"
-      ],
-      "applicable_profiles": [
-        "P01",
-        "P02"
-      ],
-      "trigger_conditions": [
-        "energy_outage",
-        "infrastructure_attack",
-        "weather_disruption"
-      ],
-      "asset_types": [
-        "energy_disruption"
-      ],
-      "event_types": [
-        "outage",
-        "sabotage",
-        "weather_event"
-      ],
-      "entity_types": [
-        "facility",
-        "grid",
-        "country"
-      ],
-      "required_inputs": [
-        "disruption_data",
-        "infrastructure_data"
-      ],
-      "enrichment_inputs": [
-        "cable_data",
-        "internet_data"
-      ],
-      "output_bindings": [
-        "disruption_map",
-        "impact_radius",
-        "recovery_estimate"
-      ],
-      "rules_structured": [
-        {
-          "rule_id": "M20_R01",
-          "description": "Map active energy disruptions and compute impact radius"
-        },
-        {
-          "rule_id": "M20_R02",
-          "description": "Estimate recovery timeline from historical patterns"
-        }
-      ],
-      "thresholds_structured": [
-        {
-          "threshold_id": "M20_T01",
-          "value": 0.3
-        }
-      ],
-      "limitations": [
-        "Recovery estimates are approximate",
-        "Cascading effects difficult to model"
-      ],
-      "freshness_requirement": {
-        "max_age_seconds": 3600,
-        "strategy": "REQUIRE_FRESH",
-        "stale_threshold_seconds": 7200,
-        "degraded_threshold_seconds": 43200
-      },
-      "source_requirements": [
-        "SRC_EIA",
-        "SRC_IEA",
-        "SRC_NEWS_API"
-      ],
-      "point_in_time_requirement": {
-        "required": true,
-        "as_of_field": "as_of",
-        "default_lookback": "7d"
-      },
-      "fast_path_allowed": true,
-      "deep_path_allowed": true,
-      "weknora_eligible": true,
-      "methodology_version_hash": "e7036831ca8d49a868cd98febee2544f5859954236b9f47e4b44349b51659540",
-      "rebaseline_required": false,
-      "callable": true,
       "valid_from_state": "VALID_FROM_UNKNOWN",
-      "provenance_class": "OFFICIAL",
-      "execution_class": "DIRECT_API",
-      "canonical_name": "Energy Disruption Event Log",
-      "methodology_version": "1.1.0"
-    },
-    {
-      "methodology_id": "M21",
-      "name": "CII Risk Scoring",
-      "version": "1.0.0",
+      "valid_to": null,
+      "methodology_version": "1.2.0",
+      "methodology_version_hash": "4a2cda0c6c19d655011f2029befa9bc1d6617209ab0a31c41c8c6b18c7cac052",
       "primary_roles": [
         "ENERGY",
         "COMMODITY"
       ],
-      "secondary_roles": [],
+      "secondary_roles": [
+        "WORLD"
+      ],
       "applicable_profiles": [
-        "P01"
+        "P03"
       ],
       "trigger_conditions": [
-        "cii_breach_report"
+        "pipeline_status_change",
+        "sanction_update"
       ],
       "asset_types": [
-        "country_risk_profile",
-        "event_pressure_signal",
-        "risk_score"
+        "pipeline",
+        "pipeline_capacity",
+        "pipeline_operator"
+      ],
+      "event_types": [
+        "status_updated",
+        "sanction_applied",
+        "dispute_flagged"
+      ],
+      "entity_types": [
+        "pipeline",
+        "operator",
+        "country"
+      ],
+      "required_inputs": [
+        "ListPipelines",
+        "GetPipelineDetail"
+      ],
+      "enrichment_inputs": [
+        "GetEnergyPrices",
+        "ListEnergyDisruptions"
+      ],
+      "output_bindings": [
+        "ListPipelines",
+        "GetPipelineDetail"
+      ],
+      "rules_structured": [
+        {
+          "rule": "asset_vs_causation",
+          "description": "Separate asset state from causal attribution"
+        },
+        {
+          "rule": "disputed_stale",
+          "description": "Support disputed and stale states"
+        }
+      ],
+      "thresholds_structured": {},
+      "limitations": [
+        "Pipeline data may be commercially sensitive",
+        "Status can change rapidly"
+      ],
+      "freshness_requirement": {
+        "max_stale_minutes": 1440,
+        "priority": "HIGH"
+      },
+      "source_requirements": {
+        "min_sources": 1,
+        "cross_validation": false
+      },
+      "point_in_time_requirement": {
+        "required": true,
+        "field": "as_of_time"
+      },
+      "fast_path_allowed": true,
+      "deep_path_allowed": true,
+      "weknora_eligible": true,
+      "rebaseline_required": false
+    },
+    {
+      "methodology_id": "M18",
+      "canonical_name": "Storage Facility",
+      "name": "Storage Facility",
+      "version": "1.2.0",
+      "provenance_class": "OFFICIAL",
+      "execution_class": "DIRECT_API",
+      "callable": true,
+      "valid_from": null,
+      "valid_from_state": "VALID_FROM_UNKNOWN",
+      "valid_to": null,
+      "methodology_version": "1.2.0",
+      "methodology_version_hash": "1912c105da274f4453dc9998a51289ab6e800b3339f7315de0b20aa93b50a949",
+      "primary_roles": [
+        "ENERGY"
+      ],
+      "secondary_roles": [
+        "COMMODITY"
+      ],
+      "applicable_profiles": [
+        "P03"
+      ],
+      "trigger_conditions": [
+        "storage_data_update",
+        "fill_level_report"
+      ],
+      "asset_types": [
+        "storage_facility",
+        "facility_capacity",
+        "fill_level"
+      ],
+      "event_types": [
+        "fill_level_updated",
+        "capacity_change"
+      ],
+      "entity_types": [
+        "facility",
+        "country",
+        "fuel_type"
+      ],
+      "required_inputs": [
+        "ListStorageFacilities",
+        "GetStorageFacilityDetail"
+      ],
+      "enrichment_inputs": [
+        "GetCrudeInventories",
+        "GetNatGasStorage",
+        "GetEuGasStorage"
+      ],
+      "output_bindings": [
+        "ListStorageFacilities",
+        "GetStorageFacilityDetail"
+      ],
+      "rules_structured": [
+        {
+          "rule": "fill_level_disclosure",
+          "states": [
+            "DISCLOSED",
+            "NOT_DISCLOSED",
+            "UNKNOWN"
+          ]
+        },
+        {
+          "rule": "no_auto_estimation",
+          "description": "Fill level not estimated when not disclosed"
+        }
+      ],
+      "thresholds_structured": {},
+      "limitations": [
+        "Fill level data often not publicly disclosed",
+        "Aggregation method varies by country"
+      ],
+      "freshness_requirement": {
+        "max_stale_minutes": 1440,
+        "priority": "HIGH"
+      },
+      "source_requirements": {
+        "min_sources": 1,
+        "cross_validation": false
+      },
+      "point_in_time_requirement": {
+        "required": true,
+        "field": "as_of_time"
+      },
+      "fast_path_allowed": true,
+      "deep_path_allowed": true,
+      "weknora_eligible": true,
+      "rebaseline_required": false
+    },
+    {
+      "methodology_id": "M19",
+      "canonical_name": "Fuel Shortage Alert",
+      "name": "Fuel Shortage Alert",
+      "version": "1.2.0",
+      "provenance_class": "OFFICIAL",
+      "execution_class": "DIRECT_API",
+      "callable": true,
+      "valid_from": null,
+      "valid_from_state": "VALID_FROM_UNKNOWN",
+      "valid_to": null,
+      "methodology_version": "1.2.0",
+      "methodology_version_hash": "3528c0927a97517d384d166f786bd5e4c79013dfe905f4a3fcf55c2a22d772f9",
+      "primary_roles": [
+        "ENERGY",
+        "WORLD"
+      ],
+      "secondary_roles": [
+        "COMMODITY"
+      ],
+      "applicable_profiles": [
+        "P03"
+      ],
+      "trigger_conditions": [
+        "shortage_claim",
+        "physical_effect_report"
+      ],
+      "asset_types": [
+        "fuel_shortage_alert",
+        "shortage_claim"
+      ],
+      "event_types": [
+        "watch_issued",
+        "confirmed",
+        "downgraded"
+      ],
+      "entity_types": [
+        "fuel",
+        "region",
+        "country"
+      ],
+      "required_inputs": [
+        "ListFuelShortages",
+        "GetFuelShortageDetail"
+      ],
+      "enrichment_inputs": [
+        "GetCrudeInventories",
+        "ListFuelPrices",
+        "GetEnergyPrices"
+      ],
+      "output_bindings": [
+        "ListFuelShortages",
+        "GetFuelShortageDetail"
+      ],
+      "rules_structured": [
+        {
+          "rule": "alert_states",
+          "values": [
+            "WATCH",
+            "CONFIRMED"
+          ]
+        },
+        {
+          "rule": "downgrade",
+          "description": "Contradiction or stale evidence can downgrade"
+        },
+        {
+          "rule": "not_price_only",
+          "description": "Price increase alone does not confirm physical shortage"
+        }
+      ],
+      "thresholds_structured": {},
+      "limitations": [
+        "Shortage claims may be politically motivated",
+        "Physical verification difficult"
+      ],
+      "freshness_requirement": {
+        "max_stale_minutes": 1440,
+        "priority": "HIGH"
+      },
+      "source_requirements": {
+        "min_sources": 1,
+        "cross_validation": true
+      },
+      "point_in_time_requirement": {
+        "required": true,
+        "field": "as_of_time"
+      },
+      "fast_path_allowed": true,
+      "deep_path_allowed": true,
+      "weknora_eligible": true,
+      "rebaseline_required": false
+    },
+    {
+      "methodology_id": "M20",
+      "canonical_name": "Energy Disruption Event Log",
+      "name": "Energy Disruption Event Log",
+      "version": "1.2.0",
+      "provenance_class": "OFFICIAL",
+      "execution_class": "DIRECT_API",
+      "callable": true,
+      "valid_from": null,
+      "valid_from_state": "VALID_FROM_UNKNOWN",
+      "valid_to": null,
+      "methodology_version": "1.2.0",
+      "methodology_version_hash": "703045110496bfe1942e3c121d90868c6fb74162b81c486d00e1652f718a4f58",
+      "primary_roles": [
+        "ENERGY",
+        "WORLD"
+      ],
+      "secondary_roles": [
+        "COMMODITY"
+      ],
+      "applicable_profiles": [
+        "P03"
+      ],
+      "trigger_conditions": [
+        "disruption_event",
+        "asset_incident"
+      ],
+      "asset_types": [
+        "energy_disruption_event",
+        "physical_disruption"
+      ],
+      "event_types": [
+        "disruption_started",
+        "capacity_affected",
+        "recovery_reported"
+      ],
+      "entity_types": [
+        "asset",
+        "commodity",
+        "location",
+        "cause_category"
+      ],
+      "required_inputs": [
+        "ListEnergyDisruptions"
+      ],
+      "enrichment_inputs": [
+        "GetEnergyPrices",
+        "GetCountryEnergyProfile",
+        "ListAcledEvents",
+        "ListIranEvents"
+      ],
+      "output_bindings": [
+        "ListEnergyDisruptions"
+      ],
+      "rules_structured": [
+        {
+          "rule": "event_model",
+          "fields": [
+            "asset",
+            "physical_disruption",
+            "start",
+            "capacity",
+            "commodity",
+            "location",
+            "cause_category",
+            "evidence",
+            "end",
+            "recovery"
+          ]
+        },
+        {
+          "rule": "no_unconfirmed_cause",
+          "description": "Unconfirmed causes not written as causal attribution"
+        }
+      ],
+      "thresholds_structured": {},
+      "limitations": [
+        "Cause attribution often uncertain",
+        "Disruption end may be estimated"
+      ],
+      "freshness_requirement": {
+        "max_stale_minutes": 60,
+        "priority": "HIGH"
+      },
+      "source_requirements": {
+        "min_sources": 1,
+        "cross_validation": true
+      },
+      "point_in_time_requirement": {
+        "required": true,
+        "field": "as_of_time"
+      },
+      "fast_path_allowed": true,
+      "deep_path_allowed": true,
+      "weknora_eligible": true,
+      "rebaseline_required": false
+    },
+    {
+      "methodology_id": "M21",
+      "canonical_name": "CII Risk Scoring",
+      "name": "CII Risk Scoring",
+      "version": "1.2.0",
+      "provenance_class": "OFFICIAL",
+      "execution_class": "DIRECT_API",
+      "callable": true,
+      "valid_from": null,
+      "valid_from_state": "VALID_FROM_UNKNOWN",
+      "valid_to": null,
+      "methodology_version": "1.2.0",
+      "methodology_version_hash": "d5e3576dbd1f60f6d51dfe97760641ec01b8f098bff1488038579540381fff19",
+      "primary_roles": [
+        "WORLD",
+        "FINANCE"
+      ],
+      "secondary_roles": [
+        "TECH",
+        "COMMODITY",
+        "ENERGY"
+      ],
+      "applicable_profiles": [
+        "P01",
+        "P04"
+      ],
+      "trigger_conditions": [
+        "event_observation",
+        "risk_score_recalculation"
+      ],
+      "asset_types": [
+        "country_instability_score",
+        "event_pressure_signal"
       ],
       "event_types": [
         "unrest_event",
@@ -1948,19 +1954,24 @@
         "event_stream"
       ],
       "required_inputs": [
-        "vessel_data",
-        "regulation_data"
+        "GetRiskScores",
+        "GetCountryRisk"
       ],
       "enrichment_inputs": [
-        "fleet_data",
-        "trade_route_data"
+        "ListCrossSourceSignals",
+        "ListSecurityAdvisories",
+        "ListCyberThreats"
       ],
       "output_bindings": [
-        "cii_compliance_map",
-        "breach_risk",
-        "fleet_impact"
+        "GetRiskScores",
+        "GetCountryRisk"
       ],
       "rules_structured": [
+        {
+          "rule": "cii_meaning",
+          "definition": "Country Instability / Intelligence Risk context",
+          "note": "This abbreviation refers to national-level risk, not the maritime carbon metric regulated by the international maritime organization"
+        },
         {
           "rule": "event_pressure_weights",
           "unrest": 25,
@@ -1975,802 +1986,727 @@
         },
         {
           "rule": "boosts_floors_bias",
-          "description": "Supports boost/floor/bias controls per dimension"
-        },
-        {
-          "rule": "cii_meaning"
+          "description": "Supports per-dimension boost/floor/bias controls"
         }
       ],
-      "thresholds_structured": [
-        {
-          "threshold_id": "M21_T01",
-          "value": 0.0
-        }
-      ],
+      "thresholds_structured": {},
       "limitations": [
-        "Event data may have reporting bias",
-        "Baseline model may lag structural changes",
-        "Boost/floor/bias must be documented per deployment"
+        "Event data has reporting bias",
+        "Baseline may lag structural changes"
       ],
       "freshness_requirement": {
-        "max_age_seconds": 86400,
-        "strategy": "STALE_OK",
-        "stale_threshold_seconds": 604800,
-        "degraded_threshold_seconds": 2592000
+        "max_stale_minutes": 1440,
+        "priority": "HIGH"
       },
-      "source_requirements": [
-        "SRC_AIS",
-        "SRC_SHIPPING_V2"
-      ],
+      "source_requirements": {
+        "min_sources": 2,
+        "cross_validation": true
+      },
       "point_in_time_requirement": {
         "required": true,
-        "as_of_field": "as_of",
-        "default_lookback": "12m"
-      },
-      "fast_path_allowed": false,
-      "deep_path_allowed": true,
-      "weknora_eligible": false,
-      "methodology_version_hash": "5b5fe978a21e5a5e295b47673140c74bcad4e0fa9b6c890e14ae3565622ebf81",
-      "rebaseline_required": false,
-      "callable": true,
-      "valid_from_state": "VALID_FROM_UNKNOWN",
-      "provenance_class": "OFFICIAL",
-      "execution_class": "DIRECT_API",
-      "canonical_name": "CII Risk Scoring",
-      "methodology_version": "1.1.0",
-      "valid_to": null,
-      "valid_from": null
-    },
-    {
-      "methodology_id": "M22",
-      "name": "Disease Outbreak Alert Level",
-      "version": "1.0.0",
-      "primary_roles": [
-        "WORLD"
-      ],
-      "secondary_roles": [],
-      "applicable_profiles": [
-        "P10"
-      ],
-      "trigger_conditions": [],
-      "asset_types": [
-        "social_data"
-      ],
-      "event_types": [],
-      "entity_types": [
-        "platform",
-        "topic"
-      ],
-      "required_inputs": [
-        "social_media_data",
-        "news_data"
-      ],
-      "enrichment_inputs": [
-        "event_data",
-        "search_trends"
-      ],
-      "output_bindings": [
-        "velocity_score",
-        "amplification_factor"
-      ],
-      "rules_structured": [
-        {
-          "rule_id": "M22_R01",
-          "description": "Measure rate of signal spread across platforms"
-        }
-      ],
-      "thresholds_structured": [
-        {
-          "threshold_id": "M22_T01",
-          "value": 3.0
-        },
-        {
-          "threshold_id": "M22_T02",
-          "value": 0.5
-        }
-      ],
-      "limitations": [
-        "Platform API rate limits constrain coverage",
-        "Bot activity can inflate velocity"
-      ],
-      "freshness_requirement": {
-        "max_age_seconds": 1800,
-        "strategy": "REQUIRE_FRESH",
-        "stale_threshold_seconds": 3600,
-        "degraded_threshold_seconds": 14400
-      },
-      "source_requirements": [
-        "SRC_GDELT",
-        "SRC_NEWS_API"
-      ],
-      "point_in_time_requirement": {
-        "required": true,
-        "as_of_field": "as_of",
-        "default_lookback": "24h"
-      },
-      "fast_path_allowed": true,
-      "deep_path_allowed": true,
-      "weknora_eligible": false,
-      "methodology_version_hash": "cc126fe5548d444d255c11108e369f96bdfc769faa9d20ca398c2861df64a6f2",
-      "rebaseline_required": false,
-      "callable": true,
-      "valid_from_state": "VALID_FROM_UNKNOWN",
-      "provenance_class": "OFFICIAL",
-      "execution_class": "DIRECT_API",
-      "canonical_name": "Disease Outbreak Alert Level",
-      "methodology_version": "1.1.0",
-      "valid_to": null,
-      "valid_from": null
-    },
-    {
-      "methodology_id": "M23",
-      "name": "Thermal Escalation",
-      "version": "1.0.0",
-      "valid_from": null,
-      "valid_to": null,
-      "primary_roles": [
-        "WORLD",
-        "ENERGY"
-      ],
-      "secondary_roles": [
-        "COMMODITY"
-      ],
-      "applicable_profiles": [
-        "P01",
-        "P10"
-      ],
-      "trigger_conditions": [
-        "thermal_escalation_event",
-        "conflict_intensity_change"
-      ],
-      "asset_types": [
-        "thermal_data"
-      ],
-      "event_types": [
-        "escalation",
-        "de_escalation",
-        "regime_change"
-      ],
-      "entity_types": [
-        "country",
-        "region"
-      ],
-      "required_inputs": [
-        "thermal_data",
-        "conflict_data"
-      ],
-      "enrichment_inputs": [
-        "sanctions_data",
-        "military_data"
-      ],
-      "output_bindings": [
-        "thermal_state",
-        "escalation_trajectory",
-        "de_escalation_probability"
-      ],
-      "rules_structured": [
-        {
-          "rule_id": "M23_R01",
-          "description": "Track thermal escalation stage per country/region"
-        },
-        {
-          "rule_id": "M23_R02",
-          "description": "Project escalation trajectory and de-escalation probability"
-        }
-      ],
-      "thresholds_structured": [
-        {
-          "threshold_id": "M23_T01",
-          "value": 0.6
-        },
-        {
-          "threshold_id": "M23_T02",
-          "value": 0.8
-        }
-      ],
-      "limitations": [
-        "Thermal classification is inherently subjective",
-        "De-escalation signals often lag"
-      ],
-      "freshness_requirement": {
-        "max_age_seconds": 3600,
-        "strategy": "FRESH_FIRST",
-        "stale_threshold_seconds": 7200,
-        "degraded_threshold_seconds": 43200
-      },
-      "source_requirements": [
-        "SRC_ACLED",
-        "SRC_UCDP",
-        "SRC_GDELT"
-      ],
-      "point_in_time_requirement": {
-        "required": true,
-        "as_of_field": "as_of",
-        "default_lookback": "7d"
+        "field": "as_of_time"
       },
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "methodology_version_hash": "d004bb8192984322a88055df81a5e78c6ac58cf19a072213fd0fa210fae1ffa5",
-      "rebaseline_required": false,
-      "callable": true,
-      "valid_from_state": "VALID_FROM_UNKNOWN",
-      "provenance_class": "OFFICIAL",
-      "execution_class": "DIRECT_API",
-      "canonical_name": "Thermal Escalation",
-      "methodology_version": "1.1.0"
+      "rebaseline_required": false
     },
     {
-      "methodology_id": "M24",
-      "name": "Physical Precious-Metals Divergence Index",
-      "version": "1.0.0",
+      "methodology_id": "M22",
+      "canonical_name": "Disease Outbreak Alert Level",
+      "name": "Disease Outbreak Alert Level",
+      "version": "1.2.0",
+      "provenance_class": "OFFICIAL",
+      "execution_class": "DIRECT_API",
+      "callable": true,
       "valid_from": null,
+      "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
+      "methodology_version": "1.2.0",
+      "methodology_version_hash": "9a9468b45d2e2e21dd946b60446c2a0eddb4eb589d8803e74878644d9f82e9e8",
       "primary_roles": [
-        "COMMODITY",
-        "FINANCE"
+        "WORLD"
       ],
       "secondary_roles": [
+        "TECH"
+      ],
+      "applicable_profiles": [
+        "P01"
+      ],
+      "trigger_conditions": [
+        "disease_report",
+        "outbreak_detection"
+      ],
+      "asset_types": [
+        "disease_outbreak_alert",
+        "health_report"
+      ],
+      "event_types": [
+        "watch_issued",
+        "warning_issued",
+        "alert_issued"
+      ],
+      "entity_types": [
+        "disease",
+        "geography",
+        "official_health_report"
+      ],
+      "required_inputs": [
+        "ListDiseaseOutbreaks"
+      ],
+      "enrichment_inputs": [
+        "ListCountryHeadlines",
+        "GetRiskScores"
+      ],
+      "output_bindings": [
+        "ListDiseaseOutbreaks"
+      ],
+      "rules_structured": [
+        {
+          "rule": "alert_levels",
+          "values": [
+            "WATCH",
+            "WARNING",
+            "ALERT"
+          ]
+        },
+        {
+          "rule": "severity_vocabulary",
+          "description": "Official health report severity classification"
+        },
+        {
+          "rule": "credible_sources",
+          "description": "Outbreak claims require official or credible health source"
+        }
+      ],
+      "thresholds_structured": {},
+      "limitations": [
+        "Reporting varies by country",
+        "WHO data has lag"
+      ],
+      "freshness_requirement": {
+        "max_stale_minutes": 1440,
+        "priority": "HIGH"
+      },
+      "source_requirements": {
+        "min_sources": 1,
+        "cross_validation": true
+      },
+      "point_in_time_requirement": {
+        "required": true,
+        "field": "as_of_time"
+      },
+      "fast_path_allowed": true,
+      "deep_path_allowed": true,
+      "weknora_eligible": true,
+      "rebaseline_required": false
+    },
+    {
+      "methodology_id": "M23",
+      "canonical_name": "Thermal Escalation",
+      "name": "Thermal Escalation",
+      "version": "1.2.0",
+      "provenance_class": "OFFICIAL",
+      "execution_class": "DIRECT_API",
+      "callable": true,
+      "valid_from": null,
+      "valid_from_state": "VALID_FROM_UNKNOWN",
+      "valid_to": null,
+      "methodology_version": "1.2.0",
+      "methodology_version_hash": "a698bc18c8fcab6ec6e2efb969866f2788d2d1d4e5233d5dcd22d2cae0cc3fc8",
+      "primary_roles": [
+        "ENERGY",
         "WORLD"
+      ],
+      "secondary_roles": [
+        "COMMODITY"
       ],
       "applicable_profiles": [
         "P03"
       ],
       "trigger_conditions": [
-        "gold_price_move",
-        "central_bank_reserve_change",
-        "etf_flow_change"
+        "thermal_anomaly_detected",
+        "frs_detection"
       ],
       "asset_types": [
-        "gold_data"
+        "thermal_escalation",
+        "fire_cluster"
       ],
       "event_types": [
-        "price_move",
-        "reserve_change",
-        "central_bank_activity"
+        "normal",
+        "elevated",
+        "spike",
+        "persistent"
       ],
       "entity_types": [
-        "commodity",
-        "central_bank"
+        "grid_cell",
+        "fire_observation",
+        "conflict_zone"
       ],
       "required_inputs": [
-        "gold_data",
-        "fx_data"
+        "ListThermalEscalations"
       ],
       "enrichment_inputs": [
-        "reserve_data",
-        "etf_data",
-        "mining_data"
+        "ListAcledEvents",
+        "ListIranEvents",
+        "ListUcdpEvents",
+        "GetTheaterPosture",
+        "ListSanctionsPressure"
       ],
       "output_bindings": [
-        "price_analysis",
-        "reserve_activity",
-        "demand_drivers"
+        "ListThermalEscalations"
       ],
       "rules_structured": [
         {
-          "rule_id": "M24_R01",
-          "description": "Analyze gold price drivers including real rates, FX, and reserves"
+          "rule": "thermal_model",
+          "sensors": [
+            "FIRMS",
+            "VIIRS"
+          ],
+          "metrics": [
+            "spatial_clustering",
+            "baseline",
+            "count",
+            "FRP",
+            "z_score",
+            "persistence"
+          ]
         },
         {
-          "rule_id": "M24_R02",
-          "description": "Assess central bank reserve activity and ETF flows"
-        }
-      ],
-      "thresholds_structured": [
+          "rule": "states",
+          "values": [
+            "NORMAL",
+            "ELEVATED",
+            "SPIKE",
+            "PERSISTENT"
+          ]
+        },
         {
-          "threshold_id": "M24_T01",
-          "value": 2.0
+          "rule": "conflict_relevance",
+          "description": "Conflict relevance and confidence scored"
         }
       ],
+      "thresholds_structured": {},
       "limitations": [
-        "Central bank reserve data is quarterly with lag",
-        "OTC demand not captured"
+        "Cloud cover affects satellite detection",
+        "Not all thermal events are conflict-related"
       ],
       "freshness_requirement": {
-        "max_age_seconds": 3600,
-        "strategy": "FRESH_FIRST",
-        "stale_threshold_seconds": 14400,
-        "degraded_threshold_seconds": 86400
+        "max_stale_minutes": 120,
+        "priority": "HIGH"
       },
-      "source_requirements": [
-        "SRC_CME",
-        "SRC_IMF",
-        "SRC_WORLD_BANK"
-      ],
+      "source_requirements": {
+        "min_sources": 1,
+        "cross_validation": true
+      },
       "point_in_time_requirement": {
         "required": true,
-        "as_of_field": "as_of",
-        "default_lookback": "7d"
+        "field": "as_of_time"
       },
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "methodology_version_hash": "055332ba7c2572a8bc0f91d94209c53cc26717fc68c6f96ba419abdc767d3626",
-      "rebaseline_required": false,
-      "callable": true,
-      "valid_from_state": "VALID_FROM_UNKNOWN",
+      "rebaseline_required": false
+    },
+    {
+      "methodology_id": "M24",
+      "canonical_name": "Physical Precious-Metals Divergence Index",
+      "name": "Physical Precious-Metals Divergence Index",
+      "version": "1.2.0",
       "provenance_class": "OFFICIAL",
       "execution_class": "DIRECT_API",
-      "canonical_name": "Physical Precious-Metals Divergence Index",
-      "methodology_version": "1.1.0"
-    },
-    {
-      "methodology_id": "C01",
-      "name": "CII Operator Overview",
-      "version": "1.0.0",
-      "primary_roles": [
-        "WORLD"
-      ],
-      "secondary_roles": [
-        "ENERGY",
-        "COMMODITY"
-      ],
-      "applicable_profiles": [
-        "P10",
-        "P01"
-      ],
-      "trigger_conditions": [
-        "geopolitical_event",
-        "policy_change"
-      ],
-      "asset_types": [
-        "geopolitical_context"
-      ],
-      "event_types": [
-        "escalation",
-        "sanctions",
-        "diplomacy"
-      ],
-      "entity_types": [
-        "country",
-        "region",
-        "alliance"
-      ],
-      "required_inputs": [
-        "conflict_data",
-        "sanctions_data"
-      ],
-      "enrichment_inputs": [
-        "military_data",
-        "diplomatic_data"
-      ],
-      "output_bindings": [
-        "geopolitical_context",
-        "risk_overlay",
-        "event_impact_map"
-      ],
-      "rules_structured": [
-        {
-          "rule_id": "C01_R01",
-          "description": "Overlay geopolitical risk onto commodity and energy assessments"
-        },
-        {
-          "rule_id": "C01_R02",
-          "description": "Map conflict and sanctions impact to supply chains"
-        }
-      ],
-      "thresholds_structured": [
-        {
-          "threshold_id": "C01_T01",
-          "value": 0.5
-        }
-      ],
-      "limitations": [
-        "Overlay is additive, does not replace primary analysis",
-        "Geopolitical risk quantification is approximate"
-      ],
-      "freshness_requirement": {
-        "max_age_seconds": 86400,
-        "strategy": "STALE_OK",
-        "stale_threshold_seconds": 172800,
-        "degraded_threshold_seconds": 604800
-      },
-      "source_requirements": [
-        "SRC_ACLED",
-        "SRC_GDELT",
-        "SRC_OFAC"
-      ],
-      "point_in_time_requirement": {
-        "required": true,
-        "as_of_field": "as_of",
-        "default_lookback": "30d"
-      },
-      "fast_path_allowed": true,
-      "deep_path_allowed": true,
-      "weknora_eligible": true,
-      "methodology_version_hash": "ffe70ecdfd0fa23b0dba0f3faed280643ab1617d53b145ce5008f3895bd479b7",
-      "rebaseline_required": false,
-      "callable": false,
-      "valid_from_state": "VALID_FROM_UNKNOWN",
-      "provenance_class": "OFFICIAL",
-      "execution_class": "NONCALLABLE",
-      "canonical_name": "CII Operator Overview",
-      "methodology_version": "1.1.0",
-      "valid_to": null,
-      "valid_from": null
-    },
-    {
-      "methodology_id": "C02",
-      "name": "Revision & Corrections",
-      "version": "1.0.0",
-      "primary_roles": [
-        "FINANCE",
-        "COMMODITY"
-      ],
-      "secondary_roles": [
-        "WORLD",
-        "ENERGY"
-      ],
-      "applicable_profiles": [
-        "P01",
-        "P06",
-        "P07"
-      ],
-      "trigger_conditions": [
-        "economic_data_update",
-        "rate_decision"
-      ],
-      "asset_types": [
-        "economic_context"
-      ],
-      "event_types": [
-        "rate_change",
-        "gdp_release",
-        "inflation_release"
-      ],
-      "entity_types": [
-        "country",
-        "central_bank"
-      ],
-      "required_inputs": [
-        "rate_data",
-        "inflation_data"
-      ],
-      "enrichment_inputs": [
-        "fx_data",
-        "trade_data"
-      ],
-      "output_bindings": [
-        "economic_context",
-        "macro_backdrop",
-        "policy_stance"
-      ],
-      "rules_structured": [
-        {
-          "rule_id": "C02_R01",
-          "description": "Overlay macroeconomic context onto market analysis"
-        },
-        {
-          "rule_id": "C02_R02",
-          "description": "Assess monetary and fiscal policy stance impact"
-        }
-      ],
-      "thresholds_structured": [
-        {
-          "threshold_id": "C02_T01",
-          "value": 0.3
-        }
-      ],
-      "limitations": [
-        "Economic data revisions common",
-        "Policy impact transmission lags uncertain"
-      ],
-      "freshness_requirement": {
-        "max_age_seconds": 86400,
-        "strategy": "STALE_OK",
-        "stale_threshold_seconds": 172800,
-        "degraded_threshold_seconds": 604800
-      },
-      "source_requirements": [
-        "SRC_IMF",
-        "SRC_WORLD_BANK",
-        "SRC_CME"
-      ],
-      "point_in_time_requirement": {
-        "required": true,
-        "as_of_field": "as_of",
-        "default_lookback": "30d"
-      },
-      "fast_path_allowed": true,
-      "deep_path_allowed": true,
-      "weknora_eligible": true,
-      "methodology_version_hash": "287dc19de202541d4a4648c7f047b9fb2f2c6528ab39fce108164388cbe9d534",
-      "rebaseline_required": false,
-      "callable": false,
-      "valid_from_state": "VALID_FROM_UNKNOWN",
-      "provenance_class": "OFFICIAL",
-      "execution_class": "NONCALLABLE",
-      "canonical_name": "Revision & Corrections",
-      "methodology_version": "1.1.0",
-      "valid_to": null,
-      "valid_from": null
-    },
-    {
-      "methodology_id": "C03",
-      "name": "Geographic Convergence",
-      "version": "1.0.0",
-      "valid_from": null,
-      "valid_to": null,
-      "primary_roles": [
-        "WORLD"
-      ],
-      "secondary_roles": [
-        "ENERGY",
-        "COMMODITY"
-      ],
-      "applicable_profiles": [
-        "P10",
-        "P01"
-      ],
-      "trigger_conditions": [
-        "multi_domain_signal",
-        "cross_correlation_exceeded"
-      ],
-      "asset_types": [
-        "convergence_signal"
-      ],
-      "event_types": [
-        "convergence",
-        "divergence"
-      ],
-      "entity_types": [
-        "country",
-        "region",
-        "domain"
-      ],
-      "required_inputs": [
-        "geopolitical_data",
-        "economic_data",
-        "supply_data"
-      ],
-      "enrichment_inputs": [
-        "military_data",
-        "social_data"
-      ],
-      "output_bindings": [
-        "convergence_map",
-        "signal_correlation",
-        "composite_risk"
-      ],
-      "rules_structured": [
-        {
-          "rule_id": "C03_R01",
-          "description": "Detect convergence of geopolitical, economic, and supply signals"
-        },
-        {
-          "rule_id": "C03_R02",
-          "description": "Compute cross-domain correlation and composite risk"
-        }
-      ],
-      "thresholds_structured": [
-        {
-          "threshold_id": "C03_T01",
-          "value": 0.6
-        }
-      ],
-      "limitations": [
-        "Convergence detection requires sufficient signal density",
-        "Correlation is not causation"
-      ],
-      "freshness_requirement": {
-        "max_age_seconds": 3600,
-        "strategy": "FRESH_FIRST",
-        "stale_threshold_seconds": 14400,
-        "degraded_threshold_seconds": 86400
-      },
-      "source_requirements": [
-        "SRC_ACLED",
-        "SRC_GDELT",
-        "SRC_EIA",
-        "SRC_IMF"
-      ],
-      "point_in_time_requirement": {
-        "required": true,
-        "as_of_field": "as_of",
-        "default_lookback": "30d"
-      },
-      "fast_path_allowed": false,
-      "deep_path_allowed": true,
-      "weknora_eligible": true,
-      "methodology_version_hash": "fb5cd6836cc6e1cc25b5448198631583a1eee9ad3268cf453b190f347f23ff71",
-      "rebaseline_required": false,
       "callable": true,
-      "valid_from_state": "VALID_FROM_UNKNOWN",
-      "provenance_class": "OFFICIAL",
-      "execution_class": "COMPOSITE",
-      "canonical_name": "Geographic Convergence",
-      "methodology_version": "1.1.0"
-    },
-    {
-      "methodology_id": "C04",
-      "name": "Strategic Risk",
-      "version": "1.0.0",
       "valid_from": null,
+      "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
+      "methodology_version": "1.2.0",
+      "methodology_version_hash": "dc3084a0aad978df326e7637b0fe39a5b7d16998e49a2c2555b219fcfcff7d03",
       "primary_roles": [
-        "WORLD",
-        "TECH"
-      ],
-      "secondary_roles": [
-        "ENERGY",
         "COMMODITY",
         "FINANCE"
       ],
-      "applicable_profiles": [
-        "P09",
-        "P10"
-      ],
-      "trigger_conditions": [
-        "strategic_risk_trigger",
-        "multi_domain_alert"
-      ],
-      "asset_types": [
-        "strategic_risk"
-      ],
-      "event_types": [
-        "strategic_threat",
-        "systemic_risk"
-      ],
-      "entity_types": [
-        "country",
-        "sector",
-        "alliance"
-      ],
-      "required_inputs": [
-        "conflict_data",
-        "sanctions_data",
-        "supply_data"
-      ],
-      "enrichment_inputs": [
-        "military_data",
-        "economic_data"
-      ],
-      "output_bindings": [
-        "composite_risk_score",
-        "risk_decomposition",
-        "priority_actions"
-      ],
-      "rules_structured": [
-        {
-          "rule_id": "C04_R01",
-          "description": "Composite strategic risk from conflict, sanctions, supply, and military signals"
-        },
-        {
-          "rule_id": "C04_R02",
-          "description": "Decompose risk into actionable priority areas"
-        }
-      ],
-      "thresholds_structured": [
-        {
-          "threshold_id": "C04_T01",
-          "value": 0.7
-        },
-        {
-          "threshold_id": "C04_T02",
-          "value": 0.9
-        }
-      ],
-      "limitations": [
-        "Composite scoring involves subjective weighting",
-        "May double-count risks from overlapping domains"
-      ],
-      "freshness_requirement": {
-        "max_age_seconds": 3600,
-        "strategy": "FRESH_FIRST",
-        "stale_threshold_seconds": 14400,
-        "degraded_threshold_seconds": 86400
-      },
-      "source_requirements": [
-        "SRC_ACLED",
-        "SRC_OFAC",
-        "SRC_GDELT",
-        "SRC_USNI"
-      ],
-      "point_in_time_requirement": {
-        "required": true,
-        "as_of_field": "as_of",
-        "default_lookback": "30d"
-      },
-      "fast_path_allowed": false,
-      "deep_path_allowed": true,
-      "weknora_eligible": true,
-      "methodology_version_hash": "7efad0f3510324fb298a018406c80517b0f0181ea00a6323c168d4593a4ced8d",
-      "rebaseline_required": false,
-      "callable": true,
-      "valid_from_state": "VALID_FROM_UNKNOWN",
-      "provenance_class": "OFFICIAL",
-      "execution_class": "COMPOSITE",
-      "canonical_name": "Strategic Risk",
-      "methodology_version": "1.1.0"
-    },
-    {
-      "methodology_id": "C05",
-      "name": "Algorithms & Scoring",
-      "version": "1.0.0",
-      "primary_roles": [
-        "TECH"
-      ],
       "secondary_roles": [
         "WORLD"
       ],
-      "applicable_profiles": [],
+      "applicable_profiles": [
+        "P04"
+      ],
       "trigger_conditions": [
-        "methodology_selection_required",
-        "profile_context_change"
+        "premium_data_update",
+        "regime_change"
       ],
       "asset_types": [
-        "methodology_routing"
+        "physical_premium",
+        "divergence_index",
+        "regime_state"
       ],
       "event_types": [
-        "route",
-        "select",
-        "delegate"
+        "regime_shift",
+        "stale_data"
       ],
       "entity_types": [
-        "methodology",
-        "profile",
-        "role"
+        "metal",
+        "premium_observation"
       ],
       "required_inputs": [
-        "role_context",
-        "profile_context"
+        "GetPhysicalDivergenceIndex",
+        "GetPhysicalPremiums"
       ],
       "enrichment_inputs": [
-        "methodology_registry",
-        "binding_graph"
+        "GetGoldIntelligence",
+        "ListCommodityQuotes",
+        "GetCotPositioning"
       ],
       "output_bindings": [
-        "selected_methodologies",
-        "execution_plan",
-        "dependency_order"
+        "GetPhysicalDivergenceIndex",
+        "GetPhysicalPremiums"
       ],
       "rules_structured": [
         {
-          "rule_id": "C05_R02",
-          "description": "Resolve methodology dependencies and execution order"
-        }
-      ],
-      "thresholds_structured": [
+          "rule": "divergence_model",
+          "fields": [
+            "physical_premium",
+            "robust_baseline",
+            "median_MAD",
+            "robust_z_score",
+            "percentile",
+            "absolute_regime",
+            "relative_regime",
+            "magnitude_floor"
+          ]
+        },
         {
-          "threshold_id": "C05_T01",
-          "value": 0
+          "rule": "stale_fail_closed",
+          "description": "Stale or missing data fails closed"
         }
       ],
+      "thresholds_structured": {},
       "limitations": [
-        "Meta routing logic must be kept in sync with registry updates",
-        "Circular dependencies must be prevented"
+        "Premium data availability varies",
+        "Historical baseline requires minimum history"
       ],
       "freshness_requirement": {
-        "max_age_seconds": 0,
-        "strategy": "ANY_AVAILABLE",
-        "stale_threshold_seconds": 0,
-        "degraded_threshold_seconds": 0
+        "max_stale_minutes": 1440,
+        "priority": "HIGH"
       },
-      "source_requirements": [],
+      "source_requirements": {
+        "min_sources": 1,
+        "cross_validation": false
+      },
       "point_in_time_requirement": {
-        "required": false
+        "required": true,
+        "field": "as_of_time"
+      },
+      "fast_path_allowed": true,
+      "deep_path_allowed": true,
+      "weknora_eligible": true,
+      "rebaseline_required": false
+    },
+    {
+      "methodology_id": "C01",
+      "canonical_name": "CII Operator Overview",
+      "name": "CII Operator Overview",
+      "version": "1.2.0",
+      "provenance_class": "OFFICIAL",
+      "execution_class": "NONCALLABLE",
+      "callable": false,
+      "valid_from": null,
+      "valid_from_state": "VALID_FROM_UNKNOWN",
+      "valid_to": null,
+      "methodology_version": "1.2.0",
+      "methodology_version_hash": "6df879b5c51e4b8ec15b923ddc7675204f5313f58ff7b2a94af4bc9e3af96698",
+      "primary_roles": [
+        "WORLD",
+        "FINANCE"
+      ],
+      "secondary_roles": [
+        "TECH"
+      ],
+      "applicable_profiles": [
+        "P01"
+      ],
+      "trigger_conditions": [
+        "cii_result_available",
+        "dashboard_request"
+      ],
+      "asset_types": [
+        "cii_operator_view",
+        "dashboard_summary"
+      ],
+      "event_types": [
+        "view_rendered",
+        "summary_updated"
+      ],
+      "entity_types": [
+        "country",
+        "risk_view"
+      ],
+      "required_inputs": [
+        "GetRiskScores",
+        "GetCountryRisk"
+      ],
+      "enrichment_inputs": [
+        "GetCountryIntelBrief",
+        "GetRegionalSnapshot"
+      ],
+      "output_bindings": [],
+      "rules_structured": [
+        {
+          "rule": "operator_view",
+          "description": "Presents M21/CII results for operator dashboard"
+        },
+        {
+          "rule": "no_recomputation",
+          "description": "Does not recompute CII, only reads M21 outputs"
+        }
+      ],
+      "thresholds_structured": {},
+      "limitations": [
+        "Depends on M21 computation freshness",
+        "View layout may vary by deployment"
+      ],
+      "freshness_requirement": {
+        "max_stale_minutes": 1440,
+        "priority": "MEDIUM"
+      },
+      "source_requirements": {
+        "min_sources": 0,
+        "cross_validation": false
+      },
+      "point_in_time_requirement": {
+        "required": true,
+        "field": "as_of_time"
+      },
+      "fast_path_allowed": true,
+      "deep_path_allowed": false,
+      "weknora_eligible": true,
+      "rebaseline_required": false
+    },
+    {
+      "methodology_id": "C02",
+      "canonical_name": "Revision & Corrections",
+      "name": "Revision & Corrections",
+      "version": "1.2.0",
+      "provenance_class": "OFFICIAL",
+      "execution_class": "NONCALLABLE",
+      "callable": false,
+      "valid_from": null,
+      "valid_from_state": "VALID_FROM_UNKNOWN",
+      "valid_to": null,
+      "methodology_version": "1.2.0",
+      "methodology_version_hash": "e277b01db1a90bfd184ad4acd1e98c86ec22b994afbc2b67d1131dbfe1a13c39",
+      "primary_roles": [
+        "WORLD",
+        "FINANCE"
+      ],
+      "secondary_roles": [],
+      "applicable_profiles": [
+        "P01"
+      ],
+      "trigger_conditions": [
+        "correction_submitted",
+        "revision_required"
+      ],
+      "asset_types": [
+        "revision_record",
+        "correction_entry"
+      ],
+      "event_types": [
+        "revision_created",
+        "correction_applied"
+      ],
+      "entity_types": [
+        "artifact",
+        "revision_chain"
+      ],
+      "required_inputs": [],
+      "enrichment_inputs": [],
+      "output_bindings": [],
+      "rules_structured": [
+        {
+          "rule": "revision_model",
+          "fields": [
+            "prior_state",
+            "corrected_state",
+            "reason",
+            "effect",
+            "time",
+            "version"
+          ]
+        },
+        {
+          "rule": "append_only",
+          "description": "Revision history is append-only, never mutable"
+        }
+      ],
+      "thresholds_structured": {},
+      "limitations": [
+        "Revision chain can grow long",
+        "Effect propagation must be manual"
+      ],
+      "freshness_requirement": {
+        "max_stale_minutes": null,
+        "priority": "LOW"
+      },
+      "source_requirements": {
+        "min_sources": 0,
+        "cross_validation": false
+      },
+      "point_in_time_requirement": {
+        "required": true,
+        "field": "as_of_time"
       },
       "fast_path_allowed": false,
       "deep_path_allowed": false,
       "weknora_eligible": false,
-      "methodology_version_hash": "7fb6d712d0b25998c4176aac18c53d56fa8f64144d35c58bb0888587aa00db83",
-      "rebaseline_required": true,
-      "callable": false,
+      "rebaseline_required": false
+    },
+    {
+      "methodology_id": "C03",
+      "canonical_name": "Geographic Convergence",
+      "name": "Geographic Convergence",
+      "version": "1.2.0",
+      "provenance_class": "OFFICIAL",
+      "execution_class": "COMPOSITE",
+      "callable": true,
+      "valid_from": null,
       "valid_from_state": "VALID_FROM_UNKNOWN",
+      "valid_to": null,
+      "methodology_version": "1.2.0",
+      "methodology_version_hash": "e9126b4e455c1e99a736a15070387a07ad8dd2cd737957023802f14a5a1c8061",
+      "primary_roles": [
+        "WORLD",
+        "TECH"
+      ],
+      "secondary_roles": [
+        "ENERGY",
+        "COMMODITY"
+      ],
+      "applicable_profiles": [
+        "P01"
+      ],
+      "trigger_conditions": [
+        "multi_event_convergence"
+      ],
+      "asset_types": [
+        "geographic_convergence_score"
+      ],
+      "event_types": [
+        "convergence_detected",
+        "score_computed"
+      ],
+      "entity_types": [
+        "grid_cell",
+        "event_type"
+      ],
+      "required_inputs": [
+        "ListUnrestEvents",
+        "ListMilitaryFlights",
+        "GetVesselSnapshot",
+        "ListEarthquakes"
+      ],
+      "enrichment_inputs": [
+        "ListThermalEscalations",
+        "ListFireDetections",
+        "ListOrefAlerts",
+        "ListInternetOutages"
+      ],
+      "output_bindings": [],
+      "rules_structured": [
+        {
+          "rule": "spatial",
+          "grid": "1_degree",
+          "time_window": "24h",
+          "min_event_types": 3
+        },
+        {
+          "rule": "score",
+          "components": [
+            "type_score",
+            "count_boost"
+          ]
+        }
+      ],
+      "thresholds_structured": {},
+      "limitations": [
+        "Grid resolution may miss small events",
+        "Time window is fixed"
+      ],
+      "freshness_requirement": {
+        "max_stale_minutes": 60,
+        "priority": "HIGH"
+      },
+      "source_requirements": {
+        "min_sources": 2,
+        "cross_validation": true
+      },
+      "point_in_time_requirement": {
+        "required": true,
+        "field": "as_of_time"
+      },
+      "fast_path_allowed": false,
+      "deep_path_allowed": true,
+      "weknora_eligible": true,
+      "rebaseline_required": false
+    },
+    {
+      "methodology_id": "C04",
+      "canonical_name": "Strategic Risk",
+      "name": "Strategic Risk",
+      "version": "1.2.0",
+      "provenance_class": "OFFICIAL",
+      "execution_class": "COMPOSITE",
+      "callable": true,
+      "valid_from": null,
+      "valid_from_state": "VALID_FROM_UNKNOWN",
+      "valid_to": null,
+      "methodology_version": "1.2.0",
+      "methodology_version_hash": "1289dbf962f5145eb75c11fded7ecb2d020e69c4dd64082f378f50576fb89328",
+      "primary_roles": [
+        "WORLD",
+        "FINANCE"
+      ],
+      "secondary_roles": [
+        "TECH",
+        "COMMODITY",
+        "ENERGY"
+      ],
+      "applicable_profiles": [
+        "P01",
+        "P04"
+      ],
+      "trigger_conditions": [
+        "cii_update",
+        "risk_recalculation"
+      ],
+      "asset_types": [
+        "strategic_risk_score"
+      ],
+      "event_types": [
+        "score_updated",
+        "context_applied"
+      ],
+      "entity_types": [
+        "country",
+        "risk_aggregation"
+      ],
+      "required_inputs": [
+        "GetRiskScores"
+      ],
+      "enrichment_inputs": [
+        "ListCrossSourceSignals",
+        "GetRegionalSnapshot",
+        "GetTheaterPosture",
+        "ListSanctionsPressure",
+        "ListTemporalAnomalies",
+        "ListFeedDigest"
+      ],
+      "output_bindings": [],
+      "rules_structured": [
+        {
+          "rule": "strategic_risk_model",
+          "description": "Top risk countries weighted aggregation with floor and context logic"
+        },
+        {
+          "rule": "not_generic_multi_domain_alert",
+          "description": "C04 is CII-informed risk context, not arbitrary alert score"
+        }
+      ],
+      "thresholds_structured": {},
+      "limitations": [
+        "Weighted aggregation is heuristic",
+        "Floor and context logic is deployment-specific"
+      ],
+      "freshness_requirement": {
+        "max_stale_minutes": 1440,
+        "priority": "HIGH"
+      },
+      "source_requirements": {
+        "min_sources": 1,
+        "cross_validation": false
+      },
+      "point_in_time_requirement": {
+        "required": true,
+        "field": "as_of_time"
+      },
+      "fast_path_allowed": false,
+      "deep_path_allowed": true,
+      "weknora_eligible": true,
+      "rebaseline_required": false
+    },
+    {
+      "methodology_id": "C05",
+      "canonical_name": "Algorithms & Scoring",
+      "name": "Algorithms & Scoring",
+      "version": "1.2.0",
       "provenance_class": "OFFICIAL",
       "execution_class": "META",
-      "canonical_name": "Algorithms & Scoring",
-      "methodology_version": "1.1.0",
+      "callable": false,
+      "valid_from": null,
+      "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
-      "valid_from": null
+      "methodology_version": "1.2.0",
+      "methodology_version_hash": "02111d30d45c256cbf8d42dfba741218ef34db4ca33e7acc84ab26d31f424fea",
+      "primary_roles": [
+        "TECH"
+      ],
+      "secondary_roles": [
+        "WORLD"
+      ],
+      "applicable_profiles": [],
+      "trigger_conditions": [],
+      "asset_types": [
+        "algorithm_catalog",
+        "scoring_algorithm"
+      ],
+      "event_types": [],
+      "entity_types": [
+        "algorithm",
+        "score_method"
+      ],
+      "required_inputs": [],
+      "enrichment_inputs": [],
+      "output_bindings": [],
+      "rules_structured": [
+        {
+          "rule": "catalog_not_runtime",
+          "description": "C05 is algorithm/scoring catalog metadata, not a runtime dispatch component"
+        }
+      ],
+      "thresholds_structured": {},
+      "limitations": [
+        "Catalog may not cover all deployed algorithms"
+      ],
+      "freshness_requirement": {
+        "max_stale_minutes": null,
+        "priority": "LOW"
+      },
+      "source_requirements": {
+        "min_sources": 0,
+        "cross_validation": false
+      },
+      "point_in_time_requirement": {
+        "required": false,
+        "field": null
+      },
+      "fast_path_allowed": false,
+      "deep_path_allowed": false,
+      "weknora_eligible": false,
+      "rebaseline_required": false
     },
     {
       "methodology_id": "C06",
+      "canonical_name": "Decision-Signal Provenance",
       "name": "Decision-Signal Provenance",
-      "version": "1.0.0",
+      "version": "1.2.0",
+      "provenance_class": "OFFICIAL",
+      "execution_class": "GOVERNANCE",
+      "callable": false,
       "valid_from": null,
+      "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
+      "methodology_version": "1.2.0",
+      "methodology_version_hash": "68290f16ff9358f13df87e1661bc21286a72386fefa2dd92616d90b2b90dd913",
       "primary_roles": [
         "WORLD",
         "TECH"
@@ -2779,90 +2715,81 @@
         "FINANCE"
       ],
       "applicable_profiles": [],
-      "trigger_conditions": [
-        "methodology_execution_requested",
-        "precondition_check_required"
-      ],
+      "trigger_conditions": [],
       "asset_types": [
-        "precondition"
+        "provenance_record"
       ],
-      "event_types": [
-        "validate",
-        "gate",
-        "block"
-      ],
+      "event_types": [],
       "entity_types": [
-        "methodology",
         "source",
-        "contract"
+        "evidence",
+        "claim"
       ],
-      "required_inputs": [
-        "methodology_state",
-        "source_state"
-      ],
-      "enrichment_inputs": [
-        "contract_state",
-        "lifecycle_state"
-      ],
-      "output_bindings": [
-        "precondition_result",
-        "violations",
-        "blocking_issues"
-      ],
+      "required_inputs": [],
+      "enrichment_inputs": [],
+      "output_bindings": [],
       "rules_structured": [
         {
-          "rule_id": "GLOBAL_PRECONDITION",
-          "description": "Validates global preconditions before methodology execution"
+          "rule": "provenance_contract",
+          "fields": [
+            "source_identity",
+            "evidence_ref",
+            "language",
+            "translation",
+            "time_roles",
+            "revision",
+            "confidence",
+            "corroboration",
+            "freshness",
+            "derivation",
+            "method_version",
+            "claim_state"
+          ]
         },
         {
-          "rule_id": "C06_R02",
-          "description": "Check source availability and contract compliance"
-        },
-        {
-          "rule_id": "C06_R03",
-          "description": "Verify point-in-time requirements are met"
+          "rule": "claim_states",
+          "values": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE"
+          ]
         }
       ],
-      "thresholds_structured": [
-        {
-          "threshold_id": "C06_T01",
-          "value": 0
-        }
-      ],
+      "thresholds_structured": {},
       "limitations": [
-        "Precondition checks add latency to methodology execution",
-        "Must be updated when contracts change"
+        "Provenance chain can be deep",
+        "Translation confidence varies"
       ],
       "freshness_requirement": {
-        "max_age_seconds": 0,
-        "strategy": "ANY_AVAILABLE",
-        "stale_threshold_seconds": 0,
-        "degraded_threshold_seconds": 0
+        "max_stale_minutes": null,
+        "priority": "LOW"
       },
-      "source_requirements": [],
+      "source_requirements": {
+        "min_sources": 0,
+        "cross_validation": false
+      },
       "point_in_time_requirement": {
         "required": false,
-        "as_of_field": null,
-        "default_lookback": null
+        "field": null
       },
-      "fast_path_allowed": true,
-      "deep_path_allowed": true,
+      "fast_path_allowed": false,
+      "deep_path_allowed": false,
       "weknora_eligible": false,
-      "methodology_version_hash": "41a6d6e4ef04e56a2980dfa8f0be0dc945717dc1b4a3f73eacc55b477fa5589f",
-      "rebaseline_required": true,
-      "callable": false,
-      "valid_from_state": "VALID_FROM_UNKNOWN",
-      "provenance_class": "OFFICIAL",
-      "execution_class": "GOVERNANCE",
-      "canonical_name": "Decision-Signal Provenance",
-      "methodology_version": "1.1.0"
+      "rebaseline_required": false
     },
     {
       "methodology_id": "C07",
+      "canonical_name": "Source Attribution",
       "name": "Source Attribution",
-      "version": "1.0.0",
+      "version": "1.2.0",
+      "provenance_class": "OFFICIAL",
+      "execution_class": "GOVERNANCE",
+      "callable": false,
       "valid_from": null,
+      "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
+      "methodology_version": "1.2.0",
+      "methodology_version_hash": "bca418912c00c45dfab9b24abf5acf5bd4e70c222cf4f38e65c416dc1bd544dc",
       "primary_roles": [
         "WORLD"
       ],
@@ -2870,83 +2797,64 @@
         "TECH"
       ],
       "applicable_profiles": [],
-      "trigger_conditions": [
-        "governance_violation_detected",
-        "contract_update"
-      ],
+      "trigger_conditions": [],
       "asset_types": [
-        "governance"
+        "source_attribution"
       ],
-      "event_types": [
-        "enforce",
-        "audit",
-        "report"
-      ],
+      "event_types": [],
       "entity_types": [
-        "methodology",
-        "api",
-        "source",
-        "profile"
+        "publisher",
+        "provider",
+        "transport"
       ],
-      "required_inputs": [
-        "registry_state"
-      ],
-      "enrichment_inputs": [
-        "audit_log",
-        "violation_history"
-      ],
-      "output_bindings": [
-        "compliance_report",
-        "violations",
-        "remediation_actions"
-      ],
+      "required_inputs": [],
+      "enrichment_inputs": [],
+      "output_bindings": [],
       "rules_structured": [
         {
-          "rule_id": "GOVERNANCE_CONTRACT",
-          "description": "Enforces governance contract compliance across all methodologies"
+          "rule": "attribution_contract",
+          "fields": [
+            "original_publisher",
+            "provider",
+            "host",
+            "transport",
+            "syndication",
+            "aggregator",
+            "relay",
+            "publisher_family",
+            "license"
+          ]
         },
         {
-          "rule_id": "C07_R02",
-          "description": "Audit methodology execution against declared contracts"
+          "rule": "same_publisher_via_multiple_transports",
+          "description": "Same publisher via multiple transports counts as 1 independent evidence"
         },
         {
-          "rule_id": "C07_R03",
-          "description": "Generate remediation actions for violations"
+          "rule": "transport_timestamps_for_delta_t",
+          "description": "Transport timestamps retained for delta-t computation"
         }
       ],
-      "thresholds_structured": [
-        {
-          "threshold_id": "C07_T01",
-          "value": 0
-        }
-      ],
+      "thresholds_structured": {},
       "limitations": [
-        "Governance enforcement must not block emergency methodology execution",
-        "Audit trail must be immutable"
+        "Publisher family identification is heuristic",
+        "License terms may not be publicly available"
       ],
       "freshness_requirement": {
-        "max_age_seconds": 0,
-        "strategy": "ANY_AVAILABLE",
-        "stale_threshold_seconds": 0,
-        "degraded_threshold_seconds": 0
+        "max_stale_minutes": null,
+        "priority": "LOW"
       },
-      "source_requirements": [],
+      "source_requirements": {
+        "min_sources": 0,
+        "cross_validation": false
+      },
       "point_in_time_requirement": {
         "required": false,
-        "as_of_field": null,
-        "default_lookback": null
+        "field": null
       },
-      "fast_path_allowed": true,
-      "deep_path_allowed": true,
+      "fast_path_allowed": false,
+      "deep_path_allowed": false,
       "weknora_eligible": false,
-      "methodology_version_hash": "de58b31fba09d57da0235058251df3e7ba3d386540b5cf246656e328e749a9e9",
-      "rebaseline_required": true,
-      "callable": false,
-      "valid_from_state": "VALID_FROM_UNKNOWN",
-      "provenance_class": "OFFICIAL",
-      "execution_class": "GOVERNANCE",
-      "canonical_name": "Source Attribution",
-      "methodology_version": "1.1.0"
+      "rebaseline_required": false
     }
   ]
 }

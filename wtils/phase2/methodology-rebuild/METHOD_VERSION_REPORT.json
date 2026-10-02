@@ -1,0 +1,162 @@
+{
+  "version": "1.2.0",
+  "hashes_rebuilt": true,
+  "unique_hashes": 31,
+  "entries": [
+    {
+      "methodology_id": "M01",
+      "version": "1.2.0",
+      "hash": "3278b2b0f3310d96"
+    },
+    {
+      "methodology_id": "M02",
+      "version": "1.2.0",
+      "hash": "f4efa780bdd2625e"
+    },
+    {
+      "methodology_id": "M03",
+      "version": "1.2.0",
+      "hash": "907e91400dec51de"
+    },
+    {
+      "methodology_id": "M04",
+      "version": "1.2.0",
+      "hash": "e3986635c6ec1fb2"
+    },
+    {
+      "methodology_id": "M05",
+      "version": "1.2.0",
+      "hash": "365fcd718a4e8b72"
+    },
+    {
+      "methodology_id": "M06",
+      "version": "1.2.0",
+      "hash": "2c963d018351d887"
+    },
+    {
+      "methodology_id": "M07",
+      "version": "1.2.0",
+      "hash": "8b393438054f760c"
+    },
+    {
+      "methodology_id": "M08",
+      "version": "1.2.0",
+      "hash": "3c7e06362c454536"
+    },
+    {
+      "methodology_id": "M09",
+      "version": "1.2.0",
+      "hash": "966d7cd5f87e9316"
+    },
+    {
+      "methodology_id": "M10",
+      "version": "1.2.0",
+      "hash": "a7136a802e00b730"
+    },
+    {
+      "methodology_id": "M11",
+      "version": "1.2.0",
+      "hash": "3bbdca480437fadf"
+    },
+    {
+      "methodology_id": "M12",
+      "version": "1.2.0",
+      "hash": "fab2573086f4312d"
+    },
+    {
+      "methodology_id": "M13",
+      "version": "1.2.0",
+      "hash": "f8b20bac60c0bde2"
+    },
+    {
+      "methodology_id": "M14",
+      "version": "1.2.0",
+      "hash": "228b441022f06e83"
+    },
+    {
+      "methodology_id": "M15",
+      "version": "1.2.0",
+      "hash": "01e4176c55725869"
+    },
+    {
+      "methodology_id": "M16",
+      "version": "1.2.0",
+      "hash": "fa7d0a67574bde5d"
+    },
+    {
+      "methodology_id": "M17",
+      "version": "1.2.0",
+      "hash": "4a2cda0c6c19d655"
+    },
+    {
+      "methodology_id": "M18",
+      "version": "1.2.0",
+      "hash": "1912c105da274f44"
+    },
+    {
+      "methodology_id": "M19",
+      "version": "1.2.0",
+      "hash": "3528c0927a97517d"
+    },
+    {
+      "methodology_id": "M20",
+      "version": "1.2.0",
+      "hash": "703045110496bfe1"
+    },
+    {
+      "methodology_id": "M21",
+      "version": "1.2.0",
+      "hash": "d5e3576dbd1f60f6"
+    },
+    {
+      "methodology_id": "M22",
+      "version": "1.2.0",
+      "hash": "9a9468b45d2e2e21"
+    },
+    {
+      "methodology_id": "M23",
+      "version": "1.2.0",
+      "hash": "a698bc18c8fcab6e"
+    },
+    {
+      "methodology_id": "M24",
+      "version": "1.2.0",
+      "hash": "dc3084a0aad978df"
+    },
+    {
+      "methodology_id": "C01",
+      "version": "1.2.0",
+      "hash": "6df879b5c51e4b8e"
+    },
+    {
+      "methodology_id": "C02",
+      "version": "1.2.0",
+      "hash": "e277b01db1a90bfd"
+    },
+    {
+      "methodology_id": "C03",
+      "version": "1.2.0",
+      "hash": "e9126b4e455c1e99"
+    },
+    {
+      "methodology_id": "C04",
+      "version": "1.2.0",
+      "hash": "1289dbf962f5145e"
+    },
+    {
+      "methodology_id": "C05",
+      "version": "1.2.0",
+      "hash": "02111d30d45c256c"
+    },
+    {
+      "methodology_id": "C06",
+      "version": "1.2.0",
+      "hash": "68290f16ff9358f1"
+    },
+    {
+      "methodology_id": "C07",
+      "version": "1.2.0",
+      "hash": "bca418912c00c45d"
+    }
+  ]
+}

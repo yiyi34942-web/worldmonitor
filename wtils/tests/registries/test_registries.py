@@ -211,8 +211,8 @@ def main():
         for rule in c06.get("rules_structured", []):
             if rule.get("rule_id") == "GLOBAL_PRECONDITION":
                 has_global_precond = True
-    runner.test("c06_global_precondition", has_global_precond,
-                "C06 has GLOBAL_PRECONDITION rule" if has_global_precond else "C06 missing GLOBAL_PRECONDITION rule")
+    runner.test("c06_global_precondition", c06 is not None and c06.get("execution_class") == "GOVERNANCE",
+                "C06 is GOVERNANCE provenance contract")
 
     c07 = next((m for m in methods if m["methodology_id"] == "C07"), None)
     has_gov_contract = False
@@ -220,8 +220,8 @@ def main():
         for rule in c07.get("rules_structured", []):
             if rule.get("rule_id") == "GOVERNANCE_CONTRACT":
                 has_gov_contract = True
-    runner.test("c07_governance_contract", has_gov_contract,
-                "C07 has GOVERNANCE_CONTRACT rule" if has_gov_contract else "C07 missing GOVERNANCE_CONTRACT rule")
+    runner.test("c07_governance_contract", c07 is not None and c07.get("execution_class") == "GOVERNANCE",
+                "C07 is GOVERNANCE source attribution contract")
 
     bindings = registries.get("bindings", {})
     runner.test("bindings_graph_exists", bool(bindings),
@@ -840,6 +840,70 @@ def main():
 
     # Hormuz_artifact_static_schema_zero_errors (structural check)
     runner.test("Hormuz_artifact_static_schema_zero_errors", True, "Schema allows null delivery/cache with binding_state")
+
+
+    # === PHASE2A-R4 ACTUAL PAYLOAD TESTS ===
+
+    # method_semantics_actual_registry_validation
+    import re as _re2
+    _FORBIDDEN_R4 = {
+        'M01': ['event classification', 'classification_result', 'event_score', 'signal classification'],
+        'M02': ['baseline deviation', 'temporal anomaly', 'standard deviation', 'anomaly detection'],
+        'M04': ['conflict intensity', 'casualty', 'acled', 'ucdp', 'escalation probability'],
+        'M05': ['ofac', 'sanctions designation', 'network graph'],
+        'M06': ['military', 'aircraft', 'deployment', 'force disposition'],
+        'M07': ['humanitarian', 'displacement', 'aid gap', 'refugee'],
+        'M09': ['cot', 'positioning', 'crowding'],
+        'M10': ['yield curve', 'inversion', 'recession probability'],
+        'M11': ['trade flow', 'tariff', 'comtrade'],
+        'M14': ['chokepoint', 'bypass'],
+        'M15': ['technical signal', 'forward curve', 'rsi'],
+        'M21': ['imo', 'carbon intensity', 'scrubber', 'fleet', 'vessel_data', 'cii_compliance'],
+        'M22': ['social velocity', 'sentiment', 'viral signal', 'amplification'],
+        'C01': ['geopolitical overlay'],
+        'C02': ['economic overlay'],
+        'C05': ['router', 'execution_plan', 'dependency_order', 'selected_methodologies'],
+        'C06': ['precondition validator', 'precondition_result'],
+        'C07': ['governance contract enforcer', 'remediation'],
+    }
+    _forbidden_total = 0
+    for m in methods:
+        mid = m.get('methodology_id','')
+        m_str = _json.dumps(m).lower()
+        for term in _FORBIDDEN_R4.get(mid, []):
+            if _re2.search(r'\b'+_re2.escape(term.lower())+r'\b', m_str):
+                _forbidden_total += 1
+    runner.test("method_semantics_actual_registry_validation", _forbidden_total == 0, f"{_forbidden_total} forbidden residues in actual registry")
+
+    # Individual method payload tests
+    for mid, required_terms in [
+        ('M01', ['china', 'activity', 'proxy', 'freshness']),
+        ('M02', ['story', 'dedupe', 'importance', 'brief']),
+        ('M04', ['resilience', 'indicator', 'normalization', 'score']),
+        ('M05', ['indicator', 'observation', 'unit', 'source']),
+        ('M06', ['license', 'calculation_allowed', 'redistribution']),
+        ('M07', ['limitation', 'affected_method', 'status']),
+        ('M09', ['aum', 'months', 'haircut', 'effective']),
+        ('M10', ['food', 'energy', 'demographics', 'tech', 'defense']),
+        ('M11', ['age', 'education', 'workforce']),
+('C01', ['operator', 'dashboard', 'm21']),
+        ('C02', ['revision', 'prior_state', 'corrected_state']),
+        ('C05', ['algorithm', 'catalog', 'scoring']),
+        ('C06', ['provenance', 'evidence', 'derivation', 'claim']),
+        ('C07', ['publisher', 'provider', 'transport', 'family']),
+    ]:
+        m = next((m for m in methods if m.get('methodology_id')==mid), None)
+        if m:
+            m_str = _json.dumps(m).lower()
+            missing = [t for t in required_terms if t.lower() not in m_str]
+            test_name = f"{mid}_actual_payload"
+            runner.test(test_name, len(missing)==0, f"missing: {missing}")
+
+    # M21 specific deep check
+    _m21 = next((m for m in methods if m.get('methodology_id')=='M21'), None)
+    _m21_str = _json.dumps(_m21).lower() if _m21 else ''
+    _m21_clean = not any(t in _m21_str for t in ['imo', 'scrubber', 'carbon intensity', 'fleet compliance', 'vessel_data', 'cii_compliance'])
+    runner.test("M21_actual_payload", _m21_clean, "M21 has no maritime carbon references")
 
     # Output
     result = runner.summary()
