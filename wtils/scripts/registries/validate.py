@@ -509,6 +509,190 @@ def collect_errors():
     if set(r.get('role_id','') for r in roles) != {'WORLD','TECH','FINANCE','COMMODITY','ENERGY'}:
         errors.append("FIVE_ROLES_VIOLATED: role set is not the frozen five")
 
+
+    # === PHASE2A-R5 STRICT SCHEMA + CROSS-REGISTRY CHECKS ===
+    
+    def _validate_strict(entry, sch, ctx_prefix):
+        """Strict nested schema validation: types, required, additionalProperties, enums, nested items."""
+        _errs = []
+        _props = sch.get('properties', {})
+        _required = sch.get('required', [])
+        _additional = sch.get('additionalProperties', True)
+        
+        for r in _required:
+            if r not in entry:
+                _errs.append(f"{ctx_prefix}: missing required '{r}'")
+        
+        if _additional is False:
+            for k in entry:
+                if k not in _props:
+                    _errs.append(f"{ctx_prefix}: additional property '{k}' not allowed by schema")
+        
+        for k, v in entry.items():
+            if k not in _props:
+                continue
+            sp = _props[k]
+            et = sp.get('type')
+            
+            if et == 'string' and not isinstance(v, str):
+                _errs.append(f"{ctx_prefix}.{k}: expected string, got {type(v).__name__}")
+            elif et == 'boolean' and not isinstance(v, bool):
+                _errs.append(f"{ctx_prefix}.{k}: expected boolean, got {type(v).__name__}")
+            elif et == 'integer' and not isinstance(v, int):
+                _errs.append(f"{ctx_prefix}.{k}: expected integer, got {type(v).__name__}")
+            elif et == 'array':
+                if not isinstance(v, list):
+                    _errs.append(f"{ctx_prefix}.{k}: expected array, got {type(v).__name__}")
+                else:
+                    _items = sp.get('items', {})
+                    if _items:
+                        _it_type = _items.get('type')
+                        _it_req = _items.get('required', [])
+                        _it_add = _items.get('additionalProperties', True)
+                        _it_props = _items.get('properties', {})
+                        for idx, item in enumerate(v):
+                            _ictx = f"{ctx_prefix}.{k}[{idx}]"
+                            if _it_type == 'object' and not isinstance(item, dict):
+                                _errs.append(f"{_ictx}: expected object")
+                            elif _it_type == 'string' and not isinstance(item, str):
+                                _errs.append(f"{_ictx}: expected string")
+                            if isinstance(item, dict):
+                                for ir in _it_req:
+                                    if ir not in item:
+                                        _errs.append(f"{_ictx}: missing required '{ir}'")
+                                if _it_add is False:
+                                    for ik in item:
+                                        if ik not in _it_props:
+                                            _errs.append(f"{_ictx}: additional property '{ik}'")
+                                for ik2, iv2 in item.items():
+                                    if ik2 in _it_props and 'enum' in _it_props[ik2]:
+                                        if iv2 not in _it_props[ik2]['enum']:
+                                            _errs.append(f"{_ictx}.{ik2}: value not in enum")
+            elif et == 'object':
+                if not isinstance(v, dict):
+                    _errs.append(f"{ctx_prefix}.{k}: expected object, got {type(v).__name__}")
+                else:
+                    _obj_req = sp.get('required', [])
+                    _obj_add = sp.get('additionalProperties', True)
+                    _obj_props = sp.get('properties', {})
+                    for or2 in _obj_req:
+                        if or2 not in v:
+                            _errs.append(f"{ctx_prefix}.{k}: missing required '{or2}'")
+                    if _obj_add is False:
+                        for ok in v:
+                            if ok not in _obj_props:
+                                _errs.append(f"{ctx_prefix}.{k}: additional property '{ok}' not allowed")
+                    for ok2, ov2 in v.items():
+                        if ok2 in _obj_props and 'enum' in _obj_props[ok2]:
+                            if ov2 not in _obj_props[ok2]['enum']:
+                                _errs.append(f"{ctx_prefix}.{k}.{ok2}: value '{ov2}' not in enum")
+        return _errs
+    
+    # Strict validate all 31 methodologies
+    for m in methods:
+        mid = m.get('methodology_id', '?')
+        errs = _validate_strict(m, schemas["methodology"], f"methodology:{mid}")
+        errors.extend(errs)
+    
+    # R5: No NONCALLABLE/META in profile core or triggered
+    for pr in profiles:
+        pid = pr.get('profile_id', '?')
+        for mid2 in pr.get('core_methodologies', []):
+            m2 = next((x for x in methods if x.get('methodology_id')==mid2), None)
+            if m2 and m2.get('execution_class') in ('NONCALLABLE', 'META'):
+                errors.append(f"PROFILE_NONCALLABLE: {pid} core has {mid2} ({m2['execution_class']})")
+        for t in pr.get('triggered_methodologies', []):
+            tid = t.get('methodology_id') if isinstance(t, dict) else t
+            m2 = next((x for x in methods if x.get('methodology_id')==tid), None)
+            if m2 and m2.get('execution_class') in ('NONCALLABLE', 'META'):
+                errors.append(f"PROFILE_NONCALLABLE: {pid} triggered has {tid} ({m2['execution_class']})")
+    
+    # R5: GOVERNANCE only in audit path
+    for pr in profiles:
+        pid = pr.get('profile_id', '?')
+        for mid2 in pr.get('core_methodologies', []):
+            m2 = next((x for x in methods if x.get('methodology_id')==mid2), None)
+            if m2 and m2.get('execution_class') == 'GOVERNANCE':
+                errors.append(f"PROFILE_GOVERNANCE_IN_CORE: {pid} core has {mid2} (GOVERNANCE only in audit)")
+        for t in pr.get('triggered_methodologies', []):
+            tid = t.get('methodology_id') if isinstance(t, dict) else t
+            m2 = next((x for x in methods if x.get('methodology_id')==tid), None)
+            if m2 and m2.get('execution_class') == 'GOVERNANCE':
+                errors.append(f"PROFILE_GOVERNANCE_IN_TRIGGERED: {pid} triggered has {tid} (GOVERNANCE only in audit)")
+    
+    # R5: Profile binding bijection - all bindings must have corresponding applicable_profiles
+    for pr in profiles:
+        pid = pr.get('profile_id', '?')
+        for mid2 in pr.get('core_methodologies', []):
+            m2 = next((x for x in methods if x.get('methodology_id')==mid2), None)
+            if m2 and pid not in m2.get('applicable_profiles', []):
+                errors.append(f"APPLICABILITY: {mid2} applicable_profiles missing {pid}")
+        for t in pr.get('triggered_methodologies', []):
+            tid = t.get('methodology_id') if isinstance(t, dict) else t
+            m2 = next((x for x in methods if x.get('methodology_id')==tid), None)
+            if m2 and pid not in m2.get('applicable_profiles', []):
+                errors.append(f"APPLICABILITY: {tid} applicable_profiles missing {pid}")
+        for mid3 in pr.get('audit_methodologies', []):
+            mid3 = mid3 if isinstance(mid3, str) else mid3.get('methodology_id')
+            m2 = next((x for x in methods if x.get('methodology_id')==mid3), None)
+            if m2 and pid not in m2.get('applicable_profiles', []):
+                errors.append(f"APPLICABILITY: {mid3} applicable_profiles missing {pid}")
+    
+    # R5: Role default_methodologies must be executable
+    for r2 in roles:
+        rid2 = r2.get('role_id', '?')
+        for mid2 in r2.get('default_methodologies', []):
+            m2 = next((x for x in methods if x.get('methodology_id')==mid2), None)
+            if m2 and m2.get('execution_class') in ('NONCALLABLE', 'META', 'GOVERNANCE'):
+                errors.append(f"ROLE_DEFAULT_NONEXEC: {rid2} default has {mid2} ({m2['execution_class']})")
+    
+    # R5: Role↔method binding consistency
+    for rb in bindings.get('role_methodology_bindings', []):
+        rid2 = rb.get('role_id', '')
+        mid2 = rb.get('methodology_id', '')
+        m2 = next((x for x in methods if x.get('methodology_id')==mid2), None)
+        if m2 and rid2 not in m2.get('primary_roles', []) + m2.get('secondary_roles', []):
+            errors.append(f"ROLE_METHOD_BINDING: {rid2}->{mid2} role not in method roles")
+    
+    # R5: No stale trigger semantics
+    _stale_triggers = {
+        'M09': ['cot', 'positioning', 'crowding'],
+        'M10': ['yield_curve', 'inversion', 'recession'],
+        'M11': ['trade_flow', 'tariff', 'comtrade'],
+        'M16': ['supply_chain_stress'],
+        'M05': ['sanctions'],
+        'M06': ['military', 'deployment'],
+        'M07': ['humanitarian', 'displacement'],
+        'C01': ['geopolitical_overlay'],
+        'C02': ['macro_overlay'],
+    }
+    import re as _re5
+    for pr in profiles:
+        pid = pr.get('profile_id', '?')
+        for t in pr.get('triggered_methodologies', []):
+            if isinstance(t, dict):
+                tid = t.get('methodology_id', '')
+                trigger = t.get('trigger', '').lower()
+                for term in _stale_triggers.get(tid, []):
+                    if term.lower() in trigger:
+                        errors.append(f"STALE_TRIGGER: {pid} {tid} trigger '{trigger}' contains stale term '{term}'")
+    
+    # R5: Recompute and verify method hashes
+    for m in methods:
+        mid = m.get('methodology_id', '?')
+        payload = {k:v for k,v in m.items() if k != 'methodology_version_hash'}
+        import hashlib as _hl5
+        payload_str = json.dumps(payload, sort_keys=True, ensure_ascii=False)
+        expected_hash = _hl5.sha256(payload_str.encode('utf-8')).hexdigest()
+        actual_hash = m.get('methodology_version_hash', '')
+        if actual_hash != expected_hash:
+            errors.append(f"HASH_MISMATCH: {mid} hash does not match recomputed canonical payload")
+    
+    # R5: Unique hashes
+    hash_list = [m.get('methodology_version_hash','') for m in methods]
+    if len(set(hash_list)) != len(hash_list):
+        errors.append(f"HASH_DUPLICATE: {len(hash_list) - len(set(hash_list))} duplicate methodology hashes")
+
     return result
 
 

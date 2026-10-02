@@ -85,11 +85,11 @@
         },
         {
           "methodology_id": "M19",
-          "trigger": "fuel_shortage"
+          "trigger": "fuel_shortage_claim"
         },
         {
           "methodology_id": "M21",
-          "trigger": "cii_risk"
+          "trigger": "country_instability_risk"
         },
         {
           "methodology_id": "M23",
@@ -248,11 +248,11 @@
       "triggered_methodologies": [
         {
           "methodology_id": "M19",
-          "trigger": "fuel_shortage"
+          "trigger": "fuel_shortage_claim"
         },
         {
           "methodology_id": "M16",
-          "trigger": "supply_chain_stress"
+          "trigger": "chokepoint_disruption"
         },
         {
           "methodology_id": "M23",
@@ -384,17 +384,14 @@
           "trigger": "financial_stress_spike"
         },
         {
-          "methodology_id": "M10",
-          "trigger": "yield_curve_inversion"
-        },
-        {
-          "methodology_id": "C02",
-          "trigger": "macro_overlay_needed"
+          "methodology_id": "M16",
+          "trigger": "chokepoint_disruption"
         }
       ],
       "audit_methodologies": [
         "C06",
-        "C07"
+        "C07",
+        "C02"
       ],
       "l0_derived_api_refs": [
         "GetGoldIntelligence",
@@ -511,15 +508,12 @@
         {
           "methodology_id": "M03",
           "trigger": "contradiction_detected"
-        },
-        {
-          "methodology_id": "C02",
-          "trigger": "macro_overlay_needed"
         }
       ],
       "audit_methodologies": [
         "C06",
-        "C07"
+        "C07",
+        "C02"
       ],
       "l0_derived_api_refs": [
         "GetEnergyPrices",
@@ -628,21 +622,14 @@
       ],
       "triggered_methodologies": [
         {
-          "methodology_id": "M11",
-          "trigger": "trade_flow_anomaly"
-        },
-        {
           "methodology_id": "M16",
-          "trigger": "supply_chain_stress"
-        },
-        {
-          "methodology_id": "C02",
-          "trigger": "macro_overlay_needed"
+          "trigger": "chokepoint_disruption"
         }
       ],
       "audit_methodologies": [
         "C06",
-        "C07"
+        "C07",
+        "C02"
       ],
       "l0_derived_api_refs": [
         "GetEnergyPrices",
@@ -744,16 +731,13 @@
       "triggered_methodologies": [
         {
           "methodology_id": "M09",
-          "trigger": "cot_extreme_positioning"
-        },
-        {
-          "methodology_id": "C02",
-          "trigger": "macro_overlay_needed"
+          "trigger": "swf_classification_review"
         }
       ],
       "audit_methodologies": [
         "C06",
-        "C07"
+        "C07",
+        "C02"
       ],
       "l0_derived_api_refs": [
         "GetBisExchangeRates",
@@ -856,16 +840,13 @@
       "triggered_methodologies": [
         {
           "methodology_id": "M09",
-          "trigger": "cot_extreme_positioning"
-        },
-        {
-          "methodology_id": "C02",
-          "trigger": "macro_overlay_needed"
+          "trigger": "swf_classification_review"
         }
       ],
       "audit_methodologies": [
         "C06",
-        "C07"
+        "C07",
+        "C02"
       ],
       "l0_derived_api_refs": [
         "GetUsInterestRates",
@@ -967,21 +948,14 @@
       ],
       "triggered_methodologies": [
         {
-          "methodology_id": "M09",
-          "trigger": "cot_extreme_positioning"
-        },
-        {
           "methodology_id": "M15",
           "trigger": "commodity_correlation_spike"
-        },
-        {
-          "methodology_id": "C02",
-          "trigger": "macro_overlay_needed"
         }
       ],
       "audit_methodologies": [
         "C06",
-        "C07"
+        "C07",
+        "C02"
       ],
       "l0_derived_api_refs": [
         "GetFearGreedIndex",
@@ -1096,15 +1070,11 @@
       "triggered_methodologies": [
         {
           "methodology_id": "M01",
-          "trigger": "tech_event_detected"
-        },
-        {
-          "methodology_id": "M05",
-          "trigger": "tech_sanctions_imposed"
+          "trigger": "china_activity_signal"
         },
         {
           "methodology_id": "C04",
-          "trigger": "strategic_risk_trigger"
+          "trigger": "strategic_risk"
         },
         {
           "methodology_id": "C03",
@@ -1238,20 +1208,8 @@
       ],
       "triggered_methodologies": [
         {
-          "methodology_id": "M05",
-          "trigger": "sanctions_event"
-        },
-        {
-          "methodology_id": "M06",
-          "trigger": "military_deployment"
-        },
-        {
-          "methodology_id": "M07",
-          "trigger": "humanitarian_crisis"
-        },
-        {
-          "methodology_id": "C01",
-          "trigger": "geopolitical_overlay_needed"
+          "methodology_id": "M21",
+          "trigger": "country_instability_risk"
         },
         {
           "methodology_id": "C03",
@@ -1259,12 +1217,14 @@
         },
         {
           "methodology_id": "C04",
-          "trigger": "strategic_risk_trigger"
+          "trigger": "strategic_risk"
         }
       ],
       "audit_methodologies": [
         "C06",
-        "C07"
+        "C07",
+        "C01",
+        "C02"
       ],
       "l0_derived_api_refs": [
         "ListAcledEvents",

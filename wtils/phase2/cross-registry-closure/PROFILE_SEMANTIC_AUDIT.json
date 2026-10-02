@@ -1,0 +1,212 @@
+{
+  "generated_at": "2026-10-02T05:26:51.725562Z",
+  "total": 10,
+  "pass": 10,
+  "entries": [
+    {
+      "profile_id": "P01",
+      "core": [
+        "M15",
+        "M16",
+        "M20",
+        "M03"
+      ],
+      "triggered": [
+        "M17",
+        "M18",
+        "M19",
+        "M21",
+        "M23",
+        "C03",
+        "C04"
+      ],
+      "audit": [
+        "C06",
+        "C07"
+      ],
+      "noncallable_in_core_or_triggered": [],
+      "governance_not_in_audit": [],
+      "status": "PASS"
+    },
+    {
+      "profile_id": "P02",
+      "core": [
+        "M15",
+        "M17",
+        "M18",
+        "M20"
+      ],
+      "triggered": [
+        "M19",
+        "M16",
+        "M23",
+        "C03"
+      ],
+      "audit": [
+        "C06",
+        "C07"
+      ],
+      "noncallable_in_core_or_triggered": [],
+      "governance_not_in_audit": [],
+      "status": "PASS"
+    },
+    {
+      "profile_id": "P03",
+      "core": [
+        "M24",
+        "M15",
+        "M03"
+      ],
+      "triggered": [
+        "M08",
+        "M16"
+      ],
+      "audit": [
+        "C06",
+        "C07",
+        "C02"
+      ],
+      "noncallable_in_core_or_triggered": [],
+      "governance_not_in_audit": [],
+      "status": "PASS"
+    },
+    {
+      "profile_id": "P04",
+      "core": [
+        "M14",
+        "M15",
+        "M16"
+      ],
+      "triggered": [
+        "M13",
+        "M03"
+      ],
+      "audit": [
+        "C06",
+        "C07",
+        "C02"
+      ],
+      "noncallable_in_core_or_triggered": [],
+      "governance_not_in_audit": [],
+      "status": "PASS"
+    },
+    {
+      "profile_id": "P05",
+      "core": [
+        "M12",
+        "M15",
+        "M03"
+      ],
+      "triggered": [
+        "M16"
+      ],
+      "audit": [
+        "C06",
+        "C07",
+        "C02"
+      ],
+      "noncallable_in_core_or_triggered": [],
+      "governance_not_in_audit": [],
+      "status": "PASS"
+    },
+    {
+      "profile_id": "P06",
+      "core": [
+        "M08",
+        "M10",
+        "M03"
+      ],
+      "triggered": [
+        "M09"
+      ],
+      "audit": [
+        "C06",
+        "C07",
+        "C02"
+      ],
+      "noncallable_in_core_or_triggered": [],
+      "governance_not_in_audit": [],
+      "status": "PASS"
+    },
+    {
+      "profile_id": "P07",
+      "core": [
+        "M08",
+        "M10",
+        "M03"
+      ],
+      "triggered": [
+        "M09"
+      ],
+      "audit": [
+        "C06",
+        "C07",
+        "C02"
+      ],
+      "noncallable_in_core_or_triggered": [],
+      "governance_not_in_audit": [],
+      "status": "PASS"
+    },
+    {
+      "profile_id": "P08",
+      "core": [
+        "M08",
+        "M03"
+      ],
+      "triggered": [
+        "M15"
+      ],
+      "audit": [
+        "C06",
+        "C07",
+        "C02"
+      ],
+      "noncallable_in_core_or_triggered": [],
+      "governance_not_in_audit": [],
+      "status": "PASS"
+    },
+    {
+      "profile_id": "P09",
+      "core": [
+        "M14",
+        "M13",
+        "M16"
+      ],
+      "triggered": [
+        "M01",
+        "C04",
+        "C03"
+      ],
+      "audit": [
+        "C06",
+        "C07"
+      ],
+      "noncallable_in_core_or_triggered": [],
+      "governance_not_in_audit": [],
+      "status": "PASS"
+    },
+    {
+      "profile_id": "P10",
+      "core": [
+        "M03",
+        "M04",
+        "M23",
+        "M22"
+      ],
+      "triggered": [
+        "M21",
+        "C03",
+        "C04"
+      ],
+      "audit": [
+        "C06",
+        "C07",
+        "C01",
+        "C02"
+      ],
+      "noncallable_in_core_or_triggered": [],
+      "governance_not_in_audit": [],
+      "status": "PASS"
+    }
+  ]
+}

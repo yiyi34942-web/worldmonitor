@@ -463,11 +463,6 @@
     },
     {
       "role_id": "TECH",
-      "methodology_id": "M01",
-      "binding_type": "DEFAULT"
-    },
-    {
-      "role_id": "TECH",
       "methodology_id": "C04",
       "binding_type": "DEFAULT"
     },
@@ -487,11 +482,6 @@
       "binding_type": "DEFAULT"
     },
     {
-      "role_id": "FINANCE",
-      "methodology_id": "C05",
-      "binding_type": "DEFAULT"
-    },
-    {
       "role_id": "COMMODITY",
       "methodology_id": "M15",
       "binding_type": "DEFAULT"
@@ -504,11 +494,6 @@
     {
       "role_id": "COMMODITY",
       "methodology_id": "M16",
-      "binding_type": "DEFAULT"
-    },
-    {
-      "role_id": "COMMODITY",
-      "methodology_id": "M03",
       "binding_type": "DEFAULT"
     },
     {

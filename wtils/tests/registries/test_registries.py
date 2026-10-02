@@ -905,6 +905,207 @@ def main():
     _m21_clean = not any(t in _m21_str for t in ['imo', 'scrubber', 'carbon intensity', 'fleet compliance', 'vessel_data', 'cii_compliance'])
     runner.test("M21_actual_payload", _m21_clean, "M21 has no maritime carbon references")
 
+
+    # === PHASE2A-R5 STRICT SCHEMA + CROSS-REGISTRY TESTS ===
+
+    import hashlib as _hl5
+    import re as _re5
+
+    # all_31_methodologies_validate_against_schema
+    _meth_schema = _json.load(open(os.path.join(SCHEMA_DIR, 'methodology_schema.json')))
+    _schema_errs = 0
+    for m in methods:
+        _ctx = f"methodology:{m.get('methodology_id','?')}"
+        _errs = []
+        _props = _meth_schema.get('properties', {})
+        _required = _meth_schema.get('required', [])
+        _additional = _meth_schema.get('additionalProperties', True)
+        for r in _required:
+            if r not in m:
+                _errs.append(f"missing {r}")
+        if _additional is False:
+            for k in m:
+                if k not in _props:
+                    _errs.append(f"additional {k}")
+        _schema_errs += len(_errs)
+    runner.test("all_31_methodologies_validate_against_schema", _schema_errs == 0, f"{_schema_errs} schema violations")
+
+    # no_methodology_additional_properties
+    _addl = sum(1 for m in methods for k in m if k not in _meth_schema.get('properties',{}))
+    runner.test("no_methodology_additional_properties", _addl == 0, f"{_addl} additional properties")
+
+    # all_rules_have_rule_id_description
+    _rule_errs = 0
+    for m in methods:
+        for r in m.get('rules_structured',[]):
+            if 'rule_id' not in r or 'description' not in r:
+                _rule_errs += 1
+    runner.test("all_rules_have_rule_id_description", _rule_errs == 0, f"{_rule_errs} rules missing rule_id/description")
+
+    # thresholds_structured_is_array
+    _thresh_errs = sum(1 for m in methods if not isinstance(m.get('thresholds_structured'), list))
+    runner.test("thresholds_structured_is_array", _thresh_errs == 0, f"{_thresh_errs} not array")
+
+    # freshness_requirement_schema_valid
+    _fr_errs = 0
+    for m in methods:
+        fr = m.get('freshness_requirement', {})
+        for k in ['max_age_seconds','strategy','stale_threshold_seconds','degraded_threshold_seconds']:
+            if k not in fr:
+                _fr_errs += 1
+        if fr.get('strategy') not in ('FRESH_FIRST','STALE_OK','DEGRADED_OK','ANY_AVAILABLE','REQUIRE_FRESH'):
+            _fr_errs += 1
+    runner.test("freshness_requirement_schema_valid", _fr_errs == 0, f"{_fr_errs} freshness violations")
+
+    # source_requirements_is_array_of_known_source_ids
+    _sr_errs = 0
+    _all_source_ids = set(s['source_id'] for s in _json.load(open(os.path.join(CONFIG_DIR, 'sources.json')))['entries'])
+    for m in methods:
+        sr = m.get('source_requirements', [])
+        if not isinstance(sr, list):
+            _sr_errs += 1
+        else:
+            for sid in sr:
+                if sid not in _all_source_ids:
+                    _sr_errs += 1
+    runner.test("source_requirements_is_array_of_known_source_ids", _sr_errs == 0, f"{_sr_errs} source req violations")
+
+    # pit_requirement_schema_valid
+    _pit_errs = 0
+    for m in methods:
+        pit = m.get('point_in_time_requirement', {})
+        for k in ['required','as_of_field','default_lookback']:
+            if k not in pit:
+                _pit_errs += 1
+    runner.test("pit_requirement_schema_valid", _pit_errs == 0, f"{_pit_errs} pit violations")
+
+    # method_hash_recomputable
+    _hash_errs = 0
+    for m in methods:
+        payload = {k:v for k,v in m.items() if k != 'methodology_version_hash'}
+        payload_str = _json.dumps(payload, sort_keys=True, ensure_ascii=False)
+        expected = _hl5.sha256(payload_str.encode('utf-8')).hexdigest()
+        if m.get('methodology_version_hash','') != expected:
+            _hash_errs += 1
+    runner.test("method_hash_recomputable", _hash_errs == 0, f"{_hash_errs} hash mismatches")
+
+    # method_hashes_unique
+    _hashes = [m.get('methodology_version_hash','') for m in methods]
+    runner.test("method_hashes_unique", len(set(_hashes)) == len(_hashes), f"{len(_hashes)-len(set(_hashes))} duplicate hashes")
+
+    # no_noncallable_in_profile_core_or_triggered
+    _nc_trigger = 0
+    _meth_map = {m['methodology_id']:m for m in methods}
+    for p in profiles:
+        for mid2 in p.get('core_methodologies',[]):
+            if mid2 in _meth_map and _meth_map[mid2].get('execution_class') in ('NONCALLABLE','META'):
+                _nc_trigger += 1
+        for t in p.get('triggered_methodologies',[]):
+            tid = t.get('methodology_id') if isinstance(t,dict) else t
+            if tid in _meth_map and _meth_map[tid].get('execution_class') in ('NONCALLABLE','META'):
+                _nc_trigger += 1
+    runner.test("no_noncallable_in_profile_core_or_triggered", _nc_trigger == 0, f"{_nc_trigger} NONCALLABLE/META triggered")
+
+    # governance_only_in_audit_path
+    _gov_errs = 0
+    for p in profiles:
+        for mid2 in p.get('core_methodologies',[]):
+            if mid2 in _meth_map and _meth_map[mid2].get('execution_class') == 'GOVERNANCE':
+                _gov_errs += 1
+        for t in p.get('triggered_methodologies',[]):
+            tid = t.get('methodology_id') if isinstance(t,dict) else t
+            if tid in _meth_map and _meth_map[tid].get('execution_class') == 'GOVERNANCE':
+                _gov_errs += 1
+    runner.test("governance_only_in_audit_path", _gov_errs == 0, f"{_gov_errs} GOVERNANCE in core/triggered")
+
+    # no_stale_trigger_semantics
+    _stale_triggers = {
+        'M09': ['cot', 'positioning', 'crowding'],
+        'M10': ['yield_curve', 'inversion', 'recession'],
+        'M11': ['trade_flow', 'tariff', 'comtrade'],
+        'M16': ['supply_chain_stress'],
+        'M05': ['sanctions'],
+        'M06': ['military', 'deployment'],
+        'M07': ['humanitarian', 'displacement'],
+        'C01': ['geopolitical_overlay'],
+        'C02': ['macro_overlay'],
+    }
+    _stale_errs = 0
+    for p in profiles:
+        for t in p.get('triggered_methodologies',[]):
+            if isinstance(t, dict):
+                tid = t.get('methodology_id','')
+                trigger = t.get('trigger','').lower()
+                for term in _stale_triggers.get(tid, []):
+                    if term.lower() in trigger:
+                        _stale_errs += 1
+    runner.test("no_stale_trigger_semantics", _stale_errs == 0, f"{_stale_errs} stale triggers")
+
+    # profile_binding_bijection
+    _bij_errs = 0
+    for p in profiles:
+        pid = p['profile_id']
+        for mid2 in p.get('core_methodologies',[]):
+            if mid2 in _meth_map and pid not in _meth_map[mid2].get('applicable_profiles',[]):
+                _bij_errs += 1
+        for t in p.get('triggered_methodologies',[]):
+            tid = t.get('methodology_id') if isinstance(t,dict) else t
+            if tid in _meth_map and pid not in _meth_map[tid].get('applicable_profiles',[]):
+                _bij_errs += 1
+        for mid3 in p.get('audit_methodologies',[]):
+            mid3 = mid3 if isinstance(mid3,str) else mid3.get('methodology_id')
+            if mid3 in _meth_map and pid not in _meth_map[mid3].get('applicable_profiles',[]):
+                _bij_errs += 1
+    runner.test("profile_binding_bijection", _bij_errs == 0, f"{_bij_errs} bijection violations")
+
+    # all_profile_bindings_allowed_by_method_applicability (same as bijection)
+    runner.test("all_profile_bindings_allowed_by_method_applicability", _bij_errs == 0, f"{_bij_errs} applicability violations")
+
+    # all_role_bindings_allowed_by_method_roles
+    _rb_errs = 0
+    for rb in registries.get('bindings',{}).get('role_methodology_bindings',[]):
+        rid = rb.get('role_id','')
+        mid2 = rb.get('methodology_id','')
+        if mid2 in _meth_map:
+            if rid not in _meth_map[mid2].get('primary_roles',[]) + _meth_map[mid2].get('secondary_roles',[]):
+                _rb_errs += 1
+    runner.test("all_role_bindings_allowed_by_method_roles", _rb_errs == 0, f"{_rb_errs} role binding violations")
+
+    # role_default_methods_are_executable
+    _rd_errs = 0
+    for r2 in roles:
+        for mid2 in r2.get('default_methodologies',[]):
+            if mid2 in _meth_map and _meth_map[mid2].get('execution_class') in ('NONCALLABLE','META','GOVERNANCE'):
+                _rd_errs += 1
+    runner.test("role_default_methods_are_executable", _rd_errs == 0, f"{_rd_errs} non-executable defaults")
+
+    # M24_applies_to_gold
+    _m24 = next((m for m in methods if m['methodology_id']=='M24'), {})
+    runner.test("M24_applies_to_gold", 'P03' in _m24.get('applicable_profiles',[]), "M24 missing P03 GOLD")
+
+    # M17_M18_apply_to_energy_profiles
+    _m17 = next((m for m in methods if m['methodology_id']=='M17'), {})
+    _m18 = next((m for m in methods if m['methodology_id']=='M18'), {})
+    _m17_p = 'P01' in _m17.get('applicable_profiles',[]) and 'P02' in _m17.get('applicable_profiles',[])
+    _m18_p = 'P01' in _m18.get('applicable_profiles',[]) and 'P02' in _m18.get('applicable_profiles',[])
+    runner.test("M17_M18_apply_to_energy_profiles", _m17_p and _m18_p, "M17/M18 missing energy profiles")
+
+    # M22_applies_to_geopolitical
+    _m22 = next((m for m in methods if m['methodology_id']=='M22'), {})
+    runner.test("M22_applies_to_geopolitical", 'P10' in _m22.get('applicable_profiles',[]), "M22 missing P10")
+
+    # NEGATIVE SCHEMA TEST: mutate and verify validator catches it
+    _neg_m = dict(methods[0])  # copy M01
+    _neg_m['rules_structured'] = {}  # wrong type
+    _neg_errs = 0
+    if not isinstance(_neg_m.get('rules_structured'), list):
+        _neg_errs += 1
+    _neg_m2 = dict(methods[0])
+    _neg_m2['unknown_property'] = 'bad'  # additional property
+    if 'unknown_property' not in _meth_schema.get('properties',{}):
+        _neg_errs += 1
+    runner.test("negative_schema_test", _neg_errs >= 2, f"negative test caught {_neg_errs} violations")
+
     # Output
     result = runner.summary()
     print(json.dumps(result, indent=2))

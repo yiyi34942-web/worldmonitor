@@ -249,8 +249,7 @@
       "default_methodologies": [
         "M08",
         "M09",
-        "M10",
-        "C05"
+        "M10"
       ],
       "api_family_hints": [
         "EconomicService",

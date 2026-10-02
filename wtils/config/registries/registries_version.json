@@ -28,5 +28,6 @@
     "Research Artifact schema: delivery/cache nullable + delivery_binding_state/cache_binding_state",
     "Request body schema ref: 18 bound, 219 NOT_APPLICABLE, 0 null",
     "M21 CII description: Country Instability/Intelligence (NOT IMO)"
-  ]
+  ],
+  "version": "2.1.2"
 }
