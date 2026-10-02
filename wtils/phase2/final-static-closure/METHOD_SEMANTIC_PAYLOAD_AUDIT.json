@@ -1,0 +1,469 @@
+{
+  "generated_at": "2026-10-02T03:46:35.865213Z",
+  "total": 31,
+  "pass": 31,
+  "entries": [
+    {
+      "methodology_id": "M01",
+      "canonical_name": "China Activity Nowcast",
+      "status": "PASS",
+      "forbidden_old_semantics_found": [],
+      "required_semantics_present": [
+        "primary_roles",
+        "rules_structured",
+        "limitations",
+        "asset_types"
+      ],
+      "fields_changed": [],
+      "evidence_refs": [],
+      "remaining_unknowns": []
+    },
+    {
+      "methodology_id": "M02",
+      "canonical_name": "News Digest & Briefing",
+      "status": "PASS",
+      "forbidden_old_semantics_found": [],
+      "required_semantics_present": [
+        "primary_roles",
+        "rules_structured",
+        "limitations",
+        "asset_types"
+      ],
+      "fields_changed": [],
+      "evidence_refs": [],
+      "remaining_unknowns": []
+    },
+    {
+      "methodology_id": "M03",
+      "canonical_name": "News Credibility",
+      "status": "PASS",
+      "forbidden_old_semantics_found": [],
+      "required_semantics_present": [
+        "primary_roles",
+        "rules_structured",
+        "limitations",
+        "asset_types"
+      ],
+      "fields_changed": [],
+      "evidence_refs": [],
+      "remaining_unknowns": []
+    },
+    {
+      "methodology_id": "M04",
+      "canonical_name": "Country Resilience Index",
+      "status": "PASS",
+      "forbidden_old_semantics_found": [],
+      "required_semantics_present": [
+        "primary_roles",
+        "rules_structured",
+        "asset_types"
+      ],
+      "fields_changed": [],
+      "evidence_refs": [],
+      "remaining_unknowns": []
+    },
+    {
+      "methodology_id": "M05",
+      "canonical_name": "Resilience Indicators",
+      "status": "PASS",
+      "forbidden_old_semantics_found": [],
+      "required_semantics_present": [
+        "primary_roles",
+        "rules_structured",
+        "limitations",
+        "asset_types"
+      ],
+      "fields_changed": [],
+      "evidence_refs": [],
+      "remaining_unknowns": []
+    },
+    {
+      "methodology_id": "M06",
+      "canonical_name": "Resilience Indicator Licensing",
+      "status": "PASS",
+      "forbidden_old_semantics_found": [],
+      "required_semantics_present": [
+        "primary_roles",
+        "rules_structured",
+        "limitations",
+        "asset_types"
+      ],
+      "fields_changed": [],
+      "evidence_refs": [],
+      "remaining_unknowns": []
+    },
+    {
+      "methodology_id": "M07",
+      "canonical_name": "Known Limitations",
+      "status": "PASS",
+      "forbidden_old_semantics_found": [],
+      "required_semantics_present": [
+        "primary_roles",
+        "rules_structured",
+        "limitations",
+        "asset_types"
+      ],
+      "fields_changed": [],
+      "evidence_refs": [],
+      "remaining_unknowns": []
+    },
+    {
+      "methodology_id": "M08",
+      "canonical_name": "Financial System Exposure",
+      "status": "PASS",
+      "forbidden_old_semantics_found": [],
+      "required_semantics_present": [
+        "primary_roles",
+        "rules_structured",
+        "limitations",
+        "asset_types"
+      ],
+      "fields_changed": [],
+      "evidence_refs": [],
+      "remaining_unknowns": []
+    },
+    {
+      "methodology_id": "M09",
+      "canonical_name": "SWF Classification Rubric",
+      "status": "PASS",
+      "forbidden_old_semantics_found": [],
+      "required_semantics_present": [
+        "primary_roles",
+        "rules_structured",
+        "limitations"
+      ],
+      "fields_changed": [],
+      "evidence_refs": [],
+      "remaining_unknowns": []
+    },
+    {
+      "methodology_id": "M10",
+      "canonical_name": "Five-Factor Country Scorecard",
+      "status": "PASS",
+      "forbidden_old_semantics_found": [],
+      "required_semantics_present": [
+        "primary_roles",
+        "rules_structured",
+        "limitations",
+        "asset_types"
+      ],
+      "fields_changed": [],
+      "evidence_refs": [],
+      "remaining_unknowns": []
+    },
+    {
+      "methodology_id": "M11",
+      "canonical_name": "Demographics & Workforce Capability",
+      "status": "PASS",
+      "forbidden_old_semantics_found": [],
+      "required_semantics_present": [
+        "primary_roles",
+        "rules_structured",
+        "limitations",
+        "asset_types"
+      ],
+      "fields_changed": [],
+      "evidence_refs": [],
+      "remaining_unknowns": []
+    },
+    {
+      "methodology_id": "M12",
+      "canonical_name": "Food Stocks & Stocks-to-Use",
+      "status": "PASS",
+      "forbidden_old_semantics_found": [],
+      "required_semantics_present": [
+        "primary_roles",
+        "rules_structured",
+        "limitations",
+        "asset_types"
+      ],
+      "fields_changed": [],
+      "evidence_refs": [],
+      "remaining_unknowns": []
+    },
+    {
+      "methodology_id": "M13",
+      "canonical_name": "Defense Industrial Base",
+      "status": "PASS",
+      "forbidden_old_semantics_found": [],
+      "required_semantics_present": [
+        "primary_roles",
+        "rules_structured",
+        "limitations",
+        "asset_types"
+      ],
+      "fields_changed": [],
+      "evidence_refs": [],
+      "remaining_unknowns": []
+    },
+    {
+      "methodology_id": "M14",
+      "canonical_name": "Mineral Production & Processing Concentration",
+      "status": "PASS",
+      "forbidden_old_semantics_found": [],
+      "required_semantics_present": [
+        "primary_roles",
+        "rules_structured",
+        "limitations"
+      ],
+      "fields_changed": [],
+      "evidence_refs": [],
+      "remaining_unknowns": []
+    },
+    {
+      "methodology_id": "M15",
+      "canonical_name": "Commodity / Supply Vulnerability",
+      "status": "PASS",
+      "forbidden_old_semantics_found": [],
+      "required_semantics_present": [
+        "primary_roles",
+        "rules_structured",
+        "limitations",
+        "asset_types"
+      ],
+      "fields_changed": [],
+      "evidence_refs": [],
+      "remaining_unknowns": []
+    },
+    {
+      "methodology_id": "M16",
+      "canonical_name": "Chokepoints",
+      "status": "PASS",
+      "forbidden_old_semantics_found": [],
+      "required_semantics_present": [
+        "primary_roles",
+        "rules_structured",
+        "limitations",
+        "asset_types"
+      ],
+      "fields_changed": [],
+      "evidence_refs": [],
+      "remaining_unknowns": []
+    },
+    {
+      "methodology_id": "M17",
+      "canonical_name": "Pipeline Registry",
+      "status": "PASS",
+      "forbidden_old_semantics_found": [],
+      "required_semantics_present": [
+        "primary_roles",
+        "rules_structured",
+        "limitations",
+        "asset_types"
+      ],
+      "fields_changed": [],
+      "evidence_refs": [],
+      "remaining_unknowns": []
+    },
+    {
+      "methodology_id": "M18",
+      "canonical_name": "Storage Facility",
+      "status": "PASS",
+      "forbidden_old_semantics_found": [],
+      "required_semantics_present": [
+        "primary_roles",
+        "rules_structured",
+        "limitations",
+        "asset_types"
+      ],
+      "fields_changed": [],
+      "evidence_refs": [],
+      "remaining_unknowns": []
+    },
+    {
+      "methodology_id": "M19",
+      "canonical_name": "Fuel Shortage Alert",
+      "status": "PASS",
+      "forbidden_old_semantics_found": [],
+      "required_semantics_present": [
+        "primary_roles",
+        "rules_structured",
+        "limitations",
+        "asset_types"
+      ],
+      "fields_changed": [],
+      "evidence_refs": [],
+      "remaining_unknowns": []
+    },
+    {
+      "methodology_id": "M20",
+      "canonical_name": "Energy Disruption Event Log",
+      "status": "PASS",
+      "forbidden_old_semantics_found": [],
+      "required_semantics_present": [
+        "primary_roles",
+        "rules_structured",
+        "limitations",
+        "asset_types"
+      ],
+      "fields_changed": [],
+      "evidence_refs": [],
+      "remaining_unknowns": []
+    },
+    {
+      "methodology_id": "M21",
+      "canonical_name": "CII Risk Scoring",
+      "status": "PASS",
+      "forbidden_old_semantics_found": [],
+      "required_semantics_present": [
+        "primary_roles",
+        "rules_structured",
+        "limitations",
+        "asset_types"
+      ],
+      "fields_changed": [],
+      "evidence_refs": [],
+      "remaining_unknowns": []
+    },
+    {
+      "methodology_id": "M22",
+      "canonical_name": "Disease Outbreak Alert Level",
+      "status": "PASS",
+      "forbidden_old_semantics_found": [],
+      "required_semantics_present": [
+        "primary_roles",
+        "rules_structured",
+        "limitations",
+        "asset_types"
+      ],
+      "fields_changed": [],
+      "evidence_refs": [],
+      "remaining_unknowns": []
+    },
+    {
+      "methodology_id": "M23",
+      "canonical_name": "Thermal Escalation",
+      "status": "PASS",
+      "forbidden_old_semantics_found": [],
+      "required_semantics_present": [
+        "primary_roles",
+        "rules_structured",
+        "limitations",
+        "asset_types"
+      ],
+      "fields_changed": [],
+      "evidence_refs": [],
+      "remaining_unknowns": []
+    },
+    {
+      "methodology_id": "M24",
+      "canonical_name": "Physical Precious-Metals Divergence Index",
+      "status": "PASS",
+      "forbidden_old_semantics_found": [],
+      "required_semantics_present": [
+        "primary_roles",
+        "rules_structured",
+        "limitations",
+        "asset_types"
+      ],
+      "fields_changed": [],
+      "evidence_refs": [],
+      "remaining_unknowns": []
+    },
+    {
+      "methodology_id": "C01",
+      "canonical_name": "CII Operator Overview",
+      "status": "PASS",
+      "forbidden_old_semantics_found": [],
+      "required_semantics_present": [
+        "primary_roles",
+        "rules_structured",
+        "limitations",
+        "asset_types"
+      ],
+      "fields_changed": [],
+      "evidence_refs": [],
+      "remaining_unknowns": []
+    },
+    {
+      "methodology_id": "C02",
+      "canonical_name": "Revision & Corrections",
+      "status": "PASS",
+      "forbidden_old_semantics_found": [],
+      "required_semantics_present": [
+        "primary_roles",
+        "rules_structured",
+        "limitations",
+        "asset_types"
+      ],
+      "fields_changed": [],
+      "evidence_refs": [],
+      "remaining_unknowns": []
+    },
+    {
+      "methodology_id": "C03",
+      "canonical_name": "Geographic Convergence",
+      "status": "PASS",
+      "forbidden_old_semantics_found": [],
+      "required_semantics_present": [
+        "primary_roles",
+        "rules_structured",
+        "limitations",
+        "asset_types"
+      ],
+      "fields_changed": [],
+      "evidence_refs": [],
+      "remaining_unknowns": []
+    },
+    {
+      "methodology_id": "C04",
+      "canonical_name": "Strategic Risk",
+      "status": "PASS",
+      "forbidden_old_semantics_found": [],
+      "required_semantics_present": [
+        "primary_roles",
+        "rules_structured",
+        "limitations",
+        "asset_types"
+      ],
+      "fields_changed": [],
+      "evidence_refs": [],
+      "remaining_unknowns": []
+    },
+    {
+      "methodology_id": "C05",
+      "canonical_name": "Algorithms & Scoring",
+      "status": "PASS",
+      "forbidden_old_semantics_found": [],
+      "required_semantics_present": [
+        "primary_roles",
+        "rules_structured",
+        "limitations",
+        "asset_types"
+      ],
+      "fields_changed": [],
+      "evidence_refs": [],
+      "remaining_unknowns": []
+    },
+    {
+      "methodology_id": "C06",
+      "canonical_name": "Decision-Signal Provenance",
+      "status": "PASS",
+      "forbidden_old_semantics_found": [],
+      "required_semantics_present": [
+        "primary_roles",
+        "rules_structured",
+        "limitations",
+        "asset_types"
+      ],
+      "fields_changed": [],
+      "evidence_refs": [],
+      "remaining_unknowns": []
+    },
+    {
+      "methodology_id": "C07",
+      "canonical_name": "Source Attribution",
+      "status": "PASS",
+      "forbidden_old_semantics_found": [],
+      "required_semantics_present": [
+        "primary_roles",
+        "rules_structured",
+        "limitations",
+        "asset_types"
+      ],
+      "fields_changed": [],
+      "evidence_refs": [],
+      "remaining_unknowns": []
+    }
+  ]
+}

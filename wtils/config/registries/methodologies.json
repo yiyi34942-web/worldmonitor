@@ -7,8 +7,6 @@
       "methodology_id": "M01",
       "name": "China Activity Nowcast",
       "version": "1.0.0",
-      "valid_from": null,
-      "valid_to": null,
       "primary_roles": [
         "WORLD",
         "TECH"
@@ -45,10 +43,7 @@
         "context_data",
         "historical_events"
       ],
-      "output_bindings": [
-        "classification_result",
-        "event_score"
-      ],
+      "output_bindings": [],
       "rules_structured": [
         {
           "rule_id": "M01_R01",
@@ -92,21 +87,21 @@
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "methodology_version_hash": "b706d5520c38a8a13225fe4f8414f6187e1e20c196654b85529b9cc05859bc88",
+      "methodology_version_hash": "99b70d9ebb732b4ea53e1f42033003b013f4561c49374ce505c2c81d1381e8a7",
       "rebaseline_required": false,
       "callable": true,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "provenance_class": "OFFICIAL",
       "execution_class": "DIRECT_API",
       "canonical_name": "China Activity Nowcast",
-      "methodology_version": "1.1.0"
+      "methodology_version": "1.1.0",
+      "valid_to": null,
+      "valid_from": null
     },
     {
       "methodology_id": "M02",
       "name": "News Digest & Briefing",
       "version": "1.0.0",
-      "valid_from": null,
-      "valid_to": null,
       "primary_roles": [
         "WORLD"
       ],
@@ -151,8 +146,7 @@
           "description": "Compare current value against temporal baseline distribution"
         },
         {
-          "rule_id": "M02_R02",
-          "description": "Flag if deviation exceeds N standard deviations"
+          "rule_id": "M02_R02"
         }
       ],
       "thresholds_structured": [
@@ -187,14 +181,16 @@
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": false,
-      "methodology_version_hash": "c0f2683b51eba0c2d65270c8688cfbea4fc5c9a2da190e07128d6576e84f812b",
+      "methodology_version_hash": "6876d1ce3fea3ed699f55d47c531171a3c33e2e01b749cdef17c01cf4ac9b9b5",
       "rebaseline_required": false,
       "callable": true,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "provenance_class": "OFFICIAL",
       "execution_class": "DIRECT_API",
       "canonical_name": "News Digest & Briefing",
-      "methodology_version": "1.1.0"
+      "methodology_version": "1.1.0",
+      "valid_to": null,
+      "valid_from": null
     },
     {
       "methodology_id": "M03",
@@ -307,8 +303,6 @@
       "methodology_id": "M04",
       "name": "Country Resilience Index",
       "version": "1.0.0",
-      "valid_from": null,
-      "valid_to": null,
       "primary_roles": [
         "WORLD"
       ],
@@ -319,8 +313,7 @@
         "P10"
       ],
       "trigger_conditions": [
-        "conflict_event_received",
-        "casualty_report"
+        "conflict_event_received"
       ],
       "asset_types": [
         "conflict_event"
@@ -335,10 +328,7 @@
         "region",
         "group"
       ],
-      "required_inputs": [
-        "acled_data",
-        "ucdp_data"
-      ],
+      "required_inputs": [],
       "enrichment_inputs": [
         "iran_events",
         "humanitarian_data"
@@ -350,8 +340,7 @@
       ],
       "rules_structured": [
         {
-          "rule_id": "M04_R01",
-          "description": "Aggregate ACLED and UCDP events into intensity scores per region"
+          "rule_id": "M04_R01"
         },
         {
           "rule_id": "M04_R02",
@@ -368,10 +357,7 @@
           "value": 0.8
         }
       ],
-      "limitations": [
-        "ACLED coverage varies by region",
-        "UCDP threshold excludes low-level events"
-      ],
+      "limitations": [],
       "freshness_requirement": {
         "max_age_seconds": 86400,
         "strategy": "DEGRADED_OK",
@@ -379,8 +365,6 @@
         "degraded_threshold_seconds": 604800
       },
       "source_requirements": [
-        "SRC_ACLED",
-        "SRC_UCDP",
         "SRC_IRAN_EVENTS"
       ],
       "point_in_time_requirement": {
@@ -391,21 +375,21 @@
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "methodology_version_hash": "7eed7e66a945c442b6ae8bb68eb2fd65ef67584298becf954f6e46ea0144bec8",
+      "methodology_version_hash": "370b28723e34554ba7a3069a5a8b6b077e05df13b50527b9f4d837b5fcbc03af",
       "rebaseline_required": false,
       "callable": true,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "provenance_class": "OFFICIAL",
       "execution_class": "DIRECT_API",
       "canonical_name": "Country Resilience Index",
-      "methodology_version": "1.1.0"
+      "methodology_version": "1.1.0",
+      "valid_to": null,
+      "valid_from": null
     },
     {
       "methodology_id": "M05",
       "name": "Resilience Indicators",
       "version": "1.0.0",
-      "valid_from": null,
-      "valid_to": null,
       "primary_roles": [
         "WORLD"
       ],
@@ -471,7 +455,6 @@
         "degraded_threshold_seconds": 604800
       },
       "source_requirements": [
-        "SRC_OFAC",
         "SRC_GDELT"
       ],
       "point_in_time_requirement": {
@@ -482,21 +465,21 @@
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "methodology_version_hash": "da0561160443ebafa592d01a2ce7e3b0773f6d021550db6d2bf16df78f006079",
+      "methodology_version_hash": "1f52dab0b086ed50b3320f9b21ccf7991568330d3e988febbcc03026c51111a6",
       "rebaseline_required": false,
       "callable": true,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "provenance_class": "OFFICIAL",
       "execution_class": "DIRECT_API",
       "canonical_name": "Resilience Indicators",
-      "methodology_version": "1.1.0"
+      "methodology_version": "1.1.0",
+      "valid_to": null,
+      "valid_from": null
     },
     {
       "methodology_id": "M06",
       "name": "Resilience Indicator Licensing",
       "version": "1.0.0",
-      "valid_from": null,
-      "valid_to": null,
       "primary_roles": [
         "WORLD",
         "TECH"
@@ -508,7 +491,6 @@
         "P10"
       ],
       "trigger_conditions": [
-        "deployment_detected",
         "exercise_announced",
         "flight_anomaly"
       ],
@@ -583,14 +565,16 @@
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "methodology_version_hash": "3823eaa41ee79c63fe3ce2cebba8f9ecb21ac1686d660b853f9a130308f3b29a",
+      "methodology_version_hash": "368c4ef0eec215ded2606ae8f1e1ef25da467b67623390c9b0ae3c66f0385fab",
       "rebaseline_required": false,
       "callable": false,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "provenance_class": "OFFICIAL",
       "execution_class": "NONCALLABLE",
       "canonical_name": "Resilience Indicator Licensing",
-      "methodology_version": "1.1.0"
+      "methodology_version": "1.1.0",
+      "valid_to": null,
+      "valid_from": null
     },
     {
       "methodology_id": "M07",
@@ -635,8 +619,7 @@
           "rule_id": "M07_R01"
         },
         {
-          "rule_id": "M07_R02",
-          "description": "Identify aid gaps and coverage shortfalls"
+          "rule_id": "M07_R02"
         }
       ],
       "thresholds_structured": [
@@ -669,7 +652,7 @@
       "fast_path_allowed": false,
       "deep_path_allowed": true,
       "weknora_eligible": false,
-      "methodology_version_hash": "e20073c62fae7bf3255219bcf4341d4dbf12ebc205a06293e8bef9f1136d88a8",
+      "methodology_version_hash": "5cb14dd63e5e3c33d5303c7fc0be4b89a40cb6f858c4636f64fd584f1bcf1a9e",
       "rebaseline_required": false,
       "callable": false,
       "valid_from_state": "VALID_FROM_UNKNOWN",
@@ -785,8 +768,6 @@
       "methodology_id": "M09",
       "name": "SWF Classification Rubric",
       "version": "1.0.0",
-      "valid_from": null,
-      "valid_to": null,
       "primary_roles": [
         "FINANCE"
       ],
@@ -797,29 +778,19 @@
         "P06",
         "P08"
       ],
-      "trigger_conditions": [
-        "cot_report_published",
-        "positioning_extreme"
-      ],
-      "asset_types": [
-        "cot_report"
-      ],
-      "event_types": [
-        "positioning_change"
-      ],
+      "trigger_conditions": [],
+      "asset_types": [],
+      "event_types": [],
       "entity_types": [
         "market",
         "commodity"
       ],
-      "required_inputs": [
-        "cot_data"
-      ],
+      "required_inputs": [],
       "enrichment_inputs": [
         "price_data",
         "fundamental_data"
       ],
       "output_bindings": [
-        "positioning_summary",
         "extreme_flags",
         "crowding_risk"
       ],
@@ -852,7 +823,6 @@
         }
       ],
       "limitations": [
-        "COT data released weekly with lag",
         "Does not capture OTC positions"
       ],
       "freshness_requirement": {
@@ -873,21 +843,21 @@
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "methodology_version_hash": "1078a7b9016532f1b3b4115f164829d68595d2142e9750124c6d1105e4db4137",
+      "methodology_version_hash": "e0d13edcb112e352b81fd3884f591f74e8df1e3d8a1b8dcc27aaaacb7277df0a",
       "rebaseline_required": false,
       "callable": true,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "provenance_class": "OFFICIAL",
       "execution_class": "COMPOSITE",
       "canonical_name": "SWF Classification Rubric",
-      "methodology_version": "1.1.0"
+      "methodology_version": "1.1.0",
+      "valid_to": null,
+      "valid_from": null
     },
     {
       "methodology_id": "M10",
       "name": "Five-Factor Country Scorecard",
       "version": "1.0.0",
-      "valid_from": null,
-      "valid_to": null,
       "primary_roles": [
         "FINANCE"
       ],
@@ -899,15 +869,13 @@
         "P07"
       ],
       "trigger_conditions": [
-        "curve_shift_detected",
-        "inversion_signal"
+        "curve_shift_detected"
       ],
       "asset_types": [
         "yield_curve"
       ],
       "event_types": [
-        "curve_shift",
-        "inversion"
+        "curve_shift"
       ],
       "entity_types": [
         "government",
@@ -920,11 +888,7 @@
         "forward_rates",
         "inflation_expectations"
       ],
-      "output_bindings": [
-        "curve_shape",
-        "inversion_status",
-        "recession_probability"
-      ],
+      "output_bindings": [],
       "rules_structured": [
         {
           "rule": "five_factors",
@@ -956,7 +920,6 @@
         }
       ],
       "limitations": [
-        "Recession signal has 12-18 month lead time",
         "Global curves may diverge"
       ],
       "freshness_requirement": {
@@ -977,14 +940,16 @@
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "methodology_version_hash": "1391af76bcc8011ef640d37aab5fa40471e794cc8d38b2bb08eab6c70a04fb52",
+      "methodology_version_hash": "68d54a3546631112792cfd5a586ab49360ca800f2b36b912e99fae36265b0235",
       "rebaseline_required": false,
       "callable": true,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "provenance_class": "OFFICIAL",
       "execution_class": "DIRECT_API",
       "canonical_name": "Five-Factor Country Scorecard",
-      "methodology_version": "1.1.0"
+      "methodology_version": "1.1.0",
+      "valid_to": null,
+      "valid_from": null
     },
     {
       "methodology_id": "M11",
@@ -1003,7 +968,6 @@
         "P10"
       ],
       "trigger_conditions": [
-        "tariff_change",
         "embargo_imposed"
       ],
       "asset_types": [
@@ -1023,8 +987,7 @@
         "industrial_workforce"
       ],
       "required_inputs": [
-        "comtrade_data",
-        "tariff_data"
+        "comtrade_data"
       ],
       "enrichment_inputs": [
         "sanctions_data",
@@ -1072,7 +1035,7 @@
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "methodology_version_hash": "1f4189028ad0d8b73ca6b705ea7c299f3bb743f7510ff969a7f7db99a76758ec",
+      "methodology_version_hash": "4399762e3f6d22977c089d97a11fca6ed845f26344993cc07c80ad02898fad91",
       "rebaseline_required": false,
       "callable": true,
       "valid_from_state": "VALID_FROM_UNKNOWN",
@@ -1179,8 +1142,6 @@
       "methodology_id": "M13",
       "name": "Defense Industrial Base",
       "version": "1.0.0",
-      "valid_from": null,
-      "valid_to": null,
       "primary_roles": [
         "TECH",
         "COMMODITY"
@@ -1274,14 +1235,14 @@
       "provenance_class": "OFFICIAL",
       "execution_class": "DIRECT_API",
       "canonical_name": "Defense Industrial Base",
-      "methodology_version": "1.1.0"
+      "methodology_version": "1.1.0",
+      "valid_to": null,
+      "valid_from": null
     },
     {
       "methodology_id": "M14",
       "name": "Mineral Production & Processing Concentration",
       "version": "1.0.0",
-      "valid_from": null,
-      "valid_to": null,
       "primary_roles": [
         "TECH",
         "COMMODITY"
@@ -1295,23 +1256,18 @@
         "P01"
       ],
       "trigger_conditions": [
-        "chokepoint_status_change",
         "corridor_disruption"
       ],
-      "asset_types": [
-        "chokepoint_data"
-      ],
+      "asset_types": [],
       "event_types": [
         "disruption",
         "control_tower_change"
       ],
       "entity_types": [
-        "chokepoint",
         "corridor",
         "country"
       ],
       "required_inputs": [
-        "chokepoint_status",
         "corridor_data"
       ],
       "enrichment_inputs": [
@@ -1320,17 +1276,14 @@
       ],
       "output_bindings": [
         "dependency_map",
-        "bypass_options",
         "impact_assessment"
       ],
       "rules_structured": [
         {
-          "rule_id": "M14_R01",
-          "description": "Identify dependencies on each chokepoint by commodity"
+          "rule_id": "M14_R01"
         },
         {
-          "rule_id": "M14_R02",
-          "description": "Evaluate bypass options and costs"
+          "rule_id": "M14_R02"
         },
         {
           "rule_id": "M14_R03",
@@ -1344,7 +1297,6 @@
         }
       ],
       "limitations": [
-        "Bypass options limited for some chokepoints",
         "Real-time disruption data may lag"
       ],
       "freshness_requirement": {
@@ -1366,21 +1318,21 @@
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "methodology_version_hash": "7e0235420722884b853f57790a4bd29eda7564cc261c721b66ac2afd589b0cc7",
+      "methodology_version_hash": "01c7f10230aa6718d9f4b8601cab517f85f3c7adfeb97f7f6cac2d9882453d21",
       "rebaseline_required": false,
       "callable": true,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "provenance_class": "OFFICIAL",
       "execution_class": "DIRECT_API",
       "canonical_name": "Mineral Production & Processing Concentration",
-      "methodology_version": "1.1.0"
+      "methodology_version": "1.1.0",
+      "valid_to": null,
+      "valid_from": null
     },
     {
       "methodology_id": "M15",
       "name": "Commodity / Supply Vulnerability",
       "version": "1.0.0",
-      "valid_from": null,
-      "valid_to": null,
       "primary_roles": [
         "COMMODITY",
         "ENERGY"
@@ -1429,8 +1381,7 @@
           "description": "Analyze price action with technical and fundamental factors"
         },
         {
-          "rule_id": "M15_R02",
-          "description": "Compute forward curve and term structure"
+          "rule_id": "M15_R02"
         }
       ],
       "thresholds_structured": [
@@ -1466,21 +1417,21 @@
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "methodology_version_hash": "11a0f85600a91bf285533843928e974d83e51302cf0d6c0579947ea8b25e7b7a",
+      "methodology_version_hash": "0a818c3adea8dbd78e2c5a0c6d7f866cb8df1b237868559d9fccafbb4adbee90",
       "rebaseline_required": false,
       "callable": true,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "provenance_class": "OFFICIAL",
       "execution_class": "DIRECT_API",
       "canonical_name": "Commodity / Supply Vulnerability",
-      "methodology_version": "1.1.0"
+      "methodology_version": "1.1.0",
+      "valid_to": null,
+      "valid_from": null
     },
     {
       "methodology_id": "M16",
       "name": "Chokepoints",
       "version": "1.0.0",
-      "valid_from": null,
-      "valid_to": null,
       "primary_roles": [
         "TECH",
         "COMMODITY",
@@ -1576,7 +1527,9 @@
       "provenance_class": "OFFICIAL",
       "execution_class": "DIRECT_API",
       "canonical_name": "Chokepoints",
-      "methodology_version": "1.1.0"
+      "methodology_version": "1.1.0",
+      "valid_to": null,
+      "valid_from": null
     },
     {
       "methodology_id": "M17",
@@ -1967,8 +1920,6 @@
       "methodology_id": "M21",
       "name": "CII Risk Scoring",
       "version": "1.0.0",
-      "valid_from": null,
-      "valid_to": null,
       "primary_roles": [
         "ENERGY",
         "COMMODITY"
@@ -2066,14 +2017,14 @@
       "provenance_class": "OFFICIAL",
       "execution_class": "DIRECT_API",
       "canonical_name": "CII Risk Scoring",
-      "methodology_version": "1.1.0"
+      "methodology_version": "1.1.0",
+      "valid_to": null,
+      "valid_from": null
     },
     {
       "methodology_id": "M22",
       "name": "Disease Outbreak Alert Level",
       "version": "1.0.0",
-      "valid_from": null,
-      "valid_to": null,
       "primary_roles": [
         "WORLD"
       ],
@@ -2081,17 +2032,11 @@
       "applicable_profiles": [
         "P10"
       ],
-      "trigger_conditions": [
-        "viral_signal_detected",
-        "sentiment_shift"
-      ],
+      "trigger_conditions": [],
       "asset_types": [
         "social_data"
       ],
-      "event_types": [
-        "viral_signal",
-        "sentiment_shift"
-      ],
+      "event_types": [],
       "entity_types": [
         "platform",
         "topic"
@@ -2106,17 +2051,12 @@
       ],
       "output_bindings": [
         "velocity_score",
-        "sentiment_delta",
         "amplification_factor"
       ],
       "rules_structured": [
         {
           "rule_id": "M22_R01",
           "description": "Measure rate of signal spread across platforms"
-        },
-        {
-          "rule_id": "M22_R02",
-          "description": "Compute sentiment shift and amplification factor"
         }
       ],
       "thresholds_structured": [
@@ -2151,14 +2091,16 @@
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": false,
-      "methodology_version_hash": "951543b4092f5b6c777df2dbebc8ba97a7d9f4d38b6f38117dcbdf19f5805f3b",
+      "methodology_version_hash": "cc126fe5548d444d255c11108e369f96bdfc769faa9d20ca398c2861df64a6f2",
       "rebaseline_required": false,
       "callable": true,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "provenance_class": "OFFICIAL",
       "execution_class": "DIRECT_API",
       "canonical_name": "Disease Outbreak Alert Level",
-      "methodology_version": "1.1.0"
+      "methodology_version": "1.1.0",
+      "valid_to": null,
+      "valid_from": null
     },
     {
       "methodology_id": "M23",
@@ -2357,8 +2299,6 @@
       "methodology_id": "C01",
       "name": "CII Operator Overview",
       "version": "1.0.0",
-      "valid_from": null,
-      "valid_to": null,
       "primary_roles": [
         "WORLD"
       ],
@@ -2446,14 +2386,14 @@
       "provenance_class": "OFFICIAL",
       "execution_class": "NONCALLABLE",
       "canonical_name": "CII Operator Overview",
-      "methodology_version": "1.1.0"
+      "methodology_version": "1.1.0",
+      "valid_to": null,
+      "valid_from": null
     },
     {
       "methodology_id": "C02",
       "name": "Revision & Corrections",
       "version": "1.0.0",
-      "valid_from": null,
-      "valid_to": null,
       "primary_roles": [
         "FINANCE",
         "COMMODITY"
@@ -2542,7 +2482,9 @@
       "provenance_class": "OFFICIAL",
       "execution_class": "NONCALLABLE",
       "canonical_name": "Revision & Corrections",
-      "methodology_version": "1.1.0"
+      "methodology_version": "1.1.0",
+      "valid_to": null,
+      "valid_from": null
     },
     {
       "methodology_id": "C03",
@@ -2746,8 +2688,6 @@
       "methodology_id": "C05",
       "name": "Algorithms & Scoring",
       "version": "1.0.0",
-      "valid_from": null,
-      "valid_to": null,
       "primary_roles": [
         "TECH"
       ],
@@ -2787,10 +2727,6 @@
       ],
       "rules_structured": [
         {
-          "rule_id": "META_ROUTER",
-          "description": "Routes methodology selection based on role and profile context"
-        },
-        {
           "rule_id": "C05_R02",
           "description": "Resolve methodology dependencies and execution order"
         }
@@ -2813,21 +2749,21 @@
       },
       "source_requirements": [],
       "point_in_time_requirement": {
-        "required": false,
-        "as_of_field": null,
-        "default_lookback": null
+        "required": false
       },
       "fast_path_allowed": false,
       "deep_path_allowed": false,
       "weknora_eligible": false,
-      "methodology_version_hash": "24ab6ee26dadc43522eeb83185cdef1f097be814bd3eaa6499186b7149273d97",
+      "methodology_version_hash": "7fb6d712d0b25998c4176aac18c53d56fa8f64144d35c58bb0888587aa00db83",
       "rebaseline_required": true,
       "callable": false,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "provenance_class": "OFFICIAL",
       "execution_class": "META",
       "canonical_name": "Algorithms & Scoring",
-      "methodology_version": "1.1.0"
+      "methodology_version": "1.1.0",
+      "valid_to": null,
+      "valid_from": null
     },
     {
       "methodology_id": "C06",

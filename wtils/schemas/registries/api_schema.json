@@ -405,15 +405,22 @@
       "enum": [
         "REQUEST",
         "RELAY",
-        "SEED"
+        "SEEDED",
+        "POLL",
+        "STREAM",
+        "WEBHOOK",
+        "CACHE",
+        "ASYNC_JOB",
+        "SEED_FIRST_GAP"
       ],
       "description": "Primary delivery mode (transport axis)"
     },
     "cache_semantics": {
       "type": "string",
       "enum": [
+        "NONE",
         "CACHED_FETCH",
-        "NONE"
+        "SEED_CACHE"
       ],
       "description": "Cache semantics axis"
     }

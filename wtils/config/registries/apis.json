@@ -100,7 +100,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetAirportOpsSummary:GET:/api/aviation/v1/get-airport-ops-summary",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -202,7 +202,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetCarrierOps:GET:/api/aviation/v1/get-carrier-ops",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -304,7 +304,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetFlightStatus:GET:/api/aviation/v1/get-flight-status",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -406,7 +406,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetYoutubeLiveStreamInfo:GET:/api/aviation/v1/get-youtube-live-stream-info",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -508,7 +508,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListAirportDelays:GET:/api/aviation/v1/list-airport-delays",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -610,7 +610,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListAirportFlights:GET:/api/aviation/v1/list-airport-flights",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -712,7 +712,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListAviationNews:GET:/api/aviation/v1/list-aviation-news",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -814,7 +814,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#SearchFlightPrices:GET:/api/aviation/v1/search-flight-prices",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -916,7 +916,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#SearchGoogleDates:GET:/api/aviation/v1/search-google-dates",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -1018,7 +1018,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#SearchGoogleFlights:GET:/api/aviation/v1/search-google-flights",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -1120,7 +1120,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#TrackAircraft:GET:/api/aviation/v1/track-aircraft",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -1220,7 +1220,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ExecuteBatch:POST:/api/batch/v1/execute",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "BatchService.openapi.yaml#ExecuteBatch:POST:/api/batch/v1/execute",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
     },
     {
@@ -1322,7 +1322,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetCo2Monitoring:GET:/api/climate/v1/get-co2-monitoring",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -1426,7 +1426,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetOceanIceData:GET:/api/climate/v1/get-ocean-ice-data",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -1530,7 +1530,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListAirQualityData:GET:/api/climate/v1/list-air-quality-data",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -1634,7 +1634,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListClimateAnomalies:GET:/api/climate/v1/list-climate-anomalies",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -1738,7 +1738,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListClimateDisasters:GET:/api/climate/v1/list-climate-disasters",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -1842,7 +1842,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListClimateNews:GET:/api/climate/v1/list-climate-news",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -1945,7 +1945,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#CreateMonitoredCompany:POST:/api/company-monitoring/v1/create-monitored-company",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "CompanyMonitoringService.openapi.yaml#CreateMonitoredCompany:POST:/api/company-monitoring/v1/create-monitored-company",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
     },
     {
@@ -2046,7 +2046,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetCompanyCoverage:GET:/api/company-monitoring/v1/get-company-coverage",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
     },
     {
@@ -2147,7 +2147,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetCompanyMaterialEvent:GET:/api/company-monitoring/v1/get-company-material-event",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
     },
     {
@@ -2248,7 +2248,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetCompanyMonitoringStatus:GET:/api/company-monitoring/v1/get-company-monitoring-status",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
     },
     {
@@ -2349,7 +2349,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ImportMonitoredCompanyBatch:POST:/api/company-monitoring/v1/import-monitored-company-batch",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "CompanyMonitoringService.openapi.yaml#ImportMonitoredCompanyBatch:POST:/api/company-monitoring/v1/import-monitored-company-batch",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
     },
     {
@@ -2450,7 +2450,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListCompanyEventChanges:GET:/api/company-monitoring/v1/list-company-event-changes",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
     },
     {
@@ -2551,7 +2551,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListCompanyEventImpacts:GET:/api/company-monitoring/v1/list-company-event-impacts",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
     },
     {
@@ -2652,7 +2652,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListMonitoredCompanies:GET:/api/company-monitoring/v1/list-monitored-companies",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
     },
     {
@@ -2753,7 +2753,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#SetMonitoredCompanyState:POST:/api/company-monitoring/v1/set-monitored-company-state",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "CompanyMonitoringService.openapi.yaml#SetMonitoredCompanyState:POST:/api/company-monitoring/v1/set-monitored-company-state",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
     },
     {
@@ -2854,7 +2854,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#UpdateMonitoredCompany:POST:/api/company-monitoring/v1/update-monitored-company",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "CompanyMonitoringService.openapi.yaml#UpdateMonitoredCompany:POST:/api/company-monitoring/v1/update-monitored-company",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
     },
     {
@@ -2958,8 +2958,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetHumanitarianSummary:GET:/api/conflict/v1/get-humanitarian-summary",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetHumanitarianSummaryBatch",
@@ -3062,8 +3064,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetHumanitarianSummaryBatch:POST:/api/conflict/v1/get-humanitarian-summary-batch",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "ConflictService.openapi.yaml#GetHumanitarianSummaryBatch:POST:/api/conflict/v1/get-humanitarian-summary-batch",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "ListAcledEvents",
@@ -3178,8 +3182,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListAcledEvents:GET:/api/conflict/v1/list-acled-events",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "ListIranEvents",
@@ -3290,8 +3296,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListIranEvents:GET:/api/conflict/v1/list-iran-events",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "ListUcdpEvents",
@@ -3399,8 +3407,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListUcdpEvents:GET:/api/conflict/v1/list-ucdp-events",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetConsumerPriceBasketSeries",
@@ -3500,7 +3510,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetConsumerPriceBasketSeries:GET:/api/consumer-prices/v1/get-consumer-price-basket-series",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -3603,7 +3613,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetConsumerPriceFreshness:GET:/api/consumer-prices/v1/get-consumer-price-freshness",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -3706,7 +3716,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetConsumerPriceOverview:GET:/api/consumer-prices/v1/get-consumer-price-overview",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -3809,7 +3819,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListConsumerPriceCategories:GET:/api/consumer-prices/v1/list-consumer-price-categories",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -3912,7 +3922,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListConsumerPriceMovers:GET:/api/consumer-prices/v1/list-consumer-price-movers",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -4015,7 +4025,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListRetailerPriceSpreads:GET:/api/consumer-prices/v1/list-retailer-price-spreads",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -4122,7 +4132,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListCyberThreats:GET:/api/cyber/v1/list-cyber-threats",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -4224,7 +4234,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetDisplacementSummary:GET:/api/displacement/v1/get-displacement-summary",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -4326,7 +4336,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetPopulationExposure:GET:/api/displacement/v1/get-population-exposure",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -4435,7 +4445,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetBisCredit:GET:/api/economic/v1/get-bis-credit",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -4547,8 +4557,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetBisExchangeRates:GET:/api/economic/v1/get-bis-exchange-rates",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetBisPolicyRates",
@@ -4657,8 +4669,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetBisPolicyRates:GET:/api/economic/v1/get-bis-policy-rates",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetBlsSeries",
@@ -4757,7 +4771,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetBlsSeries:GET:/api/economic/v1/get-bls-series",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -4866,8 +4880,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetChinaActivityNowcast:GET:/api/economic/v1/get-china-activity-nowcast",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetChinaMacroSnapshot",
@@ -4968,7 +4984,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetChinaMacroSnapshot:GET:/api/economic/v1/get-china-macro-snapshot",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -5081,8 +5097,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetCrudeInventories:GET:/api/economic/v1/get-crude-inventories",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetEcbFxRates",
@@ -5185,8 +5203,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetEcbFxRates:GET:/api/economic/v1/get-ecb-fx-rates",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetEconomicCalendar",
@@ -5290,8 +5310,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetEconomicCalendar:GET:/api/economic/v1/get-economic-calendar",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetEconomicStress",
@@ -5402,8 +5424,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetEconomicStress:GET:/api/economic/v1/get-economic-stress",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetEnergyCapacity",
@@ -5507,8 +5531,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetEnergyCapacity:GET:/api/economic/v1/get-energy-capacity",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetEnergyCrisisPolicies",
@@ -5612,8 +5638,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetEnergyCrisisPolicies:GET:/api/economic/v1/get-energy-crisis-policies",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetEnergyPrices",
@@ -5729,8 +5757,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetEnergyPrices:GET:/api/economic/v1/get-energy-prices",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetEuFsi",
@@ -5839,8 +5869,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetEuFsi:GET:/api/economic/v1/get-eu-fsi",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetEuGasStorage",
@@ -5949,8 +5981,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetEuGasStorage:GET:/api/economic/v1/get-eu-gas-storage",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetEuYieldCurve",
@@ -6054,8 +6088,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetEuYieldCurve:GET:/api/economic/v1/get-eu-yield-curve",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetEurostatCountryData",
@@ -6154,7 +6190,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetEurostatCountryData:GET:/api/economic/v1/get-eurostat-country-data",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -6264,8 +6300,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetFaoFoodPriceIndex:GET:/api/economic/v1/get-fao-food-price-index",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetFredSeries",
@@ -6368,8 +6406,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetFredSeries:GET:/api/economic/v1/get-fred-series",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetFredSeriesBatch",
@@ -6468,7 +6508,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetFredSeriesBatch:POST:/api/economic/v1/get-fred-series-batch",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "EconomicService.openapi.yaml#GetFredSeriesBatch:POST:/api/economic/v1/get-fred-series-batch",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -6575,8 +6615,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetGovernmentYieldCurve:GET:/api/economic/v1/get-government-yield-curve",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetMacroSignals",
@@ -6680,8 +6722,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetMacroSignals:GET:/api/economic/v1/get-macro-signals",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetNatGasStorage",
@@ -6789,8 +6833,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetNatGasStorage:GET:/api/economic/v1/get-nat-gas-storage",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetNationalDebt",
@@ -6894,8 +6940,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetNationalDebt:GET:/api/economic/v1/get-national-debt",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetOilInventories",
@@ -6999,8 +7047,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetOilInventories:GET:/api/economic/v1/get-oil-inventories",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetOilStocksAnalysis",
@@ -7114,8 +7164,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetOilStocksAnalysis:GET:/api/economic/v1/get-oil-stocks-analysis",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetUsCpiMonthly",
@@ -7218,8 +7270,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetUsCpiMonthly:GET:/api/economic/v1/get-us-cpi-monthly",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetUsInterestRates",
@@ -7323,8 +7377,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetUsInterestRates:GET:/api/economic/v1/get-us-interest-rates",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetUsTreasuryParYieldCurve",
@@ -7427,8 +7483,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetUsTreasuryParYieldCurve:GET:/api/economic/v1/get-us-treasury-par-yield-curve",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetWorldCpiMonthly",
@@ -7531,8 +7589,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetWorldCpiMonthly:GET:/api/economic/v1/get-world-cpi-monthly",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "ListBigMacPrices",
@@ -7635,8 +7695,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListBigMacPrices:GET:/api/economic/v1/list-bigmac-prices",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "SEEDED",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "ListFuelPrices",
@@ -7743,8 +7805,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListFuelPrices:GET:/api/economic/v1/list-fuel-prices",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "ListGlobalTenders",
@@ -7847,8 +7911,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListGlobalTenders:GET:/api/economic/v1/list-global-tenders",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "ListGroceryBasketPrices",
@@ -7951,8 +8017,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListGroceryBasketPrices:GET:/api/economic/v1/list-grocery-basket-prices",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "SEEDED",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "ListWorldBankIndicators",
@@ -8058,8 +8126,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListWorldBankIndicators:GET:/api/economic/v1/list-world-bank-indicators",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetForecastScorecard",
@@ -8162,7 +8232,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetForecastScorecard:GET:/api/forecast/v1/get-forecast-scorecard",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -8268,7 +8338,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetForecasts:GET:/api/forecast/v1/get-forecasts",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -8374,7 +8444,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetSimulationOutcome:GET:/api/forecast/v1/get-simulation-outcome",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -8480,7 +8550,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetSimulationPackage:GET:/api/forecast/v1/get-simulation-package",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -8586,7 +8656,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#TriggerSimulation:POST:/api/forecast/v1/trigger-simulation",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "ForecastService.openapi.yaml#TriggerSimulation:POST:/api/forecast/v1/trigger-simulation",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -8688,7 +8758,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetGivingSummary:GET:/api/giving/v1/get-giving-summary",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -8790,7 +8860,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListAirQualityAlerts:GET:/api/health/v1/list-air-quality-alerts",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -8896,7 +8966,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListDiseaseOutbreaks:GET:/api/health/v1/list-disease-outbreaks",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -8999,7 +9069,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#SearchImagery:GET:/api/imagery/v1/search-imagery",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -9099,7 +9169,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetBootstrapData:GET:/api/infrastructure/v1/get-bootstrap-data",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -9206,8 +9276,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetCableHealth:GET:/api/infrastructure/v1/get-cable-health",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetIpGeo",
@@ -9304,7 +9376,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetIpGeo:GET:/api/infrastructure/v1/get-ip-geo",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -9404,7 +9476,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetTemporalBaseline:GET:/api/infrastructure/v1/get-temporal-baseline",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -9507,7 +9579,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListInternetDdosAttacks:GET:/api/infrastructure/v1/list-internet-ddos-attacks",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
     },
     {
@@ -9612,8 +9684,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListInternetOutages:GET:/api/infrastructure/v1/list-internet-outages",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "ListInternetTrafficAnomalies",
@@ -9713,7 +9787,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListInternetTrafficAnomalies:GET:/api/infrastructure/v1/list-internet-traffic-anomalies",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
     },
     {
@@ -9811,7 +9885,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListServiceStatuses:GET:/api/infrastructure/v1/list-service-statuses",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -9914,7 +9988,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListTemporalAnomalies:GET:/api/infrastructure/v1/list-temporal-anomalies",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -10014,7 +10088,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#RecordBaselineSnapshot:POST:/api/infrastructure/v1/record-baseline-snapshot",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "InfrastructureService.openapi.yaml#RecordBaselineSnapshot:POST:/api/infrastructure/v1/record-baseline-snapshot",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -10114,7 +10188,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ReverseGeocode:GET:/api/infrastructure/v1/reverse-geocode",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -10221,8 +10295,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ClassifyEvent:GET:/api/intelligence/v1/classify-event",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "ComputeEnergyShockScenario",
@@ -10322,7 +10398,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ComputeEnergyShockScenario:GET:/api/intelligence/v1/compute-energy-shock",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -10425,7 +10501,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#DeductSituation:POST:/api/intelligence/v1/deduct-situation",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "IntelligenceService.openapi.yaml#DeductSituation:POST:/api/intelligence/v1/deduct-situation",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -10528,7 +10604,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetChinaDecisionSignals:GET:/api/intelligence/v1/get-china-decision-signals",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -10630,7 +10706,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetCompanyEnrichment:GET:/api/intelligence/v1/get-company-enrichment",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -10732,7 +10808,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetCountryCoverage:GET:/api/intelligence/v1/get-country-coverage",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -10845,8 +10921,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetCountryEnergyProfile:GET:/api/intelligence/v1/get-country-energy-profile",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetCountryFacts",
@@ -10945,7 +11023,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetCountryFacts:GET:/api/intelligence/v1/get-country-facts",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -11052,8 +11130,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetCountryIntelBrief:GET:/api/intelligence/v1/get-country-intel-brief",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetCountryPortActivity",
@@ -11152,7 +11232,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetCountryPortActivity:GET:/api/intelligence/v1/get-country-port-activity",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -11272,8 +11352,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetCountryRisk:GET:/api/intelligence/v1/get-country-risk",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetGdeltTopicTimeline",
@@ -11372,7 +11454,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetGdeltTopicTimeline:GET:/api/intelligence/v1/get-gdelt-topic-timeline",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -11479,8 +11561,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetIntelTimeline:GET:/api/intelligence/v1/get-intel-timeline",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetPizzintStatus",
@@ -11583,8 +11667,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetPizzintStatus:GET:/api/intelligence/v1/get-pizzint-status",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetRegimeHistory",
@@ -11683,7 +11769,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetRegimeHistory:GET:/api/intelligence/v1/get-regime-history",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -11790,8 +11876,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetRegionalBrief:GET:/api/intelligence/v1/get-regional-brief",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetRegionalSnapshot",
@@ -11890,7 +11978,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetRegionalSnapshot:GET:/api/intelligence/v1/get-regional-snapshot",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -12015,8 +12103,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetRiskScores:GET:/api/intelligence/v1/get-risk-scores",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetSimilarEvents",
@@ -12119,8 +12209,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetSimilarEvents:POST:/api/intelligence/v1/get-similar-events",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "IntelligenceService.openapi.yaml#GetSimilarEvents:POST:/api/intelligence/v1/get-similar-events",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetSocialVelocity",
@@ -12225,8 +12317,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetSocialVelocity:GET:/api/intelligence/v1/get-social-velocity",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "ListCompanySignals",
@@ -12325,7 +12419,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListCompanySignals:GET:/api/intelligence/v1/list-company-signals",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -12432,7 +12526,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListCrossSourceSignals:GET:/api/intelligence/v1/list-cross-source-signals",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -12535,7 +12629,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListGpsInterference:GET:/api/intelligence/v1/list-gps-interference",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -12642,8 +12736,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListMarketImplications:GET:/api/intelligence/v1/list-market-implications",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "ListMaterialEvents",
@@ -12747,8 +12843,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListMaterialEvents:GET:/api/intelligence/v1/list-material-events",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "ListOrefAlerts",
@@ -12848,7 +12946,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListOrefAlerts:GET:/api/intelligence/v1/list-oref-alerts",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -12951,7 +13049,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListSatellites:GET:/api/intelligence/v1/list-satellites",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -13062,8 +13160,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListSecurityAdvisories:GET:/api/intelligence/v1/list-security-advisories",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "ListTelegramFeed",
@@ -13162,7 +13262,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListTelegramFeed:GET:/api/intelligence/v1/list-telegram-feed",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -13265,7 +13365,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListWsbTickers:GET:/api/intelligence/v1/list-wsb-tickers",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -13367,7 +13467,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListXFeed:GET:/api/intelligence/v1/list-x-feed",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -13469,7 +13569,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#SearchGdeltDocuments:GET:/api/intelligence/v1/search-gdelt-documents",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -13576,8 +13676,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#SearchIntelHistory:POST:/api/intelligence/v1/search-intel-history",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "IntelligenceService.openapi.yaml#SearchIntelHistory:POST:/api/intelligence/v1/search-intel-history",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "SearchSecFilings",
@@ -13676,7 +13778,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#SearchSecFilings:GET:/api/intelligence/v1/search-sec-filings",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -13776,7 +13878,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#RegisterInterest:POST:/api/leads/v1/register-interest",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "LeadsService.openapi.yaml#RegisterInterest:POST:/api/leads/v1/register-interest",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -13876,7 +13978,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#SubmitContact:POST:/api/leads/v1/submit-contact",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "LeadsService.openapi.yaml#SubmitContact:POST:/api/leads/v1/submit-contact",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -13990,8 +14092,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetVesselSnapshot:GET:/api/maritime/v1/get-vessel-snapshot",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "ListNavigationalWarnings",
@@ -14102,8 +14206,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListNavigationalWarnings:GET:/api/maritime/v1/list-navigational-warnings",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "AnalyzeStock",
@@ -14206,8 +14312,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#AnalyzeStock:GET:/api/market/v1/analyze-stock",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "BacktestStock",
@@ -14306,7 +14414,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#BacktestStock:GET:/api/market/v1/backtest-stock",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -14421,8 +14529,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetCotPositioning:GET:/api/market/v1/get-cot-positioning",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetCountryStockIndex",
@@ -14525,8 +14635,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetCountryStockIndex:GET:/api/market/v1/get-country-stock-index",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetFearGreedIndex",
@@ -14630,8 +14742,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetFearGreedIndex:GET:/api/market/v1/get-fear-greed-index",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetGoldIntelligence",
@@ -14740,8 +14854,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetGoldIntelligence:GET:/api/market/v1/get-gold-intelligence",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetHyperliquidFlow",
@@ -14840,7 +14956,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetHyperliquidFlow:GET:/api/market/v1/get-hyperliquid-flow",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -14946,8 +15062,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetInsiderTransactions:GET:/api/market/v1/get-insider-transactions",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetMarketBreadthHistory",
@@ -15050,8 +15168,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetMarketBreadthHistory:GET:/api/market/v1/get-market-breadth-history",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetPhysicalDivergenceIndex",
@@ -15155,7 +15275,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetPhysicalDivergenceIndex:GET:/api/market/v1/get-physical-divergence-index",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -15262,7 +15382,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetPhysicalPremiums:GET:/api/market/v1/get-physical-premiums",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -15368,8 +15488,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetSectorSummary:GET:/api/market/v1/get-sector-summary",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetStockAnalysisHistory",
@@ -15468,7 +15590,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetStockAnalysisHistory:GET:/api/market/v1/get-stock-analysis-history",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -15570,7 +15692,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListAiTokens:GET:/api/market/v1/list-ai-tokens",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -15694,8 +15816,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListCommodityQuotes:GET:/api/market/v1/list-commodity-quotes",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "ListCryptoQuotes",
@@ -15794,7 +15918,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListCryptoQuotes:GET:/api/market/v1/list-crypto-quotes",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -15896,7 +16020,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListCryptoSectors:GET:/api/market/v1/list-crypto-sectors",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -15998,7 +16122,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListDefiTokens:GET:/api/market/v1/list-defi-tokens",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -16104,8 +16228,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListEarningsCalendar:GET:/api/market/v1/list-earnings-calendar",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "ListEtfFlows",
@@ -16208,8 +16334,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListEtfFlows:GET:/api/market/v1/list-etf-flows",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "ListGulfQuotes",
@@ -16308,7 +16436,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListGulfQuotes:GET:/api/market/v1/list-gulf-quotes",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -16414,8 +16542,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListMarketQuotes:GET:/api/market/v1/list-market-quotes",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "ListOtherTokens",
@@ -16514,7 +16644,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListOtherTokens:GET:/api/market/v1/list-other-tokens",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -16616,7 +16746,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListStablecoinMarkets:GET:/api/market/v1/list-stablecoin-markets",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -16718,7 +16848,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListStoredStockBacktests:GET:/api/market/v1/list-stored-stock-backtests",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -16825,8 +16955,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetAircraftDetails:GET:/api/military/v1/get-aircraft-details",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetAircraftDetailsBatch",
@@ -16930,8 +17062,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetAircraftDetailsBatch:POST:/api/military/v1/get-aircraft-details-batch",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "MilitaryService.openapi.yaml#GetAircraftDetailsBatch:POST:/api/military/v1/get-aircraft-details-batch",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetDefenseIndustrialBase",
@@ -17039,8 +17173,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetDefenseIndustrialBase:GET:/api/military/v1/get-defense-industrial-base",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetTheaterPosture",
@@ -17156,8 +17292,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetTheaterPosture:GET:/api/military/v1/get-theater-posture",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetUSNIFleetReport",
@@ -17267,8 +17405,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetUSNIFleetReport:GET:/api/military/v1/get-usni-fleet-report",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetWingbitsLiveFlight",
@@ -17368,7 +17508,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetWingbitsLiveFlight:GET:/api/military/v1/get-wingbits-live-flight",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -17471,7 +17611,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetWingbitsStatus:GET:/api/military/v1/get-wingbits-status",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -17582,8 +17722,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListDefensePatents:GET:/api/military/v1/list-defense-patents",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "ListMilitaryBases",
@@ -17690,8 +17832,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListMilitaryBases:GET:/api/military/v1/list-military-bases",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "SEEDED",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "ListMilitaryFlights",
@@ -17796,8 +17940,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListMilitaryFlights:GET:/api/military/v1/list-military-flights",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "ListNaturalEvents",
@@ -17896,7 +18042,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListNaturalEvents:GET:/api/natural/v1/list-natural-events",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -18017,8 +18163,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetSummarizeArticleCache:GET:/api/news/v1/summarize-article-cache",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "ListCountryHeadlines",
@@ -18137,8 +18285,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListCountryHeadlines:GET:/api/news/v1/list-country-headlines",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "ListFeedDigest",
@@ -18257,8 +18407,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListFeedDigest:GET:/api/news/v1/list-feed-digest",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "SummarizeArticle",
@@ -18367,8 +18519,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#SummarizeArticle:POST:/api/news/v1/summarize-article",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NewsService.openapi.yaml#SummarizeArticle:POST:/api/news/v1/summarize-article",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "ListPositiveGeoEvents",
@@ -18467,7 +18621,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListPositiveGeoEvents:GET:/api/positive-events/v1/list-positive-geo-events",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -18570,7 +18724,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListPredictionMarkets:GET:/api/prediction/v1/list-prediction-markets",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -18672,7 +18826,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListRadiationObservations:GET:/api/radiation/v1/list-radiation-observations",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -18774,7 +18928,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListArxivPapers:GET:/api/research/v1/list-arxiv-papers",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -18876,7 +19030,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListHackernewsItems:GET:/api/research/v1/list-hackernews-items",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -18978,7 +19132,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListTechEvents:GET:/api/research/v1/list-tech-events",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -19080,7 +19234,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListTrendingRepos:GET:/api/research/v1/list-trending-repos",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -19186,7 +19340,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetDemographicsCapability:GET:/api/resilience/v1/get-demographics-capability",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -19298,8 +19452,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetFoodStocks:GET:/api/resilience/v1/get-food-stocks",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetResilienceIndicators",
@@ -19412,8 +19568,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetResilienceIndicators:GET:/api/resilience/v1/get-resilience-indicators",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetResilienceRanking",
@@ -19522,8 +19680,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetResilienceRanking:GET:/api/resilience/v1/get-resilience-ranking",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetResilienceRuntimeManifest",
@@ -19625,7 +19785,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetResilienceRuntimeManifest:GET:/api/resilience/v1/get-runtime-manifest",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
     },
     {
@@ -19739,8 +19899,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetResilienceScore:GET:/api/resilience/v1/get-resilience-score",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetTorontoSafety",
@@ -19839,7 +20001,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetTorontoSafety:GET:/api/safety/v1/get-toronto-safety",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -19954,8 +20116,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListSanctionsPressure:GET:/api/sanctions/v1/list-sanctions-pressure",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "LookupSanctionEntity",
@@ -20058,8 +20222,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#LookupSanctionEntity:GET:/api/sanctions/v1/lookup-sanction-entity",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetScenarioStatus",
@@ -20162,7 +20328,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetScenarioStatus:GET:/api/scenario/v1/get-scenario-status",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -20268,7 +20434,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListScenarioTemplates:GET:/api/scenario/v1/list-scenario-templates",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -20374,7 +20540,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#RunScenario:POST:/api/scenario/v1/run-scenario",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "ScenarioService.openapi.yaml#RunScenario:POST:/api/scenario/v1/run-scenario",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -20481,8 +20647,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetBlocScorecard:GET:/api/scorecard/v1/get-bloc-scorecard",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetFiveFactorScorecard",
@@ -20591,8 +20759,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetFiveFactorScorecard:GET:/api/scorecard/v1/get-five-factor-scorecard",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "ListFiveFactorScorecards",
@@ -20697,7 +20867,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListFiveFactorScorecards:GET:/api/scorecard/v1/list-five-factor-scorecards",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -20799,7 +20969,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListEarthquakes:GET:/api/seismology/v1/list-earthquakes",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -20907,8 +21077,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListWebhooks:GET:/api/v2/shipping/webhooks",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "RegisterWebhook",
@@ -21013,8 +21185,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#RegisterWebhook:POST:/api/v2/shipping/webhooks",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "ShippingV2Service.openapi.yaml#RegisterWebhook:POST:/api/v2/shipping/webhooks",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "WEBHOOK",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "RouteIntelligence",
@@ -21126,8 +21300,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#RouteIntelligence:GET:/api/v2/shipping/route-intelligence",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetBypassOptions",
@@ -21232,8 +21408,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetBypassOptions:GET:/api/supply-chain/v1/get-bypass-options",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetChinaCorridorControlTowers",
@@ -21337,8 +21515,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetChinaCorridorControlTowers:GET:/api/supply-chain/v1/get-china-corridor-control-towers",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetChokepointDependencies",
@@ -21450,8 +21630,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetChokepointDependencies:GET:/api/supply-chain/v1/get-chokepoint-dependencies",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetChokepointHistory",
@@ -21562,8 +21744,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetChokepointHistory:GET:/api/supply-chain/v1/get-chokepoint-history",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetChokepointStatus",
@@ -21678,8 +21862,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetChokepointStatus:GET:/api/supply-chain/v1/get-chokepoint-status",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetCountryChokepointIndex",
@@ -21789,8 +21975,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetCountryChokepointIndex:GET:/api/supply-chain/v1/get-country-chokepoint-index",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetCountryCostShock",
@@ -21894,8 +22082,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetCountryCostShock:GET:/api/supply-chain/v1/get-country-cost-shock",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetCountryProducts",
@@ -22000,8 +22190,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetCountryProducts:GET:/api/supply-chain/v1/get-country-products",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetCountryVulnerabilities",
@@ -22116,8 +22308,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetCountryVulnerabilities:GET:/api/supply-chain/v1/get-country-vulnerabilities",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetCriticalMinerals",
@@ -22227,8 +22421,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetCriticalMinerals:GET:/api/supply-chain/v1/get-critical-minerals",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetFuelShortageDetail",
@@ -22337,8 +22533,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetFuelShortageDetail:GET:/api/supply-chain/v1/get-fuel-shortage-detail",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetMineralProduction",
@@ -22448,8 +22646,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetMineralProduction:GET:/api/supply-chain/v1/get-mineral-production",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetMultiSectorCostShock",
@@ -22553,8 +22753,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetMultiSectorCostShock:GET:/api/supply-chain/v1/get-multi-sector-cost-shock",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetPipelineDetail",
@@ -22664,8 +22866,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetPipelineDetail:GET:/api/supply-chain/v1/get-pipeline-detail",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetRouteExplorerLane",
@@ -22770,8 +22974,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetRouteExplorerLane:GET:/api/supply-chain/v1/get-route-explorer-lane",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetRouteImpact",
@@ -22876,8 +23082,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetRouteImpact:GET:/api/supply-chain/v1/get-route-impact",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetSectorDependency",
@@ -22981,8 +23189,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetSectorDependency:GET:/api/supply-chain/v1/get-sector-dependency",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetShippingRates",
@@ -23087,8 +23297,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetShippingRates:GET:/api/supply-chain/v1/get-shipping-rates",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetShippingStress",
@@ -23199,8 +23411,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetShippingStress:GET:/api/supply-chain/v1/get-shipping-stress",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetStorageFacilityDetail",
@@ -23309,8 +23523,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetStorageFacilityDetail:GET:/api/supply-chain/v1/get-storage-facility-detail",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "ListEnergyDisruptions",
@@ -23425,8 +23641,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListEnergyDisruptions:GET:/api/supply-chain/v1/list-energy-disruptions",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "ListFuelShortages",
@@ -23535,8 +23753,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListFuelShortages:GET:/api/supply-chain/v1/list-fuel-shortages",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "ListPipelines",
@@ -23647,8 +23867,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListPipelines:GET:/api/supply-chain/v1/list-pipelines",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "ListStorageFacilities",
@@ -23757,8 +23979,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListStorageFacilities:GET:/api/supply-chain/v1/list-storage-facilities",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "ListVulnerabilityRankings",
@@ -23870,8 +24094,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListVulnerabilityRankings:GET:/api/supply-chain/v1/list-vulnerability-rankings",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "ListThermalEscalations",
@@ -23981,8 +24207,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListThermalEscalations:GET:/api/thermal/v1/list-thermal-escalations",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetCustomsRevenue",
@@ -24082,7 +24310,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetCustomsRevenue:GET:/api/trade/v1/get-customs-revenue",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -24189,8 +24417,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetTariffTrends:GET:/api/trade/v1/get-tariff-trends",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetTradeBarriers",
@@ -24294,8 +24524,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetTradeBarriers:GET:/api/trade/v1/get-trade-barriers",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetTradeFlows",
@@ -24400,8 +24632,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetTradeFlows:GET:/api/trade/v1/get-trade-flows",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "GetTradeRestrictions",
@@ -24506,8 +24740,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetTradeRestrictions:GET:/api/trade/v1/get-trade-restrictions",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "ListComtradeFlows",
@@ -24611,8 +24847,10 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListComtradeFlows:GET:/api/trade/v1/list-comtrade-flows",
-      "request_body_schema_ref": null,
-      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND"
+      "request_body_schema_ref": "NOT_APPLICABLE",
+      "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
+      "primary_delivery_mode": "REQUEST",
+      "cache_semantics": "CACHED_FETCH"
     },
     {
       "operation_id": "ListUnrestEvents",
@@ -24711,7 +24949,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListUnrestEvents:GET:/api/unrest/v1/list-unrest-events",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -24813,7 +25051,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#GetWebcamImage:GET:/api/webcam/v1/get-webcam-image",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -24915,7 +25153,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListWebcams:GET:/api/webcam/v1/list-webcams",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"
@@ -25017,7 +25255,7 @@
       "a04_entitlement_bound": true,
       "a04_entitlement_bound_state": "VERIFIED",
       "request_contract_ref": "docs/api/worldmonitor.openapi.yaml#ListFireDetections:GET:/api/wildfire/v1/list-fire-detections",
-      "request_body_schema_ref": null,
+      "request_body_schema_ref": "NOT_APPLICABLE",
       "a06_request_schema_bound_semantic": "REQUEST_CONTRACT_BOUND",
       "primary_delivery_mode": "REQUEST",
       "cache_semantics": "CACHED_FETCH"

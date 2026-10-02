@@ -139,25 +139,60 @@
             "format": "date-time"
           },
           "primary_delivery_mode": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "enum": [
               "REQUEST",
               "RELAY",
-              "SEED"
-            ]
+              "SEEDED",
+              "POLL",
+              "STREAM",
+              "WEBHOOK",
+              "CACHE",
+              "ASYNC_JOB",
+              "SEED_FIRST_GAP",
+              null
+            ],
+            "description": "Primary delivery mode (nullable when BLOCKED)"
           },
           "cache_semantics": {
-            "type": "string",
+            "type": [
+              "string",
+              "null"
+            ],
             "enum": [
+              "NONE",
               "CACHED_FETCH",
-              "NONE"
-            ]
+              "SEED_CACHE",
+              null
+            ],
+            "description": "Cache semantics (nullable when BLOCKED)"
           },
           "a23_state": {
             "type": "string"
           },
           "a24_state": {
             "type": "string"
+          },
+          "delivery_binding_state": {
+            "type": "string",
+            "enum": [
+              "VERIFIED",
+              "NOT_APPLICABLE",
+              "BLOCKED_STATIC_EVIDENCE"
+            ],
+            "description": "Delivery binding state"
+          },
+          "cache_binding_state": {
+            "type": "string",
+            "enum": [
+              "VERIFIED",
+              "NOT_APPLICABLE",
+              "BLOCKED_STATIC_EVIDENCE"
+            ],
+            "description": "Cache binding state"
           }
         },
         "required": [

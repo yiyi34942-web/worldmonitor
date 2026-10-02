@@ -1,0 +1,9 @@
+{
+  "generated_at": "2026-10-02T03:46:35.865213Z",
+  "body_operations": 18,
+  "request_body_contract_bound": 18,
+  "request_body_not_applicable": 219,
+  "request_body_blocked": 0,
+  "request_body_null": 0,
+  "invariant": true
+}

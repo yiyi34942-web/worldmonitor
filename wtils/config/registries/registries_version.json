@@ -1,6 +1,6 @@
 {
-  "previous_version": "2.0.0",
-  "new_version": "2.1.0",
+  "previous_version": "2.1.0",
+  "new_version": "2.1.1",
   "breaking": false,
   "nonbreaking": true,
   "migration_notes": [
@@ -20,6 +20,13 @@
     "Research Artifact delta_t has from_event/to_event/duration_ms/basis/confidence semantics",
     "Research Artifact PIT aligned to pit_contract v2 with 13 observation fields",
     "Patch evidence reaudit: 19 patches resolved with contract/static_code evidence",
-    "Methodology version bumped to 1.1.0 with rebuilt semantic hashes"
+    "Methodology version bumped to 1.1.0 with rebuilt semantic hashes",
+    "2.1.0 \u2192 2.1.1: Final static contract closure",
+    "All 31 methodology payloads: zero forbidden old-semantic residue",
+    "Delivery two-axis invariant: A11 VERIFIED \u2192 primary_delivery_mode non-null",
+    "Cache semantics invariant: A12 VERIFIED \u2192 cache_semantics non-null",
+    "Research Artifact schema: delivery/cache nullable + delivery_binding_state/cache_binding_state",
+    "Request body schema ref: 18 bound, 219 NOT_APPLICABLE, 0 null",
+    "M21 CII description: Country Instability/Intelligence (NOT IMO)"
   ]
 }
