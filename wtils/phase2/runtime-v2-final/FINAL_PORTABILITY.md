@@ -4,7 +4,7 @@ Scan: PASS
 
 Files scanned: 11
 
-Checked src/wtils, docker/wtils, deploy/wtils, and scripts/wtils for a user home, a username, an IP literal, a NAS volume path, a NAS share path, a pinned model endpoint, and a floating Redis tag under docker/wtils and deploy/wtils.
+Checked src/wtils, docker/wtils, deploy/wtils, and scripts/wtils for a user home, a username, the current machine hostname, an IP literal, a NAS volume path, a NAS share path, a pinned model endpoint, and a floating Redis tag under docker/wtils and deploy/wtils.
 
 No hits.
 

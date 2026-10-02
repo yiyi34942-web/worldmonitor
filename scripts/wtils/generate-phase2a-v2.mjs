@@ -112,6 +112,36 @@ if (validatorRun.status !== 0 || validator.valid !== true || validator.error_cou
   process.exit(1);
 }
 
+const registryTestRun = runJson("python3", ["wtils/tests/registries/test_registries.py"]);
+const registryTests = parseJson(registryTestRun.stdout) ?? { passed: 0, failed: null, results: [] };
+const negativeProof = (registryTests.results ?? []).find((item) => item.test === "negative_validator_proof_12_mutations");
+const negativeProofOk = negativeProof?.status === "PASS" && String(negativeProof.detail ?? "").startsWith("12/12");
+if (registryTestRun.status !== 0 || registryTests.failed !== 0 || !negativeProofOk) {
+  writeText(
+    "FINAL_CONTRACT_CONFLICT_REPORT.md",
+    [
+      "# FINAL_CONTRACT_CONFLICT_REPORT",
+      "",
+      "STOP_AND_REPORT_BASELINE_MISMATCH",
+      "",
+      "Registry tests did not pass. Runtime was not started.",
+      "",
+      `- exit: ${registryTestRun.status}`,
+      `- passed: ${registryTests.passed}`,
+      `- failed: ${registryTests.failed}`,
+      `- negative_validator_proof_12_mutations: ${negativeProof ? `${negativeProof.status} ${negativeProof.detail}` : "MISSING"}`,
+      "",
+      "PRE_HARDWARE_READY = NO",
+      "",
+    ].join("\n"),
+  );
+  console.log(JSON.stringify({
+    stop: "STOP_AND_REPORT_BASELINE_MISMATCH",
+    registry_tests: { passed: registryTests.passed, failed: registryTests.failed, negative: negativeProof?.detail ?? null },
+  }));
+  process.exit(1);
+}
+
 const registry = loadRegistry();
 const hormuz = JSON.parse(readFileSync(path.join(repoRoot, "wtils/phase2/fixtures/hormuz-disruption.json"), "utf8"));
 const pipeline = runPipeline(registry, hormuz, { artifact_id: hormuz.artifact_id, created_at: hormuz.as_of });
@@ -348,9 +378,6 @@ try {
 }
 
 const portability = scanPortability(repoRoot);
-const registryTestRun = runJson("python3", ["wtils/tests/registries/test_registries.py"]);
-const registryTests = parseJson(registryTestRun.stdout) ?? { passed: 0, failed: null, results: [] };
-const negativeProof = (registryTests.results ?? []).find((item) => item.test === "negative_validator_proof_12_mutations");
 const runtimeTestRun = runJson(process.execPath, [
   "--test",
   "tests/wtils/phase2a.test.mjs",
@@ -365,6 +392,8 @@ const runtimeText = `${runtimeTestRun.stdout}\n${runtimeTestRun.stderr}`;
 const runtimePassed = lastCount(runtimeText, "pass");
 const runtimeFailed = lastCount(runtimeText, "fail");
 const runtimeTotal = lastCount(runtimeText, "tests");
+const fullPassed = Number(registryTests.passed) + Number(runtimePassed);
+const fullFailed = Number(registryTests.failed) + Number(runtimeFailed);
 const freshHits = readdirSync(path.join(repoRoot, "tests/wtils"))
   .filter((name) => name.endsWith(".mjs"))
   .flatMap((name) => {
@@ -604,6 +633,7 @@ writeText("FINAL_TEST_REPORT.md", [
   `- error_count: ${validator.error_count}`,
   `- warning_count: ${validator.warning_count}`,
   "",
+  "Registry tests ran before the runtime regression.",
   "Registry tests: python3 wtils/tests/registries/test_registries.py",
   `- exit: ${registryTestRun.status}`,
   `- passed: ${registryTests.passed}`,
@@ -615,6 +645,10 @@ writeText("FINAL_TEST_REPORT.md", [
   `- tests: ${runtimeTotal}`,
   `- passed: ${runtimePassed}`,
   `- failed: ${runtimeFailed}`,
+  "",
+  `REGISTRY_TESTS = ${registryTests.passed}/${registryTests.failed}`,
+  `RUNTIME_TESTS = ${runtimePassed}/${runtimeFailed}`,
+  `FULL_TESTS = ${fullPassed}/${fullFailed}`,
   "",
   "The validator file was not modified. The negative proof remains inside the registry suite.",
   "Runtime tests do not require an external inventory file.",
@@ -661,7 +695,7 @@ writeText("FINAL_PORTABILITY.md", [
   "",
   `Files scanned: ${portability.files_scanned}`,
   "",
-  "Checked src/wtils, docker/wtils, deploy/wtils, and scripts/wtils for a user home, a username, an IP literal, a NAS volume path, a NAS share path, a pinned model endpoint, and a floating Redis tag under docker/wtils and deploy/wtils.",
+  "Checked src/wtils, docker/wtils, deploy/wtils, and scripts/wtils for a user home, a username, the current machine hostname, an IP literal, a NAS volume path, a NAS share path, a pinned model endpoint, and a floating Redis tag under docker/wtils and deploy/wtils.",
   "",
   portability.findings.length === 0 ? "No hits." : portability.findings.map((line) => `- ${line}`).join("\n"),
   "",
@@ -683,6 +717,7 @@ writeText("PRE_HARDWARE_READINESS.md", [
   `REGISTRY_VALIDATOR = ${gates.registry_validator}`,
   `REGISTRY_TESTS = ${registryTests.passed}/${registryTests.failed}`,
   `RUNTIME_TESTS = ${runtimePassed}/${runtimeFailed}`,
+  `FULL_TESTS = ${fullPassed}/${fullFailed}`,
   `CONTRACT_CONFLICTS = ${conflicts.length}`,
   `HORMUZ_SCHEMA_ERRORS = ${schema.error_count}`,
   `A23 LIVE_VERIFIED = ${a23.counts.LIVE_VERIFIED}`,
@@ -737,6 +772,7 @@ console.log(JSON.stringify({
   schema_errors: schema.error_count,
   registry_tests: { passed: registryTests.passed, failed: registryTests.failed, negative: negativeProof?.detail ?? null },
   runtime_tests: { total: runtimeTotal, passed: runtimePassed, failed: runtimeFailed, exit: runtimeTestRun.status },
+  full_tests: { passed: fullPassed, failed: fullFailed },
   validator: { valid: validator.valid, error_count: validator.error_count, warning_count: validator.warning_count },
   air: {
     names: air.namesEqual,

@@ -1,4 +1,5 @@
 import { existsSync, readdirSync, readFileSync } from "node:fs";
+import { hostname } from "node:os";
 import path from "node:path";
 import { repoRoot } from "./registry.mjs";
 
@@ -29,11 +30,17 @@ export function scanPortability(root = repoRoot) {
   const nfsPath = ["nfs", "://"].join("");
   const ipPattern = /\b(?:\d{1,3}\.){3}\d{1,3}\b/;
   const endpointPattern = /https?:\/\/[^\s]*11434/;
+  const hostNeedle = hostname();
+  const hostLabel = hostNeedle.split(".")[0];
   for (const file of files) {
     const text = readFileSync(file, "utf8");
     const relative = path.relative(root, file);
     if (text.includes(homeNeedle)) findings.push(`${relative} contains a user home path`);
     if (text.includes(nameNeedle)) findings.push(`${relative} contains a username`);
+    if (hostNeedle.length >= 8 && text.includes(hostNeedle)) findings.push(`${relative} contains a machine hostname`);
+    if (hostLabel.length >= 8 && hostLabel !== hostNeedle && text.includes(hostLabel)) {
+      findings.push(`${relative} contains a machine hostname`);
+    }
     if (ipPattern.test(text)) findings.push(`${relative} contains an IP literal`);
     if (endpointPattern.test(text)) findings.push(`${relative} pins a model endpoint`);
     if (text.includes(nasPath)) findings.push(`${relative} contains a NAS volume path`);

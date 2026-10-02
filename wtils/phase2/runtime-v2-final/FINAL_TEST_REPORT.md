@@ -6,6 +6,7 @@ Registry validator: python3 wtils/scripts/registries/validate.py
 - error_count: 0
 - warning_count: 118
 
+Registry tests ran before the runtime regression.
 Registry tests: python3 wtils/tests/registries/test_registries.py
 - exit: 0
 - passed: 152
@@ -17,6 +18,10 @@ Runtime tests: node --test tests/wtils/phase2a.test.mjs tests/wtils/phase2a-v.te
 - tests: 53
 - passed: 53
 - failed: 0
+
+REGISTRY_TESTS = 152/0
+RUNTIME_TESTS = 53/0
+FULL_TESTS = 205/0
 
 The validator file was not modified. The negative proof remains inside the registry suite.
 Runtime tests do not require an external inventory file.
