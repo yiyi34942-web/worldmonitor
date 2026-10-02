@@ -25,6 +25,8 @@ export function scanPortability(root = repoRoot) {
   const nameNeedle = ["den", "gyi"].join("");
   const floatingRedis = ["redis:", "7-alpine"].join("");
   const nasPath = `/${"Volumes"}/`;
+  const smbPath = ["smb", "://"].join("");
+  const nfsPath = ["nfs", "://"].join("");
   const ipPattern = /\b(?:\d{1,3}\.){3}\d{1,3}\b/;
   const endpointPattern = /https?:\/\/[^\s]*11434/;
   for (const file of files) {
@@ -35,6 +37,7 @@ export function scanPortability(root = repoRoot) {
     if (ipPattern.test(text)) findings.push(`${relative} contains an IP literal`);
     if (endpointPattern.test(text)) findings.push(`${relative} pins a model endpoint`);
     if (text.includes(nasPath)) findings.push(`${relative} contains a NAS volume path`);
+    if (text.includes(smbPath) || text.includes(nfsPath)) findings.push(`${relative} contains a fixed NAS path`);
     if ((relative.startsWith("docker/wtils/") || relative.startsWith("deploy/wtils/")) && text.includes(floatingRedis)) {
       findings.push(`${relative} uses a floating Redis tag`);
     }

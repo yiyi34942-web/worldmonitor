@@ -1,0 +1,1444 @@
+{
+  "policy": {
+    "live_enabled": false,
+    "writes": "NOT_SAFE_TO_CALL",
+    "forged_live": false
+  },
+  "counts": {
+    "LIVE_VERIFIED": 0,
+    "BLOCKED_AUTH": 225,
+    "BLOCKED_ENTITLEMENT": 0,
+    "NOT_COVERED": 0,
+    "UPSTREAM_UNAVAILABLE": 0,
+    "NOT_SAFE_TO_CALL": 12,
+    "NOT_APPLICABLE_LIVE": 0,
+    "CONTRACT_CONFLICT": 0,
+    "FAILED": 0
+  },
+  "other": 0,
+  "total": 237,
+  "results": [
+    {
+      "operation_id": "GetAirportOpsSummary",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetCarrierOps",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetFlightStatus",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetYoutubeLiveStreamInfo",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListAirportDelays",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListAirportFlights",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListAviationNews",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "SearchFlightPrices",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "SearchGoogleDates",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "SearchGoogleFlights",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "TrackAircraft",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ExecuteBatch",
+      "call_class": "WRITE_SIDE_EFFECT",
+      "status": "NOT_SAFE_TO_CALL",
+      "called": false
+    },
+    {
+      "operation_id": "GetCo2Monitoring",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetOceanIceData",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListAirQualityData",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListClimateAnomalies",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListClimateDisasters",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListClimateNews",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "CreateMonitoredCompany",
+      "call_class": "WRITE_SIDE_EFFECT",
+      "status": "NOT_SAFE_TO_CALL",
+      "called": false
+    },
+    {
+      "operation_id": "GetCompanyCoverage",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetCompanyMaterialEvent",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetCompanyMonitoringStatus",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ImportMonitoredCompanyBatch",
+      "call_class": "WRITE_SIDE_EFFECT",
+      "status": "NOT_SAFE_TO_CALL",
+      "called": false
+    },
+    {
+      "operation_id": "ListCompanyEventChanges",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListCompanyEventImpacts",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListMonitoredCompanies",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "SetMonitoredCompanyState",
+      "call_class": "WRITE_SIDE_EFFECT",
+      "status": "NOT_SAFE_TO_CALL",
+      "called": false
+    },
+    {
+      "operation_id": "UpdateMonitoredCompany",
+      "call_class": "WRITE_SIDE_EFFECT",
+      "status": "NOT_SAFE_TO_CALL",
+      "called": false
+    },
+    {
+      "operation_id": "GetHumanitarianSummary",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetHumanitarianSummaryBatch",
+      "call_class": "SAFE_IDEMPOTENT",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListAcledEvents",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListIranEvents",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListUcdpEvents",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetConsumerPriceBasketSeries",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetConsumerPriceFreshness",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetConsumerPriceOverview",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListConsumerPriceCategories",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListConsumerPriceMovers",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListRetailerPriceSpreads",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListCyberThreats",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetDisplacementSummary",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetPopulationExposure",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetBisCredit",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetBisExchangeRates",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetBisPolicyRates",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetBlsSeries",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetChinaActivityNowcast",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetChinaMacroSnapshot",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetCrudeInventories",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetEcbFxRates",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetEconomicCalendar",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetEconomicStress",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetEnergyCapacity",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetEnergyCrisisPolicies",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetEnergyPrices",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetEuFsi",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetEuGasStorage",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetEuYieldCurve",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetEurostatCountryData",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetFaoFoodPriceIndex",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetFredSeries",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetFredSeriesBatch",
+      "call_class": "SAFE_IDEMPOTENT",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetGovernmentYieldCurve",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetMacroSignals",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetNatGasStorage",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetNationalDebt",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetOilInventories",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetOilStocksAnalysis",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetUsCpiMonthly",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetUsInterestRates",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetUsTreasuryParYieldCurve",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetWorldCpiMonthly",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListBigMacPrices",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListFuelPrices",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListGlobalTenders",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListGroceryBasketPrices",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListWorldBankIndicators",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetForecastScorecard",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetForecasts",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetSimulationOutcome",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetSimulationPackage",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "TriggerSimulation",
+      "call_class": "WRITE_SIDE_EFFECT",
+      "status": "NOT_SAFE_TO_CALL",
+      "called": false
+    },
+    {
+      "operation_id": "GetGivingSummary",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListAirQualityAlerts",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListDiseaseOutbreaks",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "SearchImagery",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetBootstrapData",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetCableHealth",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetIpGeo",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetTemporalBaseline",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListInternetDdosAttacks",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListInternetOutages",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListInternetTrafficAnomalies",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListServiceStatuses",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListTemporalAnomalies",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "RecordBaselineSnapshot",
+      "call_class": "WRITE_SIDE_EFFECT",
+      "status": "NOT_SAFE_TO_CALL",
+      "called": false
+    },
+    {
+      "operation_id": "ReverseGeocode",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ClassifyEvent",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ComputeEnergyShockScenario",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "DeductSituation",
+      "call_class": "WRITE_SIDE_EFFECT",
+      "status": "NOT_SAFE_TO_CALL",
+      "called": false
+    },
+    {
+      "operation_id": "GetChinaDecisionSignals",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetCompanyEnrichment",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetCountryCoverage",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetCountryEnergyProfile",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetCountryFacts",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetCountryIntelBrief",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetCountryPortActivity",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetCountryRisk",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetGdeltTopicTimeline",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetIntelTimeline",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetPizzintStatus",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetRegimeHistory",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetRegionalBrief",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetRegionalSnapshot",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetRiskScores",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetSimilarEvents",
+      "call_class": "SAFE_IDEMPOTENT",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetSocialVelocity",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListCompanySignals",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListCrossSourceSignals",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListGpsInterference",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListMarketImplications",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListMaterialEvents",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListOrefAlerts",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListSatellites",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListSecurityAdvisories",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListTelegramFeed",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListWsbTickers",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListXFeed",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "SearchGdeltDocuments",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "SearchIntelHistory",
+      "call_class": "SAFE_IDEMPOTENT",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "SearchSecFilings",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "RegisterInterest",
+      "call_class": "EXTERNAL_NOTIFICATION",
+      "status": "NOT_SAFE_TO_CALL",
+      "called": false
+    },
+    {
+      "operation_id": "SubmitContact",
+      "call_class": "EXTERNAL_NOTIFICATION",
+      "status": "NOT_SAFE_TO_CALL",
+      "called": false
+    },
+    {
+      "operation_id": "GetVesselSnapshot",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListNavigationalWarnings",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "AnalyzeStock",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "BacktestStock",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetCotPositioning",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetCountryStockIndex",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetFearGreedIndex",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetGoldIntelligence",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetHyperliquidFlow",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetInsiderTransactions",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetMarketBreadthHistory",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetPhysicalDivergenceIndex",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetPhysicalPremiums",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetSectorSummary",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetStockAnalysisHistory",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListAiTokens",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListCommodityQuotes",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListCryptoQuotes",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListCryptoSectors",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListDefiTokens",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListEarningsCalendar",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListEtfFlows",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListGulfQuotes",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListMarketQuotes",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListOtherTokens",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListStablecoinMarkets",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListStoredStockBacktests",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetAircraftDetails",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetAircraftDetailsBatch",
+      "call_class": "SAFE_IDEMPOTENT",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetDefenseIndustrialBase",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetTheaterPosture",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetUSNIFleetReport",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetWingbitsLiveFlight",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetWingbitsStatus",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListDefensePatents",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListMilitaryBases",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListMilitaryFlights",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListNaturalEvents",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetSummarizeArticleCache",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListCountryHeadlines",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListFeedDigest",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "SummarizeArticle",
+      "call_class": "SAFE_IDEMPOTENT",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListPositiveGeoEvents",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListPredictionMarkets",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListRadiationObservations",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListArxivPapers",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListHackernewsItems",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListTechEvents",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListTrendingRepos",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetDemographicsCapability",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetFoodStocks",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetResilienceIndicators",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetResilienceRanking",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetResilienceRuntimeManifest",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetResilienceScore",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetTorontoSafety",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListSanctionsPressure",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "LookupSanctionEntity",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetScenarioStatus",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListScenarioTemplates",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "RunScenario",
+      "call_class": "WRITE_SIDE_EFFECT",
+      "status": "NOT_SAFE_TO_CALL",
+      "called": false
+    },
+    {
+      "operation_id": "GetBlocScorecard",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetFiveFactorScorecard",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListFiveFactorScorecards",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListEarthquakes",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListWebhooks",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "RegisterWebhook",
+      "call_class": "EXTERNAL_NOTIFICATION",
+      "status": "NOT_SAFE_TO_CALL",
+      "called": false
+    },
+    {
+      "operation_id": "RouteIntelligence",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetBypassOptions",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetChinaCorridorControlTowers",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetChokepointDependencies",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetChokepointHistory",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetChokepointStatus",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetCountryChokepointIndex",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetCountryCostShock",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetCountryProducts",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetCountryVulnerabilities",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetCriticalMinerals",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetFuelShortageDetail",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetMineralProduction",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetMultiSectorCostShock",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetPipelineDetail",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetRouteExplorerLane",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetRouteImpact",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetSectorDependency",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetShippingRates",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetShippingStress",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetStorageFacilityDetail",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListEnergyDisruptions",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListFuelShortages",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListPipelines",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListStorageFacilities",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListVulnerabilityRankings",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListThermalEscalations",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetCustomsRevenue",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetTariffTrends",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetTradeBarriers",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetTradeFlows",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetTradeRestrictions",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListComtradeFlows",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListUnrestEvents",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "GetWebcamImage",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListWebcams",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    },
+    {
+      "operation_id": "ListFireDetections",
+      "call_class": "SAFE_READ",
+      "status": "BLOCKED_AUTH",
+      "called": false
+    }
+  ]
+}

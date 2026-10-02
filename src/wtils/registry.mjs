@@ -66,7 +66,7 @@ export const OBSERVATION_TIMESTAMPS = Object.freeze([
   "outcome_time",
 ]);
 
-export const CONTRACT_VERSION = "2.1.0";
+export const CONTRACT_VERSION = "2.1.2";
 
 /** Research Artifact contract v2.1. The builder emits every field. */
 export const ARTIFACT_FIELDS = Object.freeze([
@@ -143,7 +143,7 @@ const A_FIELDS = Object.freeze([
 ]);
 
 export class BaselineError extends Error {
-  constructor(message, code = "STOP_AND_REPORT_CONTRACT_BASELINE_MISMATCH") {
+  constructor(message, code = "STOP_AND_REPORT_BASELINE_MISMATCH") {
     super(message);
     this.name = "BaselineError";
     this.code = code;
@@ -211,6 +211,86 @@ function assertContractBaseline(root, loaded, methods, apis) {
   }
   if (!persistence.includes("IMPLEMENTATION_TECHNOLOGY = UNBOUND")) {
     throw new BaselineError("research store technology is not UNBOUND");
+  }
+  const apiItemProps = props.apis?.items?.properties ?? {};
+  for (const field of ["delivery_binding_state", "cache_binding_state", "primary_delivery_mode", "cache_semantics"]) {
+    if (!(field in apiItemProps)) {
+      throw new BaselineError(`research artifact api item missing ${field}`);
+    }
+  }
+  for (const method of methods) {
+    if (method.version !== "1.2.0") {
+      throw new BaselineError(`${method.methodology_id} version ${method.version ?? "missing"}, expected 1.2.0`);
+    }
+    if ("methodology_version" in method) {
+      throw new BaselineError(`${method.methodology_id} still has methodology_version`);
+    }
+    if (!method.methodology_version_hash) {
+      throw new BaselineError(`${method.methodology_id} missing methodology_version_hash`);
+    }
+    if (!method.source_binding_mode || !method.source_policy) {
+      throw new BaselineError(`${method.methodology_id} missing source policy`);
+    }
+    if (!["EXPLICIT", "INHERIT_FROM_API_BINDINGS", "NONE"].includes(method.source_binding_mode)) {
+      throw new BaselineError(`${method.methodology_id} source_binding_mode ${method.source_binding_mode}`);
+    }
+    if (method.source_binding_mode === "NONE" && !["NONCALLABLE", "META", "GOVERNANCE"].includes(method.execution_class)) {
+      throw new BaselineError(`${method.methodology_id} NONE source mode on ${method.execution_class}`);
+    }
+  }
+  let bodyBound = 0;
+  let bodyNotApplicable = 0;
+  let bodyOther = 0;
+  for (const api of apis) {
+    const ref = api.request_body_schema_ref;
+    if (ref === "NOT_APPLICABLE") bodyNotApplicable += 1;
+    else if (typeof ref === "string" && ref.length > 0) bodyBound += 1;
+    else bodyOther += 1;
+    if (api.a11_delivery_bound_state === "VERIFIED" && !api.primary_delivery_mode) {
+      throw new BaselineError(`${api.operation_id} delivery VERIFIED without primary_delivery_mode`);
+    }
+    if (api.a12_seed_cache_bound_state === "VERIFIED" && !api.cache_semantics) {
+      throw new BaselineError(`${api.operation_id} cache VERIFIED without cache_semantics`);
+    }
+    for (const [key, value] of Object.entries(api)) {
+      if (!key.endsWith("_state") || key === "a23_state" || key === "a24_state") continue;
+      const baseKey = key.slice(0, -"_state".length);
+      if (!(baseKey in api)) throw new BaselineError(`${api.operation_id} ${key} missing base`);
+      const base = api[baseKey];
+      if (value === "VERIFIED" && base !== true) {
+        throw new BaselineError(`${api.operation_id} ${key} VERIFIED with base ${base}`);
+      }
+      if ((value === "NOT_APPLICABLE" || value === "BLOCKED_STATIC_EVIDENCE") && base !== false) {
+        throw new BaselineError(`${api.operation_id} ${key} ${value} with base ${base}`);
+      }
+    }
+  }
+  if (bodyBound !== 18 || bodyNotApplicable !== 219 || bodyOther !== 0) {
+    throw new BaselineError(`request body bound ${bodyBound} not_applicable ${bodyNotApplicable} other ${bodyOther}`);
+  }
+  const profiles = loaded.profiles.entries ?? [];
+  const profileBindings = loaded.bindings.profile_methodology_bindings ?? [];
+  const roleBindings = loaded.bindings.role_methodology_bindings ?? [];
+  expectCount("role_methodology_bindings", roleBindings.length, 100);
+  const relationKey = (profileId, methodologyId, bindingType, trigger) =>
+    `${profileId}|${methodologyId}|${bindingType}|${trigger ?? ""}`;
+  const embedded = new Set();
+  for (const profile of profiles) {
+    for (const methodologyId of profile.core_methodologies ?? []) {
+      embedded.add(relationKey(profile.profile_id, methodologyId, "CORE", null));
+    }
+    for (const triggered of profile.triggered_methodologies ?? []) {
+      embedded.add(relationKey(profile.profile_id, triggered.methodology_id, "TRIGGERED", triggered.trigger));
+    }
+    for (const methodologyId of profile.audit_methodologies ?? []) {
+      embedded.add(relationKey(profile.profile_id, methodologyId, "AUDIT", null));
+    }
+  }
+  const bound = new Set(
+    profileBindings.map((row) => relationKey(row.profile_id, row.methodology_id, row.binding_type, row.trigger)),
+  );
+  if (embedded.size !== 85 || bound.size !== 85 || [...embedded].some((key) => !bound.has(key))) {
+    throw new BaselineError(`profile method relations ${embedded.size} bindings ${bound.size}`);
   }
 }
 

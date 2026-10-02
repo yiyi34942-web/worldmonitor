@@ -18,6 +18,7 @@ import {
   modelEndpoints,
   repoRoot,
   resolveContract,
+  resolveDelivery,
   routeMethodologies,
   routeProfiles,
   routeRoles,
@@ -185,10 +186,13 @@ test("error semantics do not treat HTTP 200 as acceptance", () => {
 
 test("delivery classification keeps seeded distinct from live", () => {
   const run = runPipeline(registry, hormuzInput());
-  const seeded = registry.apis.find((api) => api.delivery_semantics_ref === "SEEDED");
+  const seeded = registry.apis.find((api) => api.primary_delivery_mode === "SEEDED");
   assert.ok(seeded);
-  assert.equal(seeded.primary_delivery_mode == null, true);
-  assert.equal(seeded.delivery_semantics_ref === "REQUEST", false);
+  const delivery = resolveDelivery(registry, seeded.operation_id);
+  assert.equal(delivery.primary_delivery_mode, "SEEDED");
+  assert.equal(delivery.seeded, true);
+  assert.equal(delivery.live_observation, false);
+  assert.equal(seeded.a11_delivery_bound_state, "VERIFIED");
   assert.ok(run.result.delivery.every((row) => row.retrieved_at === null));
   assert.ok(run.result.delivery.every((row) => row.called_at === null));
   assert.ok(run.result.delivery.every((row) => row.live_observation === false));
@@ -225,10 +229,7 @@ test("research artifact validates and output router covers the required kinds", 
     artifact_id: hormuz.artifact_id,
     created_at: hormuz.as_of,
   });
-  const structural = run.validation.errors.filter(
-    (error) => !error.includes("primary_delivery_mode") && !error.includes("cache_semantics"),
-  );
-  assert.deepEqual(structural, []);
+  assert.equal(run.validation.ok, true, run.validation.errors.join("\n"));
   assert.equal(run.artifact.promotion_status, "DRAFT");
   assert.ok(run.artifact.apis.length > 0);
   assert.ok(run.artifact.evidence.some((item) => item.observation.startsWith("contract ")));

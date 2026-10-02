@@ -1,0 +1,106 @@
+{
+  "static_baseline": "f8d3eb60361db203f33c33e9514abda90dc94b59",
+  "contract_version": "2.1.2",
+  "methodology_version": "1.2.0",
+  "registry_validator": {
+    "valid": true,
+    "error_count": 0,
+    "warning_count": 118,
+    "exit": 0
+  },
+  "counts": {
+    "roles": 5,
+    "profiles": 10,
+    "methodologies": 31,
+    "apis": 237,
+    "profile_relations": 85,
+    "profile_bindings": 85,
+    "role_methodology_bindings": 100,
+    "request_contract_ref": 237,
+    "request_body_bound": 18,
+    "request_body_not_applicable": 219
+  },
+  "hormuz": {
+    "expected_from_registry": {
+      "selected": [
+        "M03",
+        "M15",
+        "M16",
+        "M20",
+        "M21",
+        "C03",
+        "C04"
+      ],
+      "governance": [
+        "C06",
+        "C07"
+      ]
+    },
+    "actual_runtime": {
+      "selected": [
+        "M03",
+        "M15",
+        "M16",
+        "M20",
+        "M21",
+        "C03",
+        "C04"
+      ],
+      "governance": [
+        "C06",
+        "C07"
+      ]
+    },
+    "match": true
+  },
+  "execution_class": {
+    "M06": "NONCALLABLE",
+    "M07": "NONCALLABLE",
+    "C01": "NONCALLABLE",
+    "C02": "NONCALLABLE",
+    "C05": "META",
+    "C06": "GOVERNANCE",
+    "C07": "GOVERNANCE",
+    "normal_plan_leak": []
+  },
+  "m21_included": [
+    "GetCountryRisk",
+    "GetRiskScores",
+    "ListCrossSourceSignals"
+  ],
+  "schema_error_count": 0,
+  "gates": {
+    "contract_version": "PASS",
+    "registry_validator": "PASS",
+    "registry_tests": "PASS",
+    "runtime_tests": "PASS",
+    "contract_conflicts": "PASS",
+    "five_role_runtime": "PASS",
+    "profile_router": "PASS",
+    "method_router": "PASS",
+    "api_planner": "PASS",
+    "method_version_runtime": "PASS",
+    "m21_runtime_semantics": "PASS",
+    "a_state_runtime": "PASS",
+    "delivery_two_axis_runtime": "PASS",
+    "request_contract_runtime": "PASS",
+    "request_body_runtime": "PASS",
+    "source_policy_runtime": "PASS",
+    "source_unknown_preserved": "PASS",
+    "research_artifact": "PASS",
+    "pit_runtime": "PASS",
+    "delta_t_runtime": "PASS",
+    "revision_runtime": "PASS",
+    "hormuz_final_e2e": "PASS",
+    "external_gap_default_off": "PASS",
+    "nas_absent_degradation": "PASS",
+    "air_legacy_runtime_untouched": "PASS",
+    "mac_studio_portability": "PASS",
+    "fresh_checkout": "PASS",
+    "a23_expected": "PASS",
+    "a24_blocked": "PASS",
+    "ownership": "PASS"
+  },
+  "conflicts": [],
+  "pre_hardware_ready": "YES"
+}

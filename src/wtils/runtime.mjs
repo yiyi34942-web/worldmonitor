@@ -272,46 +272,96 @@ export function routeRoles(registry, resolvedInput, profileRoute) {
 export function methodSemanticView(method) {
   return {
     methodology_id: method.methodology_id,
-    canonical_name: method.canonical_name ?? method.name ?? null,
+    canonical_name: method.name ?? null,
     provenance_class: method.provenance_class ?? null,
     execution_class: method.execution_class ?? null,
-    methodology_version: method.methodology_version ?? method.version ?? null,
+    methodology_version: method.version ?? null,
     methodology_version_hash: method.methodology_version_hash ?? null,
+    source_binding_mode: method.source_binding_mode ?? null,
     callable: method.callable === true && CALLABLE.has(method.execution_class),
     payload_authority: "NOT_USED_FOR_ROUTING",
   };
 }
 
-export function routeMethodologies(registry, resolvedInput, profileRoute) {
-  const unknown = [];
-  const selectedIds = [];
-  const push = (methodologyId) => {
-    if (!methodologyId || selectedIds.includes(methodologyId)) return;
-    if (!registry.byId.methodology.has(methodologyId)) {
-      unknown.push(methodologyId);
-      return;
+function relationKey(profileId, methodologyId, bindingType, trigger) {
+  return `${profileId}|${methodologyId}|${bindingType}|${trigger ?? ""}`;
+}
+
+export function profileBindingParity(registry) {
+  const embedded = new Set();
+  for (const profile of registry.profiles) {
+    for (const methodologyId of profile.core_methodologies ?? []) {
+      embedded.add(relationKey(profile.profile_id, methodologyId, "CORE", null));
     }
-    selectedIds.push(methodologyId);
+    for (const triggered of profile.triggered_methodologies ?? []) {
+      embedded.add(relationKey(profile.profile_id, triggered.methodology_id, "TRIGGERED", triggered.trigger));
+    }
+    for (const methodologyId of profile.audit_methodologies ?? []) {
+      embedded.add(relationKey(profile.profile_id, methodologyId, "AUDIT", null));
+    }
+  }
+  const bindings = registry.bindings.profile_methodology_bindings ?? [];
+  const bound = new Set(
+    bindings.map((row) => relationKey(row.profile_id, row.methodology_id, row.binding_type, row.trigger)),
+  );
+  const onlyProfile = [...embedded].filter((key) => !bound.has(key));
+  const onlyBinding = [...bound].filter((key) => !embedded.has(key));
+  return {
+    consistent: onlyProfile.length === 0 && onlyBinding.length === 0 && embedded.size === bound.size,
+    profile_relations: embedded.size,
+    profile_bindings: bound.size,
+    only_profile: onlyProfile,
+    only_binding: onlyBinding,
   };
-  if (resolvedInput.explicit_methodologies.length > 0) {
-    for (const methodologyId of resolvedInput.explicit_methodologies) push(methodologyId);
+}
+
+export function registryMethodPlan(registry, profileIds, triggers = [], explicitIds = []) {
+  const rows = (registry.bindings.profile_methodology_bindings ?? []).filter((row) => profileIds.includes(row.profile_id));
+  const triggerSet = new Set(triggers);
+  const selected = [];
+  const push = (methodologyId) => {
+    if (methodologyId && !selected.includes(methodologyId)) selected.push(methodologyId);
+  };
+  if (explicitIds.length > 0) {
+    for (const methodologyId of explicitIds) push(methodologyId);
   } else {
-    const triggers = new Set(resolvedInput.triggers);
-    for (const profile of profileRoute.profiles) {
-      for (const methodologyId of profile.core_methodologies ?? []) push(methodologyId);
-      for (const triggered of profile.triggered_methodologies ?? []) {
-        if (triggers.has(triggered.trigger)) push(triggered.methodology_id);
-      }
+    for (const row of rows) {
+      if (row.binding_type === "CORE") push(row.methodology_id);
+      if (row.binding_type === "TRIGGERED" && triggerSet.has(row.trigger)) push(row.methodology_id);
     }
   }
   const governance = [];
-  for (const profile of profileRoute.profiles) {
-    for (const methodologyId of profile.audit_methodologies ?? []) {
-      const method = registry.byId.methodology.get(methodologyId);
-      if (method?.execution_class === "GOVERNANCE" && !governance.some((item) => item.methodology_id === methodologyId)) {
-        governance.push(traceMethod(method, "GOVERNANCE_GATE"));
-      }
+  for (const row of rows) {
+    if (row.binding_type !== "AUDIT") continue;
+    const method = registry.byId.methodology.get(row.methodology_id);
+    if (method?.execution_class === "GOVERNANCE" && !governance.includes(row.methodology_id)) {
+      governance.push(row.methodology_id);
     }
+  }
+  return { selected, governance, binding_rows: rows.length };
+}
+
+export function routeMethodologies(registry, resolvedInput, profileRoute) {
+  const parity = profileBindingParity(registry);
+  const plan = registryMethodPlan(
+    registry,
+    profileRoute.profile_ids,
+    resolvedInput.triggers,
+    resolvedInput.explicit_methodologies,
+  );
+  const unknown = [];
+  const selectedIds = [];
+  for (const methodologyId of plan.selected) {
+    if (!registry.byId.methodology.has(methodologyId)) {
+      unknown.push(methodologyId);
+      continue;
+    }
+    selectedIds.push(methodologyId);
+  }
+  const governance = [];
+  for (const methodologyId of plan.governance) {
+    const method = registry.byId.methodology.get(methodologyId);
+    if (method) governance.push(traceMethod(method, "GOVERNANCE_GATE"));
   }
   const traces = selectedIds.map((methodologyId) => {
     const method = registry.byId.methodology.get(methodologyId);
@@ -323,7 +373,14 @@ export function routeMethodologies(registry, resolvedInput, profileRoute) {
     }
     return traceMethod(method, "CALLABLE");
   });
-  return { traces, governance, unknown, selected_ids: selectedIds };
+  return {
+    traces,
+    governance,
+    unknown,
+    selected_ids: selectedIds,
+    binding_parity: parity,
+    registry_plan: { selected: selectedIds, governance: plan.governance },
+  };
 }
 
 function traceMethod(method, disposition) {
@@ -420,8 +477,8 @@ export function resolveContract(registry, operationId, openapiIndex = null) {
   const requestContractRef = typeof api.request_contract_ref === "string" && api.request_contract_ref.length > 0
     ? api.request_contract_ref
     : null;
-  const hasBody = ["POST", "PUT", "PATCH"].includes(String(api.http_method || "").toUpperCase());
-  const requestBodySchemaRef = hasBody ? (api.request_body_schema_ref ?? null) : null;
+  const body = requestBodyContract(api);
+  const requestBodySchemaRef = body.ref;
   const requestResolved = requestContractRef
     ? "REQUEST_CONTRACT_REF"
     : openapi
@@ -439,7 +496,7 @@ export function resolveContract(registry, operationId, openapiIndex = null) {
   if (!requestContractRef) {
     conflicts.push({ field: "request_contract_ref", reason: "UNRESOLVED", blocking: false });
   }
-  if (hasBody && !requestBodySchemaRef) {
+  if (body.applicability === "UNBOUND") {
     conflicts.push({ field: "request_body_schema_ref", reason: "BODY_SCHEMA_UNBOUND", blocking: false });
   }
   for (const roleId of api.role_bindings ?? []) {
@@ -458,6 +515,7 @@ export function resolveContract(registry, operationId, openapiIndex = null) {
     entitlement: api.entitlement ?? null,
     request_contract_ref: requestContractRef,
     request_body_schema_ref: requestBodySchemaRef,
+    request_body_applicability: body.applicability,
     request_resolved_from: requestResolved,
     response_schema: { ref: api.response_schema_ref ?? null, resolved_from: responseResolved },
     jmespath: api.jmespath ?? null,
@@ -469,10 +527,13 @@ export function resolveContract(registry, operationId, openapiIndex = null) {
     scope_class: api.scope_class ?? null,
     methodologies: api.methodology_bindings ?? [],
     profiles: api.profile_bindings ?? [],
-    source_state: api.a09_source_bound ?? null,
-    delivery_state: api.a11_delivery_bound ?? null,
+    source_state: readAState(api, "a09_source_bound").state,
+    source_base: readAState(api, "a09_source_bound").base,
+    delivery_state: readAState(api, "a11_delivery_bound").state,
+    delivery_base: readAState(api, "a11_delivery_bound").base,
     primary_delivery_mode: api.primary_delivery_mode ?? null,
     cache_semantics: api.cache_semantics ?? null,
+    cache_state: readAState(api, "a12_seed_cache_bound").state,
     freshness_ref: api.freshness_ref ?? null,
     seed_state: api.a12_seed_cache_bound ?? null,
     rate_limit: api.rate_limit ?? null,
@@ -481,17 +542,36 @@ export function resolveContract(registry, operationId, openapiIndex = null) {
   };
 }
 
+export function readAState(api, baseName) {
+  return {
+    base: api?.[baseName] ?? null,
+    state: api?.[`${baseName}_state`] ?? null,
+    authority: "state",
+  };
+}
+
+export function requestBodyContract(api) {
+  const ref = api?.request_body_schema_ref;
+  if (ref === "NOT_APPLICABLE") return { applicability: "NOT_APPLICABLE", ref: "NOT_APPLICABLE" };
+  if (typeof ref === "string" && ref.length > 0) return { applicability: "BOUND", ref };
+  return { applicability: "UNBOUND", ref: null };
+}
+
 export function resolveDelivery(registry, operationId) {
   const api = registry.byId.api.get(operationId);
   const primary = api?.primary_delivery_mode ?? null;
   const cache = api?.cache_semantics ?? null;
-  const seeded = primary === "SEED" || primary === "SEEDED";
-  const cached = cache === "CACHED_FETCH";
+  const deliveryState = readAState(api, "a11_delivery_bound").state;
+  const cacheState = readAState(api, "a12_seed_cache_bound").state;
+  const seeded = primary === "SEEDED";
+  const cached = cache === "CACHED_FETCH" || cache === "SEED_CACHE";
   return {
     operation_id: operationId,
     primary_delivery_mode: primary,
     cache_semantics: cache,
-    known: primary == null || DELIVERY_MODES.includes(primary) || primary === "SEED",
+    delivery_binding_state: deliveryState,
+    cache_binding_state: cacheState,
+    known: primary == null || DELIVERY_MODES.includes(primary),
     seeded,
     cached,
     live_observation: (primary === "REQUEST" || primary === "RELAY") && !seeded && !cached,
@@ -560,15 +640,67 @@ export function lineage(records) {
   };
 }
 
-export function sourceIdsForMethods(registry, methodologyIds) {
+export function sourceIdsForMethods(registry, methodologyIds, operations = []) {
   const ids = [];
+  const push = (sourceId) => {
+    if (sourceId && !ids.includes(sourceId)) ids.push(sourceId);
+  };
+  const apiBindings = registry.bindings.api_source_bindings ?? [];
+  const methodBindings = registry.bindings.methodology_api_bindings ?? [];
   for (const methodologyId of methodologyIds) {
     const method = registry.byId.methodology.get(methodologyId);
-    for (const sourceId of method?.source_requirements ?? []) {
-      if (!ids.includes(sourceId)) ids.push(sourceId);
+    const mode = method?.source_binding_mode ?? "EXPLICIT";
+    if (mode === "NONE") continue;
+    if (mode === "EXPLICIT") {
+      for (const sourceId of method?.source_requirements ?? []) push(sourceId);
+      continue;
+    }
+    const opIds = new Set(
+      operations.filter((operation) => operation.methodology_id === methodologyId).map((operation) => operation.operation_id),
+    );
+    if (opIds.size === 0) {
+      for (const binding of methodBindings) {
+        if (binding.methodology_id === methodologyId) opIds.add(binding.operation_id);
+      }
+    }
+    for (const binding of apiBindings) {
+      if (opIds.has(binding.operation_id)) push(binding.source_id);
     }
   }
   return ids;
+}
+
+export function resolveMethodSources(registry, methodologyIds, operations = []) {
+  const inherited = resolveSources(registry, sourceIdsForMethods(registry, methodologyIds, operations), null);
+  const records = [...inherited.records];
+  const apiBindings = registry.bindings.api_source_bindings ?? [];
+  for (const methodologyId of methodologyIds) {
+    const method = registry.byId.methodology.get(methodologyId);
+    if (method?.source_binding_mode !== "INHERIT_FROM_API_BINDINGS") continue;
+    const opIds = operations
+      .filter((operation) => operation.methodology_id === methodologyId)
+      .map((operation) => operation.operation_id);
+    const boundOps = new Set(
+      apiBindings.filter((binding) => opIds.includes(binding.operation_id)).map((binding) => binding.operation_id),
+    );
+    for (const operationId of opIds) {
+      const api = registry.byId.api.get(operationId);
+      if (api?.a09_source_bound_state !== "BLOCKED_STATIC_EVIDENCE" || boundOps.has(operationId)) continue;
+      records.push({
+        source_id: `unresolved:${operationId}`,
+        original_publisher: null,
+        observer: null,
+        provider: null,
+        host: null,
+        transport: null,
+        collector: null,
+        observed_at: null,
+        state: "UNKNOWN",
+        a09_state: api.a09_source_bound_state,
+      });
+    }
+  }
+  return lineage(records);
 }
 
 const WRITE_PREFIX = /^(Create|Update|Delete|Import|Set|Record|Run|Trigger|Submit|Register)/;
@@ -627,7 +759,7 @@ export function buildResearchResult(registry, input) {
     };
   });
   const executedIds = methodologyRoute.traces.filter((trace) => trace.executed).map((trace) => trace.methodology_id);
-  const sources = resolveSources(registry, sourceIdsForMethods(registry, executedIds), null);
+  const sources = resolveMethodSources(registry, executedIds, apiPlan.operations);
   const storage = storagePolicy(input.env ?? {});
   return {
     event: {
@@ -728,9 +860,12 @@ function apiArtifactItem(registry, operation) {
     operation: api.operation_id,
     contract_version: api.contract_version,
     request_contract_ref: api.request_contract_ref,
+    request_body_schema_ref: requestBodyContract(api).ref,
     called_at: null,
     primary_delivery_mode: api.primary_delivery_mode ?? null,
     cache_semantics: api.cache_semantics ?? null,
+    delivery_binding_state: readAState(api, "a11_delivery_bound").state,
+    cache_binding_state: readAState(api, "a12_seed_cache_bound").state,
     a23_state: call.a23_candidate ? "BLOCKED_AUTH" : "NOT_SAFE_TO_CALL",
     a24_state: "BLOCKED",
     live_observation: false,
@@ -865,15 +1000,19 @@ function checkNode(value, schema, pointer, errors) {
       errors.push(`${pointer} expected array`);
       return;
     }
+    if (schema.uniqueItems === true && new Set(value.map((item) => JSON.stringify(item))).size !== value.length) {
+      errors.push(`${pointer} uniqueItems`);
+    }
+    if (typeof schema.minItems === "number" && value.length < schema.minItems) {
+      errors.push(`${pointer} minItems`);
+    }
     value.forEach((item, index) => checkNode(item, schema.items, `${pointer}[${index}]`, errors));
     return;
   }
   if (Array.isArray(schema.type)) {
     const ok = schema.type.some((typeName) => typeOk(value, typeName));
     if (!ok) errors.push(`${pointer} type`);
-    return;
-  }
-  if (schema.type && !typeOk(value, schema.type)) {
+  } else if (schema.type && !typeOk(value, schema.type)) {
     errors.push(`${pointer} expected ${schema.type}`);
     return;
   }
