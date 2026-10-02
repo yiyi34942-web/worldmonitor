@@ -1,6 +1,6 @@
 {
-  "previous_version": "2.1.0",
-  "new_version": "2.1.1",
+  "previous_version": "2.1.1",
+  "new_version": "2.1.2",
   "breaking": false,
   "nonbreaking": true,
   "migration_notes": [
@@ -27,7 +27,13 @@
     "Cache semantics invariant: A12 VERIFIED \u2192 cache_semantics non-null",
     "Research Artifact schema: delivery/cache nullable + delivery_binding_state/cache_binding_state",
     "Request body schema ref: 18 bound, 219 NOT_APPLICABLE, 0 null",
-    "M21 CII description: Country Instability/Intelligence (NOT IMO)"
+    "M21 CII description: Country Instability/Intelligence (NOT IMO)",
+    "2.1.1 \u2192 2.1.2: Schema + Profile + Cross-Registry Reconciliation",
+    "canonical_name removed from Role/Profile (name IS canonical)",
+    "methodology_version removed from Methodology (version IS the field)",
+    "A-state fields formally declared in API schema",
+    "source_policy + source_binding_mode added to Methodology schema",
+    "Profile\u2194Bindings bijection regenerated"
   ],
   "version": "2.1.2"
 }

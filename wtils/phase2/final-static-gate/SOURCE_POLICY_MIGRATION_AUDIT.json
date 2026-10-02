@@ -1,0 +1,347 @@
+{
+  "total": 31,
+  "valid": 31,
+  "entries": [
+    {
+      "methodology_id": "M01",
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_requirements_count": 0,
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      },
+      "valid": true
+    },
+    {
+      "methodology_id": "M02",
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_requirements_count": 0,
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      },
+      "valid": true
+    },
+    {
+      "methodology_id": "M03",
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_requirements_count": 0,
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      },
+      "valid": true
+    },
+    {
+      "methodology_id": "M04",
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_requirements_count": 0,
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      },
+      "valid": true
+    },
+    {
+      "methodology_id": "M05",
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_requirements_count": 0,
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      },
+      "valid": true
+    },
+    {
+      "methodology_id": "M06",
+      "source_binding_mode": "NONE",
+      "source_requirements_count": 0,
+      "source_policy": {
+        "min_sources": 0,
+        "cross_validation": false,
+        "reason": "NONCALLABLE methodology has no direct API sources"
+      },
+      "valid": true
+    },
+    {
+      "methodology_id": "M07",
+      "source_binding_mode": "NONE",
+      "source_requirements_count": 0,
+      "source_policy": {
+        "min_sources": 0,
+        "cross_validation": false,
+        "reason": "NONCALLABLE methodology has no direct API sources"
+      },
+      "valid": true
+    },
+    {
+      "methodology_id": "M08",
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_requirements_count": 0,
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      },
+      "valid": true
+    },
+    {
+      "methodology_id": "M09",
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_requirements_count": 0,
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      },
+      "valid": true
+    },
+    {
+      "methodology_id": "M10",
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_requirements_count": 0,
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      },
+      "valid": true
+    },
+    {
+      "methodology_id": "M11",
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_requirements_count": 0,
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      },
+      "valid": true
+    },
+    {
+      "methodology_id": "M12",
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_requirements_count": 0,
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      },
+      "valid": true
+    },
+    {
+      "methodology_id": "M13",
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_requirements_count": 0,
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      },
+      "valid": true
+    },
+    {
+      "methodology_id": "M14",
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_requirements_count": 0,
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      },
+      "valid": true
+    },
+    {
+      "methodology_id": "M15",
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_requirements_count": 0,
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      },
+      "valid": true
+    },
+    {
+      "methodology_id": "M16",
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_requirements_count": 0,
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      },
+      "valid": true
+    },
+    {
+      "methodology_id": "M17",
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_requirements_count": 0,
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      },
+      "valid": true
+    },
+    {
+      "methodology_id": "M18",
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_requirements_count": 0,
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      },
+      "valid": true
+    },
+    {
+      "methodology_id": "M19",
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_requirements_count": 0,
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      },
+      "valid": true
+    },
+    {
+      "methodology_id": "M20",
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_requirements_count": 0,
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      },
+      "valid": true
+    },
+    {
+      "methodology_id": "M21",
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_requirements_count": 0,
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      },
+      "valid": true
+    },
+    {
+      "methodology_id": "M22",
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_requirements_count": 0,
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      },
+      "valid": true
+    },
+    {
+      "methodology_id": "M23",
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_requirements_count": 0,
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      },
+      "valid": true
+    },
+    {
+      "methodology_id": "M24",
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_requirements_count": 0,
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      },
+      "valid": true
+    },
+    {
+      "methodology_id": "C01",
+      "source_binding_mode": "NONE",
+      "source_requirements_count": 0,
+      "source_policy": {
+        "min_sources": 0,
+        "cross_validation": false,
+        "reason": "NONCALLABLE methodology has no direct API sources"
+      },
+      "valid": true
+    },
+    {
+      "methodology_id": "C02",
+      "source_binding_mode": "NONE",
+      "source_requirements_count": 0,
+      "source_policy": {
+        "min_sources": 0,
+        "cross_validation": false,
+        "reason": "NONCALLABLE methodology has no direct API sources"
+      },
+      "valid": true
+    },
+    {
+      "methodology_id": "C03",
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_requirements_count": 0,
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      },
+      "valid": true
+    },
+    {
+      "methodology_id": "C04",
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_requirements_count": 0,
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      },
+      "valid": true
+    },
+    {
+      "methodology_id": "C05",
+      "source_binding_mode": "NONE",
+      "source_requirements_count": 0,
+      "source_policy": {
+        "min_sources": 0,
+        "cross_validation": false,
+        "reason": "META methodology has no direct API sources"
+      },
+      "valid": true
+    },
+    {
+      "methodology_id": "C06",
+      "source_binding_mode": "NONE",
+      "source_requirements_count": 0,
+      "source_policy": {
+        "min_sources": 0,
+        "cross_validation": false,
+        "reason": "GOVERNANCE methodology has no direct API sources"
+      },
+      "valid": true
+    },
+    {
+      "methodology_id": "C07",
+      "source_binding_mode": "NONE",
+      "source_requirements_count": 0,
+      "source_policy": {
+        "min_sources": 0,
+        "cross_validation": false,
+        "reason": "GOVERNANCE methodology has no direct API sources"
+      },
+      "valid": true
+    }
+  ]
+}

@@ -59,27 +59,71 @@
 | P02 | NATURAL_GAS_LNG | M17 | Pipeline Registry | CORE |
 | P02 | NATURAL_GAS_LNG | M18 | Storage Facility | CORE |
 | P02 | NATURAL_GAS_LNG | M20 | Energy Disruption Event Log | CORE |
+| P02 | NATURAL_GAS_LNG | M19 | Fuel Shortage Alert | TRIGGERED |
+| P02 | NATURAL_GAS_LNG | M16 | Chokepoints | TRIGGERED |
+| P02 | NATURAL_GAS_LNG | M23 | Thermal Escalation | TRIGGERED |
+| P02 | NATURAL_GAS_LNG | C03 | Geographic Convergence | TRIGGERED |
+| P02 | NATURAL_GAS_LNG | C06 | Decision-Signal Provenance | AUDIT |
+| P02 | NATURAL_GAS_LNG | C07 | Source Attribution | AUDIT |
 | P03 | GOLD | M24 | Physical Precious-Metals Divergence Index | CORE |
 | P03 | GOLD | M15 | Commodity / Supply Vulnerability | CORE |
 | P03 | GOLD | M03 | News Credibility | CORE |
+| P03 | GOLD | M08 | Financial System Exposure | TRIGGERED |
+| P03 | GOLD | M16 | Chokepoints | TRIGGERED |
+| P03 | GOLD | C06 | Decision-Signal Provenance | AUDIT |
+| P03 | GOLD | C07 | Source Attribution | AUDIT |
+| P03 | GOLD | C02 | Revision & Corrections | AUDIT |
 | P04 | COPPER | M14 | Mineral Production & Processing Concentration | CORE |
 | P04 | COPPER | M15 | Commodity / Supply Vulnerability | CORE |
 | P04 | COPPER | M16 | Chokepoints | CORE |
+| P04 | COPPER | M13 | Defense Industrial Base | TRIGGERED |
+| P04 | COPPER | M03 | News Credibility | TRIGGERED |
+| P04 | COPPER | C06 | Decision-Signal Provenance | AUDIT |
+| P04 | COPPER | C07 | Source Attribution | AUDIT |
+| P04 | COPPER | C02 | Revision & Corrections | AUDIT |
 | P05 | SOYBEAN | M12 | Food Stocks & Stocks-to-Use | CORE |
 | P05 | SOYBEAN | M15 | Commodity / Supply Vulnerability | CORE |
 | P05 | SOYBEAN | M03 | News Credibility | CORE |
+| P05 | SOYBEAN | M16 | Chokepoints | TRIGGERED |
+| P05 | SOYBEAN | C06 | Decision-Signal Provenance | AUDIT |
+| P05 | SOYBEAN | C07 | Source Attribution | AUDIT |
+| P05 | SOYBEAN | C02 | Revision & Corrections | AUDIT |
 | P06 | FX | M08 | Financial System Exposure | CORE |
 | P06 | FX | M10 | Five-Factor Country Scorecard | CORE |
 | P06 | FX | M03 | News Credibility | CORE |
+| P06 | FX | M09 | SWF Classification Rubric | TRIGGERED |
+| P06 | FX | C06 | Decision-Signal Provenance | AUDIT |
+| P06 | FX | C07 | Source Attribution | AUDIT |
+| P06 | FX | C02 | Revision & Corrections | AUDIT |
 | P07 | RATES | M08 | Financial System Exposure | CORE |
 | P07 | RATES | M10 | Five-Factor Country Scorecard | CORE |
 | P07 | RATES | M03 | News Credibility | CORE |
+| P07 | RATES | M09 | SWF Classification Rubric | TRIGGERED |
+| P07 | RATES | C06 | Decision-Signal Provenance | AUDIT |
+| P07 | RATES | C07 | Source Attribution | AUDIT |
+| P07 | RATES | C02 | Revision & Corrections | AUDIT |
 | P08 | EQUITIES | M08 | Financial System Exposure | CORE |
 | P08 | EQUITIES | M03 | News Credibility | CORE |
+| P08 | EQUITIES | M15 | Commodity / Supply Vulnerability | TRIGGERED |
+| P08 | EQUITIES | C06 | Decision-Signal Provenance | AUDIT |
+| P08 | EQUITIES | C07 | Source Attribution | AUDIT |
+| P08 | EQUITIES | C02 | Revision & Corrections | AUDIT |
 | P09 | AI_SUPPLY_CHAIN | M14 | Mineral Production & Processing Concentration | CORE |
 | P09 | AI_SUPPLY_CHAIN | M13 | Defense Industrial Base | CORE |
 | P09 | AI_SUPPLY_CHAIN | M16 | Chokepoints | CORE |
+| P09 | AI_SUPPLY_CHAIN | M01 | China Activity Nowcast | TRIGGERED |
+| P09 | AI_SUPPLY_CHAIN | C04 | Strategic Risk | TRIGGERED |
+| P09 | AI_SUPPLY_CHAIN | C03 | Geographic Convergence | TRIGGERED |
+| P09 | AI_SUPPLY_CHAIN | C06 | Decision-Signal Provenance | AUDIT |
+| P09 | AI_SUPPLY_CHAIN | C07 | Source Attribution | AUDIT |
 | P10 | GEOPOLITICAL_EVENT | M03 | News Credibility | CORE |
 | P10 | GEOPOLITICAL_EVENT | M04 | Country Resilience Index | CORE |
 | P10 | GEOPOLITICAL_EVENT | M23 | Thermal Escalation | CORE |
 | P10 | GEOPOLITICAL_EVENT | M22 | Disease Outbreak Alert Level | CORE |
+| P10 | GEOPOLITICAL_EVENT | M21 | CII Risk Scoring | TRIGGERED |
+| P10 | GEOPOLITICAL_EVENT | C03 | Geographic Convergence | TRIGGERED |
+| P10 | GEOPOLITICAL_EVENT | C04 | Strategic Risk | TRIGGERED |
+| P10 | GEOPOLITICAL_EVENT | C06 | Decision-Signal Provenance | AUDIT |
+| P10 | GEOPOLITICAL_EVENT | C07 | Source Attribution | AUDIT |
+| P10 | GEOPOLITICAL_EVENT | C01 | CII Operator Overview | AUDIT |
+| P10 | GEOPOLITICAL_EVENT | C02 | Revision & Corrections | AUDIT |

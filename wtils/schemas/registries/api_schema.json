@@ -423,6 +423,297 @@
         "SEED_CACHE"
       ],
       "description": "Cache semantics axis"
+    },
+    "a00_registered_state": {
+      "type": "string",
+      "enum": [
+        "VERIFIED",
+        "NOT_APPLICABLE",
+        "BLOCKED_STATIC_EVIDENCE",
+        "PENDING_GROK_BUILD",
+        "PENDING"
+      ],
+      "description": "Authoritative semantic state for a00_registered_state"
+    },
+    "a01_http_method_verified_state": {
+      "type": "string",
+      "enum": [
+        "VERIFIED",
+        "NOT_APPLICABLE",
+        "BLOCKED_STATIC_EVIDENCE",
+        "PENDING_GROK_BUILD",
+        "PENDING"
+      ],
+      "description": "Authoritative semantic state for a01_http_method_verified_state"
+    },
+    "a02_canonical_route_verified_state": {
+      "type": "string",
+      "enum": [
+        "VERIFIED",
+        "NOT_APPLICABLE",
+        "BLOCKED_STATIC_EVIDENCE",
+        "PENDING_GROK_BUILD",
+        "PENDING"
+      ],
+      "description": "Authoritative semantic state for a02_canonical_route_verified_state"
+    },
+    "a03_auth_defined_state": {
+      "type": "string",
+      "enum": [
+        "VERIFIED",
+        "NOT_APPLICABLE",
+        "BLOCKED_STATIC_EVIDENCE",
+        "PENDING_GROK_BUILD",
+        "PENDING"
+      ],
+      "description": "Authoritative semantic state for a03_auth_defined_state"
+    },
+    "a04_entitlement_bound": {
+      "type": "boolean",
+      "deprecated": true,
+      "description": "Legacy alias for a04_entitlement_defined - use a04_entitlement_defined instead"
+    },
+    "a04_entitlement_bound_state": {
+      "type": "string",
+      "enum": [
+        "VERIFIED",
+        "NOT_APPLICABLE",
+        "BLOCKED_STATIC_EVIDENCE",
+        "PENDING_GROK_BUILD",
+        "PENDING"
+      ],
+      "description": "Authoritative semantic state for a04_entitlement_bound_state"
+    },
+    "a04_entitlement_defined_state": {
+      "type": "string",
+      "enum": [
+        "VERIFIED",
+        "NOT_APPLICABLE",
+        "BLOCKED_STATIC_EVIDENCE",
+        "PENDING_GROK_BUILD",
+        "PENDING"
+      ],
+      "description": "Authoritative semantic state for a04_entitlement_defined_state"
+    },
+    "a05_declared_availability_state": {
+      "type": "string",
+      "enum": [
+        "VERIFIED",
+        "NOT_APPLICABLE",
+        "BLOCKED_STATIC_EVIDENCE",
+        "PENDING_GROK_BUILD",
+        "PENDING"
+      ],
+      "description": "Authoritative semantic state for a05_declared_availability_state"
+    },
+    "a06_request_schema_bound_state": {
+      "type": "string",
+      "enum": [
+        "VERIFIED",
+        "NOT_APPLICABLE",
+        "BLOCKED_STATIC_EVIDENCE",
+        "PENDING_GROK_BUILD",
+        "PENDING"
+      ],
+      "description": "Authoritative semantic state for a06_request_schema_bound_state"
+    },
+    "a07_response_schema_bound_state": {
+      "type": "string",
+      "enum": [
+        "VERIFIED",
+        "NOT_APPLICABLE",
+        "BLOCKED_STATIC_EVIDENCE",
+        "PENDING_GROK_BUILD",
+        "PENDING"
+      ],
+      "description": "Authoritative semantic state for a07_response_schema_bound_state"
+    },
+    "a08_nullability_bound_state": {
+      "type": "string",
+      "enum": [
+        "VERIFIED",
+        "NOT_APPLICABLE",
+        "BLOCKED_STATIC_EVIDENCE",
+        "PENDING_GROK_BUILD",
+        "PENDING"
+      ],
+      "description": "Authoritative semantic state for a08_nullability_bound_state"
+    },
+    "a09_source_bound_state": {
+      "type": "string",
+      "enum": [
+        "VERIFIED",
+        "NOT_APPLICABLE",
+        "BLOCKED_STATIC_EVIDENCE",
+        "PENDING_GROK_BUILD",
+        "PENDING"
+      ],
+      "description": "Authoritative semantic state for a09_source_bound_state"
+    },
+    "a10_attribution_bound_state": {
+      "type": "string",
+      "enum": [
+        "VERIFIED",
+        "NOT_APPLICABLE",
+        "BLOCKED_STATIC_EVIDENCE",
+        "PENDING_GROK_BUILD",
+        "PENDING"
+      ],
+      "description": "Authoritative semantic state for a10_attribution_bound_state"
+    },
+    "a11_delivery_bound_state": {
+      "type": "string",
+      "enum": [
+        "VERIFIED",
+        "NOT_APPLICABLE",
+        "BLOCKED_STATIC_EVIDENCE",
+        "PENDING_GROK_BUILD",
+        "PENDING"
+      ],
+      "description": "Authoritative semantic state for a11_delivery_bound_state"
+    },
+    "a12_seed_cache_bound_state": {
+      "type": "string",
+      "enum": [
+        "VERIFIED",
+        "NOT_APPLICABLE",
+        "BLOCKED_STATIC_EVIDENCE",
+        "PENDING_GROK_BUILD",
+        "PENDING"
+      ],
+      "description": "Authoritative semantic state for a12_seed_cache_bound_state"
+    },
+    "a13_freshness_bound_state": {
+      "type": "string",
+      "enum": [
+        "VERIFIED",
+        "NOT_APPLICABLE",
+        "BLOCKED_STATIC_EVIDENCE",
+        "PENDING_GROK_BUILD",
+        "PENDING"
+      ],
+      "description": "Authoritative semantic state for a13_freshness_bound_state"
+    },
+    "a14_lifecycle_bound_state": {
+      "type": "string",
+      "enum": [
+        "VERIFIED",
+        "NOT_APPLICABLE",
+        "BLOCKED_STATIC_EVIDENCE",
+        "PENDING_GROK_BUILD",
+        "PENDING"
+      ],
+      "description": "Authoritative semantic state for a14_lifecycle_bound_state"
+    },
+    "a15_contract_version_bound_state": {
+      "type": "string",
+      "enum": [
+        "VERIFIED",
+        "NOT_APPLICABLE",
+        "BLOCKED_STATIC_EVIDENCE",
+        "PENDING_GROK_BUILD",
+        "PENDING"
+      ],
+      "description": "Authoritative semantic state for a15_contract_version_bound_state"
+    },
+    "a16_role_bound_state": {
+      "type": "string",
+      "enum": [
+        "VERIFIED",
+        "NOT_APPLICABLE",
+        "BLOCKED_STATIC_EVIDENCE",
+        "PENDING_GROK_BUILD",
+        "PENDING"
+      ],
+      "description": "Authoritative semantic state for a16_role_bound_state"
+    },
+    "a17_methodology_bound_state": {
+      "type": "string",
+      "enum": [
+        "VERIFIED",
+        "NOT_APPLICABLE",
+        "BLOCKED_STATIC_EVIDENCE",
+        "PENDING_GROK_BUILD",
+        "PENDING"
+      ],
+      "description": "Authoritative semantic state for a17_methodology_bound_state"
+    },
+    "a18_profile_bound_state": {
+      "type": "string",
+      "enum": [
+        "VERIFIED",
+        "NOT_APPLICABLE",
+        "BLOCKED_STATIC_EVIDENCE",
+        "PENDING_GROK_BUILD",
+        "PENDING"
+      ],
+      "description": "Authoritative semantic state for a18_profile_bound_state"
+    },
+    "a19_rate_limit_bound_state": {
+      "type": "string",
+      "enum": [
+        "VERIFIED",
+        "NOT_APPLICABLE",
+        "BLOCKED_STATIC_EVIDENCE",
+        "PENDING_GROK_BUILD",
+        "PENDING"
+      ],
+      "description": "Authoritative semantic state for a19_rate_limit_bound_state"
+    },
+    "a20_jmespath_bound_state": {
+      "type": "string",
+      "enum": [
+        "VERIFIED",
+        "NOT_APPLICABLE",
+        "BLOCKED_STATIC_EVIDENCE",
+        "PENDING_GROK_BUILD",
+        "PENDING"
+      ],
+      "description": "Authoritative semantic state for a20_jmespath_bound_state"
+    },
+    "a21_pagination_truncation_bound_state": {
+      "type": "string",
+      "enum": [
+        "VERIFIED",
+        "NOT_APPLICABLE",
+        "BLOCKED_STATIC_EVIDENCE",
+        "PENDING_GROK_BUILD",
+        "PENDING"
+      ],
+      "description": "Authoritative semantic state for a21_pagination_truncation_bound_state"
+    },
+    "a22_error_semantics_bound_state": {
+      "type": "string",
+      "enum": [
+        "VERIFIED",
+        "NOT_APPLICABLE",
+        "BLOCKED_STATIC_EVIDENCE",
+        "PENDING_GROK_BUILD",
+        "PENDING"
+      ],
+      "description": "Authoritative semantic state for a22_error_semantics_bound_state"
+    },
+    "a23_state": {
+      "type": "string",
+      "enum": [
+        "VERIFIED",
+        "NOT_APPLICABLE",
+        "BLOCKED_STATIC_EVIDENCE",
+        "PENDING_GROK_BUILD",
+        "PENDING"
+      ],
+      "description": "Authoritative semantic state for a23_state"
+    },
+    "a24_state": {
+      "type": "string",
+      "enum": [
+        "VERIFIED",
+        "NOT_APPLICABLE",
+        "BLOCKED_STATIC_EVIDENCE",
+        "PENDING_GROK_BUILD",
+        "PENDING"
+      ],
+      "description": "Authoritative semantic state for a24_state"
     }
   }
 }

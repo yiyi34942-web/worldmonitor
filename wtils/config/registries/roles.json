@@ -118,8 +118,7 @@
           "rule_id": "WORLD_DEACT_02",
           "condition": "profile_not_p10_and_no_active_conflict"
         }
-      ],
-      "canonical_name": "Geopolitical & Security Analyst"
+      ]
     },
     {
       "role_id": "TECH",
@@ -219,8 +218,7 @@
           "rule_id": "TECH_DEACT_02",
           "condition": "profile_not_p09_and_no_tech_signal"
         }
-      ],
-      "canonical_name": "Technology Supply Chain Analyst"
+      ]
     },
     {
       "role_id": "FINANCE",
@@ -320,8 +318,7 @@
           "rule_id": "FIN_DEACT_02",
           "condition": "no_rate_decision_14d"
         }
-      ],
-      "canonical_name": "Financial System & Markets Analyst"
+      ]
     },
     {
       "role_id": "COMMODITY",
@@ -424,8 +421,7 @@
           "rule_id": "COMM_DEACT_02",
           "condition": "no_inventory_anomaly_7d"
         }
-      ],
-      "canonical_name": "Physical Commodity Analyst"
+      ]
     },
     {
       "role_id": "ENERGY",
@@ -535,8 +531,7 @@
           "rule_id": "ENR_DEACT_02",
           "condition": "no_infrastructure_incident_14d"
         }
-      ],
-      "canonical_name": "Energy Infrastructure & Reserves Analyst"
+      ]
     }
   ]
 }

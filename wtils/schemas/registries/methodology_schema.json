@@ -34,7 +34,9 @@
     "callable",
     "provenance_class",
     "execution_class",
-    "valid_from_state"
+    "valid_from_state",
+    "source_binding_mode",
+    "source_policy"
   ],
   "properties": {
     "methodology_id": {
@@ -329,6 +331,36 @@
         "VALID_FROM_KNOWN"
       ],
       "description": "Whether the valid_from date is known or unknown"
+    },
+    "source_binding_mode": {
+      "type": "string",
+      "enum": [
+        "EXPLICIT",
+        "INHERIT_FROM_API_BINDINGS",
+        "NONE"
+      ],
+      "description": "How source requirements are determined for this methodology"
+    },
+    "source_policy": {
+      "type": "object",
+      "required": [
+        "min_sources",
+        "cross_validation"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "min_sources": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "cross_validation": {
+          "type": "boolean"
+        },
+        "reason": {
+          "type": "string"
+        }
+      },
+      "description": "Source policy governing data provenance requirements"
     }
   }
 }

@@ -13,14 +13,15 @@
       "valid_from": null,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
-      "methodology_version_hash": "30f34edb4fcd0823eda58233c8094b414c328d4e81d6d6ee5171f3b9d0724470",
+      "methodology_version_hash": "87ab7f6e89bb2c056441b56b8386f1437bf86d5a0a847427b31e4f864a34525d",
       "primary_roles": [
         "WORLD",
         "COMMODITY"
       ],
       "secondary_roles": [
         "ENERGY",
-        "FINANCE"
+        "FINANCE",
+        "TECH"
       ],
       "applicable_profiles": [
         "P01",
@@ -131,7 +132,13 @@
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "rebaseline_required": false
+      "rebaseline_required": false,
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      }
     },
     {
       "methodology_id": "M02",
@@ -143,7 +150,7 @@
       "valid_from": null,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
-      "methodology_version_hash": "f8e642729f2768716801f3032c27b0a5f068a3c1ff2e67233de065aa810ae888",
+      "methodology_version_hash": "4043caae8b0ae6b02969c029067c8f45f57719a61f8f0ab7a4319000024f4f15",
       "primary_roles": [
         "WORLD"
       ],
@@ -252,7 +259,13 @@
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "rebaseline_required": false
+      "rebaseline_required": false,
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      }
     },
     {
       "methodology_id": "M03",
@@ -264,12 +277,13 @@
       "valid_from": null,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
-      "methodology_version_hash": "5ea7e29fe4aee5bf2d7ad485396e92bc806b2cd7116550ce5f6a48acd90aa69e",
+      "methodology_version_hash": "79f4170772e65be589bef14c59b3a81c3160610433cea91fb64046e341fd1420",
       "primary_roles": [
         "WORLD"
       ],
       "secondary_roles": [
-        "TECH"
+        "TECH",
+        "COMMODITY"
       ],
       "applicable_profiles": [
         "P01",
@@ -351,7 +365,13 @@
       "fast_path_allowed": false,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "rebaseline_required": false
+      "rebaseline_required": false,
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      }
     },
     {
       "methodology_id": "M04",
@@ -363,7 +383,7 @@
       "valid_from": null,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
-      "methodology_version_hash": "5bc03e138bf68560e34749d97d7d2bc13cb9d28992446859b8223f675f7dbf29",
+      "methodology_version_hash": "61ab60c93c1036d1b9d00c003853dab0b860c7c13c6a265be28ce969087526a0",
       "primary_roles": [
         "WORLD",
         "FINANCE"
@@ -459,7 +479,13 @@
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "rebaseline_required": false
+      "rebaseline_required": false,
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      }
     },
     {
       "methodology_id": "M05",
@@ -471,7 +497,7 @@
       "valid_from": null,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
-      "methodology_version_hash": "09dad7f786122f3cc965728a80c5a8e0b151fe2f07dffefc68d30a8a61721093",
+      "methodology_version_hash": "3a8d94d9a13ca8ba4beaf362634ead3c70118a1e053989138164f011cb8717b6",
       "primary_roles": [
         "WORLD",
         "FINANCE"
@@ -551,7 +577,13 @@
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "rebaseline_required": false
+      "rebaseline_required": false,
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      }
     },
     {
       "methodology_id": "M06",
@@ -563,7 +595,7 @@
       "valid_from": null,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
-      "methodology_version_hash": "777fa086ca28e3c4a5a61bfb8e79ab5408eb69f73457ec2954a0246cc5513dd4",
+      "methodology_version_hash": "09806e5ae2d54173557280d3d1f93a1a9354fb96d266d65212f2f0c8283163f0",
       "primary_roles": [
         "WORLD",
         "TECH"
@@ -629,7 +661,13 @@
       "fast_path_allowed": false,
       "deep_path_allowed": false,
       "weknora_eligible": false,
-      "rebaseline_required": false
+      "rebaseline_required": false,
+      "source_binding_mode": "NONE",
+      "source_policy": {
+        "min_sources": 0,
+        "cross_validation": false,
+        "reason": "NONCALLABLE methodology has no direct API sources"
+      }
     },
     {
       "methodology_id": "M07",
@@ -641,7 +679,7 @@
       "valid_from": null,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
-      "methodology_version_hash": "5070e0276dd0e935bab7e2dd0faefbbdd451eb67949e53135e5c342446de2929",
+      "methodology_version_hash": "dcb6b49d343ef1d626ad85920d01c3d34de41e620778129bf34f387c239b3376",
       "primary_roles": [
         "WORLD",
         "TECH"
@@ -715,7 +753,13 @@
       "fast_path_allowed": false,
       "deep_path_allowed": false,
       "weknora_eligible": false,
-      "rebaseline_required": false
+      "rebaseline_required": false,
+      "source_binding_mode": "NONE",
+      "source_policy": {
+        "min_sources": 0,
+        "cross_validation": false,
+        "reason": "NONCALLABLE methodology has no direct API sources"
+      }
     },
     {
       "methodology_id": "M08",
@@ -727,7 +771,7 @@
       "valid_from": null,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
-      "methodology_version_hash": "a5609c11b17ca1a33bc83965e31e44921d7d09c3c2808aff625988b925cd868c",
+      "methodology_version_hash": "20eb0bb18c3d367eb258e5603eb0dd4bb40323c15e424cc344d727c24e406b51",
       "primary_roles": [
         "FINANCE",
         "WORLD"
@@ -812,7 +856,13 @@
       "fast_path_allowed": false,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "rebaseline_required": false
+      "rebaseline_required": false,
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      }
     },
     {
       "methodology_id": "M09",
@@ -824,7 +874,7 @@
       "valid_from": null,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
-      "methodology_version_hash": "7d4ec6ce7cd1ab6ca7964d95e9f04089d8cf382012e7ec2943fedaf3b532c564",
+      "methodology_version_hash": "b42bed1f662962f202a35ac0496152aca2aff2ad35be8bc6ccb1f7d435693881",
       "primary_roles": [
         "FINANCE",
         "WORLD"
@@ -896,7 +946,13 @@
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "rebaseline_required": false
+      "rebaseline_required": false,
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      }
     },
     {
       "methodology_id": "M10",
@@ -908,7 +964,7 @@
       "valid_from": null,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
-      "methodology_version_hash": "50010c14ae6dde8d4d9f2342aaeb97acfb750462307696fdd35f2c5bf3a19cb8",
+      "methodology_version_hash": "6833bf7aac330180bf9dc6a814cbf3a7ef2e82508b2b1084ab6a88617f050994",
       "primary_roles": [
         "WORLD",
         "TECH"
@@ -990,7 +1046,13 @@
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "rebaseline_required": false
+      "rebaseline_required": false,
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      }
     },
     {
       "methodology_id": "M11",
@@ -1002,7 +1064,7 @@
       "valid_from": null,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
-      "methodology_version_hash": "b239112578cad33f4278ecc508c1845f705ca314cfbbaa5b8b27d446fb215f6d",
+      "methodology_version_hash": "34c44d4c60a49ff434a44b3f60f7cf0736fca6182f62cc56d9c9c973689992b7",
       "primary_roles": [
         "WORLD",
         "TECH"
@@ -1078,7 +1140,13 @@
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "rebaseline_required": false
+      "rebaseline_required": false,
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      }
     },
     {
       "methodology_id": "M12",
@@ -1090,7 +1158,7 @@
       "valid_from": null,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
-      "methodology_version_hash": "10bf13f91af431207a206c048964075d74ec744a921036ca0ebe6c33f1d982be",
+      "methodology_version_hash": "3c55589889e590351d70e4a12a2a77ed055673006cb4ec071f1d981878837094",
       "primary_roles": [
         "COMMODITY",
         "WORLD"
@@ -1173,7 +1241,13 @@
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "rebaseline_required": false
+      "rebaseline_required": false,
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      }
     },
     {
       "methodology_id": "M13",
@@ -1185,7 +1259,7 @@
       "valid_from": null,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
-      "methodology_version_hash": "5d5e972e543604241314743b72ac5f5102c5cb1a5b784563cc058867cc68cb12",
+      "methodology_version_hash": "78b1272a8b01d81660553529e3c1c27e65b6404c60597ba3acee6e34c9c64549",
       "primary_roles": [
         "WORLD",
         "TECH"
@@ -1269,7 +1343,13 @@
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "rebaseline_required": false
+      "rebaseline_required": false,
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      }
     },
     {
       "methodology_id": "M14",
@@ -1281,7 +1361,7 @@
       "valid_from": null,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
-      "methodology_version_hash": "54a04d4af6dc7fe9d06caa8b0e1598228f23affa4d0d696cd32112e727c565ce",
+      "methodology_version_hash": "53124eef0e94320e9cf6dfb40db8353e721231617d9b0f3a090cfd864f7faced",
       "primary_roles": [
         "COMMODITY",
         "TECH"
@@ -1371,7 +1451,13 @@
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "rebaseline_required": false
+      "rebaseline_required": false,
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      }
     },
     {
       "methodology_id": "M15",
@@ -1383,7 +1469,7 @@
       "valid_from": null,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
-      "methodology_version_hash": "4d840824816762cf8d40b8d3b9e941fe3f72dea8b2cf4f011ba3502ea49a4c06",
+      "methodology_version_hash": "5026b79b1efc15a032bb9d087063afdb71917d8acbac2d3931a42db7a07bf51c",
       "primary_roles": [
         "COMMODITY",
         "ENERGY"
@@ -1477,7 +1563,13 @@
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "rebaseline_required": false
+      "rebaseline_required": false,
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      }
     },
     {
       "methodology_id": "M16",
@@ -1489,7 +1581,7 @@
       "valid_from": null,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
-      "methodology_version_hash": "faa9acc4a37394ed49cba0c4dc20da5f8cb18d2cd3e602ebce7d001d289060ef",
+      "methodology_version_hash": "b7a1cfb35328906d98968fe9573ae23d6677af57a0ce7319355e9157ea9d1c16",
       "primary_roles": [
         "COMMODITY",
         "ENERGY"
@@ -1581,7 +1673,13 @@
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "rebaseline_required": false
+      "rebaseline_required": false,
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      }
     },
     {
       "methodology_id": "M17",
@@ -1593,7 +1691,7 @@
       "valid_from": null,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
-      "methodology_version_hash": "df62fc51e5edff854f9df94358bc0eaa0b3a13363fd0900bf988dafc0a5f859d",
+      "methodology_version_hash": "a72f3ae59d82a944e112a1e03bfbc9a7bdab2ed60ca71f18ea5a1e3beb1d594c",
       "primary_roles": [
         "ENERGY",
         "COMMODITY"
@@ -1667,7 +1765,13 @@
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "rebaseline_required": false
+      "rebaseline_required": false,
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      }
     },
     {
       "methodology_id": "M18",
@@ -1679,7 +1783,7 @@
       "valid_from": null,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
-      "methodology_version_hash": "023107c430eccec6d17cdad3378d9f01c6ac1183f52e630c7dcdb221dc744f4e",
+      "methodology_version_hash": "b5cb7d7292f9f3bc5bc86893024d38ea6237f8ec21344c4a692799a90441598d",
       "primary_roles": [
         "ENERGY"
       ],
@@ -1757,7 +1861,13 @@
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "rebaseline_required": false
+      "rebaseline_required": false,
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      }
     },
     {
       "methodology_id": "M19",
@@ -1769,7 +1879,7 @@
       "valid_from": null,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
-      "methodology_version_hash": "d581167797b28b94d2e9e3e9df5824eaee4a1f9be556ba9a2c366a5f908da41e",
+      "methodology_version_hash": "24b51d99f17aaf15ffe4eb912bc25d518aeea60a46b2381a3fbfb87f834c8c90",
       "primary_roles": [
         "ENERGY",
         "WORLD"
@@ -1851,7 +1961,13 @@
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "rebaseline_required": false
+      "rebaseline_required": false,
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      }
     },
     {
       "methodology_id": "M20",
@@ -1863,7 +1979,7 @@
       "valid_from": null,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
-      "methodology_version_hash": "7b66f3deb64fe96db298e2286c93e73c4cff86f0f3b45f5731c56f8219db9c20",
+      "methodology_version_hash": "b109322e4e638927ded2150796425da1d0c2916f91712f1aa524a00a318d25dd",
       "primary_roles": [
         "ENERGY",
         "WORLD"
@@ -1949,7 +2065,13 @@
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "rebaseline_required": false
+      "rebaseline_required": false,
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      }
     },
     {
       "methodology_id": "M21",
@@ -1961,7 +2083,7 @@
       "valid_from": null,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
-      "methodology_version_hash": "54bf0e09246d122d59650dd7cf10a361b18e78542684c4780a13ebc914e16c6f",
+      "methodology_version_hash": "5a7a7074042867f65856ed85978bb038cc5339f2c9c36a2129600d1740c58654",
       "primary_roles": [
         "WORLD",
         "FINANCE"
@@ -2054,7 +2176,13 @@
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "rebaseline_required": false
+      "rebaseline_required": false,
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      }
     },
     {
       "methodology_id": "M22",
@@ -2066,7 +2194,7 @@
       "valid_from": null,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
-      "methodology_version_hash": "889008d24b859c6a80aabffc3d2d8c266bf5ba817234a1b0f59a29285a35bf00",
+      "methodology_version_hash": "2fd9a44555f63f36397d2a23da884ca577601ee1c2e910e64d7b79cfe59c0b3a",
       "primary_roles": [
         "WORLD"
       ],
@@ -2144,7 +2272,13 @@
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "rebaseline_required": false
+      "rebaseline_required": false,
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      }
     },
     {
       "methodology_id": "M23",
@@ -2156,7 +2290,7 @@
       "valid_from": null,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
-      "methodology_version_hash": "45d15e9fea87fd6433a98896b590d0089d9e1c5d2c91ad6d2f88287b08fe4468",
+      "methodology_version_hash": "08512fc87a891f7e0df859732395afdd7f71b1e2d76b806cda8bc56b8d5b4f77",
       "primary_roles": [
         "ENERGY",
         "WORLD"
@@ -2254,7 +2388,13 @@
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "rebaseline_required": false
+      "rebaseline_required": false,
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      }
     },
     {
       "methodology_id": "M24",
@@ -2266,7 +2406,7 @@
       "valid_from": null,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
-      "methodology_version_hash": "ff18d8aac141afe0bff71f2f81d14128a3ddac52865ca1037eb8168f7cb8c2a5",
+      "methodology_version_hash": "055f3377eb2e43d9911f25d9bc3114db9afffa5aa2e7aa57b9dfdbc34418dbba",
       "primary_roles": [
         "COMMODITY",
         "FINANCE"
@@ -2348,7 +2488,13 @@
       "fast_path_allowed": true,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "rebaseline_required": false
+      "rebaseline_required": false,
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      }
     },
     {
       "methodology_id": "C01",
@@ -2360,7 +2506,7 @@
       "valid_from": null,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
-      "methodology_version_hash": "b5c900734c83781196830d251d27bbbec8c158dd6240d5f90af503a7c6572197",
+      "methodology_version_hash": "41967912a757bfda02dec9231356c434e18689a9a3f0c897ff3dd2781590bcc0",
       "primary_roles": [
         "WORLD",
         "FINANCE"
@@ -2427,7 +2573,13 @@
       "fast_path_allowed": true,
       "deep_path_allowed": false,
       "weknora_eligible": true,
-      "rebaseline_required": false
+      "rebaseline_required": false,
+      "source_binding_mode": "NONE",
+      "source_policy": {
+        "min_sources": 0,
+        "cross_validation": false,
+        "reason": "NONCALLABLE methodology has no direct API sources"
+      }
     },
     {
       "methodology_id": "C02",
@@ -2439,7 +2591,7 @@
       "valid_from": null,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
-      "methodology_version_hash": "fbb71ca5de878c22a38c8920d0c57172bcd9d704490e2b3e6892c277e5c77a3f",
+      "methodology_version_hash": "c717b6d6659a3335bfa17717f94c6229d06cc19770b69ba23702e8150eee1e7e",
       "primary_roles": [
         "WORLD",
         "FINANCE"
@@ -2512,7 +2664,13 @@
       "fast_path_allowed": false,
       "deep_path_allowed": false,
       "weknora_eligible": false,
-      "rebaseline_required": false
+      "rebaseline_required": false,
+      "source_binding_mode": "NONE",
+      "source_policy": {
+        "min_sources": 0,
+        "cross_validation": false,
+        "reason": "NONCALLABLE methodology has no direct API sources"
+      }
     },
     {
       "methodology_id": "C03",
@@ -2524,7 +2682,7 @@
       "valid_from": null,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
-      "methodology_version_hash": "107427159c9780e6df46f2324e509a4b6e2a6c9724ac6937685d9bcc148b413c",
+      "methodology_version_hash": "abd8caae5e1b328ae0e9456be928508c5c1619316721d867d50a5f2a5b81cf25",
       "primary_roles": [
         "WORLD",
         "TECH"
@@ -2603,7 +2761,13 @@
       "fast_path_allowed": false,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "rebaseline_required": false
+      "rebaseline_required": false,
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      }
     },
     {
       "methodology_id": "C04",
@@ -2615,7 +2779,7 @@
       "valid_from": null,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
-      "methodology_version_hash": "b9774a041e936a0c2695a894c3b705b219a7247795a61003ee5401338eaaa899",
+      "methodology_version_hash": "e41c12f98a694c7066ae2878a3ef97b8f3dce3e7ac8f164d9fc82caad030fc6f",
       "primary_roles": [
         "WORLD",
         "FINANCE"
@@ -2688,7 +2852,13 @@
       "fast_path_allowed": false,
       "deep_path_allowed": true,
       "weknora_eligible": true,
-      "rebaseline_required": false
+      "rebaseline_required": false,
+      "source_binding_mode": "INHERIT_FROM_API_BINDINGS",
+      "source_policy": {
+        "min_sources": 1,
+        "cross_validation": true,
+        "reason": "Sources inherited from bound API operations"
+      }
     },
     {
       "methodology_id": "C05",
@@ -2700,7 +2870,7 @@
       "valid_from": null,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
-      "methodology_version_hash": "9db31986e561449ca19bf2768b8accf5bbecb6926f5d9c287b3e8d96a6f99c64",
+      "methodology_version_hash": "f9eb8c34a1820e71262a76ce3a7f153c9bd8e22a4064c567da4679b39481fed2",
       "primary_roles": [
         "TECH"
       ],
@@ -2746,7 +2916,13 @@
       "fast_path_allowed": false,
       "deep_path_allowed": false,
       "weknora_eligible": false,
-      "rebaseline_required": false
+      "rebaseline_required": false,
+      "source_binding_mode": "NONE",
+      "source_policy": {
+        "min_sources": 0,
+        "cross_validation": false,
+        "reason": "META methodology has no direct API sources"
+      }
     },
     {
       "methodology_id": "C06",
@@ -2758,7 +2934,7 @@
       "valid_from": null,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
-      "methodology_version_hash": "a21e7beff3284bd83415daf24acb5aad136bc5beaa27418392db9ae0d34e458d",
+      "methodology_version_hash": "a61663cdeab04d522c4b7c0d1aaf16bed2fe1d20547c1ccda66a4e55b8462ec7",
       "primary_roles": [
         "WORLD",
         "TECH"
@@ -2840,7 +3016,13 @@
       "fast_path_allowed": false,
       "deep_path_allowed": false,
       "weknora_eligible": false,
-      "rebaseline_required": false
+      "rebaseline_required": false,
+      "source_binding_mode": "NONE",
+      "source_policy": {
+        "min_sources": 0,
+        "cross_validation": false,
+        "reason": "GOVERNANCE methodology has no direct API sources"
+      }
     },
     {
       "methodology_id": "C07",
@@ -2852,7 +3034,7 @@
       "valid_from": null,
       "valid_from_state": "VALID_FROM_UNKNOWN",
       "valid_to": null,
-      "methodology_version_hash": "134837fcdaa68cf86b46645235835fa0fb490ba50a0797934b066a47d2948353",
+      "methodology_version_hash": "c8f1535e87fca9bb57518afb4bc713f25b8d590bfb4c30f7b6299a6c45ce1da9",
       "primary_roles": [
         "WORLD"
       ],
@@ -2929,7 +3111,13 @@
       "fast_path_allowed": false,
       "deep_path_allowed": false,
       "weknora_eligible": false,
-      "rebaseline_required": false
+      "rebaseline_required": false,
+      "source_binding_mode": "NONE",
+      "source_policy": {
+        "min_sources": 0,
+        "cross_validation": false,
+        "reason": "GOVERNANCE methodology has no direct API sources"
+      }
     }
   ]
 }

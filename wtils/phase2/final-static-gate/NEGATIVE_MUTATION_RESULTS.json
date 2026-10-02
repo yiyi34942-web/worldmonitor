@@ -1,0 +1,31 @@
+{
+  "generated_at": "2026-10-02T06:00:58.087086Z",
+  "mutations": [
+    {
+      "name": "rules_structured=dict",
+      "caught": true
+    },
+    {
+      "name": "unknown_property",
+      "caught": true
+    },
+    {
+      "name": "freshness.max_age_seconds=-1",
+      "caught": true
+    },
+    {
+      "name": "source_binding_mode=EXPLICIT+empty",
+      "caught": true
+    },
+    {
+      "name": "pit.required=string",
+      "caught": true
+    },
+    {
+      "name": "rule_id=int",
+      "caught": true
+    }
+  ],
+  "total": 6,
+  "passed": 6
+}

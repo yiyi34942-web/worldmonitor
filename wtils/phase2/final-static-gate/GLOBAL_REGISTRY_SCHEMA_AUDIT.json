@@ -1,0 +1,24 @@
+{
+  "generated_at": "2026-10-02T06:00:58.087086Z",
+  "roles": {
+    "total": 5,
+    "pass": 5
+  },
+  "profiles": {
+    "total": 10,
+    "pass": 10
+  },
+  "methodologies": {
+    "total": 31,
+    "pass": 31
+  },
+  "apis": {
+    "total": 237,
+    "pass": 237
+  },
+  "sources": {
+    "total": 20,
+    "pass": 20
+  },
+  "global_pass": true
+}

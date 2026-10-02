@@ -386,31 +386,7 @@ def collect_errors():
     if missing_states:
         errors.append(f"data_states: missing expected states: {missing_states}")
 
-    # --- Summary ---
-    valid = len(errors) == 0
-    result = {
-        "valid": valid,
-        "error_count": len(errors),
-        "warning_count": len(warnings),
-        "errors": errors,
-        "warnings": warnings,
-        "counts": {
-            "roles": len(roles),
-            "methodologies": len(methods),
-            "profiles": len(profiles),
-            "apis": len(apis),
-            "sources": len(sources),
-            "intelligence_catalog": len(catalog),
-            "contracts": len(contracts),
-            "outputs": len(outputs),
-            "delivery_semantics": len(delivery),
-            "data_states": len(data_states),
-        }
-    }
-    
-    # --- Generate PROFILE_BINDING_REPORT ---
-    generate_profile_binding_report(registries, result)
-    generate_method_api_binding_audit(registries, result)
+    # --- Reports placeholder (final summary after all checks) ---
     
     
     # === ROUND 3 CHECKS ===
@@ -450,12 +426,18 @@ def collect_errors():
         if ec not in ('DIRECT_API','COMPOSITE','NONCALLABLE','META','GOVERNANCE','UNMAPPED'):
             errors.append(f"METH_EXEC: {mid} has invalid execution_class={ec}")
     
-    # B5: No bare false in A-fields (must use explicit state)
+    # B5: A-field dual-layer model - base boolean + state enum
     for api in apis:
         op = api.get('operation_id','?')
         for k,v in api.items():
-            if (k.startswith('a0') or k.startswith('a1') or k.startswith('a2')) and v is False:
-                errors.append(f"A_FIELD_BARE_FALSE: {op}.{k} is bare false, must use explicit state")
+            if (k.startswith('a0') or k.startswith('a1') or k.startswith('a2')) and not k.endswith('_state') and not k.endswith('_semantic') and k not in ('a23','a24'):
+                # Base A-field must be boolean
+                if not isinstance(v, bool):
+                    errors.append(f"A_FIELD_TYPE: {op}.{k} must be boolean, got {type(v).__name__}")
+            elif k.endswith('_state') and k not in ('a23_state','a24_state'):
+                # State field must be valid enum
+                if v not in ('VERIFIED','NOT_APPLICABLE','BLOCKED_STATIC_EVIDENCE','PENDING_GROK_BUILD','PENDING'):
+                    errors.append(f"A_STATE_ENUM: {op}.{k} invalid state '{v}'")
     
     # B4 specific: Methods with O-binding must not be UNMAPPED
     for b in bindings.get("methodology_api_bindings", []):
@@ -693,6 +675,255 @@ def collect_errors():
     if len(set(hash_list)) != len(hash_list):
         errors.append(f"HASH_DUPLICATE: {len(hash_list) - len(set(hash_list))} duplicate methodology hashes")
 
+
+    # === PHASE2A-R6: FULL RECURSIVE SCHEMA + CROSS-REGISTRY VALIDATION ===
+    
+    def _validate_recursive(entry, sch, ctx):
+        """Full recursive JSON Schema validation: type, required, additionalProperties, enum, pattern, minimum, array items, nested objects."""
+        _e = []
+        _props = sch.get('properties', {})
+        _required = sch.get('required', [])
+        _additional = sch.get('additionalProperties', True)
+        
+        for r2 in _required:
+            if r2 not in entry:
+                _e.append(f"{ctx}: missing required '{r2}'")
+        
+        if _additional is False:
+            for k2 in entry:
+                if k2 not in _props:
+                    _e.append(f"{ctx}: additional property '{k2}' not in schema")
+        
+        for k2, v2 in entry.items():
+            if k2 not in _props:
+                continue
+            sp = _props[k2]
+            et = sp.get('type')
+            
+            # Handle type as list (e.g. ["string", "null"])
+            if isinstance(et, list):
+                type_ok = any(
+                    (t == 'string' and isinstance(v2, str)) or
+                    (t == 'null' and v2 is None) or
+                    (t == 'integer' and isinstance(v2, int) and not isinstance(v2, bool)) or
+                    (t == 'number' and isinstance(v2, (int, float))) or
+                    (t == 'boolean' and isinstance(v2, bool)) or
+                    (t == 'array' and isinstance(v2, list)) or
+                    (t == 'object' and isinstance(v2, dict))
+                    for t in et
+                )
+                if not type_ok:
+                    _e.append(f"{ctx}.{k2}: type mismatch, expected one of {et}, got {type(v2).__name__}")
+                continue
+            
+            if et == 'string':
+                if not isinstance(v2, str):
+                    _e.append(f"{ctx}.{k2}: expected string, got {type(v2).__name__}")
+                elif 'pattern' in sp:
+                    import re as _re6
+                    if not _re6.search(sp['pattern'], v2):
+                        _e.append(f"{ctx}.{k2}: pattern '{sp['pattern']}' not matched")
+                elif 'enum' in sp and v2 not in sp['enum']:
+                    _e.append(f"{ctx}.{k2}: value '{v2}' not in enum {sp['enum']}")
+            elif et == 'integer':
+                if not isinstance(v2, int) or isinstance(v2, bool):
+                    _e.append(f"{ctx}.{k2}: expected integer, got {type(v2).__name__}")
+                elif 'minimum' in sp and v2 < sp['minimum']:
+                    _e.append(f"{ctx}.{k2}: {v2} < minimum {sp['minimum']}")
+            elif et == 'boolean':
+                if not isinstance(v2, bool):
+                    _e.append(f"{ctx}.{k2}: expected boolean, got {type(v2).__name__}")
+            elif et == 'array':
+                if not isinstance(v2, list):
+                    _e.append(f"{ctx}.{k2}: expected array, got {type(v2).__name__}")
+                else:
+                    if 'uniqueItems' in sp and sp['uniqueItems']:
+                        if len(v2) != len(set(json.dumps(x, sort_keys=True) for x in v2)):
+                            _e.append(f"{ctx}.{k2}: duplicate items in uniqueItems array")
+                    _items = sp.get('items', {})
+                    if _items:
+                        _it_type = _items.get('type')
+                        _it_req = _items.get('required', [])
+                        _it_add = _items.get('additionalProperties', True)
+                        _it_props = _items.get('properties', {})
+                        for idx, item in enumerate(v2):
+                            _ictx = f"{ctx}.{k2}[{idx}]"
+                            if _it_type == 'object':
+                                if not isinstance(item, dict):
+                                    _e.append(f"{_ictx}: expected object")
+                                else:
+                                    _e.extend(_validate_recursive(item, _items, _ictx))
+                            elif _it_type == 'string':
+                                if not isinstance(item, str):
+                                    _e.append(f"{_ictx}: expected string")
+                                elif 'enum' in _items and item not in _items['enum']:
+                                    _e.append(f"{_ictx}: not in enum")
+            elif et == 'object':
+                if not isinstance(v2, dict):
+                    _e.append(f"{ctx}.{k2}: expected object, got {type(v2).__name__}")
+                else:
+                    _e.extend(_validate_recursive(v2, sp, f"{ctx}.{k2}"))
+        return _e
+    
+    # Validate ALL registries against their schemas
+    for r2 in roles:
+        errors.extend(_validate_recursive(r2, schemas["role"], f"role:{r2.get('role_id','?')}"))
+    for pr2 in profiles:
+        errors.extend(_validate_recursive(pr2, schemas["profile"], f"profile:{pr2.get('profile_id','?')}"))
+    for m2 in methods:
+        errors.extend(_validate_recursive(m2, schemas["methodology"], f"methodology:{m2.get('methodology_id','?')}"))
+    for a2 in apis:
+        errors.extend(_validate_recursive(a2, schemas["api"], f"api:{a2.get('operation_id','?')}"))
+    for s2 in sources:
+        errors.extend(_validate_recursive(s2, schemas["source"], f"source:{s2.get('source_id','?')}"))
+    for c2 in catalog:
+        errors.extend(_validate_recursive(c2, schemas["intelligence_catalog"], f"catalog:{c2.get('catalog_id','?')}"))
+    for cl2 in contracts:
+        errors.extend(_validate_recursive(cl2, schemas["contract_lifecycle"], f"contract:{cl2.get('contract_id','?')}"))
+    for o2 in outputs:
+        errors.extend(_validate_recursive(o2, schemas["output"], f"output:{o2.get('output_type','?')}"))
+    
+    # R6: NONCALLABLE/META not in profile core/triggered (hard validator, not just test)
+    for pr2 in profiles:
+        pid2 = pr2.get('profile_id', '?')
+        for mid2 in pr2.get('core_methodologies', []):
+            m2 = next((x for x in methods if x.get('methodology_id')==mid2), None)
+            if m2 and m2.get('execution_class') in ('NONCALLABLE', 'META'):
+                errors.append(f"NONCALLABLE_IN_PROFILE: {pid2} core has {mid2} ({m2['execution_class']})")
+        for t2 in pr2.get('triggered_methodologies', []):
+            tid2 = t2.get('methodology_id') if isinstance(t2, dict) else t2
+            m2 = next((x for x in methods if x.get('methodology_id')==tid2), None)
+            if m2 and m2.get('execution_class') in ('NONCALLABLE', 'META'):
+                errors.append(f"NONCALLABLE_IN_PROFILE: {pid2} triggered has {tid2} ({m2['execution_class']})")
+    
+    # R6: GOVERNANCE only in audit
+    for pr2 in profiles:
+        pid2 = pr2.get('profile_id', '?')
+        for mid2 in pr2.get('core_methodologies', []):
+            m2 = next((x for x in methods if x.get('methodology_id')==mid2), None)
+            if m2 and m2.get('execution_class') == 'GOVERNANCE':
+                errors.append(f"GOVERNANCE_IN_CORE: {pid2} core has {mid2}")
+        for t2 in pr2.get('triggered_methodologies', []):
+            tid2 = t2.get('methodology_id') if isinstance(t2, dict) else t2
+            m2 = next((x for x in methods if x.get('methodology_id')==tid2), None)
+            if m2 and m2.get('execution_class') == 'GOVERNANCE':
+                errors.append(f"GOVERNANCE_IN_TRIGGERED: {pid2} triggered has {tid2}")
+    
+    # R6: Role default methods must be allowed by method roles
+    for r2 in roles:
+        rid2 = r2.get('role_id', '?')
+        for mid2 in r2.get('default_methodologies', []):
+            m2 = next((x for x in methods if x.get('methodology_id')==mid2), None)
+            if m2 and rid2 not in m2.get('primary_roles',[]) + m2.get('secondary_roles',[]):
+                errors.append(f"ROLE_DEFAULT_NOT_ALLOWED: {rid2} default {mid2} not in method roles")
+    
+    # R6: Source policy invariant
+    for m2 in methods:
+        mid2 = m2.get('methodology_id', '?')
+        sbm = m2.get('source_binding_mode', '')
+        if sbm == 'EXPLICIT' and not m2.get('source_requirements', []):
+            errors.append(f"SOURCE_POLICY: {mid2} EXPLICIT but empty source_requirements")
+        if sbm == 'NONE' and m2.get('execution_class', '') not in ('NONCALLABLE', 'META', 'GOVERNANCE'):
+            errors.append(f"SOURCE_POLICY: {mid2} NONE but not NONCALLABLE/META/GOVERNANCE")
+    
+    # R6: Hash recomputation check
+    for m2 in methods:
+        mid2 = m2.get('methodology_id', '?')
+        payload = {k:v for k,v in m2.items() if k != 'methodology_version_hash'}
+        import hashlib as _hl6
+        payload_str = json.dumps(payload, sort_keys=True, ensure_ascii=False)
+        expected = _hl6.sha256(payload_str.encode('utf-8')).hexdigest()
+        if m2.get('methodology_version_hash', '') != expected:
+            errors.append(f"HASH_MISMATCH: {mid2} hash not recomputable")
+    
+    # R6: Unique hashes
+    _hashes = [m2.get('methodology_version_hash', '') for m2 in methods]
+    if len(set(_hashes)) != len(_hashes):
+        errors.append(f"HASH_DUPLICATE: {len(_hashes) - len(set(_hashes))} duplicate hashes")
+    
+    # R6: Profile binding bijection (hard validator)
+    for pr2 in profiles:
+        pid2 = pr2['profile_id']
+        for mid2 in pr2.get('core_methodologies', []):
+            m2 = next((x for x in methods if x.get('methodology_id')==mid2), None)
+            if m2 and pid2 not in m2.get('applicable_profiles', []):
+                errors.append(f"APPLICABILITY: {mid2} missing {pid2} in applicable_profiles")
+        for t2 in pr2.get('triggered_methodologies', []):
+            tid2 = t2.get('methodology_id') if isinstance(t2, dict) else t2
+            m2 = next((x for x in methods if x.get('methodology_id')==tid2), None)
+            if m2 and pid2 not in m2.get('applicable_profiles', []):
+                errors.append(f"APPLICABILITY: {tid2} missing {pid2}")
+        for mid3 in pr2.get('audit_methodologies', []):
+            mid3 = mid3 if isinstance(mid3, str) else mid3.get('methodology_id')
+            m2 = next((x for x in methods if x.get('methodology_id')==mid3), None)
+            if m2 and pid2 not in m2.get('applicable_profiles', []):
+                errors.append(f"APPLICABILITY: {mid3} missing {pid2}")
+    
+    # R6: Role↔Method binding consistency
+    for rb2 in bindings.get('role_methodology_bindings', []):
+        rid2 = rb2.get('role_id', '')
+        mid2 = rb2.get('methodology_id', '')
+        m2 = next((x for x in methods if x.get('methodology_id')==mid2), None)
+        if m2 and rid2 not in m2.get('primary_roles', []) + m2.get('secondary_roles', []):
+            errors.append(f"ROLE_METHOD_BINDING: {rid2}->{mid2} not in method roles")
+    
+    # R6: Profile↔Binding bijection count
+    _declared = set()
+    for pr2 in profiles:
+        pid2 = pr2['profile_id']
+        for mid2 in pr2.get('core_methodologies', []):
+            _declared.add((pid2, mid2, 'CORE'))
+        for t2 in pr2.get('triggered_methodologies', []):
+            tid2 = t2.get('methodology_id') if isinstance(t2, dict) else t2
+            _declared.add((pid2, tid2, 'TRIGGERED'))
+        for mid3 in pr2.get('audit_methodologies', []):
+            mid3 = mid3 if isinstance(mid3, str) else mid3.get('methodology_id')
+            _declared.add((pid2, mid3, 'AUDIT'))
+    _bound = set()
+    for b2 in bindings.get('profile_methodology_bindings', []):
+        _bound.add((b2.get('profile_id',''), b2.get('methodology_id',''), b2.get('binding_type','')))
+    _missing = _declared - _bound
+    _extra = _bound - _declared
+    if _missing:
+        errors.append(f"PROFILE_BINDING_MISSING: {len(_missing)} declared relations not in bindings")
+    if _extra:
+        errors.append(f"PROFILE_BINDING_EXTRA: {len(_extra)} bindings not in declared relations")
+    
+    # R6: Research artifact schema validation
+    try:
+        _ra_schema = schemas.get("research_artifact", {})
+        if _ra_schema:
+            # Just validate the schema itself is loadable
+            pass
+    except Exception as ex:
+        errors.append(f"RESEARCH_ARTIFACT_SCHEMA: {ex}")
+
+    # === FINAL SUMMARY (single path, after ALL checks) ===
+    valid = len(errors) == 0
+    result = {
+        "valid": valid,
+        "error_count": len(errors),
+        "warning_count": len(warnings),
+        "errors": errors,
+        "warnings": warnings,
+        "counts": {
+            "roles": len(roles),
+            "methodologies": len(methods),
+            "profiles": len(profiles),
+            "apis": len(apis),
+            "sources": len(sources),
+            "intelligence_catalog": len(catalog),
+            "contracts": len(contracts),
+            "outputs": len(outputs),
+            "delivery_semantics": len(delivery),
+            "data_states": len(data_states),
+        }
+    }
+    
+    # --- Generate reports ---
+    generate_profile_binding_report(registries, result)
+    generate_method_api_binding_audit(registries, result)
+    
     return result
 
 

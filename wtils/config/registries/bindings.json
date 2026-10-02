@@ -227,37 +227,44 @@
     {
       "profile_id": "P01",
       "methodology_id": "M17",
-      "binding_type": "TRIGGERED"
+      "binding_type": "TRIGGERED",
+      "trigger": "pipeline_incident"
     },
     {
       "profile_id": "P01",
       "methodology_id": "M18",
-      "binding_type": "TRIGGERED"
+      "binding_type": "TRIGGERED",
+      "trigger": "storage_anomaly"
     },
     {
       "profile_id": "P01",
       "methodology_id": "M19",
-      "binding_type": "TRIGGERED"
+      "binding_type": "TRIGGERED",
+      "trigger": "fuel_shortage_claim"
     },
     {
       "profile_id": "P01",
       "methodology_id": "M21",
-      "binding_type": "TRIGGERED"
+      "binding_type": "TRIGGERED",
+      "trigger": "country_instability_risk"
     },
     {
       "profile_id": "P01",
       "methodology_id": "M23",
-      "binding_type": "TRIGGERED"
+      "binding_type": "TRIGGERED",
+      "trigger": "thermal_escalation"
     },
     {
       "profile_id": "P01",
       "methodology_id": "C03",
-      "binding_type": "TRIGGERED"
+      "binding_type": "TRIGGERED",
+      "trigger": "geo_convergence"
     },
     {
       "profile_id": "P01",
       "methodology_id": "C04",
-      "binding_type": "TRIGGERED"
+      "binding_type": "TRIGGERED",
+      "trigger": "strategic_risk"
     },
     {
       "profile_id": "P01",
@@ -290,6 +297,40 @@
       "binding_type": "CORE"
     },
     {
+      "profile_id": "P02",
+      "methodology_id": "M19",
+      "binding_type": "TRIGGERED",
+      "trigger": "fuel_shortage_claim"
+    },
+    {
+      "profile_id": "P02",
+      "methodology_id": "M16",
+      "binding_type": "TRIGGERED",
+      "trigger": "chokepoint_disruption"
+    },
+    {
+      "profile_id": "P02",
+      "methodology_id": "M23",
+      "binding_type": "TRIGGERED",
+      "trigger": "thermal_escalation"
+    },
+    {
+      "profile_id": "P02",
+      "methodology_id": "C03",
+      "binding_type": "TRIGGERED",
+      "trigger": "geo_convergence"
+    },
+    {
+      "profile_id": "P02",
+      "methodology_id": "C06",
+      "binding_type": "AUDIT"
+    },
+    {
+      "profile_id": "P02",
+      "methodology_id": "C07",
+      "binding_type": "AUDIT"
+    },
+    {
       "profile_id": "P03",
       "methodology_id": "M24",
       "binding_type": "CORE"
@@ -305,6 +346,33 @@
       "binding_type": "CORE"
     },
     {
+      "profile_id": "P03",
+      "methodology_id": "M08",
+      "binding_type": "TRIGGERED",
+      "trigger": "financial_stress_spike"
+    },
+    {
+      "profile_id": "P03",
+      "methodology_id": "M16",
+      "binding_type": "TRIGGERED",
+      "trigger": "chokepoint_disruption"
+    },
+    {
+      "profile_id": "P03",
+      "methodology_id": "C06",
+      "binding_type": "AUDIT"
+    },
+    {
+      "profile_id": "P03",
+      "methodology_id": "C07",
+      "binding_type": "AUDIT"
+    },
+    {
+      "profile_id": "P03",
+      "methodology_id": "C02",
+      "binding_type": "AUDIT"
+    },
+    {
       "profile_id": "P04",
       "methodology_id": "M14",
       "binding_type": "CORE"
@@ -318,6 +386,33 @@
       "profile_id": "P04",
       "methodology_id": "M16",
       "binding_type": "CORE"
+    },
+    {
+      "profile_id": "P04",
+      "methodology_id": "M13",
+      "binding_type": "TRIGGERED",
+      "trigger": "mineral_supply_alert"
+    },
+    {
+      "profile_id": "P04",
+      "methodology_id": "M03",
+      "binding_type": "TRIGGERED",
+      "trigger": "contradiction_detected"
+    },
+    {
+      "profile_id": "P04",
+      "methodology_id": "C06",
+      "binding_type": "AUDIT"
+    },
+    {
+      "profile_id": "P04",
+      "methodology_id": "C07",
+      "binding_type": "AUDIT"
+    },
+    {
+      "profile_id": "P04",
+      "methodology_id": "C02",
+      "binding_type": "AUDIT"
     },
     {
       "profile_id": "P05",
@@ -335,6 +430,27 @@
       "binding_type": "CORE"
     },
     {
+      "profile_id": "P05",
+      "methodology_id": "M16",
+      "binding_type": "TRIGGERED",
+      "trigger": "chokepoint_disruption"
+    },
+    {
+      "profile_id": "P05",
+      "methodology_id": "C06",
+      "binding_type": "AUDIT"
+    },
+    {
+      "profile_id": "P05",
+      "methodology_id": "C07",
+      "binding_type": "AUDIT"
+    },
+    {
+      "profile_id": "P05",
+      "methodology_id": "C02",
+      "binding_type": "AUDIT"
+    },
+    {
       "profile_id": "P06",
       "methodology_id": "M08",
       "binding_type": "CORE"
@@ -350,6 +466,27 @@
       "binding_type": "CORE"
     },
     {
+      "profile_id": "P06",
+      "methodology_id": "M09",
+      "binding_type": "TRIGGERED",
+      "trigger": "swf_classification_review"
+    },
+    {
+      "profile_id": "P06",
+      "methodology_id": "C06",
+      "binding_type": "AUDIT"
+    },
+    {
+      "profile_id": "P06",
+      "methodology_id": "C07",
+      "binding_type": "AUDIT"
+    },
+    {
+      "profile_id": "P06",
+      "methodology_id": "C02",
+      "binding_type": "AUDIT"
+    },
+    {
       "profile_id": "P07",
       "methodology_id": "M08",
       "binding_type": "CORE"
@@ -365,6 +502,27 @@
       "binding_type": "CORE"
     },
     {
+      "profile_id": "P07",
+      "methodology_id": "M09",
+      "binding_type": "TRIGGERED",
+      "trigger": "swf_classification_review"
+    },
+    {
+      "profile_id": "P07",
+      "methodology_id": "C06",
+      "binding_type": "AUDIT"
+    },
+    {
+      "profile_id": "P07",
+      "methodology_id": "C07",
+      "binding_type": "AUDIT"
+    },
+    {
+      "profile_id": "P07",
+      "methodology_id": "C02",
+      "binding_type": "AUDIT"
+    },
+    {
       "profile_id": "P08",
       "methodology_id": "M08",
       "binding_type": "CORE"
@@ -373,6 +531,27 @@
       "profile_id": "P08",
       "methodology_id": "M03",
       "binding_type": "CORE"
+    },
+    {
+      "profile_id": "P08",
+      "methodology_id": "M15",
+      "binding_type": "TRIGGERED",
+      "trigger": "commodity_correlation_spike"
+    },
+    {
+      "profile_id": "P08",
+      "methodology_id": "C06",
+      "binding_type": "AUDIT"
+    },
+    {
+      "profile_id": "P08",
+      "methodology_id": "C07",
+      "binding_type": "AUDIT"
+    },
+    {
+      "profile_id": "P08",
+      "methodology_id": "C02",
+      "binding_type": "AUDIT"
     },
     {
       "profile_id": "P09",
@@ -388,6 +567,34 @@
       "profile_id": "P09",
       "methodology_id": "M16",
       "binding_type": "CORE"
+    },
+    {
+      "profile_id": "P09",
+      "methodology_id": "M01",
+      "binding_type": "TRIGGERED",
+      "trigger": "china_activity_signal"
+    },
+    {
+      "profile_id": "P09",
+      "methodology_id": "C04",
+      "binding_type": "TRIGGERED",
+      "trigger": "strategic_risk"
+    },
+    {
+      "profile_id": "P09",
+      "methodology_id": "C03",
+      "binding_type": "TRIGGERED",
+      "trigger": "geo_convergence"
+    },
+    {
+      "profile_id": "P09",
+      "methodology_id": "C06",
+      "binding_type": "AUDIT"
+    },
+    {
+      "profile_id": "P09",
+      "methodology_id": "C07",
+      "binding_type": "AUDIT"
     },
     {
       "profile_id": "P10",
@@ -408,6 +615,44 @@
       "profile_id": "P10",
       "methodology_id": "M22",
       "binding_type": "CORE"
+    },
+    {
+      "profile_id": "P10",
+      "methodology_id": "M21",
+      "binding_type": "TRIGGERED",
+      "trigger": "country_instability_risk"
+    },
+    {
+      "profile_id": "P10",
+      "methodology_id": "C03",
+      "binding_type": "TRIGGERED",
+      "trigger": "geo_convergence"
+    },
+    {
+      "profile_id": "P10",
+      "methodology_id": "C04",
+      "binding_type": "TRIGGERED",
+      "trigger": "strategic_risk"
+    },
+    {
+      "profile_id": "P10",
+      "methodology_id": "C06",
+      "binding_type": "AUDIT"
+    },
+    {
+      "profile_id": "P10",
+      "methodology_id": "C07",
+      "binding_type": "AUDIT"
+    },
+    {
+      "profile_id": "P10",
+      "methodology_id": "C01",
+      "binding_type": "AUDIT"
+    },
+    {
+      "profile_id": "P10",
+      "methodology_id": "C02",
+      "binding_type": "AUDIT"
     }
   ],
   "role_methodology_bindings": [
@@ -463,6 +708,11 @@
     },
     {
       "role_id": "TECH",
+      "methodology_id": "M01",
+      "binding_type": "DEFAULT"
+    },
+    {
+      "role_id": "TECH",
       "methodology_id": "C04",
       "binding_type": "DEFAULT"
     },
@@ -497,6 +747,11 @@
       "binding_type": "DEFAULT"
     },
     {
+      "role_id": "COMMODITY",
+      "methodology_id": "M03",
+      "binding_type": "DEFAULT"
+    },
+    {
       "role_id": "ENERGY",
       "methodology_id": "M20",
       "binding_type": "DEFAULT"
@@ -520,6 +775,386 @@
       "role_id": "ENERGY",
       "methodology_id": "M15",
       "binding_type": "DEFAULT"
+    },
+    {
+      "role_id": "WORLD",
+      "methodology_id": "M01",
+      "binding_type": "ANALYTICAL"
+    },
+    {
+      "role_id": "COMMODITY",
+      "methodology_id": "M01",
+      "binding_type": "ANALYTICAL"
+    },
+    {
+      "role_id": "ENERGY",
+      "methodology_id": "M01",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "role_id": "FINANCE",
+      "methodology_id": "M01",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "role_id": "WORLD",
+      "methodology_id": "M02",
+      "binding_type": "ANALYTICAL"
+    },
+    {
+      "role_id": "FINANCE",
+      "methodology_id": "M02",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "role_id": "COMMODITY",
+      "methodology_id": "M02",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "role_id": "ENERGY",
+      "methodology_id": "M02",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "role_id": "TECH",
+      "methodology_id": "M03",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "role_id": "FINANCE",
+      "methodology_id": "M04",
+      "binding_type": "ANALYTICAL"
+    },
+    {
+      "role_id": "TECH",
+      "methodology_id": "M04",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "role_id": "COMMODITY",
+      "methodology_id": "M04",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "role_id": "FINANCE",
+      "methodology_id": "M05",
+      "binding_type": "ANALYTICAL"
+    },
+    {
+      "role_id": "TECH",
+      "methodology_id": "M05",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "role_id": "WORLD",
+      "methodology_id": "M06",
+      "binding_type": "ANALYTICAL"
+    },
+    {
+      "role_id": "TECH",
+      "methodology_id": "M06",
+      "binding_type": "ANALYTICAL"
+    },
+    {
+      "role_id": "FINANCE",
+      "methodology_id": "M06",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "role_id": "WORLD",
+      "methodology_id": "M07",
+      "binding_type": "ANALYTICAL"
+    },
+    {
+      "role_id": "TECH",
+      "methodology_id": "M07",
+      "binding_type": "ANALYTICAL"
+    },
+    {
+      "role_id": "WORLD",
+      "methodology_id": "M08",
+      "binding_type": "ANALYTICAL"
+    },
+    {
+      "role_id": "COMMODITY",
+      "methodology_id": "M08",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "role_id": "ENERGY",
+      "methodology_id": "M08",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "role_id": "WORLD",
+      "methodology_id": "M09",
+      "binding_type": "ANALYTICAL"
+    },
+    {
+      "role_id": "WORLD",
+      "methodology_id": "M10",
+      "binding_type": "ANALYTICAL"
+    },
+    {
+      "role_id": "TECH",
+      "methodology_id": "M10",
+      "binding_type": "ANALYTICAL"
+    },
+    {
+      "role_id": "COMMODITY",
+      "methodology_id": "M10",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "role_id": "ENERGY",
+      "methodology_id": "M10",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "role_id": "WORLD",
+      "methodology_id": "M11",
+      "binding_type": "ANALYTICAL"
+    },
+    {
+      "role_id": "TECH",
+      "methodology_id": "M11",
+      "binding_type": "ANALYTICAL"
+    },
+    {
+      "role_id": "FINANCE",
+      "methodology_id": "M11",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "role_id": "WORLD",
+      "methodology_id": "M12",
+      "binding_type": "ANALYTICAL"
+    },
+    {
+      "role_id": "ENERGY",
+      "methodology_id": "M12",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "role_id": "WORLD",
+      "methodology_id": "M13",
+      "binding_type": "ANALYTICAL"
+    },
+    {
+      "role_id": "FINANCE",
+      "methodology_id": "M13",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "role_id": "COMMODITY",
+      "methodology_id": "M14",
+      "binding_type": "ANALYTICAL"
+    },
+    {
+      "role_id": "WORLD",
+      "methodology_id": "M14",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "role_id": "WORLD",
+      "methodology_id": "M15",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "role_id": "TECH",
+      "methodology_id": "M15",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "role_id": "ENERGY",
+      "methodology_id": "M16",
+      "binding_type": "ANALYTICAL"
+    },
+    {
+      "role_id": "WORLD",
+      "methodology_id": "M16",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "role_id": "COMMODITY",
+      "methodology_id": "M17",
+      "binding_type": "ANALYTICAL"
+    },
+    {
+      "role_id": "WORLD",
+      "methodology_id": "M17",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "role_id": "COMMODITY",
+      "methodology_id": "M18",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "role_id": "WORLD",
+      "methodology_id": "M19",
+      "binding_type": "ANALYTICAL"
+    },
+    {
+      "role_id": "COMMODITY",
+      "methodology_id": "M19",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "role_id": "WORLD",
+      "methodology_id": "M20",
+      "binding_type": "ANALYTICAL"
+    },
+    {
+      "role_id": "COMMODITY",
+      "methodology_id": "M20",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "role_id": "WORLD",
+      "methodology_id": "M21",
+      "binding_type": "ANALYTICAL"
+    },
+    {
+      "role_id": "FINANCE",
+      "methodology_id": "M21",
+      "binding_type": "ANALYTICAL"
+    },
+    {
+      "role_id": "TECH",
+      "methodology_id": "M21",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "role_id": "COMMODITY",
+      "methodology_id": "M21",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "role_id": "ENERGY",
+      "methodology_id": "M21",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "role_id": "TECH",
+      "methodology_id": "M22",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "role_id": "ENERGY",
+      "methodology_id": "M23",
+      "binding_type": "ANALYTICAL"
+    },
+    {
+      "role_id": "COMMODITY",
+      "methodology_id": "M23",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "role_id": "COMMODITY",
+      "methodology_id": "M24",
+      "binding_type": "ANALYTICAL"
+    },
+    {
+      "role_id": "FINANCE",
+      "methodology_id": "M24",
+      "binding_type": "ANALYTICAL"
+    },
+    {
+      "role_id": "WORLD",
+      "methodology_id": "M24",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "role_id": "WORLD",
+      "methodology_id": "C01",
+      "binding_type": "ANALYTICAL"
+    },
+    {
+      "role_id": "FINANCE",
+      "methodology_id": "C01",
+      "binding_type": "ANALYTICAL"
+    },
+    {
+      "role_id": "TECH",
+      "methodology_id": "C01",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "role_id": "WORLD",
+      "methodology_id": "C02",
+      "binding_type": "ANALYTICAL"
+    },
+    {
+      "role_id": "FINANCE",
+      "methodology_id": "C02",
+      "binding_type": "ANALYTICAL"
+    },
+    {
+      "role_id": "TECH",
+      "methodology_id": "C03",
+      "binding_type": "ANALYTICAL"
+    },
+    {
+      "role_id": "ENERGY",
+      "methodology_id": "C03",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "role_id": "COMMODITY",
+      "methodology_id": "C03",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "role_id": "FINANCE",
+      "methodology_id": "C04",
+      "binding_type": "ANALYTICAL"
+    },
+    {
+      "role_id": "COMMODITY",
+      "methodology_id": "C04",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "role_id": "ENERGY",
+      "methodology_id": "C04",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "role_id": "TECH",
+      "methodology_id": "C05",
+      "binding_type": "ANALYTICAL"
+    },
+    {
+      "role_id": "WORLD",
+      "methodology_id": "C05",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "role_id": "WORLD",
+      "methodology_id": "C06",
+      "binding_type": "ANALYTICAL"
+    },
+    {
+      "role_id": "TECH",
+      "methodology_id": "C06",
+      "binding_type": "ANALYTICAL"
+    },
+    {
+      "role_id": "FINANCE",
+      "methodology_id": "C06",
+      "binding_type": "SECONDARY"
+    },
+    {
+      "role_id": "WORLD",
+      "methodology_id": "C07",
+      "binding_type": "ANALYTICAL"
+    },
+    {
+      "role_id": "TECH",
+      "methodology_id": "C07",
+      "binding_type": "SECONDARY"
     }
   ],
   "methodology_api_bindings": [
